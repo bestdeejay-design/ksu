@@ -403,6 +403,83 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 .wc-12{background:linear-gradient(135deg,#0e0e0e,#1f1f1f)}
 [data-theme="light"] [class*="wc-"]{background:#e8e4de}
 
+/* REFERENCES */
+.references{
+  padding:0 40px 160px
+}
+.references__header{
+  max-width:1440px;margin:0 auto 60px
+}
+.references__subtitle{
+  font-size:16px;line-height:1.6;
+  color:var(--text-secondary);
+  max-width:540px
+}
+.references__grid{
+  max-width:1440px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:var(--gap)
+}
+.ref-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform .6s cubic-bezier(.25,.1,.25,1);
+  background:var(--card-bg);
+  border:1px solid var(--border)
+}
+.ref-card:hover{transform:scale(.98)}
+.ref-card__visual{
+  position:relative;
+  aspect-ratio:1;
+  overflow:hidden
+}
+.ref-card__visual .wv{position:absolute;inset:0}
+.ref-card__info{
+  padding:24px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center
+}
+.ref-card__name{
+  font-family:'Unbounded',sans-serif;
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:-.02em;
+  margin-bottom:2px
+}
+.ref-card__role{
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:12px
+}
+.ref-card__project{
+  font-size:14px;font-weight:600;
+  color:var(--text-secondary);
+  margin-bottom:4px
+}
+.ref-card__year{
+  font-size:12px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:10px
+}
+.ref-card__tags{
+  display:flex;flex-wrap:wrap;gap:4px
+}
+.ref-card__tag{
+  font-size:10px;letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 10px;
+  border-radius:100px;
+  background:var(--accent);
+  color:var(--bg);
+  font-weight:600
+}
+
 /* CONTACT */
 .contact{
   padding:160px 40px;
@@ -520,6 +597,7 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   }
   .about__visual{height:300px}
   .contact__right{height:250px}
+  .references__grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .nav{padding:12px 20px}
@@ -537,6 +615,9 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   .works{padding:0 20px 100px}
   .works__grid{grid-template-columns:repeat(2,1fr);gap:16px}
   .works__header{margin-bottom:40px}
+  .references{padding:0 20px 100px}
+  .ref-card{grid-template-columns:1fr}
+  .ref-card__visual{aspect-ratio:3/2}
   .contact{padding:100px 20px}
   .contact__email{font-size:clamp(20px,6vw,32px)}
   .footer{padding:24px 20px}

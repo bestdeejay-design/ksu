@@ -71,9 +71,50 @@ function buildWorks() {
 
 buildWorks()
 
+// REFERENCES
+const references = [
+  { designer: 'Paul Rand', role: 'Графический дизайнер', project: 'Логотип IBM', year: 1956, tags: ['Айдентика', 'Корпоративный стиль'], colors: ['#003366', '#666'] },
+  { designer: 'Saul Bass', role: 'Дизайнер / режиссёр', project: 'Постер «Vertigo»', year: 1958, tags: ['Плакат', 'Кинография'], colors: ['#2D1B0E', '#B85C3A'] },
+  { designer: 'Massimo Vignelli', role: 'Дизайнер', project: 'Схема метро Нью-Йорка', year: 1972, tags: ['Инфографика', 'Минимализм'], colors: ['#1A5276', '#85C1E9'] },
+  { designer: 'Paula Scher', role: 'Партнёр Pentagram', project: 'Логотип Citibank', year: 1998, tags: ['Айдентика', 'Типографика'], colors: ['#1A5276', '#E74C3C'] },
+  { designer: 'Stefan Sagmeister', role: 'Дизайнер', project: 'Постер AIGA', year: 1999, tags: ['Типографика', 'Эксперимент'], colors: ['#4A0E0E', '#C0392B'] },
+  { designer: 'Milton Glaser', role: 'Иллюстратор / дизайнер', project: 'Логотип I ♥ NY', year: 1977, tags: ['Айдентика', 'Городской брендинг'], colors: ['#E74C3C', '#2C3E50'] },
+  { designer: 'David Carson', role: 'Графический дизайнер', project: 'Ray Gun Magazine', year: 1993, tags: ['Эксперимент', 'Типографика'], colors: ['#1A1A2E', '#E94560'] },
+  { designer: 'Chip Kidd', role: 'Дизайнер обложек', project: 'Обложка Jurassic Park', year: 1990, tags: ['Издание', 'Книжный дизайн'], colors: ['#2C3E50', '#E67E22'] },
+  { designer: 'Herb Lubalin', role: 'Типограф', project: 'Гарнитура Avant Garde', year: 1968, tags: ['Типографика', 'Шрифт'], colors: ['#2C3E50', '#3498DB'] },
+  { designer: 'Jessica Walsh', role: 'Арт-директор', project: '40 Days of Dating', year: 2013, tags: ['Брендинг', 'Цифра'], colors: ['#E91E63', '#FFC107'] }
+]
+
+function buildReferences() {
+  const grid = document.getElementById('references-grid')
+  references.forEach((r, i) => {
+    const card = document.createElement('div')
+    card.className = 'ref-card'
+
+    const svgData = generateAbstractSVG(i + 20, r.colors)
+    const visualHTML = `<div class="wv" style="background-image:url('data:image/svg+xml,${svgData}');background-size:cover;background-position:center"></div>`
+
+    const tagsHTML = r.tags.map(t => `<span class="ref-card__tag">${t}</span>`).join('')
+
+    card.innerHTML = `
+      <div class="ref-card__visual">${visualHTML}</div>
+      <div class="ref-card__info">
+        <div class="ref-card__name">${r.designer}</div>
+        <div class="ref-card__role">${r.role}</div>
+        <div class="ref-card__project">${r.project}</div>
+        <div class="ref-card__year">${r.year}</div>
+        <div class="ref-card__tags">${tagsHTML}</div>
+      </div>
+    `
+    grid.appendChild(card)
+  })
+}
+
+buildReferences()
+
 // scroll reveal
 const revealEls = document.querySelectorAll(
-  '.about__content > *, .about__visual > *, .works__header, .work-card, .contact__left > *, .contact__right > *'
+  '.about__content > *, .about__visual > *, .works__header, .work-card, .references__header, .ref-card, .contact__left > *, .contact__right > *'
 )
 
 const observer = new IntersectionObserver(

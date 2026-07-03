@@ -71,111 +71,37 @@ function buildWorks() {
 
 buildWorks()
 
-// REFERENCES — первые 5 с реальными скачанными изображениями, остальные с SVG
-const refImages = [
-  'images/references/01-ibm-logo.svg',
-  'images/references/02-vertigo-poster.jpg',
-  'images/references/03-nyc-subway-map.jpg',
-  'images/references/04-citibank-logo.svg',
-  'images/references/06-jurassic-park-cover.jpg'
-]
-
+// REFERENCES — вдохновение со ссылками
 const references = [
-  { designer: 'Paul Rand', role: 'Графический дизайнер', project: 'Логотип IBM', year: 1956, tags: ['Айдентика', 'Корпоративный стиль'], useImage: true },
-  { designer: 'Saul Bass', role: 'Дизайнер / режиссёр', project: 'Постер «Vertigo»', year: 1958, tags: ['Плакат', 'Кинография'], useImage: true },
-  { designer: 'Massimo Vignelli', role: 'Дизайнер', project: 'Схема метро Нью-Йорка', year: 1972, tags: ['Инфографика', 'Минимализм'], useImage: true },
-  { designer: 'Paula Scher', role: 'Партнёр Pentagram', project: 'Логотип Citibank', year: 1998, tags: ['Айдентика', 'Типографика'], useImage: true },
-  { designer: 'Chip Kidd', role: 'Дизайнер обложек', project: 'Обложка Jurassic Park', year: 1990, tags: ['Издание', 'Книжный дизайн'], useImage: true },
-  { designer: 'Jessica Walsh', role: 'Арт-директор &Walsh', project: 'Брендинг, типографика', year: 2013, tags: ['Брендинг', 'Типографика'], useImage: false, bg: '#1A0A1A', fg: '#FF2D55' },
-  { designer: 'Malika Favre', role: 'Иллюстратор', project: 'Pop Art / Op Art', year: 2012, tags: ['Иллюстрация', 'Минимализм'], useImage: false, bg: '#0A1A14', fg: '#2ECC71' },
-  { designer: 'Peter Tarka', role: '3D-дизайнер', project: 'Сюрреалистические композиции', year: 2016, tags: ['3D', 'Сюрреализм'], useImage: false, bg: '#0A0A1A', fg: '#9B59B6' },
-  { designer: 'Morag Myerscough', role: 'Художник / дизайнер', project: 'Суперграфика', year: 2017, tags: ['Инсталляция', 'Геометрия'], useImage: false, bg: '#1A140A', fg: '#F39C12' },
-  { designer: 'Studio Feixen', role: 'Экспериментальный дизайн', project: 'Постеры', year: 2015, tags: ['Типографика', 'Эксперимент'], useImage: false, bg: '#0A0A0A', fg: '#E74C3C' }
+  { cat: 'Айдентика и брендинг', desc: 'Логотипы, визуальные идентичности, ребрендинг', url: 'https://www.behance.net/galleries/graphic-design/logo-branding', color: '#FF2D55', count: '247K+ проектов' },
+  { cat: 'Типографика', desc: 'Шрифтовые работы, леттеринг, типографические постеры', url: 'https://www.behance.net/galleries/graphic-design/typography', color: '#FFD633', count: '83K+ проектов' },
+  { cat: 'Упаковка', desc: 'Дизайн упаковки, этикетки, коробки, мерч', url: 'https://www.behance.net/galleries/graphic-design/packaging', color: '#00E5FF', count: '125K+ проектов' },
+  { cat: 'Плакаты', desc: 'Постеры, афиши, рекламные плакаты', url: 'https://www.behance.net/galleries/graphic-design/poster', color: '#9B59B6', count: '180K+ проектов' },
+  { cat: 'Логотипы', desc: 'Тысячи логотипов от дизайнеров со всего мира', url: 'https://www.behance.net/galleries/graphic-design/logo', color: '#2ECC71', count: '310K+ проектов' },
+  { cat: 'Издательский дизайн', desc: 'Вёрстка книг, журналов, брошюр, каталогов', url: 'https://www.behance.net/galleries/graphic-design/editorial', color: '#E67E22', count: '65K+ проектов' },
+  { cat: 'Инфографика', desc: 'Визуализация данных, схемы, карты', url: 'https://www.behance.net/galleries/graphic-design/infographic', color: '#1ABC9C', count: '42K+ проектов' },
+  { cat: 'Выставки и навигация', desc: 'Экспозиционный дизайн, вывески, указатели', url: 'https://www.behance.net/galleries/graphic-design/exhibition-signage', color: '#E74C3C', count: '28K+ проектов' },
+  { cat: 'Музыкальная упаковка', desc: 'Обложки альбомов, мерч, дизайн для музыкантов', url: 'https://www.behance.net/galleries/graphic-design/music-packaging', color: '#8E44AD', count: '37K+ проектов' },
+  { cat: 'Dribbble', desc: 'Сообщество дизайнеров — ищите по стилю', url: 'https://dribbble.com/search/graphic-design', color: '#EA4C89', count: 'миллионы работ' }
 ]
-
-function generateRefSVG(index, bg, fg) {
-  const visuals = [
-    // Jessica Walsh — bold, colorful, typographic
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="${bg}"/>
-      <circle cx="200" cy="200" r="160" fill="none" stroke="${fg}" stroke-width="1" opacity=".1"/>
-      <text x="40" y="140" font-family="sans-serif" font-size="100" fill="${fg}" font-weight="900" opacity=".8">W</text>
-      <text x="40" y="250" font-family="sans-serif" font-size="60" fill="${fg}" font-weight="300" letter-spacing="8">ALSH</text>
-      <rect x="40" y="280" width="120" height="6" rx="3" fill="${fg}" opacity=".6"/>
-      <circle cx="300" cy="100" r="40" fill="${fg}" opacity=".12"/>
-      <rect x="280" y="300" width="60" height="60" rx="8" fill="${fg}" opacity=".08" transform="rotate(25,310,330)"/>
-      <text x="40" y="360" font-family="sans-serif" font-size="9" fill="${fg}" opacity=".3" letter-spacing="5">&WALSH</text>
-    </svg>`,
-    // Malika Favre — pop art, minimal, negative space
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="${bg}"/>
-      <circle cx="200" cy="180" r="120" fill="${fg}" opacity=".12"/>
-      <path d="M160 120 Q200 80 240 120 Q260 140 240 160 L200 200 L160 160 Q140 140 160 120Z" fill="${fg}" opacity=".8"/>
-      <circle cx="200" cy="130" r="8" fill="${bg}" opacity=".6"/>
-      <circle cx="200" cy="155" r="4" fill="${bg}" opacity=".4"/>
-      <path d="M160 240 Q200 280 240 240" fill="none" stroke="${fg}" stroke-width="4" stroke-linecap="round" opacity=".5"/>
-      <rect x="100" y="300" width="200" height="3" rx="1.5" fill="${fg}" opacity=".15"/>
-      <text x="200" y="350" font-family="sans-serif" font-size="9" fill="${fg}" text-anchor="middle" letter-spacing="6" opacity=".4">MALIKA FAVRE</text>
-    </svg>`,
-    // Peter Tarka — 3D surreal geometric
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="${bg}"/>
-      <ellipse cx="200" cy="200" rx="130" ry="80" fill="none" stroke="${fg}" stroke-width="2" opacity=".15" transform="rotate(-15,200,200)"/>
-      <ellipse cx="200" cy="200" rx="100" ry="60" fill="none" stroke="${fg}" stroke-width="1.5" opacity=".25" transform="rotate(-15,200,200)"/>
-      <path d="M200 100 L260 150 L260 220 L200 260 L140 220 L140 150Z" fill="none" stroke="${fg}" stroke-width="2" opacity=".6"/>
-      <path d="M200 100 L200 260 M140 150 L260 150" fill="none" stroke="${fg}" stroke-width="1" opacity=".3"/>
-      <circle cx="200" cy="180" r="20" fill="${fg}" opacity=".15"/>
-      <circle cx="200" cy="180" r="8" fill="${fg}" opacity=".4"/>
-      <text x="200" y="360" font-family="sans-serif" font-size="9" fill="${fg}" text-anchor="middle" letter-spacing="5" opacity=".3">PETER TARKA</text>
-    </svg>`,
-    // Morag Myerscough — supergraphics, bold color blocks
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="${bg}"/>
-      <rect x="20" y="20" width="160" height="160" rx="4" fill="${fg}" opacity=".7"/>
-      <rect x="200" y="40" width="180" height="80" rx="2" fill="${fg}" opacity=".4"/>
-      <rect x="40" y="220" width="120" height="160" rx="2" fill="${fg}" opacity=".2"/>
-      <rect x="220" y="180" width="160" height="100" rx="2" fill="${fg}" opacity=".55"/>
-      <rect x="240" y="300" width="100" height="80" rx="2" fill="${fg}" opacity=".35"/>
-      <text x="200" y="380" font-family="sans-serif" font-size="9" fill="${fg}" text-anchor="middle" letter-spacing="5" opacity=".35">MORAG MYERSCOUGH</text>
-    </svg>`,
-    // Studio Feixen — experimental typography
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="${bg}"/>
-      <text x="200" y="160" font-family="sans-serif" font-size="140" fill="${fg}" text-anchor="middle" font-weight="900" opacity=".8">F</text>
-      <text x="200" y="260" font-family="sans-serif" font-size="40" fill="${fg}" text-anchor="middle" font-weight="300" letter-spacing="15">EIXEN</text>
-      <line x1="60" y1="290" x2="340" y2="290" stroke="${fg}" stroke-width="2" opacity=".3"/>
-      <circle cx="100" cy="100" r="30" fill="none" stroke="${fg}" stroke-width="2" opacity=".15"/>
-      <rect x="300" y="300" width="50" height="50" fill="${fg}" opacity=".08" transform="rotate(45,325,325)"/>
-      <text x="200" y="360" font-family="sans-serif" font-size="9" fill="${fg}" text-anchor="middle" letter-spacing="4" opacity=".3">STUDIO FEIXEN</text>
-    </svg>`
-  ]
-  return encodeURIComponent(visuals[index - 5] || visuals[0])
-}
 
 function buildReferences() {
   const grid = document.getElementById('references-grid')
-  references.forEach((r, i) => {
-    const card = document.createElement('div')
+  references.forEach((r) => {
+    const card = document.createElement('a')
     card.className = 'ref-card'
-
-    let visualHTML
-    if (r.useImage && refImages[i]) {
-      visualHTML = `<img src="${refImages[i]}" alt="${r.designer} — ${r.project}" style="width:100%;height:100%;object-fit:cover;object-position:center" />`
-    } else {
-      const svgData = generateRefSVG(i, r.bg || '#0A0A0A', r.fg || '#FF2D55')
-      visualHTML = `<div class="wv" style="background-image:url('data:image/svg+xml,${svgData}');background-size:cover;background-position:center"></div>`
-    }
-
-    const tagsHTML = r.tags.map(t => `<span class="ref-card__tag">${t}</span>`).join('')
+    card.href = r.url
+    card.target = '_blank'
+    card.rel = 'noopener'
 
     card.innerHTML = `
-      <div class="ref-card__visual">${visualHTML}</div>
-      <div class="ref-card__info">
-        <div class="ref-card__name">${r.designer}</div>
-        <div class="ref-card__role">${r.role}</div>
-        <div class="ref-card__project">${r.project}</div>
-        <div class="ref-card__year">${r.year}</div>
-        <div class="ref-card__tags">${tagsHTML}</div>
+      <div class="ref-card__inner" style="background:linear-gradient(135deg,${r.color}22,${r.color}08)">
+        <div class="ref-card__cat">${r.cat}</div>
+        <div class="ref-card__desc">${r.desc}</div>
+        <div class="ref-card__meta">
+          <span class="ref-card__count">${r.count}</span>
+          <span class="ref-card__arrow">→</span>
+        </div>
       </div>
     `
     grid.appendChild(card)

@@ -73,24 +73,24 @@ buildWorks()
 
 // REFERENCES — вдохновение со ссылками
 const references = [
-  { cat: 'Айдентика и брендинг', desc: 'Логотипы, визуальные идентичности, ребрендинг', behance: 'https://www.behance.net/galleries/graphic-design/logo-branding', dribbble: 'https://dribbble.com/search/branding', color: '#FF2D55', count: '247K+ проектов' },
-  { cat: 'Типографика', desc: 'Шрифтовые работы, леттеринг, типографические постеры', behance: 'https://www.behance.net/galleries/graphic-design/typography', dribbble: 'https://dribbble.com/search/typography', color: '#FFD633', count: '83K+ проектов' },
-  { cat: 'Упаковка', desc: 'Дизайн упаковки, этикетки, коробки, мерч', behance: 'https://www.behance.net/galleries/graphic-design/packaging', dribbble: 'https://dribbble.com/search/packaging', color: '#00E5FF', count: '125K+ проектов' },
-  { cat: 'Плакаты', desc: 'Постеры, афиши, рекламные плакаты', behance: 'https://www.behance.net/galleries/graphic-design/poster', dribbble: 'https://dribbble.com/search/poster', color: '#9B59B6', count: '180K+ проектов' },
-  { cat: 'Логотипы', desc: 'Тысячи логотипов от дизайнеров со всего мира', behance: 'https://www.behance.net/galleries/graphic-design/logo', dribbble: 'https://dribbble.com/search/logo', color: '#2ECC71', count: '310K+ проектов' },
-  { cat: 'Издательский дизайн', desc: 'Вёрстка книг, журналов, брошюр, каталогов', behance: 'https://www.behance.net/galleries/graphic-design/editorial', dribbble: 'https://dribbble.com/search/editorial', color: '#E67E22', count: '65K+ проектов' },
-  { cat: 'Инфографика', desc: 'Визуализация данных, схемы, карты', behance: 'https://www.behance.net/galleries/graphic-design/infographic', dribbble: 'https://dribbble.com/search/infographic', color: '#1ABC9C', count: '42K+ проектов' },
-  { cat: 'Выставки и навигация', desc: 'Экспозиционный дизайн, вывески, указатели', behance: 'https://www.behance.net/galleries/graphic-design/exhibition-signage', dribbble: 'https://dribbble.com/search/signage', color: '#E74C3C', count: '28K+ проектов' },
-  { cat: 'Музыкальная упаковка', desc: 'Обложки альбомов, мерч, дизайн для музыкантов', behance: 'https://www.behance.net/galleries/graphic-design/music-packaging', dribbble: 'https://dribbble.com/search/music-packaging', color: '#8E44AD', count: '37K+ проектов' },
-  { cat: 'Реклама', desc: 'Креативные рекламные кампании, баннеры, OOH', behance: 'https://www.behance.net/galleries/advertising', dribbble: 'https://dribbble.com/search/advertising', color: '#F1C40F', count: '110K+ проектов' },
-  { cat: 'Гейм-дизайн', desc: 'Концепт-арт, интерфейсы, персонажи, окружение', behance: 'https://www.behance.net/galleries/game-design', dribbble: 'https://dribbble.com/search/game-design', color: '#E74C3C', count: '73K+ проектов' },
-  { cat: 'Иллюстрация', desc: 'Рисунки, векторная графика, комиксы, арты', behance: 'https://www.behance.net/galleries/illustrator', dribbble: 'https://dribbble.com/search/illustration', color: '#FF6B9D', count: '200K+ проектов' },
-  { cat: 'Product Design', desc: 'Промышленный дизайн, предметы, гаджеты, мебель', behance: 'https://www.behance.net/galleries/product-design', dribbble: 'https://dribbble.com/search/product-design', color: '#3498DB', count: '95K+ проектов' },
-  { cat: 'UI/UX', desc: 'Дизайн интерфейсов, сайтов, приложений, прототипы', behance: 'https://www.behance.net/galleries/ui-ux', dribbble: 'https://dribbble.com/search/ui-ux', color: '#9B59B6', count: '280K+ проектов' },
-  { cat: 'Motion', desc: 'Анимация, моушн-дизайн, титры, рекламные ролики', behance: 'https://www.behance.net/galleries/motion', dribbble: 'https://dribbble.com/search/motion', color: '#E67E22', count: '95K+ проектов' },
-  { cat: '3D Art', desc: 'Трёхмерная графика, рендеры, CGI, AR', behance: 'https://www.behance.net/galleries/3d-art', dribbble: 'https://dribbble.com/search/3d', color: '#2ECC71', count: '120K+ проектов' },
-  { cat: 'Фотография', desc: 'Фотосъёмка, обработка, ретушь, стилизация', behance: 'https://www.behance.net/galleries/photography', dribbble: 'https://dribbble.com/search/photography', color: '#1ABC9C', count: '170K+ проектов' },
-  { cat: 'Fashion', desc: 'Мода, стиль, тренды, визуальные концепции', behance: 'https://www.behance.net/galleries/fashion', dribbble: 'https://dribbble.com/search/fashion', color: '#FF2D55', count: '65K+ проектов' }
+  { cat: 'Айдентика и брендинг', desc: 'Логотипы, визуальные идентичности, ребрендинг', color: '#FF2D55', count: '247K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/logo-branding', dribbble: 'https://dribbble.com/search/branding', figma: 'https://www.figma.com/community/search?query=branding', pinterest: 'https://www.pinterest.com/search/pins/?q=branding+design', instagram: 'https://www.instagram.com/explore/tags/branding/' },
+  { cat: 'Типографика', desc: 'Шрифтовые работы, леттеринг, типографические постеры', color: '#FFD633', count: '83K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/typography', dribbble: 'https://dribbble.com/search/typography', figma: 'https://www.figma.com/community/search?query=typography', pinterest: 'https://www.pinterest.com/search/pins/?q=typography+design', instagram: 'https://www.instagram.com/explore/tags/typography/' },
+  { cat: 'Упаковка', desc: 'Дизайн упаковки, этикетки, коробки, мерч', color: '#00E5FF', count: '125K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/packaging', dribbble: 'https://dribbble.com/search/packaging', figma: 'https://www.figma.com/community/search?query=packaging', pinterest: 'https://www.pinterest.com/search/pins/?q=packaging+design', instagram: 'https://www.instagram.com/explore/tags/packaging/' },
+  { cat: 'Плакаты', desc: 'Постеры, афиши, рекламные плакаты', color: '#9B59B6', count: '180K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/poster', dribbble: 'https://dribbble.com/search/poster', figma: 'https://www.figma.com/community/search?query=poster+design', pinterest: 'https://www.pinterest.com/search/pins/?q=poster+design', instagram: 'https://www.instagram.com/explore/tags/posterdesign/' },
+  { cat: 'Логотипы', desc: 'Тысячи логотипов от дизайнеров со всего мира', color: '#2ECC71', count: '310K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/logo', dribbble: 'https://dribbble.com/search/logo', figma: 'https://www.figma.com/community/search?query=logo', pinterest: 'https://www.pinterest.com/search/pins/?q=logo+design', instagram: 'https://www.instagram.com/explore/tags/logodesign/' },
+  { cat: 'Издательский дизайн', desc: 'Вёрстка книг, журналов, брошюр, каталогов', color: '#E67E22', count: '65K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/editorial', dribbble: 'https://dribbble.com/search/editorial', figma: 'https://www.figma.com/community/search?query=editorial+design', pinterest: 'https://www.pinterest.com/search/pins/?q=editorial+design', instagram: 'https://www.instagram.com/explore/tags/editorialdesign/' },
+  { cat: 'Инфографика', desc: 'Визуализация данных, схемы, карты', color: '#1ABC9C', count: '42K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/infographic', dribbble: 'https://dribbble.com/search/infographic', figma: 'https://www.figma.com/community/search?query=infographic', pinterest: 'https://www.pinterest.com/search/pins/?q=infographic', instagram: 'https://www.instagram.com/explore/tags/infographic/' },
+  { cat: 'Выставки и навигация', desc: 'Экспозиционный дизайн, вывески, указатели', color: '#E74C3C', count: '28K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/exhibition-signage', dribbble: 'https://dribbble.com/search/signage', figma: 'https://www.figma.com/community/search?query=signage', pinterest: 'https://www.pinterest.com/search/pins/?q=signage+design', instagram: 'https://www.instagram.com/explore/tags/signage/' },
+  { cat: 'Музыкальная упаковка', desc: 'Обложки альбомов, мерч, дизайн для музыкантов', color: '#8E44AD', count: '37K+ проектов', behance: 'https://www.behance.net/galleries/graphic-design/music-packaging', dribbble: 'https://dribbble.com/search/music-packaging', figma: 'https://www.figma.com/community/search?query=music+packaging', pinterest: 'https://www.pinterest.com/search/pins/?q=album+cover+design', instagram: 'https://www.instagram.com/explore/tags/albumartwork/' },
+  { cat: 'Реклама', desc: 'Креативные рекламные кампании, баннеры, OOH', color: '#F1C40F', count: '110K+ проектов', behance: 'https://www.behance.net/galleries/advertising', dribbble: 'https://dribbble.com/search/advertising', figma: 'https://www.figma.com/community/search?query=advertising', pinterest: 'https://www.pinterest.com/search/pins/?q=advertising+design', instagram: 'https://www.instagram.com/explore/tags/advertising/' },
+  { cat: 'Гейм-дизайн', desc: 'Концепт-арт, интерфейсы, персонажи, окружение', color: '#E74C3C', count: '73K+ проектов', behance: 'https://www.behance.net/galleries/game-design', dribbble: 'https://dribbble.com/search/game-design', figma: 'https://www.figma.com/community/search?query=game+ui', pinterest: 'https://www.pinterest.com/search/pins/?q=game+design+art', instagram: 'https://www.instagram.com/explore/tags/gamedesign/' },
+  { cat: 'Иллюстрация', desc: 'Рисунки, векторная графика, комиксы, арты', color: '#FF6B9D', count: '200K+ проектов', behance: 'https://www.behance.net/galleries/illustrator', dribbble: 'https://dribbble.com/search/illustration', figma: 'https://www.figma.com/community/search?query=illustration', pinterest: 'https://www.pinterest.com/search/pins/?q=illustration+art', instagram: 'https://www.instagram.com/explore/tags/illustration/' },
+  { cat: 'Product Design', desc: 'Промышленный дизайн, предметы, гаджеты, мебель', color: '#3498DB', count: '95K+ проектов', behance: 'https://www.behance.net/galleries/product-design', dribbble: 'https://dribbble.com/search/product-design', figma: 'https://www.figma.com/community/search?query=product+design', pinterest: 'https://www.pinterest.com/search/pins/?q=product+design', instagram: 'https://www.instagram.com/explore/tags/industrialdesign/' },
+  { cat: 'UI/UX', desc: 'Дизайн интерфейсов, сайтов, приложений, прототипы', color: '#9B59B6', count: '280K+ проектов', behance: 'https://www.behance.net/galleries/ui-ux', dribbble: 'https://dribbble.com/search/ui-ux', figma: 'https://www.figma.com/community/search?query=ui+design', pinterest: 'https://www.pinterest.com/search/pins/?q=ui+ux+design', instagram: 'https://www.instagram.com/explore/tags/uiux/' },
+  { cat: 'Motion', desc: 'Анимация, моушн-дизайн, титры, рекламные ролики', color: '#E67E22', count: '95K+ проектов', behance: 'https://www.behance.net/galleries/motion', dribbble: 'https://dribbble.com/search/motion', figma: 'https://www.figma.com/community/search?query=motion+design', pinterest: 'https://www.pinterest.com/search/pins/?q=motion+design', instagram: 'https://www.instagram.com/explore/tags/motiondesign/' },
+  { cat: '3D Art', desc: 'Трёхмерная графика, рендеры, CGI, AR', color: '#2ECC71', count: '120K+ проектов', behance: 'https://www.behance.net/galleries/3d-art', dribbble: 'https://dribbble.com/search/3d', figma: 'https://www.figma.com/community/search?query=3d', pinterest: 'https://www.pinterest.com/search/pins/?q=3d+art+design', instagram: 'https://www.instagram.com/explore/tags/3dart/' },
+  { cat: 'Фотография', desc: 'Фотосъёмка, обработка, ретушь, стилизация', color: '#1ABC9C', count: '170K+ проектов', behance: 'https://www.behance.net/galleries/photography', dribbble: 'https://dribbble.com/search/photography', figma: 'https://www.figma.com/community/search?query=photography', pinterest: 'https://www.pinterest.com/search/pins/?q=photography', instagram: 'https://www.instagram.com/explore/tags/photography/' },
+  { cat: 'Fashion', desc: 'Мода, стиль, тренды, визуальные концепции', color: '#FF2D55', count: '65K+ проектов', behance: 'https://www.behance.net/galleries/fashion', dribbble: 'https://dribbble.com/search/fashion', figma: 'https://www.figma.com/community/search?query=fashion', pinterest: 'https://www.pinterest.com/search/pins/?q=fashion+design', instagram: 'https://www.instagram.com/explore/tags/fashiondesign/' }
 ]
 
 function buildReferences() {
@@ -105,12 +105,24 @@ function buildReferences() {
         <div class="ref-card__desc">${r.desc}</div>
         <div class="ref-card__links">
           <a href="${r.behance}" target="_blank" rel="noopener" class="ref-card__link ref-card__link--be">
-            <span>Behance</span>
+            <span>Be</span>
             <span>${r.count}</span>
           </a>
           <a href="${r.dribbble}" target="_blank" rel="noopener" class="ref-card__link ref-card__link--dr">
-            <span>Dribbble</span>
-            <span>искать →</span>
+            <span>Dr</span>
+            <span>искать</span>
+          </a>
+          <a href="${r.figma}" target="_blank" rel="noopener" class="ref-card__link ref-card__link--fg">
+            <span>Fg</span>
+            <span>искать</span>
+          </a>
+          <a href="${r.pinterest}" target="_blank" rel="noopener" class="ref-card__link ref-card__link--pt">
+            <span>Pt</span>
+            <span>искать</span>
+          </a>
+          <a href="${r.instagram}" target="_blank" rel="noopener" class="ref-card__link ref-card__link--ig">
+            <span>#</span>
+            <span>тег</span>
           </a>
         </div>
       </div>
@@ -120,6 +132,42 @@ function buildReferences() {
 }
 
 buildReferences()
+
+// Специализированные ресурсы
+const specialResources = [
+  { name: 'It\'s Nice That', desc: 'Редакционные подборки лучшего дизайна', url: 'https://www.itsnicethat.com', color: '#333' },
+  { name: 'Design Week', desc: 'Новости и кейсы дизайна', url: 'https://www.designweek.co.uk', color: '#FF2D55' },
+  { name: 'Awwwards', desc: 'Лучший веб-дизайн', url: 'https://www.awwwards.com', color: '#00E5FF' },
+  { name: 'SiteInspire', desc: 'Вдохновение сайтами', url: 'https://www.siteinspire.com', color: '#9B59B6' },
+  { name: 'Typewolf', desc: 'Типографика, шрифтовые пары', url: 'https://www.typewolf.com', color: '#F39C12' }
+]
+
+const boardResources = [
+  { name: 'Are.na', desc: 'Визуальные каналы для идей', url: 'https://www.are.na', color: '#FF2D55' },
+  { name: 'Muzli', desc: 'Дизайн-инсайты и подборки', url: 'https://muz.li', color: '#2ECC71' },
+  { name: 'Designspiration', desc: 'Поиск по цвету и стилю', url: 'https://www.designspiration.net', color: '#3498DB' }
+]
+
+function buildResourceSection(id, items) {
+  const grid = document.getElementById(id)
+  items.forEach((r) => {
+    const el = document.createElement('a')
+    el.className = 'ref-mini'
+    el.href = r.url
+    el.target = '_blank'
+    el.rel = 'noopener'
+    el.innerHTML = `
+      <div class="ref-mini__inner" style="border-color:${r.color}33">
+        <div class="ref-mini__name">${r.name}</div>
+        <div class="ref-mini__desc">${r.desc}</div>
+      </div>
+    `
+    grid.appendChild(el)
+  })
+}
+
+buildResourceSection('ref-special', specialResources)
+buildResourceSection('ref-boards', boardResources)
 
 // scroll reveal
 const revealEls = document.querySelectorAll(

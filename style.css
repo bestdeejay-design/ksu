@@ -450,43 +450,98 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 }
 .ref-card__links{
   display:flex;
-  gap:8px;
-  margin-top:20px;
-  padding-top:16px;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:16px;
+  padding-top:14px;
   border-top:1px solid var(--border)
 }
 .ref-card__link{
   flex:1;
+  min-width:calc(20% - 6px);
   display:flex;
-  justify-content:space-between;
+  flex-direction:column;
   align-items:center;
-  padding:10px 16px;
-  border-radius:8px;
-  font-size:12px;
+  gap:2px;
+  padding:8px 6px;
+  border-radius:6px;
+  font-size:10px;
   font-weight:600;
-  letter-spacing:.03em;
+  letter-spacing:.02em;
   transition:all .3s;
-  text-decoration:none
+  text-decoration:none;
+  background:rgba(0,0,0,.15);
+  color:var(--text);
+  line-height:1.2
 }
-.ref-card__link--be{
-  background:rgba(0,0,0,.2);
-  color:var(--text)
+.ref-card__link span:first-child{
+  font-size:13px;font-weight:800
 }
-.ref-card__link--be:hover{
-  background:#1769FF;
-  color:#fff
+.ref-card__link span:last-child{
+  font-size:8px;letter-spacing:.05em;
+  color:var(--text-muted);
+  transition:color .3s
 }
-.ref-card__link--dr{
-  background:rgba(0,0,0,.2);
-  color:var(--text)
-}
-.ref-card__link--dr:hover{
-  background:#EA4C89;
-  color:#fff
-}
+.ref-card__link:hover span:last-child{color:inherit}
+.ref-card__link--be:hover{background:#1769FF;color:#fff}
+.ref-card__link--dr:hover{background:#EA4C89;color:#fff}
+.ref-card__link--fg:hover{background:#1E1E1E;color:#fff;box-shadow:0 0 0 1px #555}
+.ref-card__link--pt:hover{background:#E60023;color:#fff}
+.ref-card__link--ig:hover{background:radial-gradient(circle at 30% 30%,#F58529,#DD2A7B,#8134AF);color:#fff}
 
-[data-theme="light"] .ref-card__link--be{background:rgba(0,0,0,.05)}
-[data-theme="light"] .ref-card__link--dr{background:rgba(0,0,0,.05)}
+[data-theme="light"] .ref-card__link{background:rgba(0,0,0,.05)}
+[data-theme="light"] .ref-card__link--fg:hover{background:#333;color:#fff}
+
+/* Mini resource sections */
+.ref-section{
+  max-width:1440px;margin:60px auto 0
+}
+.ref-section__title{
+  font-family:'Unbounded',sans-serif;
+  font-weight:700;
+  font-size:16px;
+  letter-spacing:-.01em;
+  margin-bottom:4px
+}
+.ref-section__desc{
+  font-size:13px;
+  color:var(--text-muted);
+  margin-bottom:20px
+}
+.ref-section__grid{
+  display:grid;
+  gap:var(--gap)
+}
+.ref-section__grid--special{grid-template-columns:repeat(5,1fr)}
+.ref-section__grid--boards{grid-template-columns:repeat(3,1fr)}
+
+.ref-mini{
+  text-decoration:none;
+  display:block
+}
+.ref-mini__inner{
+  padding:20px 24px;
+  border-radius:10px;
+  border:1px solid;
+  background:var(--card-bg);
+  transition:all .3s;
+  height:100%
+}
+.ref-mini:hover .ref-mini__inner{
+  background:rgba(255,255,255,.04);
+  transform:translateY(-2px)
+}
+.ref-mini__name{
+  font-family:'Unbounded',sans-serif;
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:-.01em;
+  margin-bottom:6px
+}
+.ref-mini__desc{
+  font-size:12px;line-height:1.5;
+  color:var(--text-secondary)
+}
 
 /* CONTACT */
 .contact{
@@ -626,8 +681,8 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   .references{padding:0 20px 100px}
   .ref-card__inner{padding:20px;min-height:140px}
   .ref-card__cat{font-size:18px}
-  .ref-card__links{flex-direction:column}
-  .ref-card__link{padding:8px 14px;font-size:11px}
+  .ref-section__grid--special{grid-template-columns:repeat(2,1fr)}
+  .ref-section__grid--boards{grid-template-columns:repeat(2,1fr)}
   .contact{padding:100px 20px}
   .contact__email{font-size:clamp(20px,6vw,32px)}
   .footer{padding:24px 20px}
@@ -635,6 +690,10 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 @media(max-width:480px){
   .works__grid{grid-template-columns:1fr;gap:16px}
   .references__grid{grid-template-columns:1fr}
+  .ref-section__grid--special{grid-template-columns:1fr}
+  .ref-section__grid--boards{grid-template-columns:1fr}
+  .ref-card__links{flex-wrap:wrap}
+  .ref-card__link{min-width:calc(33% - 6px);padding:6px 4px}
   .nav__links{gap:12px}
   .nav__link{font-size:10px}
   .hero__name{font-size:clamp(48px,18vw,72px)}

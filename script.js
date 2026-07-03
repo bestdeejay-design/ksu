@@ -84,6 +84,7 @@ const references = [
   { cat: 'Музыкальная упаковка', desc: 'Обложки альбомов, мерч, дизайн для музыкантов', url: 'https://www.behance.net/galleries/graphic-design/music-packaging', color: '#8E44AD', count: '37K+ проектов' },
   { cat: 'Реклама', desc: 'Креативные рекламные кампании, баннеры, OOH', url: 'https://www.behance.net/galleries/advertising', color: '#F1C40F', count: '110K+ проектов' },
   { cat: 'Гейм-дизайн', desc: 'Концепт-арт, интерфейсы, персонажи, окружение', url: 'https://www.behance.net/galleries/game-design', color: '#E74C3C', count: '73K+ проектов' },
+  { cat: 'Иллюстрация', desc: 'Рисунки, векторная графика, комиксы, арты', url: 'https://www.behance.net/galleries/illustrator', color: '#FF6B9D', count: '200K+ проектов' },
   { cat: 'Product Design', desc: 'Промышленный дизайн, предметы, гаджеты, мебель', url: 'https://www.behance.net/galleries/product-design', color: '#3498DB', count: '95K+ проектов' },
   { cat: 'Dribbble', desc: 'Сообщество дизайнеров — ищите по стилю', url: 'https://dribbble.com/search/graphic-design', color: '#EA4C89', count: 'миллионы работ' }
 ]

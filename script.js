@@ -202,6 +202,13 @@ function generateAbstractSVG(index, colors) {
 }
 
 function generateKSAPromo() {
+  // Geometric sans-serif vector paths for K, S, A
+  const glyphs = {
+    K: 'M30,0 L30,400 M30,200 L170,20 M30,230 L160,390',
+    S: 'M160,20 Q60,20 60,100 Q60,180 170,200 Q70,220 70,300 Q70,380 160,380',
+    A: 'M20,380 L100,20 L180,380 M50,240 L150,240'
+  }
+
   return encodeURIComponent(`<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <style>
@@ -211,26 +218,25 @@ function generateKSAPromo() {
         @keyframes drawL{0%{stroke-dashoffset:140}100%{stroke-dashoffset:0}}
         @keyframes subIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
         @keyframes orbP{0%,100%{opacity:.04}50%{opacity:.12}}
-        @keyframes orbM{0%,100%{transform:translate(0,0)}50%{transform:translate(15px,-15px)}}
         .k{animation:kUp .7s cubic-bezier(.25,.1,.25,1) both}
         .s{animation:sDown .7s cubic-bezier(.25,.1,.25,1) .12s both}
         .a{animation:aZoom .7s cubic-bezier(.25,.1,.25,1) .24s both}
         .line{stroke-dasharray:140;animation:drawL .8s ease-out .45s both}
         .sub{animation:subIn .5s ease-out .8s both}
-        .o1{animation:orbP 4s ease-in-out infinite;animation-delay:0s}
-        .o2{animation:orbP 4s ease-in-out infinite;animation-delay:2s}
-        .o3{animation:orbM 6s ease-in-out infinite}
-        .o4{animation:orbM 5s ease-in-out infinite 1s}
+        .o1{animation:orbP 4s ease-in-out infinite}
       </style>
     </defs>
     <rect width="400" height="500" fill="#0A0A0A"/>
-    <circle cx="90" cy="100" r="70" fill="none" stroke="#FF2D55" stroke-width=".5" class="o1"/>
-    <circle cx="340" cy="420" r="50" fill="none" stroke="#FF2D55" stroke-width=".5" class="o2"/>
-    <rect x="20" y="20" width="60" height="60" fill="none" stroke="#FF2D55" stroke-width=".5" opacity=".05" transform="rotate(15,50,50)" class="o3"/>
-    <rect x="320" y="60" width="40" height="40" fill="none" stroke="#FFD633" stroke-width=".5" opacity=".05" transform="rotate(-10,340,80)" class="o4"/>
-    <text x="80" y="290" font-family="sans-serif" font-weight="900" font-size="170" fill="#fff" class="k">K</text>
-    <text x="195" y="190" font-family="sans-serif" font-weight="900" font-size="170" fill="#fff" class="s">S</text>
-    <text x="270" y="350" font-family="sans-serif" font-weight="900" font-size="200" fill="#FF2D55" class="a">A</text>
+    <circle cx="340" cy="420" r="50" fill="none" stroke="#FF2D55" stroke-width=".5" class="o1" style="opacity:.04"/>
+    <g class="k" transform="translate(20,55) scale(1.3,1.3)">
+      <path d="${glyphs.K}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g class="s" transform="translate(140,5) scale(1.15,1.15)">
+      <path d="${glyphs.S}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g class="a" transform="translate(140,80) scale(1.6,1.6)">
+      <path d="${glyphs.A}" fill="none" stroke="#FF2D55" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
     <line x1="80" y1="380" x2="320" y2="380" stroke="#FF2D55" stroke-width="3" stroke-linecap="round" class="line"/>
     <text x="200" y="420" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.35)" text-anchor="middle" letter-spacing="8" class="sub">TYPE SPECIMEN</text>
   </svg>`)
@@ -340,45 +346,91 @@ document.querySelectorAll('.work-card').forEach((card, i) => {
   }
 })
 
+// Vector glyph paths for KSA typeface (geometric sans-serif)
+const glyphPaths = {
+  K: 'M30,0 L30,400 M30,200 L170,20 M30,230 L160,390',
+  S: 'M160,20 Q60,20 60,100 Q60,180 170,200 Q70,220 70,300 Q70,380 160,380',
+  A: 'M20,380 L100,20 L180,380 M50,240 L150,240',
+  B: 'M30,0 L30,400 M30,0 L140,0 Q220,0 220,100 Q220,160 140,200 L30,200 M30,200 L140,200 Q220,200 220,300 Q220,400 30,400',
+  C: 'M220,80 Q140,20 80,80 Q20,140 20,220 Q20,300 80,360 Q140,420 220,380',
+  D: 'M30,0 L30,400 M30,0 L160,0 Q260,0 260,200 Q260,400 160,400 L30,400',
+  E: 'M220,20 L30,20 L30,400 L220,400 M30,200 L180,200',
+  F: 'M220,20 L30,20 L30,400 M30,200 L180,200',
+  G: 'M230,80 Q140,20 80,80 Q20,140 20,220 Q20,300 80,360 Q140,420 220,380 L220,240 L140,240',
+  H: 'M30,0 L30,400 M230,0 L230,400 M30,200 L230,200',
+  I: 'M90,20 L90,400 M60,20 L120,20 M60,400 L120,400',
+  J: 'M230,80 Q220,20 160,20 Q100,20 80,80 L80,140 M230,0 L230,400',
+  L: 'M30,20 L30,400 L220,400',
+  M: 'M30,400 L30,20 L130,200 L230,20 L230,400',
+  N: 'M30,400 L30,20 L230,400 L230,20',
+  O: 'M130,20 Q30,20 30,220 Q30,420 130,420 Q230,420 230,220 Q230,20 130,20',
+  P: 'M30,0 L30,400 M30,0 L150,0 Q230,0 230,120 Q230,240 150,240 L30,240',
+  Q: 'M130,20 Q30,20 30,220 Q30,420 130,420 Q230,420 230,220 Q230,20 130,20 M180,300 L240,380',
+  R: 'M30,0 L30,400 M30,0 L150,0 Q230,0 230,120 Q230,240 150,240 L30,240 M150,240 L230,400',
+  T: 'M20,20 L220,20 M120,20 L120,400',
+  U: 'M30,20 L30,320 Q30,420 130,420 Q230,420 230,320 L230,20',
+  V: 'M20,20 L130,400 L240,20',
+  W: 'M20,20 L70,400 L130,200 L190,400 L240,20',
+  X: 'M30,20 L230,400 M230,20 L30,400',
+  Y: 'M20,20 L130,200 L240,20 M130,200 L130,400',
+  Z: 'M30,20 L230,20 L30,400 L230,400'
+}
+
+function glyphSVG(char, size, color) {
+  const path = glyphPaths[char]
+  if (!path) return `<span class="proj-char" style="font-weight:700">${char}</span>`
+  const s = Math.round(size * 0.035)
+  const sw = Math.max(6, Math.round(size * 0.12))
+  return `<svg width="${size}" height="${size}" viewBox="0 0 260 420" style="display:block"><path d="${path}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+}
+
 function getProjectHTML(index) {
   if (index !== 4) return null
 
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,!?'
-  const charHTML = chars.split('').map(c => `<span class="proj-char">${c}</span>`).join('')
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+  const charHTML = letters.map(c => `<span class="proj-char">${glyphSVG(c, 40, 'var(--text)')}</span>`).join('')
 
   const weights = [
-    { name: 'Thin', weight: 200, size: 28 },
-    { name: 'Light', weight: 300, size: 28 },
-    { name: 'Regular', weight: 400, size: 28 },
-    { name: 'Medium', weight: 500, size: 26 },
-    { name: 'Bold', weight: 700, size: 24 },
-    { name: 'Black', weight: 900, size: 20 }
+    { name: 'Thin', sw: 20, size: 22 },
+    { name: 'Light', sw: 30, size: 22 },
+    { name: 'Regular', sw: 45, size: 22 },
+    { name: 'Medium', sw: 60, size: 20 },
+    { name: 'Bold', sw: 80, size: 18 },
+    { name: 'Black', sw: 100, size: 16 }
   ]
 
   const weightsHTML = weights.map(w => `
     <div class="proj-weight">
       <div class="proj-weight__name">${w.name}</div>
-      <div class="proj-weight__sample" style="font-weight:${w.weight};font-size:${w.size}px">The quick brown fox jumps over the lazy dog</div>
+      <svg viewBox="0 0 260 60" style="width:100%;height:${w.size * 3}px">
+        <path d="${glyphPaths.K}" fill="none" stroke="var(--text)" stroke-width="${w.sw}" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="${glyphPaths.S}" fill="none" stroke="var(--text)" stroke-width="${w.sw}" stroke-linecap="round" stroke-linejoin="round" transform="translate(90,0)"/>
+        <path d="${glyphPaths.A}" fill="none" stroke="var(--accent)" stroke-width="${w.sw * 0.9}" stroke-linecap="round" stroke-linejoin="round" transform="translate(180,0)"/>
+      </svg>
     </div>
   `).join('')
 
   const langText = lang === 'ru' ? `
-    <p>Гарнитура KSA — это геометрический гротеск, вдохновлённый эстетикой русского авангарда и швейцарской школы типографики. Отличается строгими пропорциями, выраженной контрастностью и широкими возможностями для использования в заголовках и навигации.</p>
-    <p style="margin-top:12px">Подходит для айдентики, цифровых интерфейсов, плакатов and editorial-дизайна. Включает 6 начертаний — от Thin до Black.</p>
+    <p>Гарнитура KSA — это геометрический гротеск, вдохновлённый эстетикой русского авангарда и швейцарской школы типографики. Все глифы отрисованы вручную как векторные SVG-пути с контролируемыми кривыми и пропорциями.</p>
+    <p style="margin-top:12px">Характеризуется строгими вертикалями, циркулярными дугами и выраженными диагоналями. Включает 6 начертаний — от Thin до Black. Подходит для айдентики, заголовков, плакатов и editorial-дизайна.</p>
   ` : `
-    <p>KSA is a geometric sans-serif typeface inspired by Russian avant-garde aesthetics and Swiss typography. It features strict proportions, clear contrast, and wide versatility for headlines and navigation.</p>
-    <p style="margin-top:12px">Suitable for branding, digital interfaces, posters, and editorial design. Includes 6 weights — from Thin to Black.</p>
+    <p>KSA is a geometric sans-serif typeface inspired by Russian avant-garde aesthetics and Swiss typography. All glyphs are hand-crafted as vector SVG paths with controlled curves and proportions.</p>
+    <p style="margin-top:12px">Features strict verticals, circular arcs, and distinctive diagonals. Includes 6 weights — from Thin to Black. Suitable for branding, headlines, posters, and editorial design.</p>
   `
 
   return `
     <div class="proj-hero">
       <div class="proj-hero__label">${lang === 'ru' ? 'Типографика' : 'Typography'}</div>
-      <div class="proj-hero__title">KSA</div>
-      <div class="proj-hero__sub">${lang === 'ru' ? 'Геометрический гротеск' : 'Geometric Sans-Serif'} · 6 ${lang === 'ru' ? 'начертаний' : 'weights'}</div>
+      <div style="display:flex;justify-content:center;gap:clamp(8px,2vw,24px);padding:20px 0">
+        <svg height="clamp(60px,12vw,160px)" viewBox="0 0 260 420"><path d="${glyphPaths.K}" fill="none" stroke="var(--text)" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg height="clamp(60px,12vw,160px)" viewBox="0 0 260 420"><path d="${glyphPaths.S}" fill="none" stroke="var(--text)" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg height="clamp(70px,14vw,180px)" viewBox="0 0 260 420"><path d="${glyphPaths.A}" fill="none" stroke="var(--accent)" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="proj-hero__sub">${lang === 'ru' ? 'Геометрический гротеск' : 'Geometric Sans-Serif'} · 6 ${lang === 'ru' ? 'начертаний' : 'weights'} · 26 ${lang === 'ru' ? 'векторных глифов' : 'vector glyphs'}</div>
     </div>
 
     <div class="proj-section">
-      <div class="proj-section__title">${lang === 'ru' ? 'Глифы' : 'Glyphs'}</div>
+      <div class="proj-section__title">${lang === 'ru' ? 'Глифы (A–Z)' : 'Glyphs (A–Z)'}</div>
       <div class="proj-chars">${charHTML}</div>
     </div>
 
@@ -390,10 +442,10 @@ function getProjectHTML(index) {
     <div class="proj-section">
       <div class="proj-section__title">${lang === 'ru' ? 'Специмен' : 'Specimen'}</div>
       <div class="proj-specimen">
-        <div class="proj-specimen__line" style="font-size:clamp(32px,6vw,64px);font-weight:900;font-family:'Unbounded',sans-serif;letter-spacing:-.03em">KSA Typeface</div>
-        <div class="proj-specimen__line" style="font-size:clamp(20px,3vw,36px);font-weight:600;font-family:'Unbounded',sans-serif;letter-spacing:-.01em">KSA Шрифт — геометрический гротеск</div>
-        <div class="proj-specimen__line" style="font-size:clamp(14px,2vw,22px);font-weight:400;color:var(--text-secondary)">The quick brown fox jumps over the lazy dog. 1234567890</div>
-        <div class="proj-specimen__line" style="font-size:clamp(11px,1.2vw,16px);font-weight:300;color:var(--text-muted);letter-spacing:.05em;text-transform:uppercase">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+        <div class="proj-specimen__line" style="font-size:clamp(28px,5vw,52px);font-weight:900;font-family:'Unbounded',sans-serif;letter-spacing:-.03em">KSA Typeface</div>
+        <div class="proj-specimen__line" style="font-size:clamp(16px,2.5vw,30px);font-weight:600;font-family:'Unbounded',sans-serif;letter-spacing:-.01em">${lang === 'ru' ? 'Шрифт — геометрический гротеск' : 'Geometric sans-serif typeface'}</div>
+        <div class="proj-specimen__line" style="font-size:clamp(12px,1.8vw,20px);font-weight:400;color:var(--text-secondary)">The quick brown fox jumps over the lazy dog. 1234567890</div>
+        <div class="proj-specimen__line" style="font-size:clamp(10px,1vw,14px);font-weight:300;color:var(--text-muted);letter-spacing:.05em;text-transform:uppercase">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
       </div>
     </div>
 

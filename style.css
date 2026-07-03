@@ -38,17 +38,17 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 [data-theme="light"]{
   --bg:#F5F0EB;
   --text:#1A1A1A;
-  --text-secondary:rgba(0,0,0,.65);
-  --text-muted:rgba(0,0,0,.35);
-  --border:rgba(0,0,0,.05);
-  --border-visible:rgba(0,0,0,.1);
-  --card-bg:rgba(0,0,0,.02);
-  --nav-bg:rgba(245,240,235,.85);
+  --text-secondary:rgba(0,0,0,.78);
+  --text-muted:rgba(0,0,0,.5);
+  --border:rgba(0,0,0,.1);
+  --border-visible:rgba(0,0,0,.18);
+  --card-bg:rgba(0,0,0,.04);
+  --nav-bg:rgba(245,240,235,.9);
   --hero-name-from:#1A1A1A;
   --hero-name-to:var(--accent);
   --logo-color:#1A1A1A;
-  --scroll-bg:rgba(0,0,0,.3);
-  --tag-hover-bg:rgba(255,45,85,.08)
+  --scroll-bg:rgba(0,0,0,.4);
+  --tag-hover-bg:rgba(255,45,85,.1)
 }
 
 /* THEME TOGGLE */
@@ -364,7 +364,14 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   cursor:pointer;
   overflow:hidden;
   border-radius:12px;
-  transition:transform .6s cubic-bezier(.25,.1,.25,1)
+  transition:transform .6s cubic-bezier(.25,.1,.25,1);
+  border:1px solid var(--border)
+}
+.work-card[data-interactive] .work-card__num,
+.work-card[data-interactive] .work-card__category,
+.work-card[data-interactive] .work-card__title{
+  color:#fff !important;
+  text-shadow:0 2px 20px rgba(0,0,0,.3)
 }
 .work-card[data-interactive]:hover::after{
   content:'';
@@ -431,7 +438,7 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 .wc-10{background:linear-gradient(135deg,#0a141a,#14262d)}
 .wc-11{background:linear-gradient(135deg,#1a0a14,#2d1420)}
 .wc-12{background:linear-gradient(135deg,#0e0e0e,#1f1f1f)}
-[data-theme="light"] [class*="wc-"]{background:#e8e4de}
+[data-theme="light"] [class*="wc-"]{background:#e0dcd5;border:1px solid var(--border)}
 
 /* REFERENCES */
 .references{
@@ -465,6 +472,11 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   display:flex;
   flex-direction:column;
   min-height:160px
+}
+[data-theme="light"] .ref-card__inner{
+  outline:1px solid var(--border);
+  outline-offset:-1px;
+  border-radius:12px
 }
 .ref-card__cat{
   font-family:'Unbounded',sans-serif;
@@ -517,7 +529,7 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 .ref-card__link--dr:hover{background:#EA4C89;color:#fff}
 .ref-card__link--fg:hover{background:#1E1E1E;color:#fff;box-shadow:0 0 0 1px #555}
 .ref-card__link--pt:hover{background:#E60023;color:#fff}
-[data-theme="light"] .ref-card__link{background:rgba(0,0,0,.05)}
+[data-theme="light"] .ref-card__link{background:rgba(0,0,0,.08)}
 [data-theme="light"] .ref-card__link--fg:hover{background:#333;color:#fff}
 
 /* Mini resource sections */

@@ -86,6 +86,11 @@ const references = [
   { cat: 'Гейм-дизайн', desc: 'Концепт-арт, интерфейсы, персонажи, окружение', url: 'https://www.behance.net/galleries/game-design', color: '#E74C3C', count: '73K+ проектов' },
   { cat: 'Иллюстрация', desc: 'Рисунки, векторная графика, комиксы, арты', url: 'https://www.behance.net/galleries/illustrator', color: '#FF6B9D', count: '200K+ проектов' },
   { cat: 'Product Design', desc: 'Промышленный дизайн, предметы, гаджеты, мебель', url: 'https://www.behance.net/galleries/product-design', color: '#3498DB', count: '95K+ проектов' },
+  { cat: 'UI/UX', desc: 'Дизайн интерфейсов, сайтов, приложений, прототипы', url: 'https://www.behance.net/galleries/ui-ux', color: '#9B59B6', count: '280K+ проектов' },
+  { cat: 'Motion', desc: 'Анимация, моушн-дизайн, титры, рекламные ролики', url: 'https://www.behance.net/galleries/motion', color: '#E67E22', count: '95K+ проектов' },
+  { cat: '3D Art', desc: 'Трёхмерная графика, рендеры, CGI, AR', url: 'https://www.behance.net/galleries/3d-art', color: '#2ECC71', count: '120K+ проектов' },
+  { cat: 'Фотография', desc: 'Фотосъёмка, обработка, ретушь, стилизация', url: 'https://www.behance.net/galleries/photography', color: '#1ABC9C', count: '170K+ проектов' },
+  { cat: 'Fashion', desc: 'Мода, стиль, тренды, визуальные концепции', url: 'https://www.behance.net/galleries/fashion', color: '#FF2D55', count: '65K+ проектов' },
   { cat: 'Dribbble', desc: 'Сообщество дизайнеров — ищите по стилю', url: 'https://dribbble.com/search/graphic-design', color: '#EA4C89', count: 'миллионы работ' }
 ]
 

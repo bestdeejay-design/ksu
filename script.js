@@ -71,133 +71,85 @@ function buildWorks() {
 
 buildWorks()
 
-// REFERENCES
-const references = [
-  { designer: 'Paul Rand', role: 'Графический дизайнер', project: 'Логотип IBM', year: 1956, tags: ['Айдентика', 'Корпоративный стиль'], colors: ['#003366', '#666'] },
-  { designer: 'Saul Bass', role: 'Дизайнер / режиссёр', project: 'Постер «Vertigo»', year: 1958, tags: ['Плакат', 'Кинография'], colors: ['#2D1B0E', '#B85C3A'] },
-  { designer: 'Massimo Vignelli', role: 'Дизайнер', project: 'Схема метро Нью-Йорка', year: 1972, tags: ['Инфографика', 'Минимализм'], colors: ['#1A5276', '#85C1E9'] },
-  { designer: 'Paula Scher', role: 'Партнёр Pentagram', project: 'Логотип Citibank', year: 1998, tags: ['Айдентика', 'Типографика'], colors: ['#1A5276', '#E74C3C'] },
-  { designer: 'Stefan Sagmeister', role: 'Дизайнер', project: 'Постер AIGA', year: 1999, tags: ['Типографика', 'Эксперимент'], colors: ['#4A0E0E', '#C0392B'] },
-  { designer: 'Milton Glaser', role: 'Иллюстратор / дизайнер', project: 'Логотип I ♥ NY', year: 1977, tags: ['Айдентика', 'Городской брендинг'], colors: ['#E74C3C', '#2C3E50'] },
-  { designer: 'David Carson', role: 'Графический дизайнер', project: 'Ray Gun Magazine', year: 1993, tags: ['Эксперимент', 'Типографика'], colors: ['#1A1A2E', '#E94560'] },
-  { designer: 'Chip Kidd', role: 'Дизайнер обложек', project: 'Обложка Jurassic Park', year: 1990, tags: ['Издание', 'Книжный дизайн'], colors: ['#2C3E50', '#E67E22'] },
-  { designer: 'Herb Lubalin', role: 'Типограф', project: 'Гарнитура Avant Garde', year: 1968, tags: ['Типографика', 'Шрифт'], colors: ['#2C3E50', '#3498DB'] },
-  { designer: 'Jessica Walsh', role: 'Арт-директор', project: '40 Days of Dating', year: 2013, tags: ['Брендинг', 'Цифра'], colors: ['#E91E63', '#FFC107'] }
+// REFERENCES — первые 5 с реальными скачанными изображениями, остальные с SVG
+const refImages = [
+  'images/references/01-ibm-logo.svg',
+  'images/references/02-vertigo-poster.jpg',
+  'images/references/03-nyc-subway-map.jpg',
+  'images/references/04-citibank-logo.svg',
+  'images/references/06-jurassic-park-cover.jpg'
 ]
 
-function generateRefVisual(index) {
-  const svgs = [
-    // 0 — Paul Rand: IBM stripes
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#003366"/>
-      <rect x="80" y="40" width="30" height="80" rx="4" fill="#fff" opacity=".9"/>
-      <rect x="80" y="140" width="30" height="80" rx="4" fill="#fff" opacity=".9"/>
-      <rect x="80" y="240" width="30" height="80" rx="4" fill="#fff" opacity=".9"/>
-      <rect x="185" y="80" width="30" height="200" rx="4" fill="#fff" opacity=".8"/>
-      <rect x="290" y="40" width="30" height="80" rx="4" fill="#fff" opacity=".9"/>
-      <rect x="290" y="140" width="30" height="160" rx="4" fill="#fff" opacity=".9"/>
-      <text x="55" y="370" font-family="serif" font-size="14" fill="#fff" opacity=".3" letter-spacing="4">I-B-M</text>
-    </svg>`,
+const references = [
+  { designer: 'Paul Rand', role: 'Графический дизайнер', project: 'Логотип IBM', year: 1956, tags: ['Айдентика', 'Корпоративный стиль'], useImage: true },
+  { designer: 'Saul Bass', role: 'Дизайнер / режиссёр', project: 'Постер «Vertigo»', year: 1958, tags: ['Плакат', 'Кинография'], useImage: true },
+  { designer: 'Massimo Vignelli', role: 'Дизайнер', project: 'Схема метро Нью-Йорка', year: 1972, tags: ['Инфографика', 'Минимализм'], useImage: true },
+  { designer: 'Paula Scher', role: 'Партнёр Pentagram', project: 'Логотип Citibank', year: 1998, tags: ['Айдентика', 'Типографика'], useImage: true },
+  { designer: 'Chip Kidd', role: 'Дизайнер обложек', project: 'Обложка Jurassic Park', year: 1990, tags: ['Издание', 'Книжный дизайн'], useImage: true },
+  { designer: 'Jessica Walsh', role: 'Арт-директор &Walsh', project: 'Брендинг, типографика', year: 2013, tags: ['Брендинг', 'Типографика'], useImage: false, bg: '#1A0A1A', fg: '#FF2D55' },
+  { designer: 'Malika Favre', role: 'Иллюстратор', project: 'Pop Art / Op Art', year: 2012, tags: ['Иллюстрация', 'Минимализм'], useImage: false, bg: '#0A1A14', fg: '#2ECC71' },
+  { designer: 'Peter Tarka', role: '3D-дизайнер', project: 'Сюрреалистические композиции', year: 2016, tags: ['3D', 'Сюрреализм'], useImage: false, bg: '#0A0A1A', fg: '#9B59B6' },
+  { designer: 'Morag Myerscough', role: 'Художник / дизайнер', project: 'Суперграфика', year: 2017, tags: ['Инсталляция', 'Геометрия'], useImage: false, bg: '#1A140A', fg: '#F39C12' },
+  { designer: 'Studio Feixen', role: 'Экспериментальный дизайн', project: 'Постеры', year: 2015, tags: ['Типографика', 'Эксперимент'], useImage: false, bg: '#0A0A0A', fg: '#E74C3C' }
+]
 
-    // 1 — Saul Bass: Vertigo spiral
+function generateRefSVG(index, bg, fg) {
+  const visuals = [
+    // Jessica Walsh — bold, colorful, typographic
     `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#2D1B0E"/>
-      <path d="M200 200 Q210 180 230 180 Q250 180 250 200 Q250 220 230 230 Q200 245 180 230 Q160 215 160 190 Q160 165 185 155 Q210 145 235 160 Q260 175 265 205 Q270 235 245 250 Q220 265 190 255 Q160 245 150 215 Q140 185 165 170 Q190 155 220 165"
-        fill="none" stroke="#B85C3A" stroke-width="4" stroke-linecap="round"/>
-      <text x="200" y="360" font-family="sans-serif" font-size="10" fill="#B85C3A" opacity=".5" text-anchor="middle" letter-spacing="6">VERTIGO</text>
+      <rect width="400" height="400" fill="${bg}"/>
+      <circle cx="200" cy="200" r="160" fill="none" stroke="${fg}" stroke-width="1" opacity=".1"/>
+      <text x="40" y="140" font-family="sans-serif" font-size="100" fill="${fg}" font-weight="900" opacity=".8">W</text>
+      <text x="40" y="250" font-family="sans-serif" font-size="60" fill="${fg}" font-weight="300" letter-spacing="8">ALSH</text>
+      <rect x="40" y="280" width="120" height="6" rx="3" fill="${fg}" opacity=".6"/>
+      <circle cx="300" cy="100" r="40" fill="${fg}" opacity=".12"/>
+      <rect x="280" y="300" width="60" height="60" rx="8" fill="${fg}" opacity=".08" transform="rotate(25,310,330)"/>
+      <text x="40" y="360" font-family="sans-serif" font-size="9" fill="${fg}" opacity=".3" letter-spacing="5">&WALSH</text>
     </svg>`,
-
-    // 2 — Massimo Vignelli: NYC subway map
+    // Malika Favre — pop art, minimal, negative space
     `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#F5F0EB"/>
-      <line x1="40" y1="100" x2="360" y2="100" stroke="#E74C3C" stroke-width="5" stroke-linecap="round"/>
-      <line x1="100" y1="40" x2="100" y2="360" stroke="#3498DB" stroke-width="5" stroke-linecap="round"/>
-      <line x1="40" y1="250" x2="360" y2="250" stroke="#2ECC71" stroke-width="5" stroke-linecap="round"/>
-      <line x1="280" y1="40" x2="280" y2="360" stroke="#F39C12" stroke-width="5" stroke-linecap="round"/>
-      <line x1="40" y1="170" x2="300" y2="170" stroke="#9B59B6" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="100" cy="100" r="8" fill="#fff" stroke="#333" stroke-width="2"/>
-      <circle cx="280" cy="100" r="8" fill="#fff" stroke="#333" stroke-width="2"/>
-      <circle cx="100" cy="250" r="8" fill="#fff" stroke="#333" stroke-width="2"/>
-      <circle cx="280" cy="250" r="8" fill="#fff" stroke="#333" stroke-width="2"/>
-      <circle cx="100" cy="170" r="8" fill="#fff" stroke="#333" stroke-width="2"/>
-      <circle cx="280" cy="170" r="8" fill="#fff" stroke="#333" stroke-width="2"/>
-      <circle cx="200" cy="100" r="5" fill="#333"/>
-      <text x="200" y="380" font-family="sans-serif" font-size="9" fill="#666" text-anchor="middle" letter-spacing="3">NYC SUBWAY</text>
+      <rect width="400" height="400" fill="${bg}"/>
+      <circle cx="200" cy="180" r="120" fill="${fg}" opacity=".12"/>
+      <path d="M160 120 Q200 80 240 120 Q260 140 240 160 L200 200 L160 160 Q140 140 160 120Z" fill="${fg}" opacity=".8"/>
+      <circle cx="200" cy="130" r="8" fill="${bg}" opacity=".6"/>
+      <circle cx="200" cy="155" r="4" fill="${bg}" opacity=".4"/>
+      <path d="M160 240 Q200 280 240 240" fill="none" stroke="${fg}" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+      <rect x="100" y="300" width="200" height="3" rx="1.5" fill="${fg}" opacity=".15"/>
+      <text x="200" y="350" font-family="sans-serif" font-size="9" fill="${fg}" text-anchor="middle" letter-spacing="6" opacity=".4">MALIKA FAVRE</text>
     </svg>`,
-
-    // 3 — Paula Scher: Citibank arc
+    // Peter Tarka — 3D surreal geometric
     `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#F5F0EB"/>
-      <path d="M80 300 Q200 100 320 300" fill="none" stroke="#E74C3C" stroke-width="6" stroke-linecap="round"/>
-      <rect x="185" y="310" width="30" height="30" rx="4" fill="#1A5276"/>
-      <text x="200" y="370" font-family="sans-serif" font-size="20" fill="#1A5276" text-anchor="middle" font-weight="700" letter-spacing="8">CITI</text>
+      <rect width="400" height="400" fill="${bg}"/>
+      <ellipse cx="200" cy="200" rx="130" ry="80" fill="none" stroke="${fg}" stroke-width="2" opacity=".15" transform="rotate(-15,200,200)"/>
+      <ellipse cx="200" cy="200" rx="100" ry="60" fill="none" stroke="${fg}" stroke-width="1.5" opacity=".25" transform="rotate(-15,200,200)"/>
+      <path d="M200 100 L260 150 L260 220 L200 260 L140 220 L140 150Z" fill="none" stroke="${fg}" stroke-width="2" opacity=".6"/>
+      <path d="M200 100 L200 260 M140 150 L260 150" fill="none" stroke="${fg}" stroke-width="1" opacity=".3"/>
+      <circle cx="200" cy="180" r="20" fill="${fg}" opacity=".15"/>
+      <circle cx="200" cy="180" r="8" fill="${fg}" opacity=".4"/>
+      <text x="200" y="360" font-family="sans-serif" font-size="9" fill="${fg}" text-anchor="middle" letter-spacing="5" opacity=".3">PETER TARKA</text>
     </svg>`,
-
-    // 4 — Stefan Sagmeister: AIGA typographic poster
+    // Morag Myerscough — supergraphics, bold color blocks
     `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#F5F0EB"/>
-      <text x="200" y="160" font-family="serif" font-size="120" fill="#4A0E0E" text-anchor="middle" font-weight="900">A</text>
-      <text x="140" y="280" font-family="sans-serif" font-size="40" fill="#C0392B" text-anchor="middle" font-weight="700" transform="rotate(-8,140,280)">IGA</text>
-      <text x="260" y="220" font-family="serif" font-size="16" fill="#4A0E0E" text-anchor="middle" opacity=".4" transform="rotate(5,260,220)">NEW YORK</text>
-      <path d="M0 330 Q100 300 200 340 Q300 370 400 330" fill="none" stroke="#4A0E0E" stroke-width="1" opacity=".2"/>
-      <path d="M0 350 Q100 320 200 360 Q300 390 400 350" fill="none" stroke="#C0392B" stroke-width="1" opacity=".15"/>
+      <rect width="400" height="400" fill="${bg}"/>
+      <rect x="20" y="20" width="160" height="160" rx="4" fill="${fg}" opacity=".7"/>
+      <rect x="200" y="40" width="180" height="80" rx="2" fill="${fg}" opacity=".4"/>
+      <rect x="40" y="220" width="120" height="160" rx="2" fill="${fg}" opacity=".2"/>
+      <rect x="220" y="180" width="160" height="100" rx="2" fill="${fg}" opacity=".55"/>
+      <rect x="240" y="300" width="100" height="80" rx="2" fill="${fg}" opacity=".35"/>
+      <text x="200" y="380" font-family="sans-serif" font-size="9" fill="${fg}" text-anchor="middle" letter-spacing="5" opacity=".35">MORAG MYERSCOUGH</text>
     </svg>`,
-
-    // 5 — Milton Glaser: I ♥ NY
+    // Studio Feixen — experimental typography
     `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#F5F0EB"/>
-      <text x="200" y="140" font-family="serif" font-size="100" fill="#E74C3C" text-anchor="middle" font-weight="900">I</text>
-      <text x="200" y="240" font-family="serif" font-size="100" fill="#E74C3C" text-anchor="middle">♥</text>
-      <text x="200" y="340" font-family="serif" font-size="60" fill="#E74C3C" text-anchor="middle" font-weight="900">NY</text>
-      <rect x="130" y="355" width="140" height="3" fill="#2C3E50" opacity=".3"/>
-    </svg>`,
-
-    // 6 — David Carson: Ray Gun (chaotic typography)
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#1A1A2E"/>
-      <text x="180" y="120" font-family="serif" font-size="90" fill="#E94560" text-anchor="middle" font-weight="900" transform="rotate(-12,180,120)">RA</text>
-      <text x="200" y="220" font-family="sans-serif" font-size="20" fill="#fff" text-anchor="middle" opacity=".4" letter-spacing="15" transform="rotate(3,200,220)">GUN</text>
-      <text x="100" y="300" font-family="sans-serif" font-size="50" fill="#E94560" opacity=".6" transform="rotate(-20,100,300)" font-weight="700">!?</text>
-      <text x="280" y="180" font-family="serif" font-size="18" fill="#fff" text-anchor="middle" opacity=".3" transform="rotate(25,280,180)">DESTROY</text>
-      <line x1="40" y1="340" x2="360" y2="342" stroke="#E94560" stroke-width="2" opacity=".4" stroke-dasharray="8,12,20,6"/>
-      <line x1="50" y1="360" x2="350" y2="358" stroke="#fff" stroke-width="1" opacity=".2" stroke-dasharray="4,14,8,10"/>
-    </svg>`,
-
-    // 7 — Chip Kidd: Jurassic Park (T-Rex skeleton)
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#F5F0EB"/>
-      <path d="M200 360 L200 280 M200 280 Q220 260 240 240 M200 280 Q180 260 160 240 M160 240 L140 200 Q135 190 145 185 M240 240 L260 200 Q265 190 255 185 M200 250 L200 200 M200 200 L180 170 M200 200 L220 170 M180 170 L165 140 Q160 130 170 125 M220 170 L235 140 Q240 130 230 125 M160 240 L140 260 M240 240 L260 260"
-        fill="none" stroke="#222" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="200" cy="110" r="30" fill="none" stroke="#222" stroke-width="5"/>
-      <circle cx="200" cy="110" r="8" fill="#222"/>
-      <text x="200" y="390" font-family="serif" font-size="10" fill="#666" text-anchor="middle" letter-spacing="4">JURASSIC PARK</text>
-    </svg>`,
-
-    // 8 — Herb Lubalin: Avant Garde ligatures
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#F5F0EB"/>
-      <circle cx="100" cy="200" r="60" fill="none" stroke="#2C3E50" stroke-width="8"/>
-      <circle cx="300" cy="200" r="60" fill="none" stroke="#3498DB" stroke-width="8"/>
-      <line x1="145" y1="155" x2="255" y2="155" stroke="#2C3E50" stroke-width="8" stroke-linecap="round"/>
-      <line x1="145" y1="245" x2="255" y2="245" stroke="#3498DB" stroke-width="8" stroke-linecap="round"/>
-      <text x="100" y="200" font-family="serif" font-size="50" fill="#2C3E50" text-anchor="middle" font-weight="700">A</text>
-      <text x="300" y="200" font-family="serif" font-size="50" fill="#3498DB" text-anchor="middle" font-weight="700">V</text>
-      <text x="200" y="360" font-family="sans-serif" font-size="10" fill="#666" text-anchor="middle" letter-spacing="5">AVANT GARDE</text>
-    </svg>`,
-
-    // 9 — Jessica Walsh: 40 Days of Dating
-    `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#F5F0EB"/>
-      <circle cx="200" cy="200" r="100" fill="#E91E63" opacity=".15"/>
-      <rect x="140" y="150" width="50" height="50" rx="12" fill="#E91E63" opacity=".8" transform="rotate(25,165,175)"/>
-      <rect x="210" y="170" width="40" height="40" rx="8" fill="#FFC107" opacity=".9" transform="rotate(-15,230,190)"/>
-      <circle cx="165" cy="175" r="8" fill="#fff" opacity=".3"/>
-      <circle cx="230" cy="190" r="6" fill="#fff" opacity=".3"/>
-      <text x="200" y="340" font-family="sans-serif" font-size="11" fill="#E91E63" text-anchor="middle" font-weight="700" letter-spacing="3">40 DAYS OF DATING</text>
+      <rect width="400" height="400" fill="${bg}"/>
+      <text x="200" y="160" font-family="sans-serif" font-size="140" fill="${fg}" text-anchor="middle" font-weight="900" opacity=".8">F</text>
+      <text x="200" y="260" font-family="sans-serif" font-size="40" fill="${fg}" text-anchor="middle" font-weight="300" letter-spacing="15">EIXEN</text>
+      <line x1="60" y1="290" x2="340" y2="290" stroke="${fg}" stroke-width="2" opacity=".3"/>
+      <circle cx="100" cy="100" r="30" fill="none" stroke="${fg}" stroke-width="2" opacity=".15"/>
+      <rect x="300" y="300" width="50" height="50" fill="${fg}" opacity=".08" transform="rotate(45,325,325)"/>
+      <text x="200" y="360" font-family="sans-serif" font-size="9" fill="${fg}" text-anchor="middle" letter-spacing="4" opacity=".3">STUDIO FEIXEN</text>
     </svg>`
   ]
-
-  return encodeURIComponent(svgs[index] || svgs[0])
+  return encodeURIComponent(visuals[index - 5] || visuals[0])
 }
 
 function buildReferences() {
@@ -206,8 +158,13 @@ function buildReferences() {
     const card = document.createElement('div')
     card.className = 'ref-card'
 
-    const svgData = generateRefVisual(i)
-    const visualHTML = `<div class="wv" style="background-image:url('data:image/svg+xml,${svgData}');background-size:cover;background-position:center"></div>`
+    let visualHTML
+    if (r.useImage && refImages[i]) {
+      visualHTML = `<img src="${refImages[i]}" alt="${r.designer} — ${r.project}" style="width:100%;height:100%;object-fit:cover;object-position:center" />`
+    } else {
+      const svgData = generateRefSVG(i, r.bg || '#0A0A0A', r.fg || '#FF2D55')
+      visualHTML = `<div class="wv" style="background-image:url('data:image/svg+xml,${svgData}');background-size:cover;background-position:center"></div>`
+    }
 
     const tagsHTML = r.tags.map(t => `<span class="ref-card__tag">${t}</span>`).join('')
 

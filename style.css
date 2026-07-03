@@ -72,6 +72,30 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 [data-theme="light"] .theme-toggle__sun{opacity:0;transform:rotate(90deg)}
 [data-theme="light"] .theme-toggle__moon{opacity:1;transform:rotate(0)}
 
+/* MENU TOGGLE */
+.menu-toggle{display:none}
+.menu-btn{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:4px;
+  width:36px;height:36px;
+  cursor:pointer;
+  z-index:1001;
+  position:relative
+}
+.menu-btn span{
+  display:block;
+  width:20px;height:2px;
+  background:var(--text);
+  border-radius:1px;
+  transition:all .3s
+}
+.menu-toggle:checked ~ .menu-btn span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-toggle:checked ~ .menu-btn span:nth-child(2){opacity:0}
+.menu-toggle:checked ~ .menu-btn span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
 /* NAV */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
@@ -487,8 +511,6 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 .ref-card__link--dr:hover{background:#EA4C89;color:#fff}
 .ref-card__link--fg:hover{background:#1E1E1E;color:#fff;box-shadow:0 0 0 1px #555}
 .ref-card__link--pt:hover{background:#E60023;color:#fff}
-.ref-card__link--ig:hover{background:radial-gradient(circle at 30% 30%,#F58529,#DD2A7B,#8134AF);color:#fff}
-
 [data-theme="light"] .ref-card__link{background:rgba(0,0,0,.05)}
 [data-theme="light"] .ref-card__link--fg:hover{background:#333;color:#fff}
 
@@ -675,8 +697,20 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 }
 @media(max-width:768px){
   .nav{padding:12px 20px}
-  .nav__links{gap:16px}
-  .nav__link{font-size:11px}
+  .menu-btn{display:flex}
+  .nav__links{
+    position:fixed;top:0;right:-100%;width:280px;height:100vh;
+    flex-direction:column;justify-content:center;align-items:center;
+    gap:28px;
+    background:var(--nav-bg);
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+    transition:right .4s cubic-bezier(.25,.1,.25,1);
+    padding:80px 40px
+  }
+  .menu-toggle:checked ~ .nav__links{right:0}
+  .nav__link{font-size:15px;letter-spacing:.15em}
+  .menu-toggle:checked ~ .menu-btn span{background:var(--text)}
   .hero{padding:100px 20px 60px}
   .hero__marquee{
     width:calc(100% + 40px);
@@ -705,7 +739,5 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   .ref-section__grid--boards{grid-template-columns:1fr}
   .ref-card__links{flex-wrap:wrap}
   .ref-card__link{min-width:calc(33% - 6px);padding:6px 4px}
-  .nav__links{gap:12px}
-  .nav__link{font-size:10px}
   .hero__name{font-size:clamp(48px,18vw,72px)}
 }

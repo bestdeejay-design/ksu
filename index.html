@@ -36,11 +36,17 @@
   <nav class="nav">
     <div class="nav__inner">
       <a href="#" class="nav__logo">Ксения</a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden />
+      <label for="menu-toggle" class="menu-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </label>
+
       <div class="nav__links">
-        <a href="#about" class="nav__link">Обо мне</a>
-        <a href="#works" class="nav__link">Работы</a>
-        <a href="#references" class="nav__link">Inspiration</a>
-        <a href="#contact" class="nav__link">Контакты</a>
+        <a href="#about" class="nav__link" onclick="document.getElementById('menu-toggle').checked=false">Обо мне</a>
+        <a href="#works" class="nav__link" onclick="document.getElementById('menu-toggle').checked=false">Работы</a>
+        <a href="#references" class="nav__link" onclick="document.getElementById('menu-toggle').checked=false">Inspiration</a>
+        <a href="#contact" class="nav__link" onclick="document.getElementById('menu-toggle').checked=false">Контакты</a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Сменить тему">
           <svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"/>

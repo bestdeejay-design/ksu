@@ -1,0 +1,8 @@
+services:
+  portfolio:
+    build: .
+    ports:
+      - "8765:80"
+    container_name: ksu-portfolio
+    labels:
+      - "orbstack.domains=portfolio.ksu.orb.local"

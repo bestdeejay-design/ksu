@@ -12,6 +12,8 @@
   <meta name="apple-mobile-web-app-title" content="KSU" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="canonical" href="https://bestdeejay-design.github.io/ksu/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
   <link rel="manifest" href="/ksu/manifest.json" />
   <link rel="icon" type="image/png" sizes="32x32" href="/ksu/icons/icon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/ksu/icons/icon-16.png" />
@@ -23,6 +25,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bestdeejay-design.github.io/ksu/" />
+  <meta property="og:determiner" content="" />
   <meta property="og:title" content="Ksenia — graphic designer" />
   <meta property="og:description" content="Portfolio of graphic designer. Identity, branding, typography, UI/UX, illustration." />
   <meta property="og:image" content="https://bestdeejay-design.github.io/ksu/og-image.png" />
@@ -38,6 +41,22 @@
   <meta name="twitter:description" content="Portfolio of graphic designer. Identity, branding, typography, UI/UX, illustration." />
   <meta name="twitter:image" content="https://bestdeejay-design.github.io/ksu/og-image.png" />
   <meta name="twitter:image:alt" content="Ksenia — graphic designer" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ksenia",
+    "jobTitle": "Graphic Designer",
+    "url": "https://bestdeejay-design.github.io/ksu/",
+    "knowsAbout": ["Identity", "Branding", "Typography", "UI/UX", "Illustration", "Poster Design"],
+    "sameAs": [
+      "https://wa.me/79811281636",
+      "https://t.me/+79811281636"
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -136,7 +155,7 @@
   <section class="works" id="works">
     <div class="works__header">
       <h2 class="section-label" data-i18n="works.label">Featured Projects</h2>
-      <div class="works__count"><span id="works-count">12</span> <span data-i18n="works.count">projects</span></div>
+      <div class="works__count"><span id="works-count">11</span> <span data-i18n="works.count">projects</span></div>
     </div>
     <div class="works__grid" id="works-grid"></div>
   </section>

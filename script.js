@@ -1,3 +1,5 @@
+const SITE_URL = 'https://bestdeejay-design.github.io/ksu'
+
 // I18N
 const i18n = {
   en: {
@@ -31,7 +33,47 @@ const i18n = {
     'contact.label': 'Contact',
     'contact.text': 'Open to collaboration and new projects.<br/>Feel free to write, I\'d love to discuss your task.',
     'footer.copy': '© 2026 Ksenia',
-    'footer.tagline': 'Graphic Design'
+    'footer.tagline': 'Graphic Design',
+    'proj.1.desc': 'Complete packaging design for a cosmetics brand including logo variations, product mockups, storefront visualization, and concept development.',
+    'proj.1.mockup': 'Product Mockup',
+    'proj.1.logos': 'Logo Variations',
+    'proj.1.poster': 'Promo Poster',
+    'proj.1.net': 'Packaging Net',
+    'proj.1.storefront': 'Storefront',
+    'proj.1.concept': 'Concept Development',
+    'proj.2.desc': 'Poster, invitation card, and identity set for a themed cat-themed celebration event.',
+    'proj.2.poster': 'Poster',
+    'proj.2.ticket': 'Ticket',
+    'proj.2.logo': 'Logo',
+    'proj.2.mockups': 'Mockups',
+    'proj.3.desc': 'A 2D platformer game design featuring custom level backgrounds, character concepts, and UI screens for a vibrant retro-style adventure game.',
+    'proj.3.screens': 'Screens',
+    'proj.3.backgrounds': 'Backgrounds',
+    'proj.3.character': 'Character Concept',
+    'proj.3.storyboard': 'Storyboard',
+    'proj.4.desc': 'Digital portrait illustrations created in Procreate, including studies of Mia Goth and other character portraits.',
+    'proj.4.gallery': 'Portrait Gallery',
+    'proj.4.more': 'More Procreate Works',
+    'proj.5.desc': 'Illustration series "Popular Blondes" — postcard artwork featuring celebrity portraits in a bold contemporary style.',
+    'proj.5.postcards': 'Postcard Set',
+    'proj.6.desc': 'Character design and comic strip development featuring original characters and sequential narrative art.',
+    'proj.6.comic': 'Comic Strips',
+    'proj.6.character': 'Character Design',
+    'proj.7.desc': 'Character design for a sticker pack featuring a cute kiwi-cat hybrid with multiple expressions and poses.',
+    'proj.7.final': 'Final Character',
+    'proj.7.variations': 'Variations',
+    'proj.8.desc': 'Decorative wall art illustrations — two fantasy-themed digital paintings for interior spaces.',
+    'proj.8.works': 'Wall Art Works',
+    'proj.9.desc': 'An atmospheric photobook capturing the quiet beauty of the night — the world between 3:00 and 4:00 AM.',
+    'proj.9.preview': 'Preview',
+    'proj.10.desc': 'Before/after retouching timeline showing professional color grading and skin retouching workflow.',
+    'proj.10.timeline': 'Retouching Timeline',
+    'proj.0.desc': 'Curated moodboard collection spanning interior design concepts including offices, cafes, kitchens, cosmetics, and more.',
+    'proj.0.concepts': 'Concepts',
+    'proj.0.offices': 'Offices',
+    'proj.0.cafes': 'Cafes',
+    'proj.0.kitchens': 'Kitchens',
+    'proj.0.cosmetics': 'Cosmetics'
   },
   ru: {
     'nav.logo': 'Ксения',
@@ -64,7 +106,47 @@ const i18n = {
     'contact.label': 'Контакты',
     'contact.text': 'Открыта к сотрудничеству и новым проектам.<br/>Пишите, буду рада обсудить вашу задачу.',
     'footer.copy': '© 2026 Ксения',
-    'footer.tagline': 'Графический дизайн'
+    'footer.tagline': 'Графический дизайн',
+    'proj.1.desc': 'Полный дизайн упаковки для косметического бренда: варианты логотипов, мокапы продукта, визуализация витрины и разработка концепции.',
+    'proj.1.mockup': 'Мокап продукта',
+    'proj.1.logos': 'Варианты логотипа',
+    'proj.1.poster': 'Промо-постер',
+    'proj.1.net': 'Сетка упаковки',
+    'proj.1.storefront': 'Витрина',
+    'proj.1.concept': 'Разработка концепции',
+    'proj.2.desc': 'Плакат, приглашение и айдентика для тематического кошачьего праздника.',
+    'proj.2.poster': 'Плакат',
+    'proj.2.ticket': 'Билет',
+    'proj.2.logo': 'Логотип',
+    'proj.2.mockups': 'Мокапы',
+    'proj.3.desc': 'Дизайн 2D-платформера с кастомными фонами уровней, концептами персонажей и интерфейсами для яркой ретро-приключенческой игры.',
+    'proj.3.screens': 'Экраны',
+    'proj.3.backgrounds': 'Фоны',
+    'proj.3.character': 'Концепт персонажа',
+    'proj.3.storyboard': 'Раскадровка',
+    'proj.4.desc': 'Цифровые портретные иллюстрации, созданные в Procreate: штудии Мии Гот и другие персонажные портреты.',
+    'proj.4.gallery': 'Галерея портретов',
+    'proj.4.more': 'Другие работы Procreate',
+    'proj.5.desc': 'Серия иллюстраций «Popular Blondes» — постерные портреты знаменитостей в смелом современном стиле.',
+    'proj.5.postcards': 'Набор открыток',
+    'proj.6.desc': 'Дизайн персонажей и разработка комиксов с оригинальными героями и последовательным нарративом.',
+    'proj.6.comic': 'Комиксы',
+    'proj.6.character': 'Дизайн персонажа',
+    'proj.7.desc': 'Дизайн персонажа для набора стикеров — милый гибрид киви и кота в разных выражениях и позах.',
+    'proj.7.final': 'Финальный персонаж',
+    'proj.7.variations': 'Вариации',
+    'proj.8.desc': 'Декоративные иллюстрации для интерьера — две фэнтезийные цифровые картины.',
+    'proj.8.works': 'Работы',
+    'proj.9.desc': 'Атмосферный фотобук, запечатлевший тихую красоту ночи — мир между 3:00 и 4:00 утра.',
+    'proj.9.preview': 'Превью',
+    'proj.10.desc': 'Таймлайн ретуши «до/после» с профессиональной цветокоррекцией и обработкой кожи.',
+    'proj.10.timeline': 'Таймлайн ретуши',
+    'proj.0.desc': 'Подборка мудбордов: концепты интерьеров, офисы, кафе, кухни, косметика и другое.',
+    'proj.0.concepts': 'Концепты',
+    'proj.0.offices': 'Офисы',
+    'proj.0.cafes': 'Кафе',
+    'proj.0.kitchens': 'Кухни',
+    'proj.0.cosmetics': 'Косметика'
   }
 }
 
@@ -177,18 +259,17 @@ toggle.addEventListener('click', () => {
 
 // PROJECTS
 const projects = [
-  { titleEn: 'Branding NOVA', titleRu: 'Брендинг NOVA', categoryEn: 'Branding', categoryRu: 'Брендинг', colors: ['var(--accent)', 'var(--accent2)'] },
-  { titleEn: 'Poster «Form»', titleRu: 'Плакат «Форма»', categoryEn: 'Poster', categoryRu: 'Плакат', colors: ['var(--accent3)', 'var(--accent)'] },
-  { titleEn: 'UI for Gallery', titleRu: 'UI для галереи', categoryEn: 'UI/UX', categoryRu: 'UX/UI', colors: ['var(--accent2)', 'var(--accent3)'] },
-  { titleEn: 'Packaging LINO', titleRu: 'Упаковка LINO', categoryEn: 'Packaging', categoryRu: 'Упаковка', colors: ['var(--accent)', '#fff'] },
-  { titleEn: 'Typeface KSA', titleRu: 'Шрифт KSA', categoryEn: 'Typography', categoryRu: 'Типографика', colors: ['var(--accent2)', 'var(--accent)'] },
-  { titleEn: 'Brochure V/A', titleRu: 'Брошюра V/A', categoryEn: 'Editorial', categoryRu: 'Вёрстка', colors: ['var(--accent3)', 'var(--accent2)'] },
-  { titleEn: 'Merch DESNA', titleRu: 'Мерч DESNA', categoryEn: 'Merch', categoryRu: 'Мерч', colors: ['#fff', 'var(--accent)'] },
-  { titleEn: 'Illustration «Rhythm»', titleRu: 'Иллюстрация «Ритм»', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', colors: ['var(--accent3)', 'var(--accent2)'] },
-  { titleEn: 'Studio Website', titleRu: 'Сайт студии', categoryEn: 'UI/UX', categoryRu: 'UX/UI', colors: ['var(--accent)', 'var(--accent3)'] },
-  { titleEn: 'Expo «Shift»', titleRu: 'Выставка «Сдвиг»', categoryEn: 'Exhibition', categoryRu: 'Экспозиция', colors: ['var(--accent2)', '#fff'] },
-  { titleEn: 'Identity ZERO', titleRu: 'Айдентика ZERO', categoryEn: 'Branding', categoryRu: 'Брендинг', colors: ['var(--accent3)', 'var(--accent)'] },
-  { titleEn: 'Book «Color»', titleRu: 'Книга «Цвет»', categoryEn: 'Editorial', categoryRu: 'Издание', colors: ['var(--accent)', 'var(--accent2)'] }
+  { titleEn: 'Moodboards Collection', titleRu: 'Коллекция мудбордов', categoryEn: 'Moodboards', categoryRu: 'Мудборды', cover: 'portfolio/moodboards/concept-2.jpg', colors: ['#3498DB', '#9B59B6'] },
+  { titleEn: 'Packaging Development', titleRu: 'Разработка упаковки', categoryEn: 'Packaging', categoryRu: 'Упаковка', cover: 'portfolio/packaging/mockup.jpg', colors: ['#FF2D55', '#1A1A1A'], pdfs: ['portfolio/packaging/booklet-final.pdf', 'portfolio/packaging/concept-development.pdf'] },
+  { titleEn: 'Cat Day Poster', titleRu: 'Постер «День кошек»', categoryEn: 'Poster', categoryRu: 'Плакат', cover: 'portfolio/poster-cat-day/poster-final.jpg', colors: ['#00E5FF', '#FF2D55'] },
+  { titleEn: 'Platformer Game Design', titleRu: 'Дизайн игры платформер', categoryEn: 'Game Design', categoryRu: 'Гейм-дизайн', cover: 'portfolio/game/menu.jpg', colors: ['#FFD633', '#FF2D55'] },
+  { titleEn: 'Procreate Portraits', titleRu: 'Портреты Procreate', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/procreate/portraits/portrait-mia-goth.jpg', colors: ['#9B59B6', '#FF6B9D'] },
+  { titleEn: 'Popular Blondes', titleRu: 'Популярные блондинки', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/popular-blondes/postcard-margot.jpg', colors: ['#FFD633', '#FF2D55'] },
+  { titleEn: 'Character & Comic', titleRu: 'Персонаж и комикс', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/character-comic/comic-var-1.jpg', colors: ['#E74C3C', '#FF6B9D'] },
+  { titleEn: 'Sticker Character', titleRu: 'Персонаж для стикеров', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/stickers/kiwi-cat.jpg', colors: ['#FF6B9D', '#FF2D55'] },
+  { titleEn: 'Wall Art', titleRu: 'Арт под роспись стены', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/wall-art-1.jpg', colors: ['#2ECC71', '#00E5FF'] },
+  { titleEn: 'Photobook "3:00"', titleRu: 'Фотокнига «3:00»', categoryEn: 'Editorial', categoryRu: 'Издание', cover: 'portfolio/photobook/preview.jpg', colors: ['#E67E22', '#FFD633'] },
+  { titleEn: 'Photo Retouching', titleRu: 'Ретушь фото', categoryEn: 'Photography', categoryRu: 'Фотография', cover: 'portfolio/retouch/retouch-timeline.jpg', colors: ['#1ABC9C', '#00E5FF'] },
 ]
 
 function generateAbstractSVG(index, colors) {
@@ -206,60 +287,20 @@ function generateAbstractSVG(index, colors) {
   return encodeURIComponent(`<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">${selected.join('')}</svg>`)
 }
 
-function generateKSAPromo() {
-  // Geometric sans-serif vector paths for K, S, A
-  const glyphs = {
-    K: 'M30,0 L30,400 M30,200 L170,20 M30,230 L160,390',
-    S: 'M160,20 Q60,20 60,100 Q60,180 170,200 Q70,220 70,300 Q70,380 160,380',
-    A: 'M20,380 L100,20 L180,380 M50,240 L150,240'
-  }
-
-  return encodeURIComponent(`<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <style>
-        @keyframes kUp{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}
-        @keyframes sDown{0%{opacity:0;transform:translateY(-40px)}100%{opacity:1;transform:translateY(0)}}
-        @keyframes aZoom{0%{opacity:0;transform:scale(.6)}100%{opacity:1;transform:scale(1)}}
-        @keyframes drawL{0%{stroke-dashoffset:140}100%{stroke-dashoffset:0}}
-        @keyframes subIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
-        @keyframes orbP{0%,100%{opacity:.04}50%{opacity:.12}}
-        .k{animation:kUp .7s cubic-bezier(.25,.1,.25,1) both}
-        .s{animation:sDown .7s cubic-bezier(.25,.1,.25,1) .12s both}
-        .a{animation:aZoom .7s cubic-bezier(.25,.1,.25,1) .24s both}
-        .line{stroke-dasharray:140;animation:drawL .8s ease-out .45s both}
-        .sub{animation:subIn .5s ease-out .8s both}
-        .o1{animation:orbP 4s ease-in-out infinite}
-      </style>
-    </defs>
-    <rect width="400" height="500" fill="#0A0A0A"/>
-    <circle cx="340" cy="420" r="50" fill="none" stroke="#FF2D55" stroke-width=".5" class="o1" style="opacity:.04"/>
-    <g class="k" transform="translate(20,55) scale(1.3,1.3)">
-      <path d="${glyphs.K}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <g class="s" transform="translate(140,5) scale(1.15,1.15)">
-      <path d="${glyphs.S}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <g class="a" transform="translate(140,80) scale(1.6,1.6)">
-      <path d="${glyphs.A}" fill="none" stroke="#FF2D55" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <line x1="80" y1="380" x2="320" y2="380" stroke="#FF2D55" stroke-width="3" stroke-linecap="round" class="line"/>
-    <text x="200" y="420" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.35)" text-anchor="middle" letter-spacing="8" class="sub">TYPE SPECIMEN</text>
-  </svg>`)
-}
-
 function buildWorks() {
   const grid = document.getElementById('works-grid')
   projects.forEach((p, i) => {
     const card = document.createElement('div')
-    const isKSA = i === 4
     card.className = `work-card wc-${i + 1}`
-    if (isKSA) card.setAttribute('data-interactive', '')
-    const svg = isKSA ? generateKSAPromo() : generateAbstractSVG(i, p.colors)
     const cat = lang === 'ru' ? p.categoryRu : p.categoryEn
     const title = lang === 'ru' ? (p.titleRu || p.titleEn) : p.titleEn
     const num = String(i + 1).padStart(2, '0')
+    let visual = ''
+    if (p.cover) {
+      visual = `<div class="wv"><img src="${p.cover}" alt="${title}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='var(--card-bg)'"/></div>`
+    }
     card.innerHTML = `
-      <div class="work-card__visual"><div class="wv" style="background-image:url('data:image/svg+xml,${svg}');background-size:cover;background-position:center"></div></div>
+      <div class="work-card__visual">${visual}</div>
       <div class="work-card__inner">
         <div class="work-card__num">${num}</div>
         <div class="work-card__category">${cat}</div>
@@ -270,6 +311,7 @@ function buildWorks() {
   })
 }
 
+// Vector glyph paths for KSA typeface (geometric sans-serif)
 buildWorks()
 
 // REFERENCES
@@ -321,19 +363,83 @@ applyLanguage()
 const overlay = document.getElementById('project-overlay')
 const overlayContent = document.getElementById('overlay-content')
 const overlayClose = document.getElementById('overlay-close')
+let scrollPosition = 0
+let currentProject = -1
+
+function updateOG(index) {
+  const p = projects[index]
+  if (!p) return
+  const title = lang === 'ru' ? p.titleRu : p.titleEn
+  const cat = lang === 'ru' ? p.categoryRu : p.categoryEn
+  const desc = i18n[lang][`proj.${index}.desc`] || `${cat} — ${title}`
+  const img = p.cover ? `${SITE_URL}/${p.cover}` : `${SITE_URL}/og-image.png`
+
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', `Ksenia — ${title}`)
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc)
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/#project-${index}`)
+  document.querySelector('meta[property="og:image"]')?.setAttribute('content', img)
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', `Ksenia — ${title}`)
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc)
+  document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', img)
+  document.querySelector('title').textContent = `Ksenia — ${title}`
+  document.querySelector('meta[name="description"]')?.setAttribute('content', desc)
+}
+
+const DEFAULT_DESC = 'Portfolio of Ksenia — graphic designer. Identity, branding, typography, UI/UX, illustration, posters.'
+
+function resetOG() {
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', DEFAULT_DESC)
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/`)
+  document.querySelector('meta[property="og:image"]')?.setAttribute('content', `${SITE_URL}/og-image.png`)
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', DEFAULT_DESC)
+  document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', `${SITE_URL}/og-image.png`)
+  document.querySelector('title').textContent = 'Ksenia — graphic designer'
+  document.querySelector('meta[name="description"]')?.setAttribute('content', DEFAULT_DESC)
+}
+
+function shareProject(index) {
+  const p = projects[index]
+  const title = lang === 'ru' ? p.titleRu : p.titleEn
+  const url = `${SITE_URL}/#project-${index}`
+  if (navigator.share) {
+    navigator.share({ title: `Ksenia — ${title}`, url }).catch(() => {})
+  } else {
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.getElementById('share-btn')
+      if (btn) {
+        const orig = btn.innerHTML
+        btn.innerHTML = '✓ ' + (lang === 'ru' ? 'Скопировано' : 'Copied')
+        setTimeout(() => { btn.innerHTML = orig }, 2000)
+      }
+    }).catch(() => {})
+  }
+}
 
 function openProject(index) {
   const html = getProjectHTML(index)
   if (!html) return
-  overlayContent.innerHTML = html
+  currentProject = index
+  scrollPosition = window.scrollY
+  overlayContent.innerHTML = html + `<div class="proj-share"><button class="proj-share__btn" id="share-btn" onclick="shareProject(${index})">${lang === 'ru' ? 'Поделиться' : 'Share'}</button></div>`
   overlay.classList.add('overlay--open')
   document.body.style.overflow = 'hidden'
+  document.body.classList.add('overlay-active')
   window.scrollTo({ top: 0 })
+  updateOG(index)
+  history.replaceState(null, '', `#project-${index}`)
 }
 
 function closeProject() {
+  if (currentProject < 0) return
   overlay.classList.remove('overlay--open')
   document.body.style.overflow = ''
+  document.body.classList.remove('overlay-active')
+  window.scrollTo({ top: scrollPosition })
+  resetOG()
+  history.replaceState(null, '', window.location.pathname + window.location.search)
+  currentProject = -1
 }
 
 overlayClose.addEventListener('click', closeProject)
@@ -345,123 +451,140 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeProject()
 })
 
+// Hash routing on load
+function handleHash() {
+  const match = window.location.hash.match(/^#project-(\d+)$/)
+  if (match) {
+    const i = parseInt(match[1], 10)
+    if (i >= 0 && i < projects.length) setTimeout(() => openProject(i), 300)
+  }
+}
+document.addEventListener('DOMContentLoaded', handleHash)
+window.addEventListener('hashchange', handleHash)
+
 function setupProjectClicks() {
   document.querySelectorAll('.work-card').forEach((card, i) => {
-    if (i === 4) {
-      card.addEventListener('click', () => openProject(i))
-    }
+    card.addEventListener('click', () => openProject(i))
   })
 }
 setupProjectClicks()
 
-// Vector glyph paths for KSA typeface (geometric sans-serif)
-const glyphPaths = {
-  K: 'M30,0 L30,400 M30,200 L170,20 M30,230 L160,390',
-  S: 'M160,20 Q60,20 60,100 Q60,180 170,200 Q70,220 70,300 Q70,380 160,380',
-  A: 'M20,380 L100,20 L180,380 M50,240 L150,240',
-  B: 'M30,0 L30,400 M30,0 L140,0 Q220,0 220,100 Q220,160 140,200 L30,200 M30,200 L140,200 Q220,200 220,300 Q220,400 30,400',
-  C: 'M220,80 Q140,20 80,80 Q20,140 20,220 Q20,300 80,360 Q140,420 220,380',
-  D: 'M30,0 L30,400 M30,0 L160,0 Q260,0 260,200 Q260,400 160,400 L30,400',
-  E: 'M220,20 L30,20 L30,400 L220,400 M30,200 L180,200',
-  F: 'M220,20 L30,20 L30,400 M30,200 L180,200',
-  G: 'M230,80 Q140,20 80,80 Q20,140 20,220 Q20,300 80,360 Q140,420 220,380 L220,240 L140,240',
-  H: 'M30,0 L30,400 M230,0 L230,400 M30,200 L230,200',
-  I: 'M90,20 L90,400 M60,20 L120,20 M60,400 L120,400',
-  J: 'M230,80 Q220,20 160,20 Q100,20 80,80 L80,140 M230,0 L230,400',
-  L: 'M30,20 L30,400 L220,400',
-  M: 'M30,400 L30,20 L130,200 L230,20 L230,400',
-  N: 'M30,400 L30,20 L230,400 L230,20',
-  O: 'M130,20 Q30,20 30,220 Q30,420 130,420 Q230,420 230,220 Q230,20 130,20',
-  P: 'M30,0 L30,400 M30,0 L150,0 Q230,0 230,120 Q230,240 150,240 L30,240',
-  Q: 'M130,20 Q30,20 30,220 Q30,420 130,420 Q230,420 230,220 Q230,20 130,20 M180,300 L240,380',
-  R: 'M30,0 L30,400 M30,0 L150,0 Q230,0 230,120 Q230,240 150,240 L30,240 M150,240 L230,400',
-  T: 'M20,20 L220,20 M120,20 L120,400',
-  U: 'M30,20 L30,320 Q30,420 130,420 Q230,420 230,320 L230,20',
-  V: 'M20,20 L130,400 L240,20',
-  W: 'M20,20 L70,400 L130,200 L190,400 L240,20',
-  X: 'M30,20 L230,400 M230,20 L30,400',
-  Y: 'M20,20 L130,200 L240,20 M130,200 L130,400',
-  Z: 'M30,20 L230,20 L30,400 L230,400'
-}
-
-function glyphSVG(char, size, color) {
-  const path = glyphPaths[char]
-  if (!path) return `<span class="proj-char" style="font-weight:700">${char}</span>`
-  const s = Math.round(size * 0.035)
-  const sw = Math.max(6, Math.round(size * 0.12))
-  return `<svg width="${size}" height="${size}" viewBox="0 0 260 420" style="display:block"><path d="${path}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"/></svg>`
-}
-
 function getProjectHTML(index) {
-  if (index !== 4) return null
+  const _ = key => i18n[lang][key]
+  const p = projects[index]
+  const pTitle = lang === 'ru' ? p.titleRu : p.titleEn
 
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
-  const charHTML = letters.map(c => `<span class="proj-char">${glyphSVG(c, 40, 'var(--text)')}</span>`).join('')
+  const section = (title, html) => `<div class="proj-section"><div class="proj-section__title">${title}</div>${html}</div>`
+  const gall = (srcs, cols = 2) => `<div class="proj-gallery proj-gallery--${cols}">${srcs.map(s => `<div class="proj-gallery__item"><img src="${s}" alt="${pTitle}" loading="lazy"/></div>`).join('')}</div>`
+  const hero = `<div class="proj-hero"><div class="proj-hero__label">${lang === 'ru' ? p.categoryRu : p.categoryEn}</div><div style="font-size:clamp(24px,4vw,48px);font-weight:900;font-family:'Unbounded',sans-serif;margin:12px 0">${lang === 'ru' ? p.titleRu : p.titleEn}</div></div>`
+  const desc = index !== 0 ? `<div class="proj-desc">${_(`proj.${index}.desc`)}</div>` : ''
 
-  const weights = [
-    { name: 'Thin', sw: 20, size: 22 },
-    { name: 'Light', sw: 30, size: 22 },
-    { name: 'Regular', sw: 45, size: 22 },
-    { name: 'Medium', sw: 60, size: 20 },
-    { name: 'Bold', sw: 80, size: 18 },
-    { name: 'Black', sw: 100, size: 16 }
-  ]
+  
 
-  const weightsHTML = weights.map(w => `
-    <div class="proj-weight">
-      <div class="proj-weight__name">${w.name}</div>
-      <svg viewBox="0 0 260 60" style="width:100%;height:${w.size * 3}px">
-        <path d="${glyphPaths.K}" fill="none" stroke="var(--text)" stroke-width="${w.sw}" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="${glyphPaths.S}" fill="none" stroke="var(--text)" stroke-width="${w.sw}" stroke-linecap="round" stroke-linejoin="round" transform="translate(90,0)"/>
-        <path d="${glyphPaths.A}" fill="none" stroke="var(--accent)" stroke-width="${w.sw * 0.9}" stroke-linecap="round" stroke-linejoin="round" transform="translate(180,0)"/>
-      </svg>
-    </div>
-  `).join('')
+  switch (index) {
+    // 1: Packaging Development
+    case 1:
+      return hero + desc +
+        section(_('proj.1.mockup'), gall(['portfolio/packaging/mockup.jpg'], 1)) +
+        section(_('proj.1.logos'), gall(['portfolio/packaging/logo-1-color.jpg', 'portfolio/packaging/logo-1.png', 'portfolio/packaging/logo-2.png'], 3)) +
+        section(_('proj.1.poster'), gall(['portfolio/packaging/poster.png'], 1)) +
+        section(_('proj.1.net'), gall(['portfolio/packaging/packaging-net.jpg'], 1)) +
+        section(_('proj.1.storefront'), gall(['portfolio/packaging/storefront.jpg'], 1)) +
+        section(_('proj.1.concept'), gall(['portfolio/packaging/concept.png'], 1)) +
+        `<div class="proj-section"><div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="proj-pdf-link" href="portfolio/packaging/booklet-final.pdf" target="_blank" rel="noopener">${lang === 'ru' ? 'Буклет (PDF)' : 'Booklet (PDF)'}</a>
+          <a class="proj-pdf-link" href="portfolio/packaging/concept-development.pdf" target="_blank" rel="noopener">${lang === 'ru' ? 'Концепция (PDF)' : 'Concept Development (PDF)'}</a>
+        </div></div>`
 
-  const langText = lang === 'ru' ? `
-    <p>Гарнитура KSA — это геометрический гротеск, вдохновлённый эстетикой русского авангарда и швейцарской школы типографики. Все глифы отрисованы вручную как векторные SVG-пути с контролируемыми кривыми и пропорциями.</p>
-    <p style="margin-top:12px">Характеризуется строгими вертикалями, циркулярными дугами и выраженными диагоналями. Включает 6 начертаний — от Thin до Black. Подходит для айдентики, заголовков, плакатов и editorial-дизайна.</p>
-  ` : `
-    <p>KSA is a geometric sans-serif typeface inspired by Russian avant-garde aesthetics and Swiss typography. All glyphs are hand-crafted as vector SVG paths with controlled curves and proportions.</p>
-    <p style="margin-top:12px">Features strict verticals, circular arcs, and distinctive diagonals. Includes 6 weights — from Thin to Black. Suitable for branding, headlines, posters, and editorial design.</p>
-  `
+    // 2: Cat Day Poster
+    case 2:
+      return hero + desc +
+        section(_('proj.2.poster'), gall(['portfolio/poster-cat-day/poster-final.jpg'], 1)) +
+        section(_('proj.2.ticket'), gall(['portfolio/poster-cat-day/ticket.jpg'], 1)) +
+        section(_('proj.2.logo'), gall(['portfolio/poster-cat-day/logo.jpg'], 1)) +
+        section(_('proj.2.mockups'), gall(['portfolio/poster-cat-day/mockup-1.jpg', 'portfolio/poster-cat-day/mockup-2.jpg']))
 
-  return `
-    <div class="proj-hero">
-      <div class="proj-hero__label">${lang === 'ru' ? 'Типографика' : 'Typography'}</div>
-      <div style="display:flex;justify-content:center;gap:clamp(8px,2vw,24px);padding:20px 0">
-        <svg height="clamp(60px,12vw,160px)" viewBox="0 0 260 420"><path d="${glyphPaths.K}" fill="none" stroke="var(--text)" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <svg height="clamp(60px,12vw,160px)" viewBox="0 0 260 420"><path d="${glyphPaths.S}" fill="none" stroke="var(--text)" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <svg height="clamp(70px,14vw,180px)" viewBox="0 0 260 420"><path d="${glyphPaths.A}" fill="none" stroke="var(--accent)" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="proj-hero__sub">${lang === 'ru' ? 'Геометрический гротеск' : 'Geometric Sans-Serif'} · 6 ${lang === 'ru' ? 'начертаний' : 'weights'} · 26 ${lang === 'ru' ? 'векторных глифов' : 'vector glyphs'}</div>
-    </div>
+    // 3: Platformer Game Design
+    case 3:
+      return hero + desc +
+        section(_('proj.3.screens'), gall(['portfolio/game/win-screen.jpg', 'portfolio/game/lose-screen.jpg'])) +
+        section(_('proj.3.backgrounds'), gall(['portfolio/game/bg-1.jpg', 'portfolio/game/bg-2.jpg', 'portfolio/game/bg-3.jpg', 'portfolio/game/bg-4.jpg'], 2)) +
+        section(_('proj.3.character'), gall(['portfolio/game/character-concept.jpg'], 1)) +
+        section(_('proj.3.storyboard'), gall(['portfolio/game/storyboard.jpg'], 1))
 
-    <div class="proj-section">
-      <div class="proj-section__title">${lang === 'ru' ? 'Глифы (A–Z)' : 'Glyphs (A–Z)'}</div>
-      <div class="proj-chars">${charHTML}</div>
-    </div>
+    // 4: Procreate Portraits (+ root Procreate files)
+    case 4:
+      return hero + desc +
+        section(_('proj.4.gallery'), gall([
+          'portfolio/digital-drawing/procreate/portraits/portrait-mia-goth.jpg',
+          'portfolio/digital-drawing/procreate/portraits/portrait-ldr.jpg',
+          'portfolio/digital-drawing/procreate/portraits/portrait-ldr-1.jpg',
+          'portfolio/digital-drawing/procreate/portraits/curls.jpg',
+          'portfolio/digital-drawing/procreate/portraits/gift-cover-1.jpg',
+          'portfolio/digital-drawing/procreate/portraits/gift-cover-2.jpg'
+        ], 3)) +
+        section(_('proj.4.more'), gall([
+          'portfolio/digital-drawing/procreate/accent-makeup.jpg',
+          'portfolio/digital-drawing/procreate/girl-headphones.jpg',
+          'portfolio/digital-drawing/procreate/padme-pink.jpg',
+          'portfolio/digital-drawing/procreate/portrait-ldr-2.jpg',
+          'portfolio/digital-drawing/procreate/princess.jpg',
+          'portfolio/digital-drawing/procreate/stingray-abstract.jpg'
+        ], 3))
 
-    <div class="proj-section">
-      <div class="proj-section__title">${lang === 'ru' ? 'Начертания' : 'Weights'}</div>
-      <div class="proj-weights">${weightsHTML}</div>
-    </div>
+    // 5: Popular Blondes
+    case 5:
+      return hero + desc +
+        section(_('proj.5.postcards'), gall([
+          'portfolio/digital-drawing/popular-blondes/postcard-margot.jpg',
+          'portfolio/digital-drawing/popular-blondes/page-regina.jpg',
+          'portfolio/digital-drawing/popular-blondes/project-link.png'
+        ], 3))
 
-    <div class="proj-section">
-      <div class="proj-section__title">${lang === 'ru' ? 'Специмен' : 'Specimen'}</div>
-      <div class="proj-specimen">
-        <div class="proj-specimen__line" style="font-size:clamp(28px,5vw,52px);font-weight:900;font-family:'Unbounded',sans-serif;letter-spacing:-.03em">KSA Typeface</div>
-        <div class="proj-specimen__line" style="font-size:clamp(16px,2.5vw,30px);font-weight:600;font-family:'Unbounded',sans-serif;letter-spacing:-.01em">${lang === 'ru' ? 'Шрифт — геометрический гротеск' : 'Geometric sans-serif typeface'}</div>
-        <div class="proj-specimen__line" style="font-size:clamp(12px,1.8vw,20px);font-weight:400;color:var(--text-secondary)">The quick brown fox jumps over the lazy dog. 1234567890</div>
-        <div class="proj-specimen__line" style="font-size:clamp(10px,1vw,14px);font-weight:300;color:var(--text-muted);letter-spacing:.05em;text-transform:uppercase">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
-      </div>
-    </div>
+    // 6: Character & Comic
+    case 6:
+      return hero + desc +
+        section(_('proj.6.comic'), gall(['portfolio/digital-drawing/character-comic/comic-var-1.jpg', 'portfolio/digital-drawing/character-comic/comic-var-2.jpg'])) +
+        section(_('proj.6.character'), gall(['portfolio/digital-drawing/character-comic/stingray-character.jpg'], 1))
 
-    <div class="proj-section">
-      <div class="proj-section__title">${lang === 'ru' ? 'О шрифте' : 'About'}</div>
-      <div class="proj-specimen" style="font-size:15px;line-height:1.8;color:var(--text-secondary)">${langText}</div>
-    </div>
-  `
+    // 7: Sticker Character (+ sticker-sketches)
+    case 7:
+      return hero + desc +
+        section(_('proj.7.final'), gall(['portfolio/stickers/kiwi-cat.jpg'], 1)) +
+        section(_('proj.7.variations'), gall([
+          'portfolio/stickers/character-var-1.jpg',
+          'portfolio/stickers/character-var-2.jpg',
+          'portfolio/stickers/character-var-2-1.jpg',
+          'portfolio/digital-drawing/sticker-sketches/sticker-variant-bw.jpg'
+        ], 4))
+
+    // 8: Wall Art
+    case 8:
+      return hero + desc +
+        section(_('proj.8.works'), gall(['portfolio/digital-drawing/wall-art-1.jpg', 'portfolio/digital-drawing/wall-art-2.jpg']))
+
+    // 9: Photobook "3:00"
+    case 9:
+      return hero + desc +
+        section(_('proj.9.preview'), `<div style="display:flex;flex-direction:column;gap:16px">${gall(['portfolio/photobook/preview.jpg'], 1)}<a class="proj-pdf-link" href="portfolio/photobook/photobook-final.pdf" target="_blank" rel="noopener">${lang === 'ru' ? 'Открыть фотокнигу (PDF)' : 'Open photobook (PDF)'}</a></div>`)
+
+    // 10: Photo Retouching
+    case 10:
+      return hero + desc +
+        section(_('proj.10.timeline'), gall(['portfolio/retouch/retouch-timeline.jpg'], 1))
+
+    // 11: Moodboards Collection
+    case 0:
+      return hero + desc +
+        section(_('proj.0.concepts'), gall(['portfolio/moodboards/concept-1.jpg', 'portfolio/moodboards/concept-2.jpg'])) +
+        section(_('proj.0.offices'), gall(['portfolio/moodboards/office-cd-project.jpg', 'portfolio/moodboards/office-mundfish.jpg', 'portfolio/moodboards/office-sony.jpg'], 3)) +
+        section(_('proj.0.cafes'), gall(['portfolio/moodboards/cafe-hello-kitty.jpg', 'portfolio/moodboards/cafe-cyberpunk.jpg', 'portfolio/moodboards/cafe-retro.jpg'], 3)) +
+        section(_('proj.0.kitchens'), gall(['portfolio/moodboards/kitchen-1.jpg', 'portfolio/moodboards/kitchen-2.jpg', 'portfolio/moodboards/kitchen-3.jpg'], 3)) +
+        section(_('proj.0.cosmetics'), gall(['portfolio/moodboards/cosmetics-shop.jpg'], 1))
+
+    default:
+      return null
+  }
 }
 
 // SCROLL REVEAL

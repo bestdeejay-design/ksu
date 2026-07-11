@@ -417,7 +417,7 @@ function updateOG(index) {
   const title = lang === 'ru' ? p.titleRu : p.titleEn
   const cat = lang === 'ru' ? p.categoryRu : p.categoryEn
   const desc = i18n[lang][`proj.${index}.desc`] || `${cat} — ${title}`
-  const img = p.cover ? `${SITE_URL}/${p.cover}` : `${SITE_URL}/og-image.png`
+  const img = `${SITE_URL}/og-${index}.jpg`
 
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', `Ksenia — ${title}`)
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc)

@@ -766,6 +766,104 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   display:block
 }
 
+/* CTA card */
+.work-card--cta{
+  background:var(--card-bg);
+  border:1px solid var(--accent);
+  position:relative;
+  cursor:pointer;
+  transition:transform .6s cubic-bezier(.22,1,.36,1),border-color .3s;
+  aspect-ratio:4/5;
+  border-radius:12px;
+  overflow:hidden
+}
+.work-card--cta:hover{
+  transform:scale(.97);
+  border-color:var(--accent);
+  box-shadow:0 0 40px rgba(255,45,85,.15)
+}
+.work-card--cta .wv--cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  color:var(--accent);
+  opacity:.3;
+  transition:opacity .3s
+}
+.work-card--cta:hover .wv--cta{
+  opacity:.6
+}
+.work-card--cta .wv--cta svg{
+  width:clamp(40px,8vw,80px);
+  height:auto
+}
+.work-card--cta .work-card__num{
+  color:var(--accent);
+  font-size:clamp(28px,4vw,48px)
+}
+
+/* CTA overlay */
+.cta-steps{
+  display:flex;
+  flex-direction:column;
+  gap:16px
+}
+.cta-step{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:16px 20px;
+  border-radius:8px;
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  font-size:15px;
+  line-height:1.5;
+  color:var(--text-secondary)
+}
+.cta-step__num{
+  font-family:'Unbounded',sans-serif;
+  font-weight:700;
+  font-size:14px;
+  color:var(--accent);
+  min-width:28px
+}
+.cta-brief{
+  padding:20px 24px;
+  border-radius:8px;
+  background:var(--card-bg);
+  border:1px dashed var(--border-visible);
+  font-size:14px;
+  line-height:1.8;
+  color:var(--text-secondary);
+  white-space:pre-line
+}
+.cta-contacts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px
+}
+.cta-contact__btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 24px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--card-bg);
+  color:var(--text);
+  font-family:'Unbounded',sans-serif;
+  font-size:13px;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .2s,color .2s,border-color .2s
+}
+.cta-contact__btn:hover{
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--accent)
+}
+
 /* share button */
 .proj-share{
   text-align:center;

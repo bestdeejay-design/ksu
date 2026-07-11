@@ -52,7 +52,7 @@ def run_tests(url):
         # ───── T2: CARDS ─────
         print_header("T2. Карточки проектов")
         cards = page.locator(".work-card")
-        check("T2", "T2.1", "11 карточек", cards.count() == 11, f"найдено {cards.count()}")
+        check("T2", "T2.1", "12 карточек (11 проектов + CTA)", cards.count() == 12, f"найдено {cards.count()}")
 
         wc = page.locator("#works-count").text_content()
         check("T2", "T2.2", "Счётчик = 11", wc == "11", f"'{wc}'")
@@ -70,6 +70,11 @@ def run_tests(url):
         for i in range(11):
             cat = cards.nth(i).locator(".work-card__category").text_content()
             check("T2", f"T2.5.{i}", f"Card {i+1} category видна", len(cat) > 0, f"'{cat[:20]}'")
+
+        # CTA card
+        cta = cards.nth(11)
+        check("T2", "T2.6", "CTA card exists", cta.count() > 0)
+        check("T2", "T2.6b", "CTA card class", cta.get_attribute("class") and "work-card--cta" in (cta.get_attribute("class") or ""))
 
         for i in range(11):
             vis = cards.nth(i).locator(".work-card__visual")

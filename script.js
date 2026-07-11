@@ -73,7 +73,23 @@ const i18n = {
     'proj.0.offices': 'Offices',
     'proj.0.cafes': 'Cafes',
     'proj.0.kitchens': 'Kitchens',
-    'proj.0.cosmetics': 'Cosmetics'
+    'proj.0.cosmetics': 'Cosmetics',
+    'cta.title': 'Start Your Project',
+    'cta.subtitle': 'Let\'s create something amazing together',
+    'cta.desc': 'Have a project in mind? I\'d love to hear about it. Fill out a brief, and let\'s bring your vision to life.',
+    'cta.steps': 'How It Works',
+    'cta.step1': 'Brief — describe your project, goals, and references',
+    'cta.step2': 'Discussion — we refine the brief and agree on terms',
+    'cta.step3': 'Concepts — I prepare 2–3 visual directions',
+    'cta.step4': 'Feedback — you choose the direction, I refine',
+    'cta.step5': 'Delivery — final files in all needed formats',
+    'cta.step6': 'Publication — your project joins the portfolio',
+    'cta.contact': 'Get in Touch',
+    'cta.email': 'Send brief via email',
+    'cta.telegram': 'Write on Telegram',
+    'cta.whatsapp': 'Write on WhatsApp',
+    'cta.brief': 'Brief Template',
+    'cta.briefText': 'What type of project? (branding, poster, illustration, packaging, etc.)\nWhat are the deadlines?\nReference links or examples\nBudget range\nShort description of the task'
   },
   ru: {
     'nav.logo': 'Ксения',
@@ -146,7 +162,23 @@ const i18n = {
     'proj.0.offices': 'Офисы',
     'proj.0.cafes': 'Кафе',
     'proj.0.kitchens': 'Кухни',
-    'proj.0.cosmetics': 'Косметика'
+    'proj.0.cosmetics': 'Косметика',
+    'cta.title': 'Начните свой проект',
+    'cta.subtitle': 'Давайте создадим что-то удивительное вместе',
+    'cta.desc': 'У вас есть проект? Буду рада услышать о нём. Заполните бриф, и вместе воплотим вашу идею в жизнь.',
+    'cta.steps': 'Как это работает',
+    'cta.step1': 'Бриф — опишите проект, цели и референсы',
+    'cta.step2': 'Обсуждение — уточняем детали и согласовываем условия',
+    'cta.step3': 'Концепции — я готовлю 2–3 визуальных направления',
+    'cta.step4': 'Правки — вы выбираете направление, я дорабатываю',
+    'cta.step5': 'Сдача — финальные файлы во всех нужных форматах',
+    'cta.step6': 'Публикация — проект в портфолио',
+    'cta.contact': 'Связаться',
+    'cta.email': 'Отправить бриф на почту',
+    'cta.telegram': 'Написать в Telegram',
+    'cta.whatsapp': 'Написать в WhatsApp',
+    'cta.brief': 'Шаблон брифа',
+    'cta.briefText': 'Тип проекта? (брендинг, плакат, иллюстрация, упаковка и т.д.)\nКакие сроки?\nСсылки на референсы\nБюджет\nКраткое описание задачи'
   }
 }
 
@@ -242,7 +274,6 @@ function rebuildLangContent() {
   const worksGrid = document.getElementById('works-grid')
   worksGrid.innerHTML = ''
   buildWorks()
-  setupProjectClicks()
 }
 
 // THEME TOGGLE
@@ -307,8 +338,22 @@ function buildWorks() {
         <div class="work-card__title">${title}</div>
         <div class="work-card__line"></div>
       </div>`
+    card.addEventListener('click', () => openProject(i))
     grid.appendChild(card)
   })
+  // CTA card — always last
+  const cta = document.createElement('div')
+  cta.className = 'work-card work-card--cta'
+  cta.innerHTML = `
+    <div class="work-card__visual"><div class="wv wv--cta"><svg viewBox="0 0 80 80" fill="none"><path d="M40 16v48M16 40h48" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></div></div>
+    <div class="work-card__inner">
+      <div class="work-card__num">+</div>
+      <div class="work-card__category">${i18n[lang]['cta.subtitle']}</div>
+      <div class="work-card__title">${i18n[lang]['cta.title']}</div>
+      <div class="work-card__line"></div>
+    </div>`
+  cta.addEventListener('click', openNewProject)
+  grid.appendChild(cta)
 }
 
 // Vector glyph paths for KSA typeface (geometric sans-serif)
@@ -462,12 +507,51 @@ function handleHash() {
 document.addEventListener('DOMContentLoaded', handleHash)
 window.addEventListener('hashchange', handleHash)
 
-function setupProjectClicks() {
-  document.querySelectorAll('.work-card').forEach((card, i) => {
-    card.addEventListener('click', () => openProject(i))
-  })
+// CTA — new project overlay
+function openNewProject() {
+  const _ = key => i18n[lang][key]
+  currentProject = -1
+  scrollPosition = window.scrollY
+  overlayContent.innerHTML = `
+    <div class="proj-hero">
+      <div class="proj-hero__label">+</div>
+      <div class="proj-hero__title" style="font-size:clamp(28px,5vw,64px);margin-top:12px">${_('cta.title')}</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section__title">${_('cta.desc')}</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section__title">${_('cta.steps')}</div>
+      <div class="cta-steps">
+        <div class="cta-step"><span class="cta-step__num">01</span><span>${_('cta.step1')}</span></div>
+        <div class="cta-step"><span class="cta-step__num">02</span><span>${_('cta.step2')}</span></div>
+        <div class="cta-step"><span class="cta-step__num">03</span><span>${_('cta.step3')}</span></div>
+        <div class="cta-step"><span class="cta-step__num">04</span><span>${_('cta.step4')}</span></div>
+        <div class="cta-step"><span class="cta-step__num">05</span><span>${_('cta.step5')}</span></div>
+        <div class="cta-step"><span class="cta-step__num">06</span><span>${_('cta.step6')}</span></div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section__title">${_('cta.brief')}</div>
+      <div class="cta-brief">${_('cta.briefText')}</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section__title">${_('cta.contact')}</div>
+      <div class="cta-contacts">
+        <a href="mailto:ksu@ya.ru?subject=Project%20Brief" class="cta-contact__btn" target="_blank">${_('cta.email')}</a>
+        <a href="https://t.me/+79811281636" class="cta-contact__btn" target="_blank" rel="noopener">${_('cta.telegram')}</a>
+        <a href="https://wa.me/79811281636" class="cta-contact__btn" target="_blank" rel="noopener">${_('cta.whatsapp')}</a>
+      </div>
+    </div>`
+  overlay.classList.add('overlay--open')
+  document.body.style.overflow = 'hidden'
+  document.body.classList.add('overlay-active')
+  window.scrollTo({ top: 0 })
 }
-setupProjectClicks()
 
 function getProjectHTML(index) {
   const _ = key => i18n[lang][key]

@@ -477,7 +477,6 @@ function openProject(index) {
 }
 
 function closeProject() {
-  if (currentProject < 0) return
   overlay.classList.remove('overlay--open')
   document.body.style.overflow = ''
   document.body.classList.remove('overlay-active')

@@ -869,11 +869,11 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   position:fixed;
   bottom:32px;
   right:32px;
-  z-index:1000;
+  z-index:2500;
   width:52px;
   height:52px;
   border-radius:50%;
-  display:none;
+  display:flex;
   align-items:center;
   justify-content:center;
   background:rgba(255,255,255,.06);

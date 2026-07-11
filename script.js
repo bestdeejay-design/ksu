@@ -421,7 +421,8 @@ function updateOG(index) {
 
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', `Ksenia — ${title}`)
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc)
-  document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/#project-${index}`)
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/project-${index}/`)
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_URL}/project-${index}/`)
   document.querySelector('meta[property="og:image"]')?.setAttribute('content', img)
   document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', `Ksenia — ${title}`)
   document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc)
@@ -436,6 +437,7 @@ function resetOG() {
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', DEFAULT_DESC)
   document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/`)
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_URL}/`)
   document.querySelector('meta[property="og:image"]')?.setAttribute('content', `${SITE_URL}/og-image.png`)
   document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
   document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', DEFAULT_DESC)
@@ -447,7 +449,7 @@ function resetOG() {
 function shareProject(index) {
   const p = projects[index]
   const title = lang === 'ru' ? p.titleRu : p.titleEn
-  const url = `${SITE_URL}/#project-${index}`
+  const url = `${SITE_URL}/project-${index}/`
   if (navigator.share) {
     navigator.share({ title: `Ksenia — ${title}`, url }).catch(() => {})
   } else {

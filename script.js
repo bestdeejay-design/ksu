@@ -454,10 +454,10 @@ function shareProject(index) {
     navigator.share({ title: `Ksenia — ${title}`, url }).catch(() => {})
   } else {
     navigator.clipboard.writeText(url).then(() => {
-      const btn = document.getElementById('share-btn')
+      const btn = document.getElementById('share-btn-fixed')
       if (btn) {
         const orig = btn.innerHTML
-        btn.innerHTML = '✓ ' + (lang === 'ru' ? 'Скопировано' : 'Copied')
+        btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
         setTimeout(() => { btn.innerHTML = orig }, 2000)
       }
     }).catch(() => {})
@@ -469,13 +469,20 @@ function openProject(index) {
   if (!html) return
   currentProject = index
   scrollPosition = window.scrollY
-  overlayContent.innerHTML = html + `<div class="proj-share"><button class="proj-share__btn" id="share-btn" onclick="shareProject(${index})">${lang === 'ru' ? 'Поделиться' : 'Share'}</button></div>`
+  overlayContent.innerHTML = html
   overlay.classList.add('overlay--open')
   document.body.style.overflow = 'hidden'
   document.body.classList.add('overlay-active')
   window.scrollTo({ top: 0 })
   updateOG(index)
   history.replaceState(null, '', `#project-${index}`)
+  const shareBtn = document.getElementById('share-btn-fixed')
+  if (shareBtn) {
+    shareBtn.style.display = 'flex'
+    shareBtn.style.opacity = '0'
+    requestAnimationFrame(() => { shareBtn.style.opacity = '1' })
+    shareBtn.onclick = () => shareProject(index)
+  }
 }
 
 function closeProject() {
@@ -486,6 +493,12 @@ function closeProject() {
   resetOG()
   history.replaceState(null, '', window.location.pathname + window.location.search)
   currentProject = -1
+  const shareBtn = document.getElementById('share-btn-fixed')
+  if (shareBtn) {
+    shareBtn.style.display = 'none'
+    shareBtn.style.opacity = '0'
+    shareBtn.onclick = null
+  }
 }
 
 overlayClose.addEventListener('click', closeProject)
@@ -552,6 +565,8 @@ function openNewProject() {
   document.body.style.overflow = 'hidden'
   document.body.classList.add('overlay-active')
   window.scrollTo({ top: 0 })
+  const shareBtn = document.getElementById('share-btn-fixed')
+  if (shareBtn) { shareBtn.style.display = 'none'; shareBtn.onclick = null }
 }
 
 function getProjectHTML(index) {

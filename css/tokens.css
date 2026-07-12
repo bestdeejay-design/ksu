@@ -1,0 +1,175 @@
+:root {
+
+/* === COLORS === */
+
+/* Brand */
+--color-accent: #FF2D55;
+--color-accent2: #FFD633;
+--color-accent3: #00E5FF;
+
+/* Neutral */
+--color-white-pure: #ffffff;
+--color-black-pure: #000000;
+--color-overlay-dark: rgba(0,0,0,0.92);
+
+/* Surfaces (dark theme) */
+--color-surface-1: rgba(255,255,255,0.03);
+--color-surface-2: rgba(255,255,255,0.06);
+--color-surface-3: rgba(255,255,255,0.08);
+--color-surface-4: rgba(255,255,255,0.15);
+
+/* Text (dark theme) */
+--color-text-primary: #F5F5F5;
+--color-text-secondary: rgba(255,255,255,0.7);
+--color-text-muted: rgba(255,255,255,0.3);
+
+/* Background (dark theme) */
+--color-bg-primary: #0A0A0A;
+--color-bg-nav: rgba(10,10,10,0.8);
+
+/* Card gradients — dark theme */
+--card-moodboards-from: #1a0a0e;
+--card-moodboards-to: #2d1b1e;
+--card-packaging-from: #0a1a14;
+--card-packaging-to: #1b2d22;
+--card-poster-from: #1a140a;
+--card-poster-to: #2d2410;
+--card-game-from: #0a0a1a;
+--card-game-to: #14142d;
+--card-procreate-from: #1a0a1a;
+--card-procreate-to: #2d1430;
+--card-popular-blondes-from: #0a1a1a;
+--card-popular-blondes-to: #142d28;
+--card-character-comic-from: #1a1a0a;
+--card-character-comic-to: #2d2d14;
+--card-stickers-from: #100a1a;
+--card-stickers-to: #1e1430;
+--card-wall-art-from: #1a100a;
+--card-wall-art-to: #2d1e14;
+--card-photobook-from: #0a141a;
+--card-photobook-to: #14262d;
+--card-retouch-from: #1a0a14;
+--card-retouch-to: #2d1420;
+
+/* Light theme override surface colors */
+--color-light-bg: #F5F0EB;
+--color-light-text: #1A1A1A;
+--color-light-text-secondary: rgba(0,0,0,0.78);
+--color-light-text-muted: rgba(0,0,0,0.5);
+--color-light-border: rgba(0,0,0,0.1);
+--color-light-border-visible: rgba(0,0,0,0.18);
+--color-light-card-bg: rgba(0,0,0,0.04);
+--color-light-nav-bg: rgba(245,240,235,0.9);
+--color-light-card-gradient: #e0dcd5;
+
+/* Social brand colors */
+--color-behance: #1769FF;
+--color-dribbble: #EA4C89;
+--color-pinterest: #E60023;
+--color-figma-bg: #1E1E1E;
+
+/* === SPACING (4px grid) === */
+--space-0: 0;
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 12px;
+--space-4: 16px;
+--space-5: 20px;
+--space-6: 24px;
+--space-7: 28px;
+--space-8: 32px;
+--space-10: 40px;
+--space-12: 48px;
+--space-16: 64px;
+--space-20: 80px;
+--space-24: 96px;
+--space-32: 128px;
+--space-40: 160px;
+--space-section: 160px;
+--space-section-mobile: 80px;
+
+/* === TYPOGRAPHY === */
+--font-display: 'Unbounded', sans-serif;
+--font-body: 'Inter', -apple-system, system-ui, sans-serif;
+
+--text-xs: 11px;
+--text-sm: 13px;
+--text-base: 15px;
+--text-md: 16px;
+--text-lg: 18px;
+--text-xl: 20px;
+--text-2xl: clamp(24px, 3.5vw, 48px);
+--text-3xl: clamp(32px, 5vw, 64px);
+--text-display: clamp(64px, 12vw, 160px);
+--text-hero: clamp(72px, 15vw, 200px);
+
+--leading-tight: 1.1;
+--leading-snug: 1.25;
+--leading-normal: 1.5;
+--leading-relaxed: 1.7;
+
+--tracking-tight: -0.04em;
+--tracking-normal: 0;
+--tracking-wide: 0.1em;
+--tracking-wider: 0.15em;
+
+/* === RADII === */
+--radius-sm: 4px;
+--radius-md: 6px;
+--radius-lg: 8px;
+--radius-xl: 10px;
+--radius-2xl: 12px;
+--radius-3xl: 16px;
+--radius-full: 100px;
+
+/* === SHADOWS === */
+--shadow-sm: 0 4px 24px rgba(0,0,0,0.1);
+--shadow-md: 0 6px 32px rgba(0,0,0,0.25);
+--shadow-lg: 0 24px 80px rgba(0,0,0,0.35);
+--shadow-accent: 0 6px 32px rgba(255,45,85,0.25);
+--shadow-accent-soft: 0 0 40px rgba(255,45,85,0.15);
+
+/* === TRANSITIONS === */
+--duration-fast: 0.2s;
+--duration-base: 0.3s;
+--duration-slow: 0.4s;
+--duration-slower: 0.6s;
+--duration-slowest: 0.8s;
+--ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+--ease-bounce: cubic-bezier(0.22, 1, 0.36, 1);
+
+/* === Z-INDEX === */
+--z-nav: 1000;
+--z-dropdown: 1002;
+--z-menu: 1001;
+--z-share: 2500;
+--z-overlay: 2000;
+--z-lightbox: 3000;
+
+/* === LAYOUT === */
+--container-sm: 640px;
+--container-md: 1024px;
+--container-lg: 1200px;
+--container-xl: 1440px;
+--nav-height: 64px;
+
+/* === CONTRAST (role-based opacity) === */
+--contrast-primary: 1;
+--contrast-secondary: .78;
+--contrast-tertiary: .5;
+--contrast-muted: .3;
+--contrast-decorative: .12;
+--contrast-disabled: .25;
+
+/* === SURFACE / BORDER TOKENS === */
+--bg-shape-strong: rgba(255,255,255,.25);
+--bg-shape-soft: rgba(255,255,255,.05);
+--border-shape: rgba(255,255,255,.18);
+--text-on-shape: rgba(255,255,255,.85);
+--surface-1: var(--card-bg);
+--surface-2: rgba(255,255,255,.06);
+--surface-3: rgba(255,255,255,.10);
+--border-subtle: rgba(255,255,255,.08);
+--border-default: rgba(255,255,255,.15);
+--border-strong: rgba(255,255,255,.25);
+}

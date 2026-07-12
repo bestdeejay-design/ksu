@@ -80,6 +80,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -93,7 +94,7 @@
         <span></span><span></span><span></span>
       </label>
       <div class="nav__links">
-        <a href="#about" class="nav__link" data-i18n="nav.about" onclick="document.getElementById('menu-toggle').checked=false">About</a>
+        <a href="#about" class="nav__link" data-i18n="nav.about" onclick="closeMobileMenu()">About</a>
         <div class="nav__item nav__item--dropdown">
           <a href="#works" class="nav__link nav__link--works" data-i18n="nav.works">Works</a>
           <button class="nav__dropdown-toggle" aria-label="Toggle projects" aria-expanded="false">
@@ -109,8 +110,8 @@
             </a>
           </div>
         </div>
-        <a href="#references" class="nav__link" data-i18n="nav.inspiration" onclick="document.getElementById('menu-toggle').checked=false">Inspiration</a>
-        <a href="#contact" class="nav__link" data-i18n="nav.contact" onclick="document.getElementById('menu-toggle').checked=false">Contact</a>
+        <a href="#references" class="nav__link" data-i18n="nav.inspiration" onclick="closeMobileMenu()">Inspiration</a>
+        <a href="#contact" class="nav__link" data-i18n="nav.contact" onclick="closeMobileMenu()">Contact</a>
         <button class="lang-toggle" id="lang-toggle" data-i18n="nav.langBtn">RU</button>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
           <svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -189,7 +190,7 @@
   <section class="works" id="works">
     <div class="works__header">
       <h2 class="section-label" data-i18n="works.label">Featured Projects</h2>
-      <div class="works__count"><span id="works-count">11</span> <span data-i18n="works.count">projects</span></div>
+      <div class="works__count"><span id="works-count"></span> <span data-i18n="works.count">projects</span></div>
     </div>
     <div class="works__grid" id="works-grid"></div>
   </section>

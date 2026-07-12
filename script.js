@@ -1,3 +1,7 @@
+function closeMobileMenu() {
+  document.getElementById('menu-toggle').checked = false
+}
+
 const SITE_URL = 'https://bestdeejay-design.github.io/ksu'
 
 // I18N
@@ -313,21 +317,6 @@ const projects = [
   { titleEn: 'Photo Retouching', titleRu: 'Ретушь фото', categoryEn: 'Photography', categoryRu: 'Фотография', cover: 'portfolio/retouch/retouch-timeline.jpg', colors: ['#1ABC9C', '#00E5FF'] },
 ]
 
-function generateAbstractSVG(index, colors) {
-  const shapes = [
-    `<circle r="35%" cx="50%" cy="50%" fill="none" stroke="${colors[0]}" stroke-width="1" opacity=".3"/>`,
-    `<rect width="30%" height="30%" x="60%" y="10%" fill="none" stroke="${colors[1]}" stroke-width="1" opacity=".25" transform="rotate(${index * 7},${100 + index * 3},${10 + index * 2})"/>`,
-    `<circle r="15%" cx="25%" cy="75%" fill="${colors[0]}" opacity=".1"/>`,
-    `<polygon points="${8 + index},${60 + index * 2} ${25 + index * 2},${80 + index} ${5},${85}" fill="none" stroke="${colors[1]}" stroke-width="1" opacity=".2"/>`,
-    `<line x1="0" y1="50%" x2="100%" y2="50%" stroke="${colors[0]}" stroke-width="1" opacity=".08" stroke-dasharray="${4 + index},${6 + index}"/>`,
-    `<rect width="${12 + index * 3}%" height="${12 + index * 3}%" x="${20 + index * 2}%" y="${20 + index * 4}%" fill="${colors[0]}" opacity=".04" transform="rotate(${index * 15},${20 + index * 2 + (12 + index * 3) / 2}%,${20 + index * 4 + (12 + index * 3) / 2}%)"/>`,
-    `<circle r="${8 + index * 0.5}%" cx="${70 + (index % 3) * 5}%" cy="${30 + (index % 2) * 10}%" fill="${colors[1]}" opacity=".06"/>`
-  ]
-  const selected = []
-  for (let i = 0; i < 4; i++) selected.push(shapes[(index + i * 2) % shapes.length])
-  return encodeURIComponent(`<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">${selected.join('')}</svg>`)
-}
-
 function buildWorks() {
   const grid = document.getElementById('works-grid')
   projects.forEach((p, i) => {
@@ -364,9 +353,10 @@ function buildWorks() {
     </div>`
   cta.addEventListener('click', openNewProject)
   grid.appendChild(cta)
+
+  document.getElementById('works-count').textContent = projects.length
 }
 
-// Vector glyph paths for KSA typeface (geometric sans-serif)
 buildWorks()
 
 // REFERENCES
@@ -403,7 +393,7 @@ function buildResourceSection(id, items) {
     el.rel = 'noopener'
     const name = lang === 'ru' ? r.nameRu : r.nameEn
     const desc = lang === 'ru' ? r.descRu : r.descEn
-    el.innerHTML = `<div class="ref-mini__inner" style="border-color:${r.color}33"><div class="ref-mini__name">${name}</div><div class="ref-mini__desc">${desc}</div></div>`
+    el.innerHTML = `<div class="ref-mini__inner" style="border-color:${r.color}55"><div class="ref-mini__name">${name}</div><div class="ref-mini__desc">${desc}</div></div>`
     grid.appendChild(el)
   })
 }
@@ -503,16 +493,16 @@ overlay.addEventListener('click', (e) => {
   if (e.target === overlay) closeProject()
 })
 
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeProject()
-})
-
 // Hash routing on load
 function handleHash() {
   const match = window.location.hash.match(/^#project-(\d+)$/)
   if (match) {
     const i = parseInt(match[1], 10)
-    if (i >= 0 && i < projects.length) setTimeout(() => openProject(i), 300)
+    if (i >= 0 && i < projects.length) {
+      const worksSection = document.getElementById('works')
+      scrollPosition = worksSection ? worksSection.offsetTop - 100 : 0
+      setTimeout(() => openProject(i), 300)
+    }
   }
 }
 document.addEventListener('DOMContentLoaded', handleHash)
@@ -573,8 +563,6 @@ function getProjectHTML(index) {
   const gall = (srcs, cols = 2) => `<div class="proj-gallery proj-gallery--${cols}">${srcs.map(s => `<div class="proj-gallery__item" onclick="openLightbox('${s}',${index})"><img src="${s}" alt="${pTitle}" loading="lazy"/></div>`).join('')}</div>`
   const hero = `<div class="proj-hero"><div class="proj-hero__label">${lang === 'ru' ? p.categoryRu : p.categoryEn}</div><div style="font-size:clamp(24px,4vw,48px);font-weight:900;font-family:'Unbounded',sans-serif;margin:12px 0">${lang === 'ru' ? p.titleRu : p.titleEn}</div></div>`
   const desc = index !== 0 ? `<div class="proj-desc">${_(`proj.${index}.desc`)}</div>` : ''
-
-  
 
   let c
   switch (index) {
@@ -714,7 +702,7 @@ function openLightbox(src, projectIdx) {
   const content = document.getElementById('overlay-content')
   const imgs = content ? [...content.querySelectorAll('.proj-gallery__item img')].map(i => i.src) : [src]
   lbImages = imgs.length ? imgs : [src]
-  lbIndex = lbImages.findIndex(u => u.includes(src.replace(/^.*\//,'')))
+  lbIndex = lbImages.indexOf(src)
   if (lbIndex === -1) lbIndex = 0
   showLightboxImage()
   lb.classList.add('lightbox--open')
@@ -744,12 +732,6 @@ lbClose.addEventListener('click', closeLightbox)
 lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox() })
 lbPrev.addEventListener('click', () => lbNav(-1))
 lbNext.addEventListener('click', () => lbNav(1))
-document.addEventListener('keydown', (e) => {
-  if (!lb.classList.contains('lightbox--open')) return
-  if (e.key === 'Escape') closeLightbox()
-  if (e.key === 'ArrowLeft') lbNav(-1)
-  if (e.key === 'ArrowRight') lbNav(1)
-})
 
 // DROPDOWN NAV
 function buildNavProjects() {
@@ -763,7 +745,7 @@ function buildNavProjects() {
   allItem.innerHTML = `<span class="nav__dropdown-title">${i18n[lang]['nav.allProjects']}</span>`
   allItem.addEventListener('click', (e) => {
     closeNavDropdown()
-    document.getElementById('menu-toggle').checked = false
+    closeMobileMenu()
   })
   list.appendChild(allItem)
 
@@ -779,7 +761,7 @@ function buildNavProjects() {
       e.preventDefault()
       openProject(i)
       closeNavDropdown()
-      document.getElementById('menu-toggle').checked = false
+      closeMobileMenu()
     })
     list.appendChild(item)
   })
@@ -794,48 +776,40 @@ document.addEventListener('click', (e) => {
   if (!e.target.closest('.nav__item--dropdown')) closeNavDropdown()
 })
 
-document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation()
-    const expanded = btn.getAttribute('aria-expanded') === 'true'
-    document.querySelectorAll('.nav__dropdown-toggle').forEach(b => {
-      if (b !== btn) {
-        b.setAttribute('aria-expanded', 'false')
-        b.closest('.nav__item--dropdown').classList.remove('open')
-      }
-    })
-    btn.setAttribute('aria-expanded', !expanded)
-    btn.closest('.nav__item--dropdown').classList.toggle('open')
-  })
-})
-
 document.querySelector('.nav__link--works')?.addEventListener('click', function(e) {
   if (window.innerWidth <= 768) {
     e.preventDefault()
     const item = this.closest('.nav__item--dropdown')
-    const toggle = item?.querySelector('.nav__dropdown-toggle')
-    if (toggle) {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true'
-      toggle.setAttribute('aria-expanded', !expanded)
+    if (item) {
       item.classList.toggle('open')
+      const toggle = item.querySelector('.nav__dropdown-toggle')
+      if (toggle) toggle.setAttribute('aria-expanded', item.classList.contains('open'))
     }
   } else {
-    document.getElementById('menu-toggle').checked = false
+    closeMobileMenu()
   }
-})
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNavDropdown()
 })
 
 document.getElementById('nav-dropdown-cta')?.addEventListener('click', (e) => {
   e.preventDefault()
   openNewProject()
   closeNavDropdown()
-  document.getElementById('menu-toggle').checked = false
+  closeMobileMenu()
 })
 
 buildNavProjects()
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (lb.classList.contains('lightbox--open')) { closeLightbox(); return }
+    if (overlay.classList.contains('overlay--open')) { closeProject(); return }
+    closeNavDropdown()
+  }
+  if (lb.classList.contains('lightbox--open')) {
+    if (e.key === 'ArrowLeft') lbNav(-1)
+    if (e.key === 'ArrowRight') lbNav(1)
+  }
+})
 
 // SCROLL REVEAL
 const revealEls = document.querySelectorAll(

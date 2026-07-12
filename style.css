@@ -171,57 +171,52 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 .shape{
   position:absolute;
   mix-blend-mode:screen;
-  opacity:1;
   animation:shapeFloat 20s ease-in-out infinite
 }
 .shape--1{
   width:400px;height:400px;
-  border:2px solid var(--accent);
+  border:2px solid #F64A8A;
   border-radius:50%;
   top:-100px;right:-80px;
-  animation-delay:0s;
-  box-shadow:
-    0 0 60px rgba(255,45,85,.5),
-    0 0 120px rgba(255,45,85,.25)
+  opacity:.65;
+  box-shadow:0 0 50px rgba(246,74,138,.25);
+  animation-delay:0s
 }
 .shape--2{
   width:250px;height:250px;
-  background:var(--accent);
+  background:#F64A8A;
   bottom:10%;left:-60px;
   clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
-  animation-delay:-5s;
-  box-shadow:
-    0 0 50px rgba(255,45,85,.45),
-    0 0 100px rgba(255,45,85,.2)
+  opacity:.55;
+  box-shadow:0 0 40px rgba(246,74,138,.2);
+  animation-delay:-5s
 }
 .shape--3{
   width:180px;height:180px;
-  border:2px solid var(--accent2);
+  border:2px solid #FFFACD;
   top:30%;left:60%;
   border-radius:50%;
-  animation-delay:-10s;
-  box-shadow:
-    0 0 50px rgba(255,221,51,.45),
-    0 0 100px rgba(255,221,51,.2)
+  opacity:.7;
+  box-shadow:0 0 40px rgba(255,250,205,.2);
+  animation-delay:-10s
 }
 .shape--4{
   width:120px;height:120px;
-  background:var(--accent3);
+  background:#0ABAB5;
   top:15%;right:35%;
+  opacity:.7;
+  box-shadow:0 0 40px rgba(10,186,181,.25);
   animation-delay:-15s;
-  transform:rotate(45deg);
-  box-shadow:
-    0 0 40px rgba(0,229,255,.5),
-    0 0 80px rgba(0,229,255,.25)
+  transform:rotate(45deg)
 }
 [data-theme="light"] .shape{
   mix-blend-mode:normal;
-  opacity:.18
+  box-shadow:none
 }
-[data-theme="light"] .shape--1{opacity:.22;box-shadow:none}
-[data-theme="light"] .shape--2{opacity:.12;box-shadow:none}
-[data-theme="light"] .shape--3{opacity:.22;box-shadow:none}
-[data-theme="light"] .shape--4{opacity:.10;box-shadow:none}
+[data-theme="light"] .shape--1{opacity:.28}
+[data-theme="light"] .shape--2{opacity:.20}
+[data-theme="light"] .shape--3{opacity:.30}
+[data-theme="light"] .shape--4{opacity:.25}
 @keyframes shapeFloat{
   0%,100%{transform:translate(0,0) rotate(0deg)}
   25%{transform:translate(30px,-30px) rotate(5deg)}
@@ -359,40 +354,38 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 }
 .about__shape--1{
   width:280px;height:280px;
-  border:2px solid var(--accent);
+  border:2px solid #F64A8A;
   top:50%;left:50%;
   transform:translate(-50%,-50%) rotate(45deg);
-  animation:shapePulse 8s ease-in-out infinite;
-  box-shadow:
-    0 0 40px rgba(255,45,85,.45),
-    0 0 80px rgba(255,45,85,.2)
+  opacity:.6;
+  box-shadow:0 0 35px rgba(246,74,138,.2);
+  animation:shapePulse 8s ease-in-out infinite
 }
 .about__shape--2{
   width:180px;height:180px;
-  background:var(--accent);
+  background:#F64A8A;
   top:10%;right:20%;
   clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
-  animation:shapeFloat 15s ease-in-out infinite;
-  box-shadow:
-    0 0 35px rgba(255,45,85,.4),
-    0 0 70px rgba(255,45,85,.18)
+  opacity:.5;
+  box-shadow:0 0 30px rgba(246,74,138,.18);
+  animation:shapeFloat 15s ease-in-out infinite
 }
 .about__shape--3{
   width:100px;height:100px;
-  border:2px solid var(--accent2);
+  border:2px solid #FFFACD;
   bottom:5%;left:10%;
   border-radius:50%;
-  animation:shapeFloat 12s ease-in-out infinite reverse;
-  box-shadow:
-    0 0 30px rgba(255,221,51,.45),
-    0 0 60px rgba(255,221,51,.2)
+  opacity:.65;
+  box-shadow:0 0 25px rgba(255,250,205,.2);
+  animation:shapeFloat 12s ease-in-out infinite reverse
 }
 [data-theme="light"] .about__shape{
-  mix-blend-mode:normal
+  mix-blend-mode:normal;
+  box-shadow:none
 }
-[data-theme="light"] .about__shape--1{opacity:.25;box-shadow:none}
-[data-theme="light"] .about__shape--2{opacity:.12;box-shadow:none}
-[data-theme="light"] .about__shape--3{opacity:.15;box-shadow:none}
+[data-theme="light"] .about__shape--1{opacity:.22}
+[data-theme="light"] .about__shape--2{opacity:.14}
+[data-theme="light"] .about__shape--3{opacity:.18}
 @keyframes shapePulse{
   0%,100%{transform:translate(-50%,-50%) rotate(45deg) scale(1);opacity:.3}
   50%{transform:translate(-50%,-50%) rotate(55deg) scale(1.1);opacity:.5}
@@ -711,41 +704,39 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 }
 .contact__shape--1{
   width:200px;height:200px;
-  border:2px solid var(--accent);
+  border:2px solid #F64A8A;
   border-radius:50%;
   top:50%;left:50%;
   transform:translate(-50%,-50%);
-  animation:shapeFloat 18s ease-in-out infinite;
-  box-shadow:
-    0 0 40px rgba(255,45,85,.45),
-    0 0 80px rgba(255,45,85,.2)
+  opacity:.6;
+  box-shadow:0 0 35px rgba(246,74,138,.2);
+  animation:shapeFloat 18s ease-in-out infinite
 }
 .contact__shape--2{
   width:140px;height:140px;
-  background:var(--accent);
+  background:#F64A8A;
   top:5%;right:15%;
+  opacity:.5;
+  box-shadow:0 0 30px rgba(246,74,138,.18);
   transform:rotate(45deg);
-  animation:shapeFloat 14s ease-in-out infinite reverse;
-  box-shadow:
-    0 0 35px rgba(255,45,85,.4),
-    0 0 70px rgba(255,45,85,.18)
+  animation:shapeFloat 14s ease-in-out infinite reverse
 }
 .contact__shape--3{
   width:80px;height:80px;
-  border:2px solid var(--accent3);
+  border:2px solid #0ABAB5;
   bottom:10%;right:30%;
-  clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
-  animation:shapeFloat 10s ease-in-out infinite;
-  box-shadow:
-    0 0 25px rgba(0,229,255,.5),
-    0 0 50px rgba(0,229,255,.25)
+  opacity:.75;
+  transform:rotate(45deg);
+  box-shadow:0 0 25px rgba(10,186,181,.3);
+  animation:shapeFloat 10s ease-in-out infinite
 }
 [data-theme="light"] .contact__shape{
-  mix-blend-mode:normal
+  mix-blend-mode:normal;
+  box-shadow:none
 }
-[data-theme="light"] .contact__shape--1{opacity:.25;box-shadow:none}
-[data-theme="light"] .contact__shape--2{opacity:.10;box-shadow:none}
-[data-theme="light"] .contact__shape--3{opacity:.18;box-shadow:none}
+[data-theme="light"] .contact__shape--1{opacity:.22}
+[data-theme="light"] .contact__shape--2{opacity:.12}
+[data-theme="light"] .contact__shape--3{opacity:.25}
 
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}

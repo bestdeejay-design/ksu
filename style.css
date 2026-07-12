@@ -1127,8 +1127,8 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 
 /* Mobile accordion */
 @media(max-width:768px){
-  .nav__item--dropdown{justify-content:center}
-  .nav__dropdown-toggle{display:flex}
+  .nav__item--dropdown{display:block;text-align:center}
+  .nav__dropdown-toggle{display:none}
   .nav__dropdown{
     position:static;
     transform:none;
@@ -1145,7 +1145,7 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
     min-width:auto;
     width:auto;
     padding:0;
-    margin-top:0;
+    margin:0 auto;
     text-align:center;
   }
   .nav__item--dropdown.open .nav__dropdown,
@@ -1154,8 +1154,8 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
     padding:4px 0;
     opacity:1;
   }
-  .nav__dropdown-item{justify-content:center;padding:10px 0;border-radius:0;border-top:none;border-bottom:1px solid var(--border)}
-  .nav__dropdown-item--cta{justify-content:center;border:1px solid var(--accent) !important;border-radius:8px;padding:10px 24px;margin-top:6px;width:auto}
+  .nav__dropdown-item{justify-content:center;padding:8px 0;border-radius:0;border-top:none;border-bottom:1px solid var(--border)}
+  .nav__dropdown-item--cta{justify-content:center;border:1px solid var(--accent) !important;border-radius:8px;padding:8px 24px;margin:8px auto 0;width:auto}
   .nav__dropdown-list{gap:0}
   .nav__dropdown-num{display:none}
 }

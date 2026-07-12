@@ -796,6 +796,21 @@ document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
   })
 })
 
+document.querySelector('.nav__link--works')?.addEventListener('click', function(e) {
+  if (window.innerWidth <= 768) {
+    e.preventDefault()
+    const item = this.closest('.nav__item--dropdown')
+    const toggle = item?.querySelector('.nav__dropdown-toggle')
+    if (toggle) {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true'
+      toggle.setAttribute('aria-expanded', !expanded)
+      item.classList.toggle('open')
+    }
+  } else {
+    document.getElementById('menu-toggle').checked = false
+  }
+})
+
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeNavDropdown()
 })

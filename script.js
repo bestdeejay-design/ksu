@@ -9,6 +9,7 @@ const i18n = {
     'nav.inspiration': 'Inspiration',
     'nav.contact': 'Contact',
     'nav.langBtn': 'RU',
+    'nav.startProject': 'Start Your Project',
     'hero.marquee': 'PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO •',
     'hero.name': 'Ksenia',
     'hero.subtitle': 'graphic<br/>designer',
@@ -100,6 +101,7 @@ const i18n = {
     'nav.inspiration': 'Референсы',
     'nav.contact': 'Контакты',
     'nav.langBtn': 'EN',
+    'nav.startProject': 'Начать проект',
     'hero.marquee': 'ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО •',
     'hero.name': 'Ксения',
     'hero.subtitle': 'графический<br/>дизайнер',
@@ -278,6 +280,8 @@ function rebuildLangContent() {
   const worksGrid = document.getElementById('works-grid')
   worksGrid.innerHTML = ''
   buildWorks()
+
+  buildNavProjects()
 }
 
 // THEME TOGGLE
@@ -744,6 +748,66 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') lbNav(-1)
   if (e.key === 'ArrowRight') lbNav(1)
 })
+
+// DROPDOWN NAV
+function buildNavProjects() {
+  const list = document.getElementById('nav-dropdown-list')
+  if (!list) return
+  list.innerHTML = ''
+  projects.forEach((p, i) => {
+    const item = document.createElement('a')
+    item.className = 'nav__dropdown-item'
+    item.href = `#project-${i}`
+    item.innerHTML = `
+      <span class="nav__dropdown-num">${String(i + 1).padStart(2, '0')}</span>
+      <span class="nav__dropdown-title">${lang === 'ru' ? (p.titleRu || p.titleEn) : p.titleEn}</span>
+    `
+    item.addEventListener('click', (e) => {
+      e.preventDefault()
+      openProject(i)
+      closeNavDropdown()
+      document.getElementById('menu-toggle').checked = false
+    })
+    list.appendChild(item)
+  })
+}
+
+function closeNavDropdown() {
+  document.querySelectorAll('.nav__dropdown-toggle').forEach(b => b.setAttribute('aria-expanded', 'false'))
+  document.querySelectorAll('.nav__item--dropdown').forEach(el => el.classList.remove('open'))
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav__item--dropdown')) closeNavDropdown()
+})
+
+document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation()
+    const expanded = btn.getAttribute('aria-expanded') === 'true'
+    document.querySelectorAll('.nav__dropdown-toggle').forEach(b => {
+      if (b !== btn) {
+        b.setAttribute('aria-expanded', 'false')
+        b.closest('.nav__item--dropdown').classList.remove('open')
+      }
+    })
+    btn.setAttribute('aria-expanded', !expanded)
+    btn.closest('.nav__item--dropdown').classList.toggle('open')
+  })
+})
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNavDropdown()
+})
+
+document.getElementById('nav-dropdown-cta')?.addEventListener('click', (e) => {
+  e.preventDefault()
+  openNewProject()
+  closeNavDropdown()
+  document.getElementById('menu-toggle').checked = false
+})
+
+buildNavProjects()
 
 // SCROLL REVEAL
 const revealEls = document.querySelectorAll(

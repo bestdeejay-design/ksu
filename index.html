@@ -94,7 +94,21 @@
       </label>
       <div class="nav__links">
         <a href="#about" class="nav__link" data-i18n="nav.about" onclick="document.getElementById('menu-toggle').checked=false">About</a>
-        <a href="#works" class="nav__link" data-i18n="nav.works" onclick="document.getElementById('menu-toggle').checked=false">Works</a>
+        <div class="nav__item nav__item--dropdown">
+          <a href="#works" class="nav__link" data-i18n="nav.works" onclick="closeNavDropdown();document.getElementById('menu-toggle').checked=false">Works</a>
+          <button class="nav__dropdown-toggle" aria-label="Toggle projects" aria-expanded="false">
+            <svg class="nav__dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1,1 5,5 9,1"/>
+            </svg>
+          </button>
+          <div class="nav__dropdown" id="nav-dropdown">
+            <div class="nav__dropdown-list" id="nav-dropdown-list"></div>
+            <a href="#" class="nav__dropdown-item nav__dropdown-item--cta" id="nav-dropdown-cta">
+              <span class="nav__dropdown-cta-icon">+</span>
+              <span class="nav__dropdown-cta-text" data-i18n="nav.startProject">Start Your Project</span>
+            </a>
+          </div>
+        </div>
         <a href="#references" class="nav__link" data-i18n="nav.inspiration" onclick="document.getElementById('menu-toggle').checked=false">Inspiration</a>
         <a href="#contact" class="nav__link" data-i18n="nav.contact" onclick="document.getElementById('menu-toggle').checked=false">Contact</a>
         <button class="lang-toggle" id="lang-toggle" data-i18n="nav.langBtn">RU</button>

@@ -10,6 +10,7 @@ const i18n = {
     'nav.contact': 'Contact',
     'nav.langBtn': 'RU',
     'nav.startProject': 'Start Your Project',
+    'nav.allProjects': 'All Projects',
     'hero.marquee': 'PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO •',
     'hero.name': 'Ksenia',
     'hero.subtitle': 'graphic<br/>designer',
@@ -102,6 +103,7 @@ const i18n = {
     'nav.contact': 'Контакты',
     'nav.langBtn': 'EN',
     'nav.startProject': 'Начать проект',
+    'nav.allProjects': 'Все проекты',
     'hero.marquee': 'ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО •',
     'hero.name': 'Ксения',
     'hero.subtitle': 'графический<br/>дизайнер',
@@ -754,6 +756,17 @@ function buildNavProjects() {
   const list = document.getElementById('nav-dropdown-list')
   if (!list) return
   list.innerHTML = ''
+
+  const allItem = document.createElement('a')
+  allItem.className = 'nav__dropdown-item'
+  allItem.href = '#works'
+  allItem.innerHTML = `<span class="nav__dropdown-title">${i18n[lang]['nav.allProjects']}</span>`
+  allItem.addEventListener('click', (e) => {
+    closeNavDropdown()
+    document.getElementById('menu-toggle').checked = false
+  })
+  list.appendChild(allItem)
+
   projects.forEach((p, i) => {
     const item = document.createElement('a')
     item.className = 'nav__dropdown-item'

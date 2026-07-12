@@ -702,7 +702,7 @@ function openLightbox(src, projectIdx) {
   const content = document.getElementById('overlay-content')
   const imgs = content ? [...content.querySelectorAll('.proj-gallery__item img')].map(i => i.src) : [src]
   lbImages = imgs.length ? imgs : [src]
-  lbIndex = lbImages.indexOf(src)
+  lbIndex = lbImages.findIndex(u => u.includes(src))
   if (lbIndex === -1) lbIndex = 0
   showLightboxImage()
   lb.classList.add('lightbox--open')

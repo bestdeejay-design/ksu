@@ -705,12 +705,10 @@ const lbPrev = document.getElementById('lightbox-prev')
 const lbNext = document.getElementById('lightbox-next')
 
 function openLightbox(src, projectIdx) {
-  const p = projects[projectIdx]
-  if (!p) return
-  const section = document.querySelector(`#project-overlay .proj-section:nth-child(2)`)
-  const imgs = section ? [...section.querySelectorAll('.proj-gallery__item img')].map(i => i.src) : [src]
+  const content = document.getElementById('overlay-content')
+  const imgs = content ? [...content.querySelectorAll('.proj-gallery__item img')].map(i => i.src) : [src]
   lbImages = imgs.length ? imgs : [src]
-  lbIndex = lbImages.indexOf(src)
+  lbIndex = lbImages.findIndex(u => u.includes(src.replace(/^.*\//,'')))
   if (lbIndex === -1) lbIndex = 0
   showLightboxImage()
   lb.classList.add('lightbox--open')

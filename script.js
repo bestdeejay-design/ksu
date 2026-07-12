@@ -14,14 +14,15 @@ const i18n = {
     'hero.subtitle': 'graphic<br/>designer',
     'hero.scroll': 'Scroll',
     'about.label': 'About',
-    'about.p1': "Hi! My name is Ksenia. I'm a graphic designer with a sharp sense of form, color, and composition. I create visual solutions that speak louder than words — from identity and branding to digital interfaces and print graphics.",
-    'about.p2': 'In my work, I combine bold aesthetics with modern minimalist approaches. Every project is a dialogue between meaning and form.',
-    'about.tag1': 'Identity',
-    'about.tag2': 'Branding',
-    'about.tag3': 'Typography',
-    'about.tag4': 'UI/UX',
-    'about.tag5': 'Illustration',
-    'about.tag6': 'Poster',
+    'about.p1': "Hi! I'm Ksenia, an illustrator and artist. I'm in love with the living line, texture, and the mood that comes alive in every drawing. I create illustrations for books, merch, packaging, and any medium that needs an author's touch.",
+    'about.p2': 'In my work, I combine expressive aesthetics with a love for details. For me, every project is a story told through images, not words.',
+    'about.tag1': 'Illustration',
+    'about.tag2': 'Graphic Design',
+    'about.tag3': 'Poster',
+    'about.tag4': 'Identity',
+    'about.tag5': 'Branding',
+    'about.tag6': 'Photography',
+    'about.tag7': 'Graphics',
     'works.label': 'Featured Projects',
     'works.count': 'projects',
     'refs.label': 'Inspiration',
@@ -51,7 +52,7 @@ const i18n = {
     'proj.3.backgrounds': 'Backgrounds',
     'proj.3.character': 'Character Concept',
     'proj.3.storyboard': 'Storyboard',
-    'proj.4.desc': 'Digital portrait illustrations created in Procreate, including studies of Mia Goth and other character portraits.',
+    'proj.4.desc': 'Digital portrait illustrations created in Procreate.',
     'proj.4.gallery': 'Portrait Gallery',
     'proj.4.more': 'More Procreate Works',
     'proj.5.desc': 'Illustration series "Popular Blondes" — postcard artwork featuring celebrity portraits in a bold contemporary style.',
@@ -65,7 +66,8 @@ const i18n = {
     'proj.8.desc': 'Decorative wall art illustrations — two fantasy-themed digital paintings for interior spaces.',
     'proj.8.works': 'Wall Art Works',
     'proj.9.desc': 'An atmospheric photobook capturing the quiet beauty of the night — the world between 3:00 and 4:00 AM.',
-    'proj.9.preview': 'Preview',
+    'proj.9.spreads': 'Spreads',
+    'proj.9.photos': 'Photos',
     'proj.10.desc': 'Before/after retouching timeline showing professional color grading and skin retouching workflow.',
     'proj.10.timeline': 'Retouching Timeline',
     'proj.0.desc': 'Curated moodboard collection spanning interior design concepts including offices, cafes, kitchens, cosmetics, and more.',
@@ -103,14 +105,15 @@ const i18n = {
     'hero.subtitle': 'графический<br/>дизайнер',
     'hero.scroll': 'Скролл',
     'about.label': 'Обо мне',
-    'about.p1': 'Привет! Меня зовут Ксения. Я графический дизайнер с острым чувством формы, цвета и композиции. Создаю визуальные решения, которые говорят громче слов — от айдентики и брендинга до цифровых интерфейсов и печатной графики.',
-    'about.p2': 'В своей работе я соединяю смелую эстетику с современными минималистичными подходами. Каждый проект для меня — это диалог между смыслом и формой.',
-    'about.tag1': 'Айдентика',
-    'about.tag2': 'Брендинг',
-    'about.tag3': 'Типографика',
-    'about.tag4': 'UI/UX',
-    'about.tag5': 'Иллюстрация',
-    'about.tag6': 'Плакат',
+    'about.p1': 'Привет! Я Ксения — иллюстратор и художник. Я влюблена в живую линию, фактуру и настроение, которое оживает в каждом рисунке. Создаю иллюстрации для книг, мерча, упаковки и любых носителей, где нужен авторский почерк.',
+    'about.p2': 'В своей работе я соединяю выразительную эстетику с любовью к деталям. Для меня каждый проект — это история, рассказанная образами, а не словами.',
+    'about.tag1': 'Иллюстрация',
+    'about.tag2': 'Графический дизайн',
+    'about.tag3': 'Плакат',
+    'about.tag4': 'Айдентика',
+    'about.tag5': 'Брендинг',
+    'about.tag6': 'Фотография',
+    'about.tag7': 'Графика',
     'works.label': 'Избранные проекты',
     'works.count': 'работ',
     'refs.label': 'Референсы',
@@ -140,7 +143,7 @@ const i18n = {
     'proj.3.backgrounds': 'Фоны',
     'proj.3.character': 'Концепт персонажа',
     'proj.3.storyboard': 'Раскадровка',
-    'proj.4.desc': 'Цифровые портретные иллюстрации, созданные в Procreate: штудии Мии Гот и другие персонажные портреты.',
+    'proj.4.desc': 'Цифровые портретные иллюстрации, созданные в Procreate.',
     'proj.4.gallery': 'Галерея портретов',
     'proj.4.more': 'Другие работы Procreate',
     'proj.5.desc': 'Серия иллюстраций «Popular Blondes» — постерные портреты знаменитостей в смелом современном стиле.',
@@ -154,7 +157,8 @@ const i18n = {
     'proj.8.desc': 'Декоративные иллюстрации для интерьера — две фэнтезийные цифровые картины.',
     'proj.8.works': 'Работы',
     'proj.9.desc': 'Атмосферный фотобук, запечатлевший тихую красоту ночи — мир между 3:00 и 4:00 утра.',
-    'proj.9.preview': 'Превью',
+    'proj.9.spreads': 'Развороты',
+    'proj.9.photos': 'Фото',
     'proj.10.desc': 'Таймлайн ретуши «до/после» с профессиональной цветокоррекцией и обработкой кожи.',
     'proj.10.timeline': 'Таймлайн ретуши',
     'proj.0.desc': 'Подборка мудбордов: концепты интерьеров, офисы, кафе, кухни, косметика и другое.',
@@ -560,16 +564,17 @@ function getProjectHTML(index) {
   const pTitle = lang === 'ru' ? p.titleRu : p.titleEn
 
   const section = (title, html) => `<div class="proj-section"><div class="proj-section__title">${title}</div>${html}</div>`
-  const gall = (srcs, cols = 2) => `<div class="proj-gallery proj-gallery--${cols}">${srcs.map(s => `<div class="proj-gallery__item"><img src="${s}" alt="${pTitle}" loading="lazy"/></div>`).join('')}</div>`
+  const gall = (srcs, cols = 2) => `<div class="proj-gallery proj-gallery--${cols}">${srcs.map(s => `<div class="proj-gallery__item" onclick="openLightbox('${s}',${index})"><img src="${s}" alt="${pTitle}" loading="lazy"/></div>`).join('')}</div>`
   const hero = `<div class="proj-hero"><div class="proj-hero__label">${lang === 'ru' ? p.categoryRu : p.categoryEn}</div><div style="font-size:clamp(24px,4vw,48px);font-weight:900;font-family:'Unbounded',sans-serif;margin:12px 0">${lang === 'ru' ? p.titleRu : p.titleEn}</div></div>`
   const desc = index !== 0 ? `<div class="proj-desc">${_(`proj.${index}.desc`)}</div>` : ''
 
   
 
+  let c
   switch (index) {
     // 1: Packaging Development
     case 1:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.1.mockup'), gall(['portfolio/packaging/mockup.jpg'], 1)) +
         section(_('proj.1.logos'), gall(['portfolio/packaging/logo-1-color.jpg', 'portfolio/packaging/logo-1.png', 'portfolio/packaging/logo-2.png'], 3)) +
         section(_('proj.1.poster'), gall(['portfolio/packaging/poster.png'], 1)) +
@@ -577,29 +582,32 @@ function getProjectHTML(index) {
         section(_('proj.1.storefront'), gall(['portfolio/packaging/storefront.jpg'], 1)) +
         section(_('proj.1.concept'), gall(['portfolio/packaging/concept.png'], 1)) +
         `<div class="proj-section"><div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="proj-pdf-link" href="portfolio/packaging/booklet-final.pdf" target="_blank" rel="noopener">${lang === 'ru' ? 'Буклет (PDF)' : 'Booklet (PDF)'}</a>
-          <a class="proj-pdf-link" href="portfolio/packaging/concept-development.pdf" target="_blank" rel="noopener">${lang === 'ru' ? 'Концепция (PDF)' : 'Concept Development (PDF)'}</a>
+          <a class="proj-pdf-link" href="portfolio/packaging/booklet-final.pdf" download target="_blank" rel="noopener">${lang === 'ru' ? 'Скачать буклет (PDF)' : 'Download booklet (PDF)'}</a>
+          <a class="proj-pdf-link" href="portfolio/packaging/concept-development.pdf" download target="_blank" rel="noopener">${lang === 'ru' ? 'Скачать концепцию (PDF)' : 'Download concept (PDF)'}</a>
         </div></div>`
+      break
 
     // 2: Cat Day Poster
     case 2:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.2.poster'), gall(['portfolio/poster-cat-day/poster-final.jpg'], 1)) +
         section(_('proj.2.ticket'), gall(['portfolio/poster-cat-day/ticket.jpg'], 1)) +
         section(_('proj.2.logo'), gall(['portfolio/poster-cat-day/logo.jpg'], 1)) +
         section(_('proj.2.mockups'), gall(['portfolio/poster-cat-day/mockup-1.jpg', 'portfolio/poster-cat-day/mockup-2.jpg']))
+      break
 
     // 3: Platformer Game Design
     case 3:
-      return hero + desc +
-        section(_('proj.3.screens'), gall(['portfolio/game/win-screen.jpg', 'portfolio/game/lose-screen.jpg'])) +
+      c = hero + desc +
+        section(_('proj.3.screens'), gall(['portfolio/game/menu.jpg', 'portfolio/game/win-screen.jpg', 'portfolio/game/lose-screen.jpg'], 2)) +
         section(_('proj.3.backgrounds'), gall(['portfolio/game/bg-1.jpg', 'portfolio/game/bg-2.jpg', 'portfolio/game/bg-3.jpg', 'portfolio/game/bg-4.jpg'], 2)) +
         section(_('proj.3.character'), gall(['portfolio/game/character-concept.jpg'], 1)) +
         section(_('proj.3.storyboard'), gall(['portfolio/game/storyboard.jpg'], 1))
+      break
 
     // 4: Procreate Portraits (+ root Procreate files)
     case 4:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.4.gallery'), gall([
           'portfolio/digital-drawing/procreate/portraits/portrait-mia-goth.jpg',
           'portfolio/digital-drawing/procreate/portraits/portrait-ldr.jpg',
@@ -616,25 +624,28 @@ function getProjectHTML(index) {
           'portfolio/digital-drawing/procreate/princess.jpg',
           'portfolio/digital-drawing/procreate/stingray-abstract.jpg'
         ], 3))
+      break
 
     // 5: Popular Blondes
     case 5:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.5.postcards'), gall([
           'portfolio/digital-drawing/popular-blondes/postcard-margot.jpg',
           'portfolio/digital-drawing/popular-blondes/page-regina.jpg',
           'portfolio/digital-drawing/popular-blondes/project-link.png'
         ], 3))
+      break
 
     // 6: Character & Comic
     case 6:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.6.comic'), gall(['portfolio/digital-drawing/character-comic/comic-var-1.jpg', 'portfolio/digital-drawing/character-comic/comic-var-2.jpg'])) +
         section(_('proj.6.character'), gall(['portfolio/digital-drawing/character-comic/stingray-character.jpg'], 1))
+      break
 
     // 7: Sticker Character (+ sticker-sketches)
     case 7:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.7.final'), gall(['portfolio/stickers/kiwi-cat.jpg'], 1)) +
         section(_('proj.7.variations'), gall([
           'portfolio/stickers/character-var-1.jpg',
@@ -642,35 +653,99 @@ function getProjectHTML(index) {
           'portfolio/stickers/character-var-2-1.jpg',
           'portfolio/digital-drawing/sticker-sketches/sticker-variant-bw.jpg'
         ], 4))
+      break
 
     // 8: Wall Art
     case 8:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.8.works'), gall(['portfolio/digital-drawing/wall-art-1.jpg', 'portfolio/digital-drawing/wall-art-2.jpg']))
+      break
 
     // 9: Photobook "3:00"
     case 9:
-      return hero + desc +
-        section(_('proj.9.preview'), `<div style="display:flex;flex-direction:column;gap:16px">${gall(['portfolio/photobook/preview.jpg'], 1)}<a class="proj-pdf-link" href="portfolio/photobook/photobook-final.pdf" target="_blank" rel="noopener">${lang === 'ru' ? 'Открыть фотокнигу (PDF)' : 'Open photobook (PDF)'}</a></div>`)
+      c = hero + desc +
+        `<div class="proj-section" style="text-align:center"><a class="proj-pdf-link" href="portfolio/photobook/photobook-final.pdf" download target="_blank" rel="noopener">${lang === 'ru' ? 'Скачать фотокнигу (PDF)' : 'Download photobook (PDF)'}</a></div>` +
+        section(_('proj.9.spreads'), gall(Array.from({length:11},(_,i)=>'portfolio/photobook/spread-'+(i+1).toString().padStart(2,'0')+'.jpg'), 2)) +
+        section(_('proj.9.photos'), gall(Array.from({length:14},(_,i)=>'portfolio/photobook/photo-'+(i+1).toString().padStart(2,'0')+'.png'), 3))
+      break
 
     // 10: Photo Retouching
     case 10:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.10.timeline'), gall(['portfolio/retouch/retouch-timeline.jpg'], 1))
+      break
 
     // 11: Moodboards Collection
     case 0:
-      return hero + desc +
+      c = hero + desc +
         section(_('proj.0.concepts'), gall(['portfolio/moodboards/concept-1.jpg', 'portfolio/moodboards/concept-2.jpg'])) +
         section(_('proj.0.offices'), gall(['portfolio/moodboards/office-cd-project.jpg', 'portfolio/moodboards/office-mundfish.jpg', 'portfolio/moodboards/office-sony.jpg'], 3)) +
         section(_('proj.0.cafes'), gall(['portfolio/moodboards/cafe-hello-kitty.jpg', 'portfolio/moodboards/cafe-cyberpunk.jpg', 'portfolio/moodboards/cafe-retro.jpg'], 3)) +
         section(_('proj.0.kitchens'), gall(['portfolio/moodboards/kitchen-1.jpg', 'portfolio/moodboards/kitchen-2.jpg', 'portfolio/moodboards/kitchen-3.jpg'], 3)) +
         section(_('proj.0.cosmetics'), gall(['portfolio/moodboards/cosmetics-shop.jpg'], 1))
+      break
 
     default:
       return null
   }
+
+  const shareTitle = lang === 'ru' ? 'Понравился проект?' : 'Like this project?'
+  const shareLabel = lang === 'ru' ? 'Поделиться проектом' : 'Share this project'
+  return c + `<div class="proj-section proj-section--share"><div class="proj-section__title">${shareTitle}</div><button class="proj-share-btn" onclick="shareProject(${index})">${shareLabel}</button></div>`
 }
+
+// LIGHTBOX
+let lbImages = []
+let lbIndex = 0
+const lb = document.getElementById('lightbox')
+const lbImg = document.getElementById('lightbox-image')
+const lbCounter = document.getElementById('lightbox-counter')
+const lbClose = document.getElementById('lightbox-close')
+const lbPrev = document.getElementById('lightbox-prev')
+const lbNext = document.getElementById('lightbox-next')
+
+function openLightbox(src, projectIdx) {
+  const p = projects[projectIdx]
+  if (!p) return
+  const section = document.querySelector(`#project-overlay .proj-section:nth-child(2)`)
+  const imgs = section ? [...section.querySelectorAll('.proj-gallery__item img')].map(i => i.src) : [src]
+  lbImages = imgs.length ? imgs : [src]
+  lbIndex = lbImages.indexOf(src)
+  if (lbIndex === -1) lbIndex = 0
+  showLightboxImage()
+  lb.classList.add('lightbox--open')
+  document.body.style.overflow = 'hidden'
+}
+
+function showLightboxImage() {
+  if (!lbImages.length) return
+  lbImg.src = lbImages[lbIndex]
+  lbImg.alt = ''
+  lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`
+  lbPrev.style.display = lbImages.length > 1 ? '' : 'none'
+  lbNext.style.display = lbImages.length > 1 ? '' : 'none'
+}
+
+function closeLightbox() {
+  lb.classList.remove('lightbox--open')
+  document.body.style.overflow = ''
+}
+
+function lbNav(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length
+  showLightboxImage()
+}
+
+lbClose.addEventListener('click', closeLightbox)
+lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox() })
+lbPrev.addEventListener('click', () => lbNav(-1))
+lbNext.addEventListener('click', () => lbNav(1))
+document.addEventListener('keydown', (e) => {
+  if (!lb.classList.contains('lightbox--open')) return
+  if (e.key === 'Escape') closeLightbox()
+  if (e.key === 'ArrowLeft') lbNav(-1)
+  if (e.key === 'ArrowRight') lbNav(1)
+})
 
 // SCROLL REVEAL
 const revealEls = document.querySelectorAll(

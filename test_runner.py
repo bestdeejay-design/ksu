@@ -217,7 +217,7 @@ def run_tests(url):
         print_header("T10. Файлы контента")
         expected_dirs = {
             "game": 9, "poster-cat-day": 5, "moodboards": 12, "stickers": 4,
-            "photobook": 2, "packaging": 10, "retouch": 1,
+            "photobook": 27, "packaging": 10, "retouch": 1,
         }
         for d, cnt in expected_dirs.items():
             actual = len(list((PORTFOLIO / d).glob("*"))) if (PORTFOLIO / d).is_dir() else 0
@@ -226,7 +226,7 @@ def run_tests(url):
         dd = PORTFOLIO / "digital-drawing"
         if dd.is_dir():
             dd_files = sum(1 for _ in dd.rglob("*") if _.is_file())
-            check("T10", "T10.files.dd", "digital-drawing: 21 файлов", dd_files == 21, f"найдено {dd_files}")
+            check("T10", "T10.files.dd", "digital-drawing: 23 файлов", dd_files == 23, f"найдено {dd_files}")
 
         has_cyrillic = any(ord(c) > 127 for p in PORTFOLIO.rglob("*") for c in str(p.relative_to(PORTFOLIO)))
         check("T10", "T10.cyrillic", "Нет кириллицы в путях", not has_cyrillic)

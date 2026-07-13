@@ -734,7 +734,7 @@
       canvas.width = targetW;
       canvas.height = Math.round(self.pageH * eff);
       var ctx = canvas.getContext('2d');
-      ctx.fillStyle = '#fff';
+      ctx.fillStyle = getComputedStyle(canvas).getPropertyValue('--fb-paper').trim() || '#fff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       var ox = (canvas.width - vp.width) / 2;
       var oy = (canvas.height - vp.height) / 2;
@@ -977,7 +977,7 @@
     dst.width = src.width || Math.round(W);
     dst.height = src.height || Math.round(H);
     var ctx = dst.getContext('2d');
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = getComputedStyle(dst).getPropertyValue('--fb-paper').trim() || '#fff';
     ctx.fillRect(0, 0, dst.width, dst.height);
     if (src.width) ctx.drawImage(src, 0, 0);
     dst.__renderW = src.__renderW;
@@ -999,7 +999,7 @@
         rig.canvas.width = this.baseC.width || Math.round(W);
         rig.canvas.height = this.baseC.height || Math.round(H);
         var gx = rig.canvas.getContext('2d');
-        gx.fillStyle = '#fff';
+        gx.fillStyle = getComputedStyle(rig.canvas).getPropertyValue('--fb-paper').trim() || '#fff';
         gx.fillRect(0, 0, rig.canvas.width, rig.canvas.height);
         if (this.baseC.width) {
           gx.globalAlpha = 0.09;

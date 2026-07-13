@@ -177,13 +177,13 @@ def run_tests(url):
 
         # ───── T7: NAVIGATION ─────
         print_header("T7. Навигация")
-        for sid in ["hero", "about", "works", "references", "contact"]:
+        for sid in ["hero", "about", "works", "contact"]:
             check("T7", f"T7.{sid}", f"#{sid} существует", page.locator(f"#{sid}").count() > 0)
         logo = page.locator(".nav__logo")
         check("T7", "T7.logo", "Логотип виден", logo.is_visible())
         check("T7", "T7.logo.href", "Логотип → #", logo.get_attribute("href") == "#")
         nav_links = page.locator(".nav__link")
-        check("T7", "T7.nav", "Ссылки в nav видимы", nav_links.count() >= 4, f"{nav_links.count()}")
+        check("T7", "T7.nav", "Ссылки в nav видимы", nav_links.count() >= 3, f"{nav_links.count()}")
 
         email = page.locator(".contact__email")
         check("T7", "T7.email", "Email виден", email.is_visible())

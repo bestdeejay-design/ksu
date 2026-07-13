@@ -274,15 +274,6 @@ langBtn.addEventListener('click', () => {
 })
 
 function rebuildLangContent() {
-  const refGrid = document.getElementById('references-grid')
-  refGrid.innerHTML = ''
-  buildReferences()
-
-  document.getElementById('ref-special').innerHTML = ''
-  document.getElementById('ref-boards').innerHTML = ''
-  buildResourceSection('ref-special', specialResources)
-  buildResourceSection('ref-boards', boardResources)
-
   const worksGrid = document.getElementById('works-grid')
   worksGrid.innerHTML = ''
   buildWorks()
@@ -381,7 +372,6 @@ function buildReferences() {
   })
 }
 
-buildReferences()
 
 function buildResourceSection(id, items) {
   const grid = document.getElementById(id)
@@ -398,13 +388,9 @@ function buildResourceSection(id, items) {
   })
 }
 
-buildResourceSection('ref-special', specialResources)
-buildResourceSection('ref-boards', boardResources)
-
-// Apply language on load
 applyLanguage()
 
-// PROJECT OVERLAY
+let fbInstance = null
 const overlay = document.getElementById('project-overlay')
 const overlayContent = document.getElementById('overlay-content')
 const overlayClose = document.getElementById('overlay-close')
@@ -476,9 +462,17 @@ function openProject(index) {
   window.scrollTo({ top: 0 })
   updateOG(index)
   history.replaceState(null, '', `#project-${index}`)
+
+  if (index === 9) {
+    const fbEl = document.getElementById('photobook-flipbook')
+    if (fbEl && typeof PDFlipbook !== 'undefined') {
+      fbInstance = PDFlipbook.create(fbEl, { url: 'portfolio/photobook/photobook-final.pdf' })
+    }
+  }
 }
 
 function closeProject() {
+  if (fbInstance) { fbInstance.destroy(); fbInstance = null }
   overlay.classList.remove('overlay--open')
   document.body.style.overflow = ''
   document.body.classList.remove('overlay-active')
@@ -659,7 +653,7 @@ function getProjectHTML(index) {
     case 9:
       c = hero + desc +
         `<div class="proj-section" style="text-align:center"><a class="proj-pdf-link" href="portfolio/photobook/photobook-final.pdf" download target="_blank" rel="noopener">${lang === 'ru' ? 'Скачать фотокнигу (PDF)' : 'Download photobook (PDF)'}</a></div>` +
-        section(_('proj.9.spreads'), gall(Array.from({length:11},(_,i)=>'portfolio/photobook/spread-'+(i+1).toString().padStart(2,'0')+'.jpg'), 2)) +
+        `<div class="proj-section"><div class="proj-section__title">${_('proj.9.spreads')}</div><div id="photobook-flipbook" style="height:600px;max-height:80vh;margin-bottom:24px"></div></div>` +
         section(_('proj.9.photos'), gall(Array.from({length:14},(_,i)=>'portfolio/photobook/photo-'+(i+1).toString().padStart(2,'0')+'.png'), 3))
       break
 
@@ -813,7 +807,7 @@ document.addEventListener('keydown', (e) => {
 
 // SCROLL REVEAL
 const revealEls = document.querySelectorAll(
-  '.about__content > *, .about__visual > *, .works__header, .work-card, .references__header, .ref-card, .ref-section, .ref-mini, .contact__left > *, .contact__right > *'
+  '.about__content > *, .about__visual > *, .works__header, .work-card, .contact__left > *, .contact__right > *'
 )
 const observer = new IntersectionObserver(
   (entries) => {

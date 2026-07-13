@@ -643,12 +643,14 @@ function getProjectHTML(index) {
     // 9: Photobook "3:00"
     case 9:
       c = hero + desc +
-        `<div class="proj-section" style="text-align:center;display:flex;flex-direction:column;gap:16px">
-          <a class="proj-pdf-link" href="flipbook/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:100px;border:2px solid var(--accent);font-family:'Unbounded',sans-serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--text);transition:all .3s;text-decoration:none">
+        `<div class="proj-section" style="text-align:center">
+          <a class="proj-pdf-link" href="flipbook/" target="_blank" rel="noopener" style="gap:8px">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
             ${lang === 'ru' ? 'Листать фотокнигу' : 'Flip through'}
           </a>
-          <a class="proj-pdf-link" href="portfolio/photobook/photobook-final.pdf" download target="_blank" rel="noopener" style="font-size:13px;color:var(--text-secondary)">${lang === 'ru' ? 'Скачать PDF' : 'Download PDF'}</a>
+          <div style="margin-top:12px;font-size:13px;color:var(--text-secondary)">
+            <a href="portfolio/photobook/photobook-final.pdf" download target="_blank" rel="noopener" style="color:inherit">${lang === 'ru' ? 'Скачать PDF' : 'Download PDF'}</a>
+          </div>
         </div>` +
         section(_('proj.9.photos'), gall(Array.from({length:14},(_,i)=>'portfolio/photobook/photo-'+(i+1).toString().padStart(2,'0')+'.png'), 3))
       break

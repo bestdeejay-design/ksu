@@ -7,88 +7,59 @@
 <meta name="description" content="Interactive flipbook — flip through the atmospheric photobook «3:00» by Ksenia."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://bestdeejay-design.github.io/ksu/flipbook/"/>
-<meta property="og:title" content="Фотокнига «3:00» — interactive flipbook by Ksenia"/>
+<meta property="og:title" content="Фотокнига «3:00» — flipbook"/>
 <meta property="og:description" content="Flip through the atmospheric photobook «3:00»."/>
 <meta property="og:image" content="https://bestdeejay-design.github.io/ksu/og-9.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta property="og:locale" content="ru_RU"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Фотокнига «3:00» — interactive flipbook by Ksenia"/>
+<meta name="twitter:title" content="Фотокнига «3:00» — flipbook"/>
 <meta name="twitter:image" content="https://bestdeejay-design.github.io/ksu/og-9.jpg"/>
 <link rel="canonical" href="https://bestdeejay-design.github.io/ksu/flipbook/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css" />
+<link rel="stylesheet" href="../style.css" />
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
-body{
-  --fb-bg:#0A0A0A;--fb-text:#F5F5F5;
-  --fb-accent:#F64A8A;
-  background:var(--fb-bg);color:var(--fb-text);
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
-  display:flex;flex-direction:column
-}
-body.light{
-  --fb-bg:#F5F0EB;--fb-text:#1A1A1A;
-  --fb-accent:#F64A8A;
-}
+body{display:flex;flex-direction:column}
+.nav{position:fixed;z-index:100}
 .book-wrap{
   flex:1;width:100%;max-width:1200px;
   display:flex;align-items:center;justify-content:center;
-  padding:80px 40px;margin:0 auto
+  padding:80px 40px;margin:80px auto 0
 }
-#book{width:100%;height:100%}
-.nav-bar{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 32px;height:64px;
-  background:color-mix(in srgb,var(--fb-bg) 80%,transparent);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  font-family:'Inter',sans-serif;font-size:14px
-}
-.nav-bar__logo{
-  font-family:'Unbounded',sans-serif;
-  font-weight:700;font-size:18px;
-  color:var(--fb-text);text-decoration:none
-}
-.nav-bar__right{display:flex;align-items:center;gap:16px}
-.nav-bar__back{
-  display:inline-flex;align-items:center;gap:6px;
-  color:var(--fb-text);text-decoration:none;
-  opacity:.7;transition:opacity .2s;font-size:14px;font-weight:500
-}
-.nav-bar__back:hover{opacity:1}
-.nav-bar__back svg{width:16px;height:16px;flex-shrink:0}
-.theme-btn{
-  width:36px;height:36px;display:flex;
-  align-items:center;justify-content:center;
-  border-radius:50%;border:none;cursor:pointer;
-  background:transparent;color:var(--fb-text);
-  font-size:16px;transition:background .3s
-}
-.theme-btn:hover{background:rgba(255,255,255,.08)}
-body.light .theme-btn:hover{background:rgba(0,0,0,.06)}
+#book{width:100%;height:100%;--fb-bg:var(--bg);--fb-paper:#fff;--fb-control-bg:rgba(0,0,0,.72);--fb-control-fg:#fff;--fb-counter-fg:var(--text-muted)}
 @media(max-width:768px){
   .book-wrap{padding:70px 12px 20px}
-  .nav-bar{padding:0 16px}
 }
 </style>
 </head>
 <body>
 
-<nav class="nav-bar">
-  <a href="../index.html#project-9" class="nav-bar__logo">Ksenia</a>
-  <div class="nav-bar__right">
-    <a class="nav-bar__back" href="../index.html#project-9">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-      <span data-i18n="back">Назад</span>
-    </a>
-    <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
-      <span id="theme-icon">☀️</span>
-    </button>
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="../index.html#project-9" class="nav__logo" style="font-size:18px">Ksenia</a>
+    <div class="nav__links">
+      <a href="../index.html#project-9" class="nav__link" style="display:inline-flex;align-items:center;gap:6px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Назад
+      </a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -98,15 +69,14 @@ body.light .theme-btn:hover{background:rgba(0,0,0,.06)}
 
 <script>
 (function(){
+  var html = document.documentElement
   var saved = localStorage.getItem('theme') || 'dark'
-  if (saved === 'light') document.body.classList.add('light')
+  html.setAttribute('data-theme', saved)
   document.getElementById('theme-toggle').addEventListener('click', function(){
-    document.body.classList.toggle('light')
-    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark')
-    document.getElementById('theme-icon').textContent =
-      document.body.classList.contains('light') ? '🌙' : '☀️'
+    var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
+    html.setAttribute('data-theme', next)
+    localStorage.setItem('theme', next)
   })
-  document.getElementById('theme-icon').textContent = saved === 'light' ? '🌙' : '☀️'
 })();
 </script>
 <script src="pdflipbook.js"></script>

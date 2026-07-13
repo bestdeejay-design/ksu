@@ -4,82 +4,111 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Фотокнига «3:00» — Ksenia</title>
-<meta name="description" content="Interactive flipbook — flip through the atmospheric photobook «3:00» by Ksenia. A visual story of the quiet world between 3 and 4 AM."/>
+<meta name="description" content="Interactive flipbook — flip through the atmospheric photobook «3:00» by Ksenia."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://bestdeejay-design.github.io/ksu/flipbook/"/>
 <meta property="og:title" content="Фотокнига «3:00» — interactive flipbook by Ksenia"/>
-<meta property="og:description" content="Flip through the atmospheric photobook «3:00» — a visual story of the quiet world between 3 and 4 AM."/>
+<meta property="og:description" content="Flip through the atmospheric photobook «3:00»."/>
 <meta property="og:image" content="https://bestdeejay-design.github.io/ksu/og-9.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta property="og:locale" content="ru_RU"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Фотокнига «3:00» — interactive flipbook by Ksenia"/>
-<meta name="twitter:description" content="Flip through the atmospheric photobook «3:00» — a visual story of the quiet world between 3 and 4 AM."/>
 <meta name="twitter:image" content="https://bestdeejay-design.github.io/ksu/og-9.jpg"/>
 <link rel="canonical" href="https://bestdeejay-design.github.io/ksu/flipbook/"/>
-<script type="application/ld+json">{
-"@context":"https://schema.org",
-"@type":"CreativeWork",
-"name":"Photobook 3:00 — interactive flipbook",
-"description":"Interactive flipbook for the atmospheric photobook «3:00» by Ksenia.",
-"url":"https://bestdeejay-design.github.io/ksu/flipbook/",
-"image":"https://bestdeejay-design.github.io/ksu/og-9.jpg",
-"author":{"@type":"Person","name":"Ksenia"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
 body{
-  background:#0A0A0A;color:#F5F5F5;
+  --fb-bg:#0A0A0A;--fb-text:#F5F5F5;
+  --fb-accent:#F64A8A;
+  background:var(--fb-bg);color:var(--fb-text);
   font-family:'Inter',system-ui,-apple-system,sans-serif;
-  display:flex;flex-direction:column;align-items:center;
-  --accent:#FF2D55;
+  display:flex;flex-direction:column
+}
+body.light{
+  --fb-bg:#F5F0EB;--fb-text:#1A1A1A;
+  --fb-accent:#F64A8A;
 }
 .book-wrap{
   flex:1;width:100%;max-width:1200px;
   display:flex;align-items:center;justify-content:center;
-  padding:80px 40px;
+  padding:80px 40px;margin:0 auto
 }
-#book{
-  width:100%;height:100%;
-  --fb-bg:transparent;
-  --fb-paper:#fff;
-  --fb-control-bg:rgba(10,10,10,.82);
-  --fb-control-fg:#fff;
-  --fb-counter-fg:rgba(255,255,255,.5);
+#book{width:100%;height:100%}
+.nav-bar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;height:64px;
+  background:color-mix(in srgb,var(--fb-bg) 80%,transparent);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  font-family:'Inter',sans-serif;font-size:14px
 }
-.back{
-  position:fixed;top:24px;left:24px;z-index:100;
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--accent);color:#fff;border:none;
-  padding:10px 22px;border-radius:100px;
-  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;
-  cursor:pointer;text-decoration:none;
-  transition:transform .2s,box-shadow .2s;
-  touch-action:manipulation;
+.nav-bar__logo{
+  font-family:'Unbounded',sans-serif;
+  font-weight:700;font-size:18px;
+  color:var(--fb-text);text-decoration:none
 }
-.back:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,45,85,.3)}
-.back svg{width:16px;height:16px;flex-shrink:0}
+.nav-bar__right{display:flex;align-items:center;gap:16px}
+.nav-bar__back{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--fb-text);text-decoration:none;
+  opacity:.7;transition:opacity .2s;font-size:14px;font-weight:500
+}
+.nav-bar__back:hover{opacity:1}
+.nav-bar__back svg{width:16px;height:16px;flex-shrink:0}
+.theme-btn{
+  width:36px;height:36px;display:flex;
+  align-items:center;justify-content:center;
+  border-radius:50%;border:none;cursor:pointer;
+  background:transparent;color:var(--fb-text);
+  font-size:16px;transition:background .3s
+}
+.theme-btn:hover{background:rgba(255,255,255,.08)}
+body.light .theme-btn:hover{background:rgba(0,0,0,.06)}
 @media(max-width:768px){
-  .book-wrap{padding:60px 16px}
-  .back{top:12px;left:12px;padding:8px 16px;font-size:13px}
+  .book-wrap{padding:70px 12px 20px}
+  .nav-bar{padding:0 16px}
 }
 </style>
 </head>
 <body>
 
-<a class="back" href="../index.html#project-9">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-  Назад
-</a>
+<nav class="nav-bar">
+  <a href="../index.html#project-9" class="nav-bar__logo">Ksenia</a>
+  <div class="nav-bar__right">
+    <a class="nav-bar__back" href="../index.html#project-9">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      <span data-i18n="back">Назад</span>
+    </a>
+    <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+      <span id="theme-icon">☀️</span>
+    </button>
+  </div>
+</nav>
 
 <div class="book-wrap">
   <div id="book" data-pdflipbook="../portfolio/photobook/photobook-final.pdf"></div>
 </div>
 
+<script>
+(function(){
+  var saved = localStorage.getItem('theme') || 'dark'
+  if (saved === 'light') document.body.classList.add('light')
+  document.getElementById('theme-toggle').addEventListener('click', function(){
+    document.body.classList.toggle('light')
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark')
+    document.getElementById('theme-icon').textContent =
+      document.body.classList.contains('light') ? '🌙' : '☀️'
+  })
+  document.getElementById('theme-icon').textContent = saved === 'light' ? '🌙' : '☀️'
+})();
+</script>
 <script src="pdflipbook.js"></script>
 </body>
 </html>

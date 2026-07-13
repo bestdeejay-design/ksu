@@ -652,6 +652,7 @@ function getProjectHTML(index) {
             <a href="portfolio/photobook/photobook-final.pdf" download target="_blank" rel="noopener" style="color:inherit">${lang === 'ru' ? 'Скачать PDF' : 'Download PDF'}</a>
           </div>
         </div>` +
+        section(_('proj.9.spreads'), gall(Array.from({length:11},(_,i)=>'portfolio/photobook/spread-'+(i+1).toString().padStart(2,'0')+'.jpg'), 2)) +
         section(_('proj.9.photos'), gall(Array.from({length:14},(_,i)=>'portfolio/photobook/photo-'+(i+1).toString().padStart(2,'0')+'.png'), 3))
       break
 

@@ -1,0 +1,182 @@
+/* ============================================================
+ * REFERENCES — вырезано из ksu/style.css
+ * ------------------------------------------------------------
+ * Исходник: style.css
+ *   - блок /* REFERENCES *\/ (lines 432–579): .references, .ref-card*,
+ *     .ref-mini*
+ *   - адаптив ref-* из медиа-блоков (max-width: 1024 / 768 / 480)
+ *
+ * Это мёртвый CSS страницы, вынесенный в отдельный проект
+ * «Справочник дизайнера». Лежит здесь как есть (cut & paste).
+ * ============================================================ */
+
+
+/* REFERENCES */
+.references{
+  padding:0 40px 160px
+}
+.references__header{
+  max-width:1440px;margin:0 auto 60px
+}
+.references__subtitle{
+  font-size:16px;line-height:1.6;
+  color:var(--text-secondary);
+  max-width:540px
+}
+.references__grid{
+  max-width:1440px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:var(--gap)
+}
+.ref-card{
+  position:relative;
+  display:block;
+  border-radius:12px;
+  overflow:hidden;
+  transition:transform .6s cubic-bezier(.25,.1,.25,1);
+  border:1px solid var(--border)
+}
+.ref-card:hover{transform:scale(.98)}
+.ref-card__inner{
+  padding:32px 36px;
+  display:flex;
+  flex-direction:column;
+  min-height:160px
+}
+[data-theme="light"] .ref-card__inner{
+  outline:1px solid var(--border);
+  outline-offset:-1px;
+  border-radius:12px
+}
+.ref-card__cat{
+  font-family:'Unbounded',sans-serif;
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:-.02em;
+  margin-bottom:8px
+}
+.ref-card__desc{
+  font-size:14px;line-height:1.6;
+  color:var(--text-secondary);
+  margin-bottom:auto
+}
+.ref-card__links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid var(--border)
+}
+/* === CONTRAST FIX: ref-card__link === */
+.ref-card__link{
+  flex:1;
+  min-width:calc(20% - 6px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+  padding:8px 6px;
+  border-radius:6px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.02em;
+  transition:all .3s;
+  text-decoration:none;
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.85);
+  line-height:1.2
+}
+[data-theme="light"] .ref-card__link{background:rgba(0,0,0,.06);color:rgba(0,0,0,.85)}
+.ref-card__link span:first-child{
+  font-size:13px;font-weight:800
+}
+.ref-card__link span:last-child{
+  font-size:8px;letter-spacing:.05em;
+  color:var(--text-muted);
+  transition:color .3s
+}
+.ref-card__link:hover span:last-child{color:inherit}
+.ref-card__link--be:hover{background:#1769FF;color:#fff}
+.ref-card__link--dr:hover{background:#EA4C89;color:#fff}
+.ref-card__link--fg:hover{background:#1E1E1E;color:#fff;box-shadow:0 0 0 1px #555}
+.ref-card__link--pt:hover{background:#E60023;color:#fff}
+[data-theme="light"] .ref-card__link--fg:hover{background:#333;color:#fff}
+
+/* Mini resource sections */
+.ref-section{
+  max-width:1440px;margin:60px auto 0
+}
+.ref-section__title{
+  font-family:'Unbounded',sans-serif;
+  font-weight:700;
+  font-size:16px;
+  letter-spacing:-.01em;
+  margin-bottom:4px
+}
+/* === CONTRAST FIX: ref-section__desc === */
+.ref-section__desc{
+  font-size:13px;
+  color:rgba(255,255,255,.55);
+  margin-bottom:20px
+}
+[data-theme="light"] .ref-section__desc{color:rgba(0,0,0,.55)}
+.ref-section__grid{
+  display:grid;
+  gap:var(--gap)
+}
+.ref-section__grid--special{grid-template-columns:repeat(5,1fr)}
+.ref-section__grid--boards{grid-template-columns:repeat(3,1fr)}
+
+.ref-mini{
+  text-decoration:none;
+  display:block
+}
+.ref-mini__inner{
+  padding:20px 24px;
+  border-radius:10px;
+  border:1px solid;
+  background:var(--card-bg);
+  transition:all .3s;
+  height:100%
+}
+.ref-mini:hover .ref-mini__inner{
+  background:var(--surface-2);
+  transform:translateY(-2px)
+}
+[data-theme="light"] .ref-mini:hover .ref-mini__inner{
+  background:rgba(0,0,0,.07)
+}
+.ref-mini__name{
+  font-family:'Unbounded',sans-serif;
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:-.01em;
+  margin-bottom:6px
+}
+.ref-mini__desc{
+  font-size:12px;line-height:1.5;
+  color:var(--text-secondary)
+}
+
+
+/* === Responsive (те же брейкпоинты, что в оригинальном style.css) === */
+@media(max-width:1024px){
+  .references__grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .references{padding:0 24px 80px}
+  .ref-card__inner{padding:20px;min-height:120px}
+  .ref-card__cat{font-size:17px}
+  .ref-section__grid--special{grid-template-columns:repeat(2,1fr)}
+  .ref-section__grid--boards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .references__grid{grid-template-columns:1fr}
+  .ref-section__grid--special{grid-template-columns:1fr}
+  .ref-section__grid--boards{grid-template-columns:1fr}
+  .ref-card__links{flex-wrap:wrap}
+  .ref-card__link{min-width:calc(33% - 6px);padding:6px 4px}
+  .references{padding:0 20px 60px}
+}

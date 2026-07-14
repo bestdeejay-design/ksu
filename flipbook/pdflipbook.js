@@ -734,7 +734,7 @@
       canvas.width = targetW;
       canvas.height = Math.round(self.pageH * eff);
       var ctx = canvas.getContext('2d');
-      ctx.fillStyle = getComputedStyle(canvas).getPropertyValue('--fb-paper').trim() || '#fff';
+      ctx.fillStyle = getComputedStyle(self.book).getPropertyValue('--fb-paper').trim() || '#fff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       var ox = (canvas.width - vp.width) / 2;
       var oy = (canvas.height - vp.height) / 2;
@@ -973,11 +973,11 @@
     return this.rig;
   };
 
-  function copyCanvas(src, dst, W, H) {
+  function copyCanvas(src, dst, W, H, bookEl) {
     dst.width = src.width || Math.round(W);
     dst.height = src.height || Math.round(H);
     var ctx = dst.getContext('2d');
-    ctx.fillStyle = getComputedStyle(dst).getPropertyValue('--fb-paper').trim() || '#fff';
+    ctx.fillStyle = getComputedStyle(bookEl || dst).getPropertyValue('--fb-paper').trim() || '#fff';
     ctx.fillRect(0, 0, dst.width, dst.height);
     if (src.width) ctx.drawImage(src, 0, 0);
     dst.__renderW = src.__renderW;
@@ -995,11 +995,11 @@
       if (dir === 'fwd') {
         // the lone page peels off over its left edge: its underside is a
         // faint mirrored ghost (thin paper), revealing the next page beneath
-        copyCanvas(this.nextC, this.underC, W, H);
+        copyCanvas(this.nextC, this.underC, W, H, this.book);
         rig.canvas.width = this.baseC.width || Math.round(W);
         rig.canvas.height = this.baseC.height || Math.round(H);
         var gx = rig.canvas.getContext('2d');
-        gx.fillStyle = getComputedStyle(rig.canvas).getPropertyValue('--fb-paper').trim() || '#fff';
+        gx.fillStyle = getComputedStyle(this.book).getPropertyValue('--fb-paper').trim() || '#fff';
         gx.fillRect(0, 0, rig.canvas.width, rig.canvas.height);
         if (this.baseC.width) {
           gx.globalAlpha = 0.09;
@@ -1010,13 +1010,13 @@
         face = this.baseFaceEl;
       } else {
         // the previous page sweeps back in from the left, landing on top
-        copyCanvas(this.prevC, rig.canvas, W, H);
+        copyCanvas(this.prevC, rig.canvas, W, H, this.book);
         rig.canvas.style.transform = '';
       }
     } else {
       var s = this.sheets[k];
       var srcCanvas = dir === 'fwd' ? s.backCanvas : s.frontCanvas;
-      copyCanvas(srcCanvas, rig.canvas, W, H);
+      copyCanvas(srcCanvas, rig.canvas, W, H, this.book);
       rig.canvas.style.transform = side > 0 ? 'scaleX(-1)' : '';
       face = dir === 'fwd' ? s.frontFace : s.backFace;
     }
@@ -1158,7 +1158,7 @@
       // swap the base page to the freshly-landed one BEFORE removing the
       // rig, so the handoff is pixel-seamless
       copyCanvas(f.dir === 'fwd' ? this.nextC : this.prevC,
-                 this.baseC, this.pageW, this.pageH);
+                 this.baseC, this.pageW, this.pageH, this.book);
       this.viewPage = clamp(this.viewPage + (f.dir === 'fwd' ? 1 : -1), 1, this.numPages);
       this.current = this._sheetForPage(this.viewPage);
       this._applyResting();

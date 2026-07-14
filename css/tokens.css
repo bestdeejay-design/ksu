@@ -1,33 +1,44 @@
 :root {
 
-/* === COLORS === */
+/* === BRAND === */
+--accent: #FF2D55;
+--accent2: #FFD633;
+--accent3: #00E5FF;
 
-/* Brand */
---color-accent: #FF2D55;
---color-accent2: #FFD633;
---color-accent3: #00E5FF;
+/* === NEUTRAL === */
+--white-pure: #ffffff;
+--black-pure: #000000;
+--overlay-dark: rgba(0,0,0,0.92);
 
-/* Neutral */
---color-white-pure: #ffffff;
---color-black-pure: #000000;
---color-overlay-dark: rgba(0,0,0,0.92);
+/* === THEME (dark default) === */
+--bg: #0A0A0A;
+--text: #F5F5F5;
+--text-secondary: rgba(255,255,255,0.7);
+--text-muted: rgba(255,255,255,0.3);
+--border: rgba(255,255,255,0.04);
+--border-visible: rgba(255,255,255,0.15);
+--card-bg: rgba(255,255,255,0.03);
+--nav-bg: rgba(10,10,10,0.8);
+--hero-name-from: #fff;
+--hero-name-to: var(--accent);
+--logo-color: #fff;
+--scroll-bg: rgba(255,255,255,0.3);
+--tag-hover-bg: rgba(255,45,85,0.1);
+--gap: 24px;
 
-/* Surfaces (dark theme) */
---color-surface-1: rgba(255,255,255,0.03);
---color-surface-2: rgba(255,255,255,0.06);
---color-surface-3: rgba(255,255,255,0.08);
---color-surface-4: rgba(255,255,255,0.15);
+/* === SURFACE / BORDER (shared) === */
+--bg-shape-strong: rgba(255,255,255,0.25);
+--bg-shape-soft: rgba(255,255,255,0.05);
+--border-shape: rgba(255,255,255,0.18);
+--text-on-shape: rgba(255,255,255,0.85);
+--surface-1: var(--card-bg);
+--surface-2: rgba(255,255,255,0.06);
+--surface-3: rgba(255,255,255,0.10);
+--border-subtle: rgba(255,255,255,0.08);
+--border-default: rgba(255,255,255,0.15);
+--border-strong: rgba(255,255,255,0.25);
 
-/* Text (dark theme) */
---color-text-primary: #F5F5F5;
---color-text-secondary: rgba(255,255,255,0.7);
---color-text-muted: rgba(255,255,255,0.3);
-
-/* Background (dark theme) */
---color-bg-primary: #0A0A0A;
---color-bg-nav: rgba(10,10,10,0.8);
-
-/* Card gradients — dark theme */
+/* === CARD GRADIENTS (dark) === */
 --card-moodboards-from: #1a0a0e;
 --card-moodboards-to: #2d1b1e;
 --card-packaging-from: #0a1a14;
@@ -51,18 +62,10 @@
 --card-retouch-from: #1a0a14;
 --card-retouch-to: #2d1420;
 
-/* Light theme override surface colors */
---color-light-bg: #F5F0EB;
---color-light-text: #1A1A1A;
---color-light-text-secondary: rgba(0,0,0,0.78);
---color-light-text-muted: rgba(0,0,0,0.5);
---color-light-border: rgba(0,0,0,0.1);
---color-light-border-visible: rgba(0,0,0,0.18);
---color-light-card-bg: rgba(0,0,0,0.04);
---color-light-nav-bg: rgba(245,240,235,0.9);
+/* === LIGHT THEME CARD GRADIENT === */
 --color-light-card-gradient: #e0dcd5;
 
-/* Social brand colors */
+/* === SOCIAL BRAND COLORS === */
 --color-behance: #1769FF;
 --color-dribbble: #EA4C89;
 --color-pinterest: #E60023;
@@ -160,16 +163,31 @@
 --contrast-muted: .3;
 --contrast-decorative: .12;
 --contrast-disabled: .25;
+}
 
-/* === SURFACE / BORDER TOKENS === */
---bg-shape-strong: rgba(255,255,255,.25);
---bg-shape-soft: rgba(255,255,255,.05);
---border-shape: rgba(255,255,255,.18);
---text-on-shape: rgba(255,255,255,.85);
---surface-1: var(--card-bg);
---surface-2: rgba(255,255,255,.06);
---surface-3: rgba(255,255,255,.10);
---border-subtle: rgba(255,255,255,.08);
---border-default: rgba(255,255,255,.15);
---border-strong: rgba(255,255,255,.25);
+/* LIGHT THEME OVERRIDES */
+[data-theme="light"] {
+  --bg: #F5F0EB;
+  --text: #1A1A1A;
+  --text-secondary: rgba(0,0,0,0.78);
+  --text-muted: rgba(0,0,0,0.5);
+  --border: rgba(0,0,0,0.1);
+  --border-visible: rgba(0,0,0,0.18);
+  --card-bg: rgba(0,0,0,0.04);
+  --nav-bg: rgba(245,240,235,0.9);
+  --hero-name-from: #1A1A1A;
+  --hero-name-to: var(--accent);
+  --logo-color: #1A1A1A;
+  --scroll-bg: rgba(0,0,0,0.4);
+  --tag-hover-bg: rgba(255,45,85,0.1);
+
+  --bg-shape-strong: rgba(0,0,0,0.12);
+  --bg-shape-soft: rgba(0,0,0,0.04);
+  --border-shape: rgba(0,0,0,0.10);
+  --text-on-shape: rgba(0,0,0,0.85);
+  --surface-2: rgba(0,0,0,0.05);
+  --surface-3: rgba(0,0,0,0.08);
+  --border-subtle: rgba(0,0,0,0.06);
+  --border-default: rgba(0,0,0,0.12);
+  --border-strong: rgba(0,0,0,0.20);
 }

@@ -2,6 +2,10 @@ function closeMobileMenu() {
   document.getElementById('menu-toggle').checked = false
 }
 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMobileMenu()
+})
+
 const SITE_URL = 'https://bestdeejay-design.github.io/ksu'
 
 // I18N
@@ -20,7 +24,7 @@ const i18n = {
     'hero.subtitle': 'graphic<br/>designer',
     'hero.scroll': 'Scroll',
     'about.label': 'About',
-    'about.p1': "Hi! I'm Ksenia, an illustrator and artist. I'm in love with the living line, texture, and the mood that comes alive in every drawing. I create illustrations for books, merch, packaging, and any medium that needs an author's touch.",
+    'about.p1': "Hi! I'm Ksenia — a graphic designer and illustrator. I'm in love with the living line, texture, and the mood that comes alive in every drawing. I craft visual solutions across identity, branding, illustration, and print.",
     'about.p2': 'In my work, I combine expressive aesthetics with a love for details. For me, every project is a story told through images, not words.',
     'about.tag1': 'Illustration',
     'about.tag2': 'Graphic Design',
@@ -113,7 +117,7 @@ const i18n = {
     'hero.subtitle': 'графический<br/>дизайнер',
     'hero.scroll': 'Скролл',
     'about.label': 'Обо мне',
-    'about.p1': 'Привет! Я Ксения — иллюстратор и художник. Я влюблена в живую линию, фактуру и настроение, которое оживает в каждом рисунке. Создаю иллюстрации для книг, мерча, упаковки и любых носителей, где нужен авторский почерк.',
+    'about.p1': 'Привет! Я Ксения — графический дизайнер и иллюстратор. Я влюблена в живую линию, фактуру и настроение, которое оживает в каждом рисунке. Создаю визуальные решения для айдентики, брендинга, иллюстрации и печати.',
     'about.p2': 'В своей работе я соединяю выразительную эстетику с любовью к деталям. Для меня каждый проект — это история, рассказанная образами, а не словами.',
     'about.tag1': 'Иллюстрация',
     'about.tag2': 'Графический дизайн',

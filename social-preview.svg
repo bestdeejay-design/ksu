@@ -1,31 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="Ksenia — Graphic Designer Portfolio">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="Ksenia — Graphic Designer Portfolio">
   <defs>
-    <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#0ABAB5"/>
-      <stop offset="50%" stop-color="#FFD633"/>
+      <stop offset="16%" stop-color="#00B3DA"/>
+      <stop offset="33%" stop-color="#44A3F7"/>
+      <stop offset="50%" stop-color="#838EFF"/>
+      <stop offset="66%" stop-color="#B477F2"/>
+      <stop offset="83%" stop-color="#DB5FC9"/>
       <stop offset="100%" stop-color="#F64A8A"/>
     </linearGradient>
+    <mask id="wave">
+      <rect width="1280" height="640" fill="#FFFFFF"/>
+      <path fill="#000000" d="M0,640 L0,560 Q180,525 430,560 T860,560 T1280,560 L1280,640 Z">
+        <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="-3.6s"
+          keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
+          values="M0,640 L0,560 Q180,525 430,560 T860,560 T1280,560 L1280,640 Z;M0,640 L0,568 Q180,540 430,568 T860,568 T1280,568 L1280,640 Z;M0,640 L0,552 Q180,510 430,552 T860,552 T1280,552 L1280,640 Z;M0,640 L0,560 Q180,525 430,560 T860,560 T1280,560 L1280,640 Z"/>
+      </path>
+    </mask>
+    <linearGradient id="flash" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1280" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="44%" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="48%" stop-color="#FFFFFF" stop-opacity="0.20"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.20"/>
+      <stop offset="56%" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="65%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
   </defs>
-  <style>
-    .name{font-size:110px;font-weight:700;font-family:'Arial Black','Helvetica Neue',Arial,sans-serif}
-    .desc{font-size:42px;font-weight:500;font-family:'Helvetica Neue',Arial,sans-serif}
-    .site{font-size:30px;font-weight:500;font-family:'Helvetica Neue',Arial,sans-serif}
-    .name,.desc,.site{animation:fadeIn 1.2s ease-in-out forwards}
-    .desc{animation-delay:.15s}.site{animation-delay:.3s}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  </style>
-  <rect width="1280" height="640" fill="#F6F7F9"/>
-  <g transform="translate(427,100) scale(1,1) translate(-427,-100)">
-    <path fill="url(#linear)" opacity="0.45">
-      <animate attributeName="d" dur="20s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1" begin="0s"
-        values="M0 0L 0 180Q 213.5 260 427 200T 854 240L 1280 240L 1280 0 Z;M0 0L 0 220Q 213.5 240 427 210T 854 190L 1280 190L 1280 0 Z;M0 0L 0 250Q 213.5 205 427 250T 854 195L 1280 195L 1280 0 Z;M0 0L 0 180Q 213.5 260 427 200T 854 240L 1280 240L 1280 0 Z"/>
+
+  <g mask="url(#wave)">
+    <rect width="1280" height="640" fill="url(#bg)"/>
+
+    <rect width="1280" height="640" fill="url(#flash)">
+      <animateTransform attributeName="transform" type="translate" values="-640,0;-640,0;640,0;640,0" keyTimes="0;0.05;0.28;1" dur="16s" calcMode="linear" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.03;0.05;0.28;0.35;1" dur="16s" repeatCount="indefinite"/>
+    </rect>
+
+    <path fill="#FFFFFF" opacity="0.25" d="M0,640 L0,525 Q220,490 540,525 T1080,525 T1280,525 L1280,640 Z">
+      <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="-1.8s"
+        keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
+        values="M0,640 L0,525 Q220,490 540,525 T1080,525 T1280,525 L1280,640 Z;M0,640 L0,535 Q220,505 540,535 T1080,535 T1280,535 L1280,640 Z;M0,640 L0,515 Q220,475 540,515 T1080,515 T1280,515 L1280,640 Z;M0,640 L0,525 Q220,490 540,525 T1080,525 T1280,525 L1280,640 Z"/>
     </path>
-    <path fill="url(#linear)" opacity="0.45">
-      <animate attributeName="d" dur="20s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1" begin="-10s"
-        values="M0 0L 0 210Q 213.5 300 427 230T 854 250L 1280 250L 1280 0 Z;M0 0L 0 240Q 213.5 190 427 180T 854 215L 1280 215L 1280 0 Z;M0 0L 0 220Q 213.5 190 427 230T 854 255L 1280 255L 1280 0 Z;M0 0L 0 210Q 213.5 300 427 230T 854 250L 1280 250L 1280 0 Z"/>
+    <path fill="#FFFFFF" opacity="0.5" d="M0,640 L0,490 Q170,452 340,490 T680,490 T1020,490 T1280,490 L1280,640 Z">
+      <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="0s"
+        keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
+        values="M0,640 L0,490 Q170,452 340,490 T680,490 T1020,490 T1280,490 L1280,640 Z;M0,640 L0,502 Q170,470 340,502 T680,502 T1020,502 T1280,502 L1280,640 Z;M0,640 L0,478 Q170,434 340,478 T680,478 T1020,478 T1280,478 L1280,640 Z;M0,640 L0,490 Q170,452 340,490 T680,490 T1020,490 T1280,490 L1280,640 Z"/>
     </path>
+
+    <g>
+      <animate attributeName="opacity" values="0;1" dur="1.5s" fill="freeze"/>
+      <text x="642" y="262" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="110" font-weight="bold" fill="#000000" opacity="0.28" text-anchor="middle">Ksenia</text>
+      <text x="640" y="260" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="110" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Ksenia</text>
+    </g>
+
+    <g>
+      <animate attributeName="opacity" values="0;1" dur="1.5s" begin="0.5s" fill="freeze"/>
+      <text x="642" y="352" font-family="'Helvetica Neue',Arial,sans-serif" font-size="42" fill="#000000" opacity="0.30" text-anchor="middle">Graphic Designer Portfolio</text>
+      <text x="640" y="350" font-family="'Helvetica Neue',Arial,sans-serif" font-size="42" fill="#FFFFFF" opacity="0.95" text-anchor="middle">Graphic Designer Portfolio</text>
+    </g>
+
+    <g>
+      <animate attributeName="opacity" values="0;1" dur="1.5s" begin="1s" fill="freeze"/>
+      <text x="642" y="430" font-family="'Helvetica Neue',Arial,sans-serif" font-size="30" fill="#000000" opacity="0.25" text-anchor="middle">bestdeejay-design.github.io/ksu</text>
+      <text x="640" y="428" font-family="'Helvetica Neue',Arial,sans-serif" font-size="30" fill="#FFFFFF" opacity="0.85" text-anchor="middle">bestdeejay-design.github.io/ksu</text>
+    </g>
   </g>
-  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="42%" class="name" style="fill:#1A1A2E">Ksenia</text>
-  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="60%" class="desc" style="fill:#1A1A2E">Graphic Designer Portfolio</text>
-  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="72%" class="site" style="fill:#1A1A2E" opacity="0.7">bestdeejay-design.github.io/ksu</text>
 </svg>

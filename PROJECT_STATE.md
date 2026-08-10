@@ -16,7 +16,7 @@
 | `manifest.json` | PWA manifest | name: "Ксения", standalone, icons (relative paths) |
 | `robots.txt` | SEO | Allows all, points to sitemap.xml |
 | `sitemap.xml` | SEO | Root + 11 project-N/ pages |
-| `og-image.png` | OG default | 1200×630 |
+| `og-2026-08-10.png` | OG default | 1200×630 |
 | `og-0.jpg…og-10.jpg` | OG per-project | Generated previews |
 | `Dockerfile` | Infra | nginx:alpine, serves static on port 80 |
 | `docker-compose.yml` | Infra | Port 8765→80, OrbStack domain `portfolio.ksu.orb.local` |

@@ -32,7 +32,7 @@ UI/UX, иллюстрация, плакаты, упаковка и ретушь 
 - **Темы** — тёмная/светлая через CSS-переменные в `css/tokens.css` (единый источник токенов)
 - **11 проектов** + флипбук + подпроект «Референсы дизайнера»
 - **SEO** — Open Graph, Twitter Card, JSON-LD (Person + ItemList), sitemap.xml, canonical
-- **11 сгенерированных OG-картинок** (`og-0.jpg` … `og-10.jpg`) + дефолтная `og-image.png`
+- **11 сгенерированных OG-картинок** (`og-0.jpg` … `og-10.jpg`) + дефолтная `og-2026-08-10.png`
 
 ## Локальный запуск
 
@@ -84,7 +84,7 @@ GitHub Pages: пуш в `main`, Pages собирает из корня репо�
 ├── flipbook/             # просмотрщик фотокниги
 ├── references/           # подпроект «Референсы дизайнера»
 ├── icons/                # favicon, apple-touch, PWA-иконки
-├── og-image.png, og-0..10.jpg  # превью для соцсетей
+├── og-2026-08-10.png, og-0..10.jpg  # превью для соцсетей
 ├── sitemap.xml, robots.txt
 ├── Dockerfile, docker-compose.yml
 └── test_runner.py        # Playwright e2e, 97 проверок

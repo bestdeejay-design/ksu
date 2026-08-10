@@ -322,10 +322,10 @@ function resetOG() {
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', DEFAULT_DESC)
   document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/`)
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_URL}/`)
-  document.querySelector('meta[property="og:image"]')?.setAttribute('content', `${SITE_URL}/og-image.png`)
+  document.querySelector('meta[property="og:image"]')?.setAttribute('content', `${SITE_URL}/og-2026-08-10.png`)
   document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
   document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', DEFAULT_DESC)
-  document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', `${SITE_URL}/og-image.png`)
+  document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', `${SITE_URL}/og-2026-08-10.png`)
   document.querySelector('title').textContent = 'Ksenia — graphic designer'
   document.querySelector('meta[name="description"]')?.setAttribute('content', DEFAULT_DESC)
 }

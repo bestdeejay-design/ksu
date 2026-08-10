@@ -33,7 +33,7 @@ UI/UX, illustration, posters, packaging, and photo retouching.
 - **Dark/light themes** — CSS custom properties in `css/tokens.css` (single source of truth)
 - **11 project pages** + flipbook + designer references sub-project
 - **SEO** — Open Graph, Twitter Card, JSON-LD (Person + ItemList), sitemap.xml, canonical
-- **11 generated OG images** (`og-0.jpg` … `og-10.jpg`) + default `og-image.png`
+- **11 generated OG images** (`og-0.jpg` … `og-10.jpg`) + default `og-2026-08-10.png`
 
 ## Local development
 
@@ -85,7 +85,7 @@ Served at `https://bestdeejay-design.github.io/ksu/`.
 ├── flipbook/             # photobook flipbook viewer
 ├── references/           # designer references sub-project
 ├── icons/                # favicon, apple-touch, PWA icons
-├── og-image.png, og-0..10.jpg  # social previews
+├── og-2026-08-10.png, og-0..10.jpg  # social previews
 ├── sitemap.xml, robots.txt
 ├── Dockerfile, docker-compose.yml
 └── test_runner.py        # Playwright e2e, 97 checks

@@ -1,0 +1,105 @@
+{
+  "tool": "frontend-perfection/meta_audit",
+  "html": "index.html",
+  "css": [
+    "style.css",
+    "css/tokens.css"
+  ],
+  "checks": [
+    {
+      "id": "meta:title",
+      "ok": true,
+      "detail": "title tag: 'Ksenia — graphic designer'"
+    },
+    {
+      "id": "meta:title-length",
+      "ok": true,
+      "detail": "title length 25 (limit 60)"
+    },
+    {
+      "id": "meta:description",
+      "ok": true,
+      "detail": "meta description: 'Portfolio of Ksenia — graphic designer. Identity, branding, typography, UI/UX, i'"
+    },
+    {
+      "id": "meta:description-length",
+      "ok": true,
+      "detail": "description length 101 (limit 160)"
+    },
+    {
+      "id": "meta:canonical",
+      "ok": true,
+      "detail": "canonical: https://bestdeejay-design.github.io/ksu/"
+    },
+    {
+      "id": "meta:og:title",
+      "ok": true,
+      "detail": "og:title OK"
+    },
+    {
+      "id": "meta:og:image",
+      "ok": true,
+      "detail": "og:image OK"
+    },
+    {
+      "id": "meta:og:size",
+      "ok": true,
+      "detail": "og:image 1200x630 (standard 1200x630; crop-safe ~640px content zone)"
+    },
+    {
+      "id": "meta:twitter:card",
+      "ok": true,
+      "detail": "twitter:card OK"
+    },
+    {
+      "id": "meta:json-ld",
+      "ok": true,
+      "detail": "JSON-LD structured data found"
+    },
+    {
+      "id": "meta:robots",
+      "ok": true,
+      "detail": "robots: index, follow"
+    },
+    {
+      "id": "meta:sitemap-link",
+      "ok": false,
+      "detail": "sitemap link not referenced"
+    },
+    {
+      "id": "headings:single-h1",
+      "ok": true,
+      "detail": "1 h1 tag(s)"
+    },
+    {
+      "id": "headings:order",
+      "ok": true,
+      "detail": "h1 → h2 → h2 → h2"
+    },
+    {
+      "id": "tokens:raw-hex",
+      "ok": false,
+      "detail": "6 raw hex outside token block: #FF2D55@22100, #FF2D55@22466, #F5F0EB@33685, #1A1A1A@33704, #1A1A1A@33937, #1A1A1A@33995"
+    },
+    {
+      "id": "contrast:wcag-aa",
+      "ok": true,
+      "detail": "no explicit fg/bg color pairs found (cannot verify)"
+    },
+    {
+      "id": "adaptive:scroll-padding",
+      "ok": false,
+      "detail": "position:fixed found — MISSING scroll-padding-top (anchors hide under header)"
+    },
+    {
+      "id": "adaptive:media-queries",
+      "ok": true,
+      "detail": "9 media queries"
+    }
+  ],
+  "summary": {
+    "total": 18,
+    "passed": 15,
+    "violations": 3
+  }
+}

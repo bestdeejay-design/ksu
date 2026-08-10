@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://github.com/bestdeejay-design" target="_blank">
+    <img src="assets/header.svg" alt="header" />
+  </a>
+</p>
+
 # Ксения — портфолио графического дизайнера
 
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://bestdeejay-design.github.io/ksu/)
@@ -98,3 +104,9 @@ python3 test_runner.py
 ## Лицензия
 
 [MIT](LICENSE) © 2026 Ксения
+
+<p align="center">
+  <a href="https://github.com/bestdeejay-design" target="_blank">
+    <img src="assets/footer.svg" alt="footer" />
+  </a>
+</p>

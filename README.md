@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://github.com/bestdeejay-design" target="_blank">
+    <img src="assets/header.svg" alt="header" />
+  </a>
+</p>
+
 # Ksenia — Graphic Designer Portfolio
 
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://bestdeejay-design.github.io/ksu/)
@@ -97,3 +103,9 @@ SEO/PWA, console errors, content files. Full suite must pass before publishing.
 ## License
 
 [MIT](LICENSE) © 2026 Ksenia
+
+<p align="center">
+  <a href="https://github.com/bestdeejay-design" target="_blank">
+    <img src="assets/footer.svg" alt="footer" />
+  </a>
+</p>

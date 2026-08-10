@@ -2,11 +2,10 @@
   <defs>
     <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#F64A8A"/>
-      <stop offset="16%" stop-color="#DB5FC9"/>
-      <stop offset="33%" stop-color="#B477F2"/>
-      <stop offset="50%" stop-color="#838EFF"/>
-      <stop offset="66%" stop-color="#44A3F7"/>
-      <stop offset="83%" stop-color="#00B3DA"/>
+      <stop offset="30%" stop-color="#F9B9D3"/>
+      <stop offset="46%" stop-color="#FCE3ED"/>
+      <stop offset="54%" stop-color="#B9EEEA"/>
+      <stop offset="70%" stop-color="#5DD3CE"/>
       <stop offset="100%" stop-color="#0ABAB5"/>
     </linearGradient>
     <mask id="wave">

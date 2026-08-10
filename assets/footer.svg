@@ -1,13 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="60" viewBox="0 0 1200 60" role="img" aria-label="@bestdeejay-design">
   <defs>
-    <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F64A8A"/>
-      <stop offset="30%" stop-color="#F9B9D3"/>
-      <stop offset="46%" stop-color="#FCE3ED"/>
-      <stop offset="54%" stop-color="#B9EEEA"/>
-      <stop offset="70%" stop-color="#5DD3CE"/>
-      <stop offset="100%" stop-color="#0ABAB5"/>
+    <linearGradient id="fg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
     </linearGradient>
+    <radialGradient id="glowA" cx="0.2" cy="0.9" r="0.6">
+      <stop offset="0%" stop-color="#FF2D55" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FF2D55" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.5" cy="0.95" r="0.5">
+      <stop offset="0%" stop-color="#FFD633" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#FFD633" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowC" cx="0.8" cy="0.9" r="0.6">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </radialGradient>
     <mask id="wave">
       <rect width="1200" height="60" fill="#FFFFFF"/>
       <path fill="#000000" d="M0,-12 L0,21 Q200,29 400,21 T800,21 T1200,21 L1200,-12 Z">
@@ -31,6 +39,9 @@
 
   <g mask="url(#wave)">
     <rect width="1200" height="60" fill="url(#fg)"/>
+    <rect width="1200" height="60" fill="url(#glowA)"/>
+    <rect width="1200" height="60" fill="url(#glowB)"/>
+    <rect width="1200" height="60" fill="url(#glowC)"/>
 
     <rect width="1200" height="60" fill="url(#flash)">
       <animateTransform attributeName="transform" type="translate" values="-600,0;-600,0;600,0;600,0" keyTimes="0;0.05;0.28;1" dur="16s" calcMode="linear" repeatCount="indefinite"/>

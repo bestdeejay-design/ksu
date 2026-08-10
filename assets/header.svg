@@ -1,13 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="290" viewBox="0 0 1200 290" role="img" aria-label="Ksenia — Graphic Designer Portfolio">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0ABAB5"/>
-      <stop offset="30%" stop-color="#5DD3CE"/>
-      <stop offset="46%" stop-color="#B9EEEA"/>
-      <stop offset="54%" stop-color="#FCE3ED"/>
-      <stop offset="70%" stop-color="#F9B9D3"/>
-      <stop offset="100%" stop-color="#F64A8A"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
     </linearGradient>
+    <radialGradient id="glowA" cx="0.16" cy="0.42" r="0.55">
+      <stop offset="0%" stop-color="#FF2D55" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FF2D55" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.5" cy="0.30" r="0.5">
+      <stop offset="0%" stop-color="#FFD633" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#FFD633" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowC" cx="0.84" cy="0.42" r="0.55">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </radialGradient>
     <mask id="wave">
       <rect width="1200" height="290" fill="#FFFFFF"/>
       <path fill="#000000" d="M0,290 L0,245 Q150,222 400,245 T800,245 T1200,245 L1200,290 Z">
@@ -31,6 +39,9 @@
 
   <g mask="url(#wave)">
     <rect width="1200" height="290" fill="url(#bg)"/>
+    <rect width="1200" height="290" fill="url(#glowA)"/>
+    <rect width="1200" height="290" fill="url(#glowB)"/>
+    <rect width="1200" height="290" fill="url(#glowC)"/>
 
     <rect width="1200" height="290" fill="url(#flash)">
       <animateTransform attributeName="transform" type="translate" values="-600,0;-600,0;600,0;600,0" keyTimes="0;0.05;0.28;1" dur="16s" calcMode="linear" repeatCount="indefinite"/>

@@ -1,46 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="Ksenia — Graphic Designer Portfolio">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="Ksenia — Graphic Designer Portfolio">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0A0A0A"/>
-      <stop offset="100%" stop-color="#141414"/>
+    <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ABAB5"/>
+      <stop offset="50%" stop-color="#FFD633"/>
+      <stop offset="100%" stop-color="#F64A8A"/>
     </linearGradient>
-    <linearGradient id="name" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="30%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#FF2D55"/>
-    </linearGradient>
-    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FF2D55" stop-opacity="0.30"/>
-      <stop offset="100%" stop-color="#FF2D55" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FFD633" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#FFD633" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-
-  <rect width="1280" height="640" fill="url(#bg)"/>
-
-  <!-- ===== hero shapes (mix-blend screen имитация: свечения) ===== -->
-  <circle cx="1100" cy="120" r="330" fill="url(#glow1)"/>
-  <circle cx="1100" cy="120" r="200" fill="none" stroke="#FF2D55" stroke-width="2" opacity="0.65"/>
-  <rect x="90" y="470" width="180" height="180" fill="#FF2D55" opacity="0.55" transform="rotate(0 180 560)" clip-path="polygon(50% 0%,100% 50%,50% 100%,0% 50%)"/>
-  <circle cx="880" cy="280" r="120" fill="none" stroke="#FFD633" stroke-width="2" opacity="0.7"/>
-  <rect x="820" y="220" width="60" height="60" fill="#00E5FF" opacity="0.6" transform="rotate(45 850 250)"/>
-
-  <rect x="1040" y="40" width="160" height="160" fill="url(#glow2)"/>
-  <rect x="620" y="420" width="180" height="180" fill="url(#glow3)"/>
-
-  <!-- ===== текст: градиент white -> accent как hero__title ===== -->
-  <text x="99" y="277" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="110" font-weight="bold" fill="#000000" opacity="0.35">Ksenia</text>
-  <text x="95" y="275" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="110" font-weight="bold" fill="url(#name)">Ksenia</text>
-
-  <text x="101" y="367" font-family="'Helvetica Neue',Arial,sans-serif" font-size="42" fill="#000000" opacity="0.35">Graphic Designer Portfolio</text>
-  <text x="95" y="365" font-family="'Helvetica Neue',Arial,sans-serif" font-size="42" fill="#F5F5F5" opacity="0.95">Graphic Designer Portfolio</text>
-
-  <text x="101" y="445" font-family="'Helvetica Neue',Arial,sans-serif" font-size="30" fill="#000000" opacity="0.30">bestdeejay-design.github.io/ksu</text>
-  <text x="95" y="443" font-family="'Helvetica Neue',Arial,sans-serif" font-size="30" fill="#FFD633" opacity="0.85">bestdeejay-design.github.io/ksu</text>
+  <style>
+    .name{font-size:110px;font-weight:700;font-family:'Arial Black','Helvetica Neue',Arial,sans-serif}
+    .desc{font-size:42px;font-weight:500;font-family:'Helvetica Neue',Arial,sans-serif}
+    .site{font-size:30px;font-weight:500;font-family:'Helvetica Neue',Arial,sans-serif}
+    .name,.desc,.site{animation:fadeIn 1.2s ease-in-out forwards}
+    .desc{animation-delay:.15s}.site{animation-delay:.3s}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  </style>
+  <rect width="1280" height="640" fill="#F6F7F9"/>
+  <g transform="translate(427,100) scale(1,1) translate(-427,-100)">
+    <path fill="url(#linear)" opacity="0.45">
+      <animate attributeName="d" dur="20s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1" begin="0s"
+        values="M0 0L 0 180Q 213.5 260 427 200T 854 240L 1280 240L 1280 0 Z;M0 0L 0 220Q 213.5 240 427 210T 854 190L 1280 190L 1280 0 Z;M0 0L 0 250Q 213.5 205 427 250T 854 195L 1280 195L 1280 0 Z;M0 0L 0 180Q 213.5 260 427 200T 854 240L 1280 240L 1280 0 Z"/>
+    </path>
+    <path fill="url(#linear)" opacity="0.45">
+      <animate attributeName="d" dur="20s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1" begin="-10s"
+        values="M0 0L 0 210Q 213.5 300 427 230T 854 250L 1280 250L 1280 0 Z;M0 0L 0 240Q 213.5 190 427 180T 854 215L 1280 215L 1280 0 Z;M0 0L 0 220Q 213.5 190 427 230T 854 255L 1280 255L 1280 0 Z;M0 0L 0 210Q 213.5 300 427 230T 854 250L 1280 250L 1280 0 Z"/>
+    </path>
+  </g>
+  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="42%" class="name" style="fill:#1A1A2E">Ksenia</text>
+  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="60%" class="desc" style="fill:#1A1A2E">Graphic Designer Portfolio</text>
+  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="72%" class="site" style="fill:#1A1A2E" opacity="0.7">bestdeejay-design.github.io/ksu</text>
 </svg>

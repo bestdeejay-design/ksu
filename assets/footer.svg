@@ -1,58 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="60" viewBox="0 0 1200 60" role="img" aria-label="@bestdeejay-design">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="60" viewBox="0 0 1200 60" role="img" aria-label="@bestdeejay-design">
   <defs>
-    <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F64A8A">
-        <animate attributeName="stop-color" values="#F64A8A;#0ABAB5;#F64A8A" dur="6s" repeatCount="indefinite"/>
-      </stop>
+    <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F64A8A"/>
       <stop offset="50%" stop-color="#FFD633"/>
-      <stop offset="100%" stop-color="#0ABAB5">
-        <animate attributeName="stop-color" values="#0ABAB5;#F64A8A;#0ABAB5" dur="6s" repeatCount="indefinite"/>
-      </stop>
-    </linearGradient>
-    <mask id="wave">
-      <rect width="1200" height="60" fill="#FFFFFF"/>
-      <path fill="#000000" d="M0,-12 L0,21 Q200,29 400,21 T800,21 T1200,21 L1200,-12 Z">
-        <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="-3.6s"
-          keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
-          values="M0,-12 L0,21 Q200,29 400,21 T800,21 T1200,21 L1200,-12 Z;M0,-12 L0,23 Q200,32 400,23 T800,23 T1200,23 L1200,-12 Z;M0,-12 L0,19 Q200,26 400,19 T800,19 T1200,19 L1200,-12 Z;M0,-12 L0,21 Q200,29 400,21 T800,21 T1200,21 L1200,-12 Z"/>
-      </path>
-    </mask>
-    <linearGradient id="flash" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
-      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0"/>
-      <stop offset="44%" stop-color="#FFFFFF" stop-opacity="0.10"/>
-      <stop offset="48%" stop-color="#FFFFFF" stop-opacity="0.20"/>
-      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.25"/>
-      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.20"/>
-      <stop offset="56%" stop-color="#FFFFFF" stop-opacity="0.10"/>
-      <stop offset="65%" stop-color="#FFFFFF" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0ABAB5"/>
     </linearGradient>
   </defs>
-
-  <g mask="url(#wave)">
-    <rect width="1200" height="60" fill="url(#fg)"/>
-
-    <rect width="1200" height="60" fill="url(#flash)">
-      <animateTransform attributeName="transform" type="translate" values="-600,0;-600,0;600,0;600,0" keyTimes="0;0.05;0.28;1" dur="16s" calcMode="linear" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.03;0.05;0.28;0.35;1" dur="16s" repeatCount="indefinite"/>
-    </rect>
-
-    <path fill="#FFFFFF" opacity="0.25" d="M0,-12 L0,27 Q150,35 300,27 T600,27 T900,27 T1200,27 L1200,-12 Z">
-      <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="-1.8s"
-        keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
-        values="M0,-12 L0,27 Q150,35 300,27 T600,27 T900,27 T1200,27 L1200,-12 Z;M0,-12 L0,29 Q150,38 300,29 T600,29 T900,29 T1200,29 L1200,-12 Z;M0,-12 L0,25 Q150,32 300,25 T600,25 T900,25 T1200,25 L1200,-12 Z;M0,-12 L0,27 Q150,35 300,27 T600,27 T900,27 T1200,27 L1200,-12 Z"/>
+  <style>
+    .nick{font-size:24px;font-weight:700;font-family:'Arial Black','Helvetica Neue',Arial,sans-serif}
+    .nick{animation:fadeIn 1.2s ease-in-out forwards}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  </style>
+  <g transform="translate(427,30) scale(1,1) translate(-427,-30)">
+    <path fill="url(#linear)" opacity="0.35">
+      <animate attributeName="d" dur="20s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1" begin="0s"
+        values="M0 0L 0 25Q 213.5 40 427 28T 854 38L 1200 38L 1200 0 Z;M0 0L 0 32Q 213.5 38 427 30T 854 26L 1200 26L 1200 0 Z;M0 0L 0 36Q 213.5 28 427 34T 854 28L 1200 28L 1200 0 Z;M0 0L 0 25Q 213.5 40 427 28T 854 38L 1200 38L 1200 0 Z"/>
     </path>
-    <path fill="#FFFFFF" opacity="0.5" d="M0,-16 L0,35 Q120,44 240,35 T480,35 T720,35 T960,35 T1200,35 L1200,-16 Z">
-      <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="0s"
-        keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
-        values="M0,-16 L0,35 Q120,44 240,35 T480,35 T720,35 T960,35 T1200,35 L1200,-16 Z;M0,-16 L0,38 Q120,48 240,38 T480,38 T720,38 T960,38 T1200,38 L1200,-16 Z;M0,-16 L0,32 Q120,40 240,32 T480,32 T720,32 T960,32 T1200,32 L1200,-16 Z;M0,-16 L0,35 Q120,44 240,35 T480,35 T720,35 T960,35 T1200,35 L1200,-16 Z"/>
+    <path fill="url(#linear)" opacity="0.35">
+      <animate attributeName="d" dur="20s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1" begin="-10s"
+        values="M0 0L 0 30Q 213.5 45 427 32T 854 40L 1200 40L 1200 0 Z;M0 0L 0 34Q 213.5 36 427 24T 854 30L 1200 30L 1200 0 Z;M0 0L 0 30Q 213.5 26 427 34T 854 36L 1200 36L 1200 0 Z;M0 0L 0 30Q 213.5 45 427 32T 854 40L 1200 40L 1200 0 Z"/>
     </path>
-
-    <text x="602" y="51" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="bold" fill="#000000" opacity="0.30" text-anchor="middle">@bestdeejay-design</text>
-    <text x="600" y="49" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
-      @bestdeejay-design
-      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-    </text>
   </g>
+  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="55%" class="nick" style="fill:#1A1A2E">@bestdeejay-design</text>
 </svg>

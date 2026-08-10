@@ -1,64 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="290" viewBox="0 0 1200 290" role="img" aria-label="Ksenia — Graphic Designer Portfolio">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="290" viewBox="0 0 1200 290" role="img" aria-label="Ksenia — Graphic Designer Portfolio">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0ABAB5">
-        <animate attributeName="stop-color" values="#0ABAB5;#F64A8A;#0ABAB5" dur="8s" repeatCount="indefinite"/>
-      </stop>
+    <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ABAB5"/>
       <stop offset="50%" stop-color="#FFD633"/>
-      <stop offset="100%" stop-color="#F64A8A">
-        <animate attributeName="stop-color" values="#F64A8A;#0ABAB5;#F64A8A" dur="8s" repeatCount="indefinite"/>
-      </stop>
-    </linearGradient>
-    <mask id="wave">
-      <rect width="1200" height="290" fill="#FFFFFF"/>
-      <path fill="#000000" d="M0,290 L0,245 Q150,222 400,245 T800,245 T1200,245 L1200,290 Z">
-        <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="-3.6s"
-          keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
-          values="M0,290 L0,245 Q150,222 400,245 T800,245 T1200,245 L1200,290 Z;M0,290 L0,250 Q150,230 400,250 T800,250 T1200,250 L1200,290 Z;M0,290 L0,240 Q150,214 400,240 T800,240 T1200,240 L1200,290 Z;M0,290 L0,245 Q150,222 400,245 T800,245 T1200,245 L1200,290 Z"/>
-      </path>
-    </mask>
-    <linearGradient id="flash" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
-      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0"/>
-      <stop offset="44%" stop-color="#FFFFFF" stop-opacity="0.10"/>
-      <stop offset="48%" stop-color="#FFFFFF" stop-opacity="0.20"/>
-      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.25"/>
-      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.20"/>
-      <stop offset="56%" stop-color="#FFFFFF" stop-opacity="0.10"/>
-      <stop offset="65%" stop-color="#FFFFFF" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#F64A8A"/>
     </linearGradient>
   </defs>
-
-  <g mask="url(#wave)">
-    <rect width="1200" height="290" fill="url(#bg)"/>
-
-    <rect width="1200" height="290" fill="url(#flash)">
-      <animateTransform attributeName="transform" type="translate" values="-600,0;-600,0;600,0;600,0" keyTimes="0;0.05;0.28;1" dur="16s" calcMode="linear" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.03;0.05;0.28;0.35;1" dur="16s" repeatCount="indefinite"/>
-    </rect>
-
-    <path fill="#FFFFFF" opacity="0.25" d="M0,290 L0,232 Q200,210 500,232 T1000,232 T1200,232 L1200,290 Z">
-      <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="-1.8s"
-        keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
-        values="M0,290 L0,232 Q200,210 500,232 T1000,232 T1200,232 L1200,290 Z;M0,290 L0,238 Q200,220 500,238 T1000,238 T1200,238 L1200,290 Z;M0,290 L0,226 Q200,200 500,226 T1000,226 T1200,226 L1200,290 Z;M0,290 L0,232 Q200,210 500,232 T1000,232 T1200,232 L1200,290 Z"/>
+  <style>
+    .name{font-size:64px;font-weight:700;font-family:'Arial Black','Helvetica Neue',Arial,sans-serif}
+    .desc{font-size:26px;font-weight:500;font-family:'Helvetica Neue',Arial,sans-serif}
+    .name,.desc{animation:fadeIn 1.2s ease-in-out forwards}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  </style>
+  <g transform="translate(427,100) scale(1,1) translate(-427,-100)">
+    <path fill="url(#linear)" opacity="0.4">
+      <animate attributeName="d" dur="20s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1" begin="0s"
+        values="M0 0L 0 120Q 213.5 160 427 130T 854 155L 1200 155L 1200 0 Z;M0 0L 0 145Q 213.5 160 427 140T 854 130L 1200 130L 1200 0 Z;M0 0L 0 165Q 213.5 135 427 165T 854 130L 1200 130L 1200 0 Z;M0 0L 0 120Q 213.5 160 427 130T 854 155L 1200 155L 1200 0 Z"/>
     </path>
-    <path fill="#FFFFFF" opacity="0.5" d="M0,290 L0,220 Q150,198 300,220 T600,220 T900,220 T1200,220 L1200,290 Z">
-      <animate attributeName="d" dur="6s" repeatCount="indefinite" begin="0s"
-        keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
-        values="M0,290 L0,220 Q150,198 300,220 T600,220 T900,220 T1200,220 L1200,290 Z;M0,290 L0,228 Q150,210 300,228 T600,228 T900,228 T1200,228 L1200,290 Z;M0,290 L0,212 Q150,186 300,212 T600,212 T900,212 T1200,212 L1200,290 Z;M0,290 L0,220 Q150,198 300,220 T600,220 T900,220 T1200,220 L1200,290 Z"/>
+    <path fill="url(#linear)" opacity="0.4">
+      <animate attributeName="d" dur="20s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.2 0 0.2 1;0.2 0 0.2 1;0.2 0 0.2 1" begin="-10s"
+        values="M0 0L 0 135Q 213.5 180 427 150T 854 160L 1200 160L 1200 0 Z;M0 0L 0 150Q 213.5 120 427 120T 854 140L 1200 140L 1200 0 Z;M0 0L 0 145Q 213.5 125 427 150T 854 165L 1200 165L 1200 0 Z;M0 0L 0 135Q 213.5 180 427 150T 854 160L 1200 160L 1200 0 Z"/>
     </path>
-
-    <g>
-      <animate attributeName="opacity" values="0;1" dur="1.5s" fill="freeze"/>
-      <text x="602" y="105" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="48" font-weight="bold" fill="#000000" opacity="0.28" text-anchor="middle">Ksenia</text>
-      <text x="600" y="103" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Ksenia</text>
-    </g>
-
-    <g>
-      <animate attributeName="opacity" values="0;1" dur="1.5s" begin="0.5s" fill="freeze"/>
-      <text x="602" y="162" font-family="'Helvetica Neue',Arial,sans-serif" font-size="26" fill="#000000" opacity="0.30" text-anchor="middle">Graphic Designer Portfolio</text>
-      <text x="600" y="160" font-family="'Helvetica Neue',Arial,sans-serif" font-size="26" fill="#FFFFFF" opacity="0.95" text-anchor="middle">Graphic Designer Portfolio</text>
-    </g>
   </g>
+  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="42%" class="name" style="fill:#1A1A2E">Ksenia</text>
+  <text text-anchor="middle" dominant-baseline="middle" x="50%" y="66%" class="desc" style="fill:#1A1A2E">Graphic Designer Portfolio</text>
 </svg>

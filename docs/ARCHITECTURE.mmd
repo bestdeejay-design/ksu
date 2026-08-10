@@ -1,0 +1,23 @@
+```mermaid
+flowchart TD
+    U[User / Browser] --> IDX[index.html SPA shell]
+    IDX --> JS[script.js]
+    JS -->|buildWorks + applyLanguage| WORKS[works grid + nav dropdown]
+    JS -->|openProject i| OV[project overlay]
+    OV -->|getProjectHTML switch/case| GALL[proj-gallery sections]
+    OV -->|shareProject| OG[OG/canonical/переключение title]
+    JS -->|openLightbox| LB[lightbox prev/next]
+    JS -->|routes| HASH[#project-N hash routing]
+    JS -->|persists| LS[(localStorage lang/theme)]
+    IDX --> CSS[style.css]
+    CSS --> TOK[css/tokens.css dark/light]
+    IDX --> PWA[manifest.json + icons]
+    IDX --> SEO[OG/Twitter/JSON-LD/sitemap]
+    IDX --> SUB[project-0..10 static pages]
+    IDX --> FLIP[flipbook viewer]
+    IDX --> REF[references sub-project]
+    WORKS -->|click| OV
+    OV -->|esc/close| RESET[resetOG]
+```
+
+Diagram: https://mermaid.live/ (paste code) or render via mermaid-to-image script.

@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a problem with the portfolio site
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page / URL
+      description: Where did the problem occur?
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile (iOS/Android)
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you do?
+      placeholder: |
+        1. Open the site
+        2. Click ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: console
+    attributes:
+      label: Console errors (if any)
+      description: Paste errors from the browser console

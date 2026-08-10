@@ -4,7 +4,8 @@
   </a>
 </p>
 
-# Ksenia — Graphic Designer Portfolio
+# Ksenia
+## Graphic Designer Portfolio
 
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://bestdeejay-design.github.io/ksu/)
 [![PWA](https://img.shields.io/badge/PWA-ready-9b59b6)](manifest.json)

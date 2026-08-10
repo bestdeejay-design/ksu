@@ -603,8 +603,9 @@ function openLightbox(src, projectIdx) {
 
 function showLightboxImage() {
   if (!lbImages.length) return
+  const proj = currentProject >= 0 ? projects[currentProject] : null
   lbImg.src = lbImages[lbIndex]
-  lbImg.alt = ''
+  lbImg.alt = proj ? (lang === 'ru' ? proj.titleRu : proj.titleEn) : 'Portfolio image'
   lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`
   lbPrev.style.display = lbImages.length > 1 ? '' : 'none'
   lbNext.style.display = lbImages.length > 1 ? '' : 'none'

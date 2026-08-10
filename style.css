@@ -16,6 +16,7 @@ img{max-width:100%;display:block}
 button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
+html{scroll-padding-top:80px}
 #about,#works,#contact{scroll-margin-top:80px}
 
 /* THEME TOGGLE — all design tokens live in css/tokens.css (single source of truth) */
@@ -793,9 +794,9 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
 
 /* PROJ SHARE FOOTER */
 .proj-section--share{text-align:center;padding:48px 0 32px;border-top:1px solid var(--border-color, rgba(255,255,255,.06));margin-top:16px}
-.proj-share-btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent,#FF2D55);color:#fff;border:none;padding:14px 32px;border-radius:100px;font-size:16px;font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.proj-share-btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:none;padding:14px 32px;border-radius:100px;font-size:16px;font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;transition:transform .2s,box-shadow .2s}
 .proj-share-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,45,85,.3)}
-.proj-pdf-link{display:inline-flex;align-items:center;gap:10px;background:var(--accent,#FF2D55);color:#fff;border:none;padding:14px 32px;border-radius:100px;font-size:16px;font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.proj-pdf-link{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:none;padding:14px 32px;border-radius:100px;font-size:16px;font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .proj-pdf-link:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,45,85,.3)}
 .proj-gallery__item{cursor:pointer}
 .proj-gallery__item img{pointer-events:none}

@@ -655,7 +655,7 @@ function openNewProject() {
       <div class="cta-contacts">
         <a href="#order" class="cta-contact__btn" onclick="closeProject()">${lang === 'ru' ? 'Заполнить бриф на сайте' : 'Fill the brief on the site'}</a>
         <a href="${waLink(CFG ? CFG.brand.nameRu : '')}" class="cta-contact__btn" target="_blank" rel="noopener">${_('cta.whatsapp')}</a>
-        <a href="mailto:ksu@ya.ru?subject=Project%20Brief" class="cta-contact__btn">${_('cta.email')}</a>
+        <a href="mailto:design@dajet.ru?subject=Project%20Brief" class="cta-contact__btn">${_('cta.email')}</a>
       </div>
     </div>`
   overlay.classList.add('overlay--open')

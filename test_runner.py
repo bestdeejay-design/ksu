@@ -187,7 +187,7 @@ def run_tests(url):
 
         email = page.locator(".contact__email")
         check("T7", "T7.email", "Email виден", email.is_visible())
-        check("T7", "T7.email.text", "Email = ksu@ya.ru", "ksu@ya.ru" in (email.text_content() or ""))
+        check("T7", "T7.email.text", "Email = design@dajet.ru", "design@dajet.ru" in (email.text_content() or ""))
 
         phone = page.locator(".contact__phone")
         check("T7", "T7.phone", "Телефон виден", phone.is_visible())

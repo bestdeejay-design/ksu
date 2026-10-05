@@ -245,6 +245,39 @@ check('C9', 'css.tokens', 'нет цветов в обход токенов', ra
 /* ---------- итог ---------- */
 console.log('KSU CHECK')
 out.forEach(l => console.log(l))
+/* ---------- C11. Резкость обложек в сетке «Работы» ----------
+ * Карточка на компьютере ≈ 430×538 px, на Retina нужна ×2 → ширина ≥ 800 px.
+ * Размер читается из заголовка JPEG/PNG/WebP — без зависимостей. */
+{
+  const imgSize = f => {
+    const b = readFileSync(f)
+    if (b[0] === 0x89 && b[1] === 0x50) return [b.readUInt32BE(16), b.readUInt32BE(20)]
+    if (b.toString('ascii', 0, 4) === 'RIFF') {
+      const t = b.toString('ascii', 12, 16)
+      if (t === 'VP8X') return [1 + b.readUIntLE(24, 3), 1 + b.readUIntLE(27, 3)]
+      if (t === 'VP8 ') return [b.readUInt16LE(26) & 0x3fff, b.readUInt16LE(28) & 0x3fff]
+      if (t === 'VP8L') { const n = b.readUInt32LE(21); return [1 + (n & 0x3fff), 1 + ((n >> 14) & 0x3fff)] }
+    }
+    let i = 2
+    while (i < b.length) {
+      if (b[i] !== 0xff) { i++; continue }
+      const m = b[i + 1]
+      if (m >= 0xc0 && m <= 0xcf && m !== 0xc4 && m !== 0xc8 && m !== 0xcc) return [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)]
+      i += 2 + b.readUInt16BE(i + 2)
+    }
+    return [0, 0]
+  }
+  const js = read('script.js')
+  const covers = [...js.matchAll(/^\s*\{ titleEn:.*?cover: '([^']+)'/gm)].map(m => m[1])
+  const order = (js.match(/const WORKS_ORDER = \[([^\]]+)\]/) || [, ''])[1].split(',').map(Number)
+  order.forEach(i => {
+    const c = covers[i]
+    const ok = c && existsSync(join(ROOT, c))
+    const [w] = ok ? imgSize(join(ROOT, c)) : [0]
+    check('C11', `cover.${i}`, `обложка №${i} резкая (≥800 px)`, w >= 800, `${c} — ${w}px`)
+  })
+}
+
 console.log(`\n${'='.repeat(66)}`)
 console.log(`  Пройдено: ${pass}   Провалено: ${fail}`)
 console.log('='.repeat(66))
@@ -253,3 +286,4 @@ if (fail) {
   console.log('Менять нужно только js/config.js: цены, услуги, FAQ, контакты.\n')
 }
 process.exit(fail ? 1 : 0)
+

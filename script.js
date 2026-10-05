@@ -405,6 +405,24 @@ const projects = [
   { titleEn: 'Wall Art', titleRu: 'Арт под роспись стены', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/wall-art-1.jpg', colors: ['#2ECC71', '#00E5FF'] },
   { titleEn: 'Photobook "3:00"', titleRu: 'Фотокнига «3:00»', categoryEn: 'Editorial', categoryRu: 'Издание', cover: 'portfolio/photobook/preview.jpg', colors: ['#E67E22', '#FFD633'] },
   { titleEn: 'Photo Retouching', titleRu: 'Ретушь фото', categoryEn: 'Photography', categoryRu: 'Фотография', cover: 'portfolio/retouch/retouch-timeline.jpg', colors: ['#1ABC9C', '#00E5FF'] },
+  /* ---- Сайты: кейс собирается автоматически из поля site (см. renderSiteCase) ----
+   * Чтобы добавить новый сайт — скопируйте блок ниже, положите скриншоты в portfolio/sites/<папка>/
+   * и создайте превью og-<номер>.jpg (1200×630). Порядок в списке = номер проекта, не меняйте старые. */
+  { titleEn: 'SS-BMW — BMW service', titleRu: 'SS-BMW — сервис BMW', categoryEn: 'Website & identity', categoryRu: 'Сайт и айдентика', cover: 'portfolio/sites/ss-bmw/ss-bmw-m0.jpg', colors: ['#1E6BFF', '#0A0A0A'],
+    descRu: 'Сайт специализированного сервиса BMW в Санкт-Петербурге. Задача — показать, что здесь работают только с BMW, и довести человека до записи: тёмная «гаражная» эстетика, фирменный синий BMW, крупные фото реальных работ, понятный путь «заявка → диагностика → согласование → выдача» и форма записи на каждом экране.',
+    descEn: 'Website for a BMW-only service in Saint Petersburg. Goal: make the specialisation obvious and drive bookings — dark garage aesthetic, signature BMW blue, real workshop photos, a clear “request → diagnostics → approval → handover” path and a booking form always within reach.',
+    site: { url: 'https://bestdeejay-design.github.io/SS-BMW-site/', dir: 'portfolio/sites/ss-bmw/', shots: ['ss-bmw-d0.jpg', 'ss-bmw-d1.jpg', 'ss-bmw-d3.jpg', 'ss-bmw-d4.jpg', 'ss-bmw-d5.jpg'], mobile: 'ss-bmw-m0.jpg', logos: ['logo.png'], logoBg: '#0b0d12',
+      tagsRu: ['Лендинг', 'Логотип', 'UI/UX', 'Адаптив'], tagsEn: ['Landing page', 'Logo', 'UI/UX', 'Responsive'] } },
+  { titleEn: 'Runskaya farm', titleRu: 'Ферма «Рунская»', categoryEn: 'Website & identity', categoryRu: 'Сайт и айдентика', cover: 'portfolio/sites/fermaruna/fermaruna-m0.jpg', colors: ['#1A3726', '#E8B04A'],
+    descRu: 'Сайт натурального хозяйства в верховьях Волги: картофель, мёд, яйцо и птица. Знак — колос и волна Волги, тёплая «деревенская» палитра, классическая антиква в заголовках. Кроме витрины продукции — хроника фермы и журнал полезных статей, которые приводят покупателей из поиска.',
+    descEn: 'Website for a natural farm at the source of the Volga: potatoes, honey, eggs and poultry. The mark combines an ear of grain and a Volga wave; warm rustic palette and classic serif headings. Besides the product showcase — a farm chronicle and an article journal that bring buyers from search.',
+    site: { url: 'https://fermaruna.ru', mirror: 'https://bestdeejay-design.github.io/fermaruna/', dir: 'portfolio/sites/fermaruna/', shots: ['fermaruna-d0.jpg', 'fermaruna-d1.jpg', 'fermaruna-d3.jpg', 'fermaruna-d4.jpg', 'fermaruna-d5.jpg'], mobile: 'fermaruna-m0.jpg', logos: ['logo.png|#1a3726', 'logo-mark.svg'], logoBg: '#f6f1e3',
+      tagsRu: ['Сайт', 'Логотип', 'Фирменный стиль', 'Контент'], tagsEn: ['Website', 'Logo', 'Brand identity', 'Content'] } },
+  { titleEn: 'LOVII — local economy platform', titleRu: 'LOVII — платформа района', categoryEn: 'Logo & website', categoryRu: 'Логотип и сайт', cover: 'portfolio/sites/lovii/lovii-m0.jpg', colors: ['#E6337A', '#FFFFFF'],
+    descRu: 'Логотип и сайт финтех-платформы, которая объединяет жителей района и местный бизнес. Знак и шрифтовой логотип «ЛОВИ», розовая фирменная палитра, карта лояльности LOVII PAY и отдельные страницы для каждой роли: покупатели, бизнес, партнёры, инвесторы.',
+    descEn: 'Logo and website for a fintech platform connecting residents with local businesses. Mark and wordmark, signature pink palette, the LOVII PAY loyalty card and dedicated pages for each role: customers, businesses, partners, investors.',
+    site: { url: 'https://lovii.ru', dir: 'portfolio/sites/lovii/', shots: ['lovii-d0.jpg', 'lovii-d1.jpg', 'lovii-d2.jpg', 'lovii-d3.jpg', 'lovii-d5.jpg'], mobile: 'lovii-m0.jpg', logos: ['logo-light.svg', 'logo-dark.svg|#16161a'], logoBg: '#ffffff',
+      tagsRu: ['Логотип', 'Фирменный стиль', 'Сайт', 'Финтех'], tagsEn: ['Logo', 'Brand identity', 'Website', 'Fintech'] } },
 ]
 
 function buildWorks() {
@@ -417,7 +435,7 @@ function buildWorks() {
     const num = String(i + 1).padStart(2, '0')
     let visual = ''
     if (p.cover) {
-      visual = `<div class="wv"><img src="${p.cover}" alt="${title}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='var(--card-bg)'"/></div>`
+      visual = `<div class="wv"><img src="${p.cover}" alt="${title}" loading="lazy" style="width:100%;height:100%;object-fit:cover${p.site ? ';object-position:top' : ''}" onerror="this.parentElement.style.background='var(--card-bg)'"/></div>`
     }
     card.innerHTML = `
       <div class="work-card__visual">${visual}</div>
@@ -463,7 +481,7 @@ function updateOG(index) {
   const who = CFG ? R.L(lang, CFG.brand.nameRu, CFG.brand.nameEn) : 'Ksenia'
   const title = lang === 'ru' ? p.titleRu : p.titleEn
   const cat = lang === 'ru' ? p.categoryRu : p.categoryEn
-  const desc = i18n[lang][`proj.${index}.desc`] || `${cat} — ${title}`
+  const desc = i18n[lang][`proj.${index}.desc`] || (lang === 'ru' ? p.descRu : p.descEn) || `${cat} — ${title}`
   const img = `${SITE_URL}/og-${index}.jpg`
 
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', `${who} — ${title}`)
@@ -611,6 +629,38 @@ function openNewProject() {
   pauseBackground(true)
 }
 
+// Кейс сайта: данные из projects[i].site — ничего верстать руками не нужно
+function renderSiteCase(p, index) {
+  const ru = lang === 'ru'
+  const S = p.site
+  const t = ru ? p.titleRu : p.titleEn
+  const src = f => S.dir + f
+  const host = u => u.replace(/^https?:\/\//, '').replace(/\/$/, '')
+  const sec = (title, html) => `<div class="proj-section"><div class="proj-section__title">${title}</div>${html}</div>`
+  const tags = (ru ? S.tagsRu : S.tagsEn) || []
+  const shots = S.shots.map(f => `<figure class="site-shot" onclick="openLightbox('${src(f)}',${index})"><div class="site-shot__bar"><i></i><i></i><i></i><span>${host(S.url)}</span></div><img src="${src(f)}" alt="${t}" loading="lazy"/></figure>`).join('')
+  // формат: 'файл' или 'файл|#фон'
+  const logos = (S.logos || []).map(x => x.split('|')).map(([f, bg]) => `<div class="site-logo" style="background:${bg || S.logoBg || '#fff'}"><img src="${src(f)}" alt="${t} — логотип" loading="lazy"/></div>`).join('')
+  const links = `<div class="site-links">
+      <a class="btn btn--accent" href="${S.url}" target="_blank" rel="noopener">${ru ? 'Открыть сайт' : 'Open website'} ↗</a>
+      ${S.mirror ? `<a class="btn btn--ghost" href="${S.mirror}" target="_blank" rel="noopener">${ru ? 'Зеркало' : 'Mirror'} ↗</a>` : ''}
+    </div>`
+  return `
+    <div class="proj-hero"><div class="proj-hero__label">${ru ? p.categoryRu : p.categoryEn}</div>
+      <div style="font-size:clamp(24px,4vw,48px);font-weight:900;font-family:'Unbounded',sans-serif;margin:12px 0">${t}</div></div>
+    <div class="proj-desc">${ru ? p.descRu : p.descEn}</div>
+    <div class="site-meta">
+      <div><span>${ru ? 'Роль Ксении' : 'Ksenia’s role'}</span>${ru ? 'Дизайн сайта, логотип и фирменный стиль' : 'Website design, logo and identity'}</div>
+      <div><span>${ru ? 'Разработка' : 'Development'}</span>${ru ? 'В паре с разработчиком' : 'With a developer partner'}</div>
+      <div><span>${ru ? 'Что сделано' : 'Scope'}</span>${tags.join(' · ')}</div>
+    </div>
+    ${links}
+    ${logos ? sec(ru ? 'Логотип' : 'Logo', `<div class="site-logos">${logos}</div>`) : ''}
+    ${sec(ru ? 'Экраны сайта' : 'Website screens', `<div class="site-shots">${shots}</div>`)}
+    ${S.mobile ? sec(ru ? 'Мобильная версия' : 'Mobile version', `<div class="site-mobile" onclick="openLightbox('${src(S.mobile)}',${index})"><img src="${src(S.mobile)}" alt="${t} — мобильная версия" loading="lazy"/></div>`) : ''}
+    ${links}`
+}
+
 function getProjectHTML(index) {
   const _ = key => i18n[lang][key]
   const p = projects[index]
@@ -621,6 +671,7 @@ function getProjectHTML(index) {
   const hero = `<div class="proj-hero"><div class="proj-hero__label">${lang === 'ru' ? p.categoryRu : p.categoryEn}</div><div style="font-size:clamp(24px,4vw,48px);font-weight:900;font-family:'Unbounded',sans-serif;margin:12px 0">${lang === 'ru' ? p.titleRu : p.titleEn}</div></div>`
   const desc = index !== 0 ? `<div class="proj-desc">${_(`proj.${index}.desc`)}</div>` : ''
 
+  if (p.site) return renderSiteCase(p, index)
   let c
   switch (index) {
     // 1: Packaging Development
@@ -770,7 +821,7 @@ const lbNext = document.getElementById('lightbox-next')
 
 function openLightbox(src, projectIdx) {
   const content = document.getElementById('overlay-content')
-  const imgs = content ? [...content.querySelectorAll('.proj-gallery__item img')].map(i => i.src) : [src]
+  const imgs = content ? [...content.querySelectorAll('.proj-gallery__item img, .site-shot img, .site-mobile img')].map(i => i.src) : [src]
   lbImages = imgs.length ? imgs : [src]
   lbIndex = lbImages.findIndex(u => u.includes(src))
   if (lbIndex === -1) lbIndex = 0

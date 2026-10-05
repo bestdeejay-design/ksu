@@ -259,6 +259,26 @@
         bestForRu: 'Свадьба, ребёнок, путешествие, книга о компании',
         bestForEn: 'Wedding, child, trip, company book',
         faq: ['print', 'timeline', 'how-start']
+      },
+      {
+        slug: 'website',
+        titleRu: 'Сайт под ключ',
+        titleEn: 'Website, turnkey',
+        priceFrom: 45000,
+        unitRu: '',
+        unitEn: '',
+        durationRu: '2–4 недели',
+        durationEn: '2–4 weeks',
+        category: 'Веб-дизайн',
+        cover: 'portfolio/sites/ss-bmw/ss-bmw-d0.jpg',
+        project: 11,
+        shortRu: 'Лендинг или сайт-визитка: дизайн, логотип при необходимости и запуск — сайт работает на вашем адресе и приводит заявки.',
+        shortEn: 'Landing page or small business site: design, a logo if needed, and launch — the site runs on your domain and brings leads.',
+        includesRu: ['Структура и тексты блоков вместе с вами', 'Дизайн компьютерной и мобильной версии', 'Логотип и цвета, если их ещё нет', 'Вёрстка, форма заявки, подключение домена', 'Базовое SEO и аналитика'],
+        includesEn: ['Structure and block copy together with you', 'Desktop and mobile design', 'Logo and colours if you don’t have them yet', 'Build, lead form, domain setup', 'Basic SEO and analytics'],
+        bestForRu: 'Сервис, ферма, студия, мастер, локальный бизнес',
+        bestForEn: 'Service business, farm, studio, craftsperson, local business',
+        faq: ['how-start', 'timeline', 'rights']
       }
     ],
 

@@ -50,7 +50,7 @@ CFG.services.forEach((s, i) => {
   check('C2', `svc.${i}.inc`, `${s.slug}: «что входит» 3–7 пунктов, Ru и En равной длины`,
     s.includesRu.length >= 3 && s.includesRu.length <= 7 && s.includesRu.length === s.includesEn.length)
   if (s.cover) check('C2', `svc.${i}.cover`, `${s.slug}: обложка ${s.cover} лежит в репозитории`, existsSync(join(ROOT, s.cover)))
-  if (s.project != null) check('C2', `svc.${i}.proj`, `${s.slug}: проект ${s.project} существует`, s.project >= 0 && s.project <= 10 && existsSync(join(ROOT, `project-${s.project}/index.html`)))
+  if (s.project != null) check('C2', `svc.${i}.proj`, `${s.slug}: проект ${s.project} существует`, s.project >= 0 && existsSync(join(ROOT, `project-${s.project}/index.html`)))
   ;(s.faq || []).forEach(id => check('C2', `svc.${i}.faq`, `${s.slug}: FAQ-id «${id}» есть в cfg.faq`, CFG.faq.some(f => f.id === id)))
 })
 CFG.faq.forEach((f, i) => {

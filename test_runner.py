@@ -177,7 +177,7 @@ def run_tests(url):
 
         # ───── T7: NAVIGATION ─────
         print_header("T7. Навигация")
-        for sid in ["hero", "about", "works", "contact"]:
+        for sid in ["hero", "services", "works", "about", "order", "faq", "contact"]:
             check("T7", f"T7.{sid}", f"#{sid} существует", page.locator(f"#{sid}").count() > 0)
         logo = page.locator(".nav__logo")
         check("T7", "T7.logo", "Логотип виден", logo.is_visible())
@@ -197,7 +197,7 @@ def run_tests(url):
 
         # ───── T8: SEO ─────
         print_header("T8. SEO и PWA")
-        check("T8", "T8.1", "Title: 'Ksenia'", "Ksenia" in page.title(), f"'{page.title()}'")
+        check("T8", "T8.1", "Title: Ксения/Ksenia", ("Ксения" in page.title() or "Ksenia" in page.title()), f"'{page.title()}'")
         ogi = page.locator('meta[property="og:image"]').get_attribute("content")
         check("T8", "T8.2", "OG image", bool(ogi))
         man = page.locator('link[rel="manifest"]').get_attribute("href")

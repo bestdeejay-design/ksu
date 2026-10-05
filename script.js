@@ -6,15 +6,81 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeMobileMenu()
 })
 
-const SITE_URL = 'https://bestdeejay-design.github.io/ksu'
+let SITE_URL = 'https://bestdeejay-design.github.io/ksu'   // переопределяется из js/config.js
 
 // I18N
 const i18n = {
   en: {
     'nav.logo': 'Ksenia',
-    'nav.about': 'About',
+    'nav.services': 'Services',
+    'nav.faq': 'FAQ',
+    'nav.orderBtn': 'Start a project',
+    'hero.offer': 'Design that sells your idea: logo, illustration, poster, packaging. From 3,500 ₽, first concepts in 3 days.',
+    'hero.cta1': 'Start a project',
+    'hero.cta2': 'Prices & services',
+    'services.label': 'Services & prices',
+    'services.lead': 'Pick the task — I show what’s included, the turnaround and the starting price. Not sure what you need? Write and I’ll quote it.',
+    'services.cta': 'Not sure what I need',
+    'services.note': 'Starting prices: the final quote depends on scope and deadline, usually the same day.',
+    'process.label': 'How we work',
+    'process.lead': 'Five steps with no surprises: you always know what is happening and what is next.',
+    'reviews.label': 'Reviews',
+    'order.label': 'Request a quote',
+    'order.lead': 'Fill in 7 fields — I’ll turn them into a brief and send an exact quote. I reply within a day, usually in 1–2 hours.',
+    'order.fact1n': '3–4 minutes',
+    'order.fact1': 'to fill in, works fine on a phone',
+    'order.fact2n': 'Free',
+    'order.fact2': 'the quote and my questions commit you to nothing',
+    'order.fact3n': 'Nothing is lost',
+    'order.fact3': 'your draft is saved in this browser if you get distracted',
+    'order.alt': 'Rather not fill a form?',
+    'order.altLink': 'Write me on WhatsApp',
+    'form.name': 'Your name',
+    'form.namePh': 'For example, Anna',
+    'form.nameErr': 'Please add a name — easier to start with one',
+    'form.contact': 'Where to reply',
+    'form.contactPh': '@telegram, WhatsApp number or email',
+    'form.contactErr': 'I need a contact to reply to you',
+    'form.service': 'What you need',
+    'form.servicePh': 'Choose a service',
+    'form.budget': 'Budget ballpark',
+    'form.deadline': 'When you need it',
+    'form.message': 'The task in your own words',
+    'form.messagePh': 'Who it is for, where it will live, what must be taken into account',
+    'form.messageErr': 'A couple of sentences is enough — at least 15 characters',
+    'form.refs': 'References or brief',
+    'form.optional': 'optional',
+    'form.refsPh': 'Link to a folder, examples, document',
+    'form.estimate': 'Preliminary estimate',
+    'form.estimateNote': 'This is the price range from my rate card. I’ll confirm the exact figure after a couple of questions — usually the same day.',
+    'form.consent': 'I agree that Ksenia may use this data to reply to my request.',
+    'form.consentErr': 'Without consent I’m not allowed to reply',
+    'form.send': 'Send the brief on WhatsApp',
+    'form.copy': 'Copy the text',
+    'form.privacy': 'Your data never reaches third parties: the form works without middlemen.',
+    'form.contactInstead': 'Or write directly',
+    'form.doneTitle': 'Your brief is ready and WhatsApp is open',
+    'form.doneText': 'If the window didn’t open — press “Copy the text” and paste it into the chat. I reply within a day, usually faster.',
+    'form.doneEdit': 'Edit the brief',
+    'form.doneWorks': 'Show me the work first',
+    'faq.label': 'Common questions',
+    'faq.lead': 'What people ask before writing to me.',
+    'faq.cta': 'Ask on WhatsApp',
+    'form.fixErrors': 'Check the highlighted fields',
+    'form.ready': 'Ready to send',
+    'form.rushNote': '+50% for a rush deadline',
+    'form.pickService': 'Choose a service to see the range',
+    'form.filled': 'of 7 filled',
+    'toast.copied': 'Brief copied',
+    'toast.copyFail': 'Select the text and copy it manually',
+    'draft.restored': 'Draft restored',
+    'draft.clear': 'clear',
+    'contact.wa': 'WhatsApp — fastest way to reach me',
+    'contact.avail': 'Taking projects for this month',
+    'footer.order': 'Request',
+    'sticky.from': 'from',
+    'sticky.btn': 'Start a project',
     'nav.works': 'Works',
-    'nav.inspiration': 'Inspiration',
     'nav.contact': 'Contact',
     'nav.langBtn': 'RU',
     'nav.startProject': 'Start Your Project',
@@ -92,16 +158,81 @@ const i18n = {
     'cta.step6': 'Publication — your project joins the portfolio',
     'cta.contact': 'Get in Touch',
     'cta.email': 'Send brief via email',
-    'cta.telegram': 'Write on Telegram',
     'cta.whatsapp': 'Write on WhatsApp',
     'cta.brief': 'Brief Template',
     'cta.briefText': 'What type of project? (branding, poster, illustration, packaging, etc.)\nWhat are the deadlines?\nReference links or examples\nBudget range\nShort description of the task'
   },
   ru: {
     'nav.logo': 'Ксения',
-    'nav.about': 'Обо мне',
+    'nav.services': 'Услуги',
+    'nav.faq': 'Вопросы',
+    'nav.orderBtn': 'Обсудить заказ',
+    'hero.offer': 'Дизайн, который продаёт вашу идею: логотип, иллюстрация, плакат, упаковка. От 3 500 ₽, первые концепты — через 3 дня.',
+    'hero.cta1': 'Обсудить заказ',
+    'hero.cta2': 'Цены и услуги',
+    'services.label': 'Услуги и цены',
+    'services.lead': 'Выберите задачу — я покажу, что входит в работу, срок и стартовую цену. Не нашли своё? Напишите: сделаю смету отдельно.',
+    'services.cta': 'Не знаю, что мне нужно',
+    'services.note': 'Цены стартовые: итог зависит от объёма и сроков, назову его после брифа — обычно в тот же день.',
+    'process.label': 'Как мы работаем',
+    'process.lead': 'Пять шагов без сюрпризов: вы всегда знаете, что происходит и что будет дальше.',
+    'reviews.label': 'Отзывы',
+    'order.label': 'Оставить заявку',
+    'order.lead': 'Заполните 7 полей — я соберу из них бриф и пришлю точную смету. Отвечу в течение дня, обычно за 1–2 часа.',
+    'order.fact1n': '3–4 минуты',
+    'order.fact1': 'на заполнение, можно с телефона',
+    'order.fact2n': 'Бесплатно',
+    'order.fact2': 'смета и уточняющие вопросы ни к чему не обязывают',
+    'order.fact3n': 'Ничего не теряется',
+    'order.fact3': 'черновик сохраняется в браузере, если отвлечься',
+    'order.alt': 'Не хочется заполнять форму?',
+    'order.altLink': 'Написать в WhatsApp',
+    'form.name': 'Как вас зовут',
+    'form.namePh': 'Например, Анна',
+    'form.nameErr': 'Напишите имя — так удобнее начать',
+    'form.contact': 'Куда ответить',
+    'form.contactPh': '@telegram, номер WhatsApp или почта',
+    'form.contactErr': 'Нужен контакт, иначе я не смогу ответить',
+    'form.service': 'Что нужно',
+    'form.servicePh': 'Выберите услугу',
+    'form.budget': 'Ориентир по бюджету',
+    'form.deadline': 'Когда нужно',
+    'form.message': 'Задача своими словами',
+    'form.messagePh': 'Для кого и для чего дизайн, где будет жить, что обязательно учесть',
+    'form.messageErr': 'Пара предложений достаточно — минимум 15 символов',
+    'form.refs': 'Референсы или ТЗ',
+    'form.optional': 'необязательно',
+    'form.refsPh': 'Ссылка на папку, примеры, документ',
+    'form.estimate': 'Предварительная смета',
+    'form.estimateNote': 'Это вилка «от» по прайсу. Точную цену назову после уточнений — обычно в тот же день.',
+    'form.consent': 'Согласен(на), что Ксения использует эти данные, чтобы ответить на заявку.',
+    'form.consentErr': 'Без согласия я не имею права ответить',
+    'form.send': 'Отправить бриф в WhatsApp',
+    'form.copy': 'Скопировать текст',
+    'form.privacy': 'Данные не уходят третьим лицам: форма работает без посредников.',
+    'form.contactInstead': 'Или написать напрямую',
+    'form.doneTitle': 'Бриф собран и открыт в WhatsApp',
+    'form.doneText': 'Если окно не открылось — нажмите «Скопировать текст» и вставьте в переписку. Я отвечу в течение дня, обычно быстрее.',
+    'form.doneEdit': 'Поправить бриф',
+    'form.doneWorks': 'Пока посмотрю работы',
+    'faq.label': 'Частые вопросы',
+    'faq.lead': 'То, о чём спрашивают перед первым сообщением.',
+    'faq.cta': 'Спросить в WhatsApp',
+    'form.fixErrors': 'Проверьте подсвеченные поля',
+    'form.ready': 'Можно отправлять',
+    'form.rushNote': '+50% за срочность',
+    'form.pickService': 'Выберите услугу — покажу вилку цены',
+    'form.filled': 'из 7 заполнено',
+    'toast.copied': 'Бриф скопирован',
+    'toast.copyFail': 'Выделите текст и скопируйте вручную',
+    'draft.restored': 'Черновик восстановлен',
+    'draft.clear': 'очистить',
+    'contact.wa': 'WhatsApp — самый быстрый способ',
+    'contact.avail': 'Беру проекты в этом месяце',
+    'footer.order': 'Заявка',
+    'sticky.from': 'от',
+    'sticky.btn': 'Обсудить заказ',
     'nav.works': 'Работы',
-    'nav.inspiration': 'Референсы',
     'nav.contact': 'Контакты',
     'nav.langBtn': 'EN',
     'nav.startProject': 'Начать проект',
@@ -179,7 +310,6 @@ const i18n = {
     'cta.step6': 'Публикация — проект в портфолио',
     'cta.contact': 'Связаться',
     'cta.email': 'Отправить бриф на почту',
-    'cta.telegram': 'Написать в Telegram',
     'cta.whatsapp': 'Написать в WhatsApp',
     'cta.brief': 'Шаблон брифа',
     'cta.briefText': 'Тип проекта? (брендинг, плакат, иллюстрация, упаковка и т.д.)\nКакие сроки?\nСсылки на референсы\nБюджет\nКраткое описание задачи'
@@ -189,11 +319,32 @@ const i18n = {
 
 
 // LANGUAGE
-let lang = localStorage.getItem('lang') || 'en'
+const CFG = window.KSU_CONFIG || null
+if (CFG && CFG.siteUrl) SITE_URL = CFG.siteUrl
+const R = window.KSU_RENDER
+const initialLang = document.documentElement.getAttribute('data-lang') || 'ru'
+let lang = initialLang
 const langBtn = document.getElementById('lang-toggle')
+
+function setMeta() {
+  if (!CFG) return
+  const s = lang === 'en' ? CFG.seo.en : CFG.seo.ru
+  document.title = s.homeTitle
+  const set = (sel, attr, val) => {
+    const el = document.querySelector(sel)
+    if (el) el.setAttribute(attr, val)
+  }
+  set('meta[name="description"]', 'content', s.homeDescription)
+  set('meta[property="og:title"]', 'content', s.ogTitle)
+  set('meta[property="og:description"]', 'content', s.ogDescription)
+  set('meta[property="og:locale"]', 'content', s.locale)
+  set('meta[name="twitter:title"]', 'content', s.ogTitle)
+  set('meta[name="twitter:description"]', 'content', s.ogDescription)
+}
 
 function applyLanguage() {
   document.documentElement.lang = lang === 'en' ? 'en' : 'ru'
+  document.documentElement.setAttribute('data-lang', lang)
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n
     const text = i18n[lang] && i18n[lang][key]
@@ -201,6 +352,13 @@ function applyLanguage() {
       el.innerHTML = text
     }
   })
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.dataset.i18nPh
+    const text = i18n[lang] && i18n[lang][key]
+    if (text !== undefined) el.setAttribute('placeholder', text)
+  })
+  if (langBtn) langBtn.textContent = lang === 'ru' ? 'EN' : 'RU'
+  setMeta()
 }
 
 langBtn.addEventListener('click', () => {
@@ -208,6 +366,7 @@ langBtn.addEventListener('click', () => {
   localStorage.setItem('lang', lang)
   applyLanguage()
   rebuildLangContent()
+  if (window.ksuTrack) window.ksuTrack('lang_switch', { lang })
 })
 
 function rebuildLangContent() {
@@ -216,6 +375,8 @@ function rebuildLangContent() {
   buildWorks()
 
   buildNavProjects()
+  renderConfigSections()
+  if (window.orderForm) window.orderForm.refresh()
 }
 
 // THEME TOGGLE
@@ -298,36 +459,45 @@ let currentProject = -1
 function updateOG(index) {
   const p = projects[index]
   if (!p) return
+  const who = CFG ? R.L(lang, CFG.brand.nameRu, CFG.brand.nameEn) : 'Ksenia'
   const title = lang === 'ru' ? p.titleRu : p.titleEn
   const cat = lang === 'ru' ? p.categoryRu : p.categoryEn
   const desc = i18n[lang][`proj.${index}.desc`] || `${cat} — ${title}`
   const img = `${SITE_URL}/og-${index}.jpg`
 
-  document.querySelector('meta[property="og:title"]')?.setAttribute('content', `Ksenia — ${title}`)
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', `${who} — ${title}`)
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc)
   document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/project-${index}/`)
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_URL}/project-${index}/`)
   document.querySelector('meta[property="og:image"]')?.setAttribute('content', img)
-  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', `Ksenia — ${title}`)
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', `${who} — ${title}`)
   document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc)
   document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', img)
-  document.querySelector('title').textContent = `Ksenia — ${title}`
+  document.querySelector('title').textContent = `${who} — ${title}`
   document.querySelector('meta[name="description"]')?.setAttribute('content', desc)
 }
 
 const DEFAULT_DESC = 'Portfolio of Ksenia — graphic designer. Identity, branding, typography, UI/UX, illustration, posters.'
 
 function resetOG() {
-  document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
-  document.querySelector('meta[property="og:description"]')?.setAttribute('content', DEFAULT_DESC)
+  if (CFG && R) {
+    setMeta()
+  } else {
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', DEFAULT_DESC)
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', DEFAULT_DESC)
+    document.querySelector('title').textContent = 'Ksenia — graphic designer'
+    document.querySelector('meta[name="description"]')?.setAttribute('content', DEFAULT_DESC)
+  }
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content',
+    CFG ? (lang === 'en' ? CFG.seo.en.homeDescription : CFG.seo.ru.homeDescription) : DEFAULT_DESC)
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content',
+    CFG ? (lang === 'en' ? CFG.seo.en.homeDescription : CFG.seo.ru.homeDescription) : DEFAULT_DESC)
   document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/`)
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_URL}/`)
   document.querySelector('meta[property="og:image"]')?.setAttribute('content', `${SITE_URL}/og-2026-08-10.png`)
-  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', 'Ksenia — graphic designer')
-  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', DEFAULT_DESC)
   document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', `${SITE_URL}/og-2026-08-10.png`)
-  document.querySelector('title').textContent = 'Ksenia — graphic designer'
-  document.querySelector('meta[name="description"]')?.setAttribute('content', DEFAULT_DESC)
 }
 
 function shareProject(index) {
@@ -335,7 +505,7 @@ function shareProject(index) {
   const title = lang === 'ru' ? p.titleRu : p.titleEn
   const url = `${SITE_URL}/project-${index}/`
   if (navigator.share) {
-    navigator.share({ title: `Ksenia — ${title}`, url }).catch(() => {})
+    navigator.share({ title: `${who} — ${title}`, url }).catch(() => {})
   } else {
     navigator.clipboard.writeText(url).then(() => {
       const btn = document.getElementById('share-btn-fixed')
@@ -427,9 +597,9 @@ function openNewProject() {
     <div class="proj-section">
       <div class="proj-section__title">${_('cta.contact')}</div>
       <div class="cta-contacts">
-        <a href="mailto:ksu@ya.ru?subject=Project%20Brief" class="cta-contact__btn" target="_blank">${_('cta.email')}</a>
-        <a href="https://t.me/+79811281636" class="cta-contact__btn" target="_blank" rel="noopener">${_('cta.telegram')}</a>
-        <a href="https://wa.me/79811281636" class="cta-contact__btn" target="_blank" rel="noopener">${_('cta.whatsapp')}</a>
+        <a href="#order" class="cta-contact__btn" onclick="closeProject()">${lang === 'ru' ? 'Заполнить бриф на сайте' : 'Fill the brief on the site'}</a>
+        <a href="${waLink(CFG ? CFG.brand.nameRu : '')}" class="cta-contact__btn" target="_blank" rel="noopener">${_('cta.whatsapp')}</a>
+        <a href="mailto:ksu@ya.ru?subject=Project%20Brief" class="cta-contact__btn">${_('cta.email')}</a>
       </div>
     </div>`
   overlay.classList.add('overlay--open')
@@ -577,7 +747,12 @@ function getProjectHTML(index) {
 
   const shareTitle = lang === 'ru' ? 'Понравился проект?' : 'Like this project?'
   const shareLabel = lang === 'ru' ? 'Поделиться проектом' : 'Share this project'
-  return c + `<div class="proj-section proj-section--share"><div class="proj-section__title">${shareTitle}</div><button class="proj-share-btn" onclick="shareProject(${index})">${shareLabel}</button></div>`
+  const ordTitle = lang === 'ru' ? 'Хочу такое же' : 'I want something like this'
+  const svc = serviceForProject(index)
+  const ordBtn = svc
+    ? `<a class="proj-share-btn proj-share-btn--order" href="#order" onclick="closeProject();preselectService('${svc.slug}')">${lang === 'ru' ? `Заказать: ${R.esc(svc.titleRu)} — ${R.priceLabel(svc, lang, CFG)}` : `Order: ${R.esc(svc.titleEn)} — ${R.priceLabel(svc, lang, CFG)}`}</a>`
+    : ''
+  return c + `<div class="proj-section proj-section--share"><div class="proj-section__title">${shareTitle}</div>${ordBtn}<button class="proj-share-btn" onclick="shareProject(${index})">${shareLabel}</button></div>`
 }
 
 // LIGHTBOX
@@ -747,3 +922,441 @@ document.getElementById('share-btn-fixed').addEventListener('click', () => {
   if (currentProject >= 0) shareProject(currentProject)
   else shareMain()
 })
+
+/* =======================================================================
+   ПРОДАЮЩИЕ СЕКЦИИ + ФОРМА ЗАЯВКИ
+   Всё содержимое берётся из js/config.js — править нужно только его.
+   ======================================================================= */
+
+function waLink(text) {
+  const num = CFG && CFG.contacts.whatsapp ? CFG.contacts.whatsapp : '79811281636'
+  return 'https://wa.me/' + num + (text ? '?text=' + encodeURIComponent(text) : '')
+}
+
+function serviceForProject(index) {
+  if (!CFG || !R) return null
+  return CFG.services.filter(s => String(s.project) === String(index))[0] || null
+}
+
+/* ---------- prerender-совместимая отрисовка секций ---------- */
+function renderConfigSections() {
+  if (!CFG || !R) return
+  const put = (id, html) => {
+    const el = document.getElementById(id)
+    if (el) el.innerHTML = html
+  }
+
+  put('services-grid', R.servicesGrid(lang, CFG))
+  put('process-list', R.processList(lang, CFG))
+  put('trust-list', R.promises(lang, CFG))
+  put('faq-list', R.faqList(lang, CFG))
+
+  // опции и чипсы формы
+  const sel = document.getElementById('f-service')
+  if (sel) {
+    const cur = sel.value
+    sel.innerHTML = '<option value="">' + (i18n[lang]['form.servicePh']) + '</option>' +
+      CFG.services.map(s => `<option value="${s.slug}">${R.esc(R.L(lang, s.titleRu, s.titleEn))} · ${R.esc(R.priceLabel(s, lang, CFG))}</option>`).join('')
+    if (cur) sel.value = cur
+  }
+  put('f-budget', R.chips(CFG.budgets, lang, 'budget'))
+  put('f-deadline', R.chips(CFG.deadlines, lang, 'deadline'))
+
+  // цена «от» в мобильной плашке
+  const min = Math.min.apply(null, CFG.services.map(s => s.priceFrom))
+  const from = document.getElementById('sticky-from')
+  if (from) from.textContent = R.price(min, CFG)
+
+  const avail = document.getElementById('contact-avail')
+  if (avail) avail.textContent = CFG.promises.responseRu && lang === 'ru'
+    ? '✦ ' + CFG.promises.responseRu
+    : '✦ ' + CFG.promises.responseEn
+
+  document.querySelectorAll('[data-wa]').forEach(a => {
+    if (!a.dataset.waBound) {
+      a.dataset.waBound = '1'
+      a.dataset.baseHref = a.href
+    }
+    if (a.id !== 'order-send' && !a.closest('#order-form')) {
+      a.setAttribute('href', waLink(lang === 'ru'
+        ? 'Здравствуйте! Смотрю ваше портфолио, хочу обсудить заказ.'
+        : 'Hello! I found your portfolio and would like to discuss a project.'))
+    }
+  })
+
+  bindServiceCtas()
+  renderReviews()
+}
+
+function bindServiceCtas() {
+  document.querySelectorAll('[data-order-service]').forEach(btn => {
+    if (btn.dataset.bound) return
+    btn.dataset.bound = '1'
+    btn.addEventListener('click', e => {
+      e.preventDefault()
+      e.stopPropagation()
+      preselectService(btn.dataset.orderService)
+      if (window.ksuTrack) window.ksuTrack('service_click', { service: btn.dataset.orderService })
+    })
+  })
+}
+
+function renderReviews() {
+  const box = document.getElementById('reviews-grid')
+  const sec = document.getElementById('reviews')
+  if (!box || !sec || !CFG) return
+  const list = CFG.reviews || []
+  if (!list.length) { sec.hidden = true; return }
+  sec.hidden = false
+  box.innerHTML = list.map(rv =>
+    `<figure class="review"><blockquote class="review__text">${R.esc(lang === 'ru' ? rv.textRu : rv.textEn)}</blockquote>` +
+    `<figcaption class="review__who">${R.esc(lang === 'ru' ? rv.name : (rv.nameEn || rv.name))}` +
+    (rv.project != null ? ` <button type="button" class="review__link" onclick="openProject(${rv.project})">${lang === 'ru' ? 'работа' : 'project'}</button>` : '') +
+    (rv.url ? ` <a href="${R.esc(rv.url)}" target="_blank" rel="noopener" class="review__src">${lang === 'ru' ? 'источник' : 'source'}</a>` : '') +
+    `</figcaption></figure>`).join('')
+}
+
+/* ---------- выбор услуги из карточки ---------- */
+function preselectService(slug) {
+  const sel = document.getElementById('f-service')
+  if (sel) { sel.value = slug; sel.dispatchEvent(new Event('change', { bubbles: true })) }
+  const order = document.getElementById('order')
+  if (order && order.scrollIntoView) order.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  setTimeout(() => {
+    const n = document.getElementById('f-name')
+    if (n && n.focus) { try { n.focus({ preventScroll: true }) } catch (e) { n.focus() } }
+  }, 600)
+  if (order) {
+    order.classList.add('order--flash')
+    setTimeout(() => order.classList.remove('order--flash'), 1400)
+  }
+}
+window.preselectService = preselectService
+
+/* ---------- плашка «обсудить заказ» на мобильном ---------- */
+function initStickyCta() {
+  const bar = document.getElementById('sticky-cta')
+  if (!bar) return
+  const order = document.getElementById('order')
+  let orderVisible = false
+  if (order && 'IntersectionObserver' in window) {
+    new IntersectionObserver(es => {
+      orderVisible = es.some(e => e.isIntersecting)
+      toggle()
+    }, { threshold: 0.08 }).observe(order)
+  }
+  const hero = document.getElementById('hero')
+  let past = false
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(es => { past = !es[0].isIntersecting; toggle() }, { threshold: 0.15 }).observe(hero)
+  }
+  function toggle() {
+    const on = past && !orderVisible
+    bar.classList.toggle('sticky-cta--on', on)
+  }
+  const btn = document.getElementById('sticky-cta-btn')
+  if (btn) btn.addEventListener('click', () => window.ksuTrack && window.ksuTrack('sticky_cta_click'))
+}
+
+/* ================= ФОРМА ЗАЯВКИ ================= */
+const orderForm = (function () {
+  const form = document.getElementById('order-form')
+  if (!form) return { refresh() {}, state() { return {} } }
+
+  const F = {
+    name: document.getElementById('f-name'),
+    contact: document.getElementById('f-contact'),
+    service: document.getElementById('f-service'),
+    message: document.getElementById('f-message'),
+    refs: document.getElementById('f-refs'),
+    consent: document.getElementById('f-consent')
+  }
+  const send = document.getElementById('order-send')
+  const copy = document.getElementById('order-copy')
+  const done = document.getElementById('order-done')
+  const edit = document.getElementById('order-edit')
+  const est = document.getElementById('estimate')
+  const estVal = document.getElementById('estimate-value')
+  const hint = document.getElementById('f-service-hint')
+
+  const DRAFT = (CFG && CFG.form.draftKey) || 'ksu.order.draft'
+  const LOG = (CFG && CFG.form.leadsLogKey) || 'ksu.leads.log'
+
+  function val(k) { return F[k] ? (F[k].type === 'checkbox' ? F[k].checked : F[k].value.trim()) : '' }
+  function radio(name) {
+    const el = form.querySelector(`input[name="${name}"]:checked`)
+    return el ? el.value : ''
+  }
+
+  function data() {
+    const svc = CFG ? CFG.services.filter(s => s.slug === val('service'))[0] : null
+    const dl = CFG ? CFG.deadlines.filter(d => d.id === radio('deadline'))[0] : null
+    return {
+      name: val('name'),
+      contact: val('contact'),
+      service: val('service'),
+      serviceName: svc ? R.L(lang, svc.titleRu, svc.titleEn) : '',
+      budget: radio('budget'),
+      deadline: radio('deadline'),
+      rush: !!(dl && dl.rush),
+      message: val('message'),
+      refs: val('refs'),
+      consent: F.consent ? !!F.consent.checked : false,
+      utm: window.ksuUtm ? window.ksuUtm() : '',
+      ts: new Date().toISOString()
+    }
+  }
+
+  const REQUIRED = [
+    ['name', v => v.length >= 2],
+    ['contact', v => v.length >= 3],
+    ['service', v => !!v],
+    ['message', v => v.length >= 15],
+    ['consent', (v, all) => all.consent === true]
+  ]
+
+  function errors() {
+    const d = data()
+    return REQUIRED.filter(([k, test]) => !test(String(d[k] || ''), d)).map(([k]) => k)
+  }
+
+  function paintErrors(show) {
+    REQUIRED.forEach(([k, test]) => {
+      const d = data()
+      const ok = test(String(d[k] || ''), d)
+      const wrap = F[k] ? F[k].closest('.field, .consent') : null
+      if (wrap) wrap.classList.toggle('field--invalid', show && !ok)
+    })
+  }
+
+  function briefText() {
+    const d = data()
+    d.sourceLabel = ''
+    return R.briefMessage(d, lang, CFG)
+  }
+
+  function refresh() {
+    if (!CFG) return
+    const svc = CFG.services.filter(s => s.slug === val('service'))[0]
+    const dl = CFG.deadlines.filter(d => d.id === radio('deadline'))[0]
+    const rush = !!(dl && dl.rush)
+
+    // смета
+    if (est) {
+      if (svc) {
+        est.hidden = false
+        estVal.textContent = R.priceRange(svc, CFG, rush ? CFG.pricing.rushMultiplier : 1) +
+          (rush ? ' · ' + i18n[lang]['form.rushNote'] : '')
+      } else {
+        est.hidden = true
+      }
+    }
+    // подсказка под списком услуг
+    if (hint) {
+      hint.textContent = svc
+        ? (lang === 'ru' ? 'Срок ' + svc.durationRu + '. ' : 'Turnaround ' + svc.durationEn + '. ') +
+          svc.includesRu.length + (lang === 'ru' ? ' пунктов входит в работу' : ' items included')
+        : i18n[lang]['form.pickService']
+    }
+    // ссылка на отправку — всегда живая, даже без валидации
+    if (send) send.setAttribute('href', waLink(briefText()))
+
+    // прогресс
+    const errs = errors()
+    const d = data()
+    const filled = ['name', 'contact', 'service', 'budget', 'deadline', 'message', 'refs']
+      .filter(k => String(d[k] || '').length > 0).length
+    const bar = document.getElementById('order-progress')
+    if (bar) {
+      bar.querySelector('.op__num').textContent = String(filled)
+      bar.querySelector('.op__total').textContent = String(7)
+      bar.querySelector('.op__label').textContent = i18n[lang]['form.filled']
+      bar.querySelector('.op__track > i').style.width = Math.round((filled / 7) * 100) + '%'
+      bar.classList.toggle('op--ready', errs.length === 0)
+    }
+    paintErrors(form.dataset.checked === '1')
+    if (done && !done.hidden) done.dataset.text = briefText()
+  }
+
+  function saveDraft() {
+    try {
+      const d = data()
+      d._lang = lang
+      localStorage.setItem(DRAFT, JSON.stringify(d))
+    } catch (e) {}
+  }
+
+  function restoreDraft() {
+    let raw
+    try { raw = localStorage.getItem(DRAFT) } catch (e) { return }
+    if (!raw) return
+    let d
+    try { d = JSON.parse(raw) } catch (e) { return }
+    if (!d || (d.name === '' && d.message === '')) return
+    Object.keys(F).forEach(k => {
+      if (F[k] && d[k] != null) {
+        if (F[k].type === 'checkbox') F[k].checked = !!d[k]
+        else F[k].value = d[k]
+      }
+    })
+    if (d.budget) { const el = form.querySelector(`input[name="budget"][value="${d.budget}"]`); if (el) el.checked = true }
+    if (d.deadline) { const el = form.querySelector(`input[name="deadline"][value="${d.deadline}"]`); if (el) el.checked = true }
+    const note = document.getElementById('draft-note')
+    if (note) {
+      note.hidden = false
+      note.querySelector('span').textContent = i18n[lang]['draft.restored']
+      note.querySelector('button').textContent = i18n[lang]['draft.clear']
+    }
+  }
+
+  function logLead() {
+    try {
+      const d = data()
+      const raw = localStorage.getItem(LOG)
+      const arr = raw ? JSON.parse(raw) : []
+      arr.unshift(d)
+      localStorage.setItem(LOG, JSON.stringify(arr.slice(0, (CFG && CFG.form.maxLeadsStored) || 20)))
+    } catch (e) {}
+  }
+
+  async function sendEndpoint() {
+    const ep = CFG && CFG.form.endpoint
+    if (!ep) return 'skip'
+    try {
+      const res = await fetch(ep, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.assign({ message: briefText() }, data()))
+      })
+      return res.ok ? 'ok' : 'fail'
+    } catch (e) { return 'fail' }
+  }
+
+  function submit(e) {
+    if (e) e.preventDefault()
+    form.dataset.checked = '1'
+    const errs = errors()
+    paintErrors(true)
+    if (errs.length) {
+      const first = F[errs[0]]
+      if (first) first.focus()
+      toast(i18n[lang]['form.fixErrors'])
+      refresh()
+      return
+    }
+    // honeypot
+    if (form.hp && form.hp.value) return
+    window.ksuTrack && window.ksuTrack('order_submit', { service: val('service'), budget: radio('budget') })
+    logLead()
+    saveDraft()
+    sendEndpoint()
+    if (send) {
+      send.setAttribute('href', waLink(briefText()))
+      send.removeAttribute('target')
+      window.open(send.getAttribute('href'), '_blank', 'noopener')
+    }
+    if (done) {
+      done.hidden = false
+      form.classList.add('order__form--sent')
+      if (done.scrollIntoView) done.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+    window.ksuTrack && window.ksuTrack('order_sent', { service: val('service') })
+  }
+
+  async function copyBrief() {
+    const text = briefText()
+    try {
+      await navigator.clipboard.writeText(text)
+      toast(i18n[lang]['toast.copied'])
+    } catch (err) {
+      const ta = document.createElement('textarea')
+      ta.value = text
+      document.body.appendChild(ta)
+      ta.select()
+      try { document.execCommand('copy'); toast(i18n[lang]['toast.copied']) }
+      catch (e2) { toast(i18n[lang]['toast.copyFail']) }
+      document.body.removeChild(ta)
+    }
+    window.ksuTrack && window.ksuTrack('copy_brief')
+  }
+
+  let toastTimer
+  function toast(msg) {
+    let t = document.getElementById('ksu-toast')
+    if (!t) {
+      t = document.createElement('div')
+      t.id = 'ksu-toast'
+      t.className = 'toast'
+      document.body.appendChild(t)
+    }
+    t.textContent = msg
+    t.classList.add('toast--on')
+    clearTimeout(toastTimer)
+    toastTimer = setTimeout(() => t.classList.remove('toast--on'), 2600)
+  }
+
+  form.addEventListener('submit', submit)
+
+  // Клик по главной кнопке: ссылка живая и обновляется на каждом вводе,
+  // поэтому при валидных данных не мешаем браузеру открыть WhatsApp сам.
+  if (send) send.addEventListener('click', (e) => {
+    form.dataset.checked = '1'
+    const errs = errors()
+    paintErrors(true)
+    if (errs.length) {
+      e.preventDefault()
+      const first = F[errs[0]]
+      if (first) first.focus()
+      toast(i18n[lang]['form.fixErrors'])
+      refresh()
+      return
+    }
+    if (form.hp && form.hp.value) { e.preventDefault(); return }
+    logLead()
+    saveDraft()
+    sendEndpoint()
+    window.ksuTrack && window.ksuTrack('order_submit', { service: val('service'), budget: radio('budget'), via: 'link' })
+    setTimeout(() => {
+      if (done) { done.hidden = false; form.classList.add('order__form--sent') }
+      window.ksuTrack && window.ksuTrack('order_sent', { service: val('service') })
+    }, 120)
+  })
+  if (copy) copy.addEventListener('click', copyBrief)
+  if (edit) edit.addEventListener('click', () => {
+    if (done) done.hidden = true
+    form.classList.remove('order__form--sent')
+    if (F.name) F.name.focus()
+  })
+
+  form.addEventListener('input', () => { saveDraft(); refresh() })
+  form.addEventListener('change', () => { saveDraft(); refresh() })
+  form.addEventListener('focusout', () => paintErrors(true))
+
+  const clear = document.querySelector('#draft-note button')
+  if (clear) clear.addEventListener('click', () => {
+    try { localStorage.removeItem(DRAFT) } catch (e) {}
+    form.reset()
+    document.getElementById('draft-note').hidden = true
+    refresh()
+  })
+
+  restoreDraft()
+  refresh()
+
+  // автозаполнение из карточки услуги через ?svc=slug
+  try {
+    const q = new URLSearchParams(location.search).get('svc')
+    if (q && CFG && CFG.services.some(s => s.slug === q)) {
+      F.service.value = q
+      refresh()
+    }
+  } catch (e) {}
+
+  return { refresh, data, briefText, submit, toast, state: () => ({ errors: errors().length }) }
+})()
+window.orderForm = orderForm
+
+/* ---------- инициализация ---------- */
+renderConfigSections()
+orderForm.refresh()
+initStickyCta()

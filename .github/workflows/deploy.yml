@@ -19,6 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build from js/config.js and check
+        run: node tools/build.mjs && node tools/check.mjs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

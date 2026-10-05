@@ -551,8 +551,8 @@ function resetOG() {
     CFG ? (lang === 'en' ? CFG.seo.en.homeDescription : CFG.seo.ru.homeDescription) : DEFAULT_DESC)
   document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_URL}/`)
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_URL}/`)
-  document.querySelector('meta[property="og:image"]')?.setAttribute('content', `${SITE_URL}/og-2026-08-10.png`)
-  document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', `${SITE_URL}/og-2026-08-10.png`)
+  document.querySelector('meta[property="og:image"]')?.setAttribute('content', `${SITE_URL}/og-dajet.jpg`)
+  document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', `${SITE_URL}/og-dajet.jpg`)
 }
 
 function shareProject(index) {

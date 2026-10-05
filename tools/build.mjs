@@ -103,7 +103,7 @@ function landing(svc) {
   const faqItems = R.faqList(LANG, CFG, faqIds)
   const procRaw = R.processList(LANG, CFG)
   const proc = procRaw.split('<div class="proc__item">').slice(1).map(x => '<div class="proc__item">' + x)
-  const og = svc.project != null ? `${URL_}/og-${svc.project}.jpg` : `${URL_}/og-2026-08-10.png`
+  const og = svc.project != null ? `${URL_}/og-${svc.project}.jpg` : `${URL_}/og-dajet.jpg`
   const title = tpl(CFG.seo.landingTitleRu, { title: svc.titleRu, price: R.num(svc.priceFrom) })
   const desc = tpl(CFG.seo.landingDescriptionRu, {
     title: svc.titleRu, price: R.num(svc.priceFrom), short: svc.shortRu,
@@ -148,7 +148,7 @@ function landing(svc) {
 <meta name="twitter:title" content="${R.esc(svc.titleRu)} — от ${R.num(svc.priceFrom)} ₽"/>
 <meta name="twitter:description" content="${R.esc(svc.shortRu)}"/>
 <meta name="twitter:image" content="${og}"/>
-<link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png"/>
+<link rel="icon" type="image/jpeg" sizes="32x32" href="../../icons/icon-32.png"/>
 <script type="application/ld+json">${jsonLd}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -254,9 +254,9 @@ function buildLandings() {
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Услуги и цены — ${CFG.brand.nameRu}, графический дизайнер"/>
 <meta property="og:description" content="8 услуг с ценами «от» и сроками. Бриф на сайте — 3 минуты."/>
-<meta property="og:image" content="${URL_}/og-2026-08-10.png"/>
+<meta property="og:image" content="${URL_}/og-dajet.jpg"/>
 <meta property="og:locale" content="ru_RU"/>
-<link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-32.png"/>
+<link rel="icon" type="image/jpeg" sizes="32x32" href="../icons/icon-32.png"/>
 <script type="application/ld+json">${R.servicesJsonLd(LANG, CFG)}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>

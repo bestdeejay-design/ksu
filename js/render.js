@@ -165,7 +165,7 @@
       name: L(lang, cfg.brand.nameRu, cfg.brand.nameEn),
       description: lang === 'ru' ? cfg.seo.ru.homeDescription : cfg.seo.en.homeDescription,
       url: url + '/',
-      image: url + '/og-2026-08-10.png',
+      image: url + '/og-dajet.jpg',
       priceRange: num(Math.min.apply(null, cfg.services.map(function (s) { return s.priceFrom; }))) + '₽–' +
                   num(Math.max.apply(null, cfg.services.map(function (s) { return s.priceFrom; }))) + '₽',
       areaServed: 'RU',

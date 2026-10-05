@@ -107,7 +107,7 @@ const i18n = {
     'why.2.t': 'From logo to website',
     'why.2.d': 'Mark, packaging, poster, social media and website — one style, one person. No need to assemble a team and repeat the brief five times.',
     'why.3.t': 'Briefs from real clients',
-    'why.3.d': 'Websites for the SS-BMW car service and the Runskaya farm are live right now, and the “Waffle Symphony” brand was designed to a real client’s brief.',
+    'why.3.d': 'Websites for the PAFFO atelier, the SS-BMW car service and the Runskaya farm are live right now, and the “Waffle Symphony” brand was designed to a real client’s brief.',
     'why.4.t': 'Price and timing upfront',
     'why.4.d': '“From” prices on the site, an exact quote on brief day, 2 revision rounds and source files included. No surprises at the end.',
 
@@ -270,7 +270,7 @@ const i18n = {
     'why.2.t': 'От логотипа до сайта',
     'why.2.d': 'Знак, упаковка, афиша, соцсети и сайт — в одном стиле и у одного человека. Не нужно собирать команду и объяснять задачу пять раз.',
     'why.3.t': 'Задачи реальных заказчиков',
-    'why.3.d': 'Сайты автосервиса SS-BMW и фермы «Рунская» работают прямо сейчас, а бренд «Вафельная симфония» сделан по брифу настоящего заказчика.',
+    'why.3.d': 'Сайты ателье PAFFO, автосервиса SS-BMW и фермы «Рунская» работают прямо сейчас, а бренд «Вафельная симфония» сделан по брифу настоящего заказчика.',
     'why.4.t': 'Цена и сроки — заранее',
     'why.4.d': 'Цены «от» на сайте, точная смета в день брифа, 2 круга правок и исходники уже включены. Без сюрпризов в конце.',
 
@@ -445,6 +445,12 @@ const projects = [
     descEn: 'Logo and website for a fintech platform connecting residents with local businesses. Mark and wordmark, signature pink palette, the LOVII PAY loyalty card and dedicated pages for each role: customers, businesses, partners, investors.',
     site: { url: 'https://lovii.ru', dir: 'portfolio/sites/lovii/', shots: ['lovii-d0.jpg', 'lovii-d1.jpg', 'lovii-d2.jpg', 'lovii-d3.jpg', 'lovii-d5.jpg'], mobile: 'lovii-m0.jpg', logos: ['logo-light.svg', 'logo-dark.svg|#16161a'], logoBg: '#ffffff',
       tagsRu: ['Логотип', 'Фирменный стиль', 'Сайт', 'Финтех'], tagsEn: ['Logo', 'Brand identity', 'Website', 'Fintech'] } },
+  { titleEn: 'PAFFO — coat atelier', titleRu: 'PAFFO — ателье пальто', categoryEn: 'Website & design system', categoryRu: 'Сайт и дизайн-система', cover: 'portfolio/sites/paffo/cover.jpg', colors: ['#141311', '#B4863F'],
+    descRu: 'Сайт ателье, которое шьёт пальто по меркам из итальянской шерсти, кашемира и кожи. Задача — передать ощущение дорогой вещи и привести клиента на примерку: тёмная «чернильная» палитра с латунью, классическая антиква Cormorant Garamond, коллекции, лукбук, процесс «от заявки до пальто за 21 день» и запись на примерку. Под сайт собрана дизайн-система: цвета, шрифты, отступы, компоненты и две темы — тёмная и светлая.',
+    descEn: 'Website for an atelier that tailors made-to-measure coats from Italian wool, cashmere and leather. Goal: convey the feel of a premium garment and bring the client to a fitting — ink palette with brass, classic Cormorant Garamond serif, collections, lookbook, the “request to coat in 21 days” process and fitting booking. Built on a design system: colours, type, spacing, components and two themes, dark and light.',
+    site: { url: 'https://paffo.ru/', dir: 'portfolio/sites/paffo/', shots: ['paffo-d-top.jpg', 'paffo-d-light.jpg', 'paffo-d-collections.jpg', 'paffo-d-lookbook.jpg', 'paffo-d-atelier.jpg', 'paffo-d-reviews.jpg'], mobile: 'paffo-m0.jpg', logos: ['logo-dark.jpg', 'logo-light.jpg'], logoFull: true, system: 'design-system.jpg',
+      roleRu: 'Дизайн сайта, логотип и дизайн-система', roleEn: 'Website design, logo and design system',
+      tagsRu: ['Сайт', 'Дизайн-система', 'Логотип', 'Тёмная и светлая темы'], tagsEn: ['Website', 'Design system', 'Logo', 'Dark & light themes'] } },
 ]
 
 /* ПОРЯДОК В СЕТКЕ «РАБОТЫ» — номера из массива projects (0 = первый объект).
@@ -452,7 +458,7 @@ const projects = [
  * Проекты, которых нет в списке, скрыты из сетки, но открываются по прямой ссылке #project-N.
  * Скрыты сейчас: 0 мудборды (коллажи из чужих фото), 5 «Popular Blondes» (фан-арт со знаменитостями),
  * 10 ретушь (одна картинка — слабее остальных). Вернуть — просто добавить номер в список. */
-const WORKS_ORDER = [1, 11, 2, 12, 4, 13, 7, 6, 8, 3, 9]
+const WORKS_ORDER = [14, 1, 11, 2, 12, 4, 13, 7, 6, 8, 3, 9]
 
 function buildWorks() {
   const grid = document.getElementById('works-grid')
@@ -670,7 +676,7 @@ function renderSiteCase(p, index) {
   const tags = (ru ? S.tagsRu : S.tagsEn) || []
   const shots = S.shots.map(f => `<figure class="site-shot" onclick="openLightbox('${src(f)}',${index})"><div class="site-shot__bar"><i></i><i></i><i></i><span>${host(S.url)}</span></div><img src="${src(f)}" alt="${t}" loading="lazy"/></figure>`).join('')
   // формат: 'файл' или 'файл|#фон'
-  const logos = (S.logos || []).map(x => x.split('|')).map(([f, bg]) => `<div class="site-logo" style="background:${bg || S.logoBg || '#fff'}"><img src="${src(f)}" alt="${t} — логотип" loading="lazy"/></div>`).join('')
+  const logos = (S.logos || []).map(x => x.split('|')).map(([f, bg]) => `<div class="site-logo${S.logoFull ? ' site-logo--full' : ''}" style="background:${bg || S.logoBg || '#fff'}"><img src="${src(f)}" alt="${t} — логотип" loading="lazy"/></div>`).join('')
   const links = `<div class="site-links">
       <a class="btn btn--accent" href="${S.url}" target="_blank" rel="noopener">${ru ? 'Открыть сайт' : 'Open website'} ↗</a>
       ${S.mirror ? `<a class="btn btn--ghost" href="${S.mirror}" target="_blank" rel="noopener">${ru ? 'Зеркало' : 'Mirror'} ↗</a>` : ''}
@@ -680,12 +686,13 @@ function renderSiteCase(p, index) {
       <div style="font-size:clamp(24px,4vw,48px);font-weight:900;font-family:'Unbounded',sans-serif;margin:12px 0">${t}</div></div>
     <div class="proj-desc">${ru ? p.descRu : p.descEn}</div>
     <div class="site-meta">
-      <div><span>${ru ? 'Роль Ксении' : 'Ksenia’s role'}</span>${ru ? 'Дизайн сайта, логотип и фирменный стиль' : 'Website design, logo and identity'}</div>
+      <div><span>${ru ? 'Роль Ксении' : 'Ksenia’s role'}</span>${ru ? (S.roleRu || 'Дизайн сайта, логотип и фирменный стиль') : (S.roleEn || 'Website design, logo and identity')}</div>
       <div><span>${ru ? 'Разработка' : 'Development'}</span>${ru ? 'В паре с разработчиком' : 'With a developer partner'}</div>
       <div><span>${ru ? 'Что сделано' : 'Scope'}</span>${tags.join(' · ')}</div>
     </div>
     ${links}
     ${logos ? sec(ru ? 'Логотип' : 'Logo', `<div class="site-logos">${logos}</div>`) : ''}
+    ${S.system ? sec(ru ? 'Дизайн-система' : 'Design system', `<figure class="site-system" onclick="openLightbox('${src(S.system)}',${index})"><img src="${src(S.system)}" alt="${t} — дизайн-система" loading="lazy"/></figure>`) : ''}
     ${sec(ru ? 'Экраны сайта' : 'Website screens', `<div class="site-shots">${shots}</div>`)}
     ${S.mobile ? sec(ru ? 'Мобильная версия' : 'Mobile version', `<div class="site-mobile" onclick="openLightbox('${src(S.mobile)}',${index})"><img src="${src(S.mobile)}" alt="${t} — мобильная версия" loading="lazy"/></div>`) : ''}
     ${links}`
@@ -851,7 +858,7 @@ const lbNext = document.getElementById('lightbox-next')
 
 function openLightbox(src, projectIdx) {
   const content = document.getElementById('overlay-content')
-  const imgs = content ? [...content.querySelectorAll('.proj-gallery__item img, .site-shot img, .site-mobile img')].map(i => i.src) : [src]
+  const imgs = content ? [...content.querySelectorAll('.proj-gallery__item img, .site-system img, .site-shot img, .site-mobile img')].map(i => i.src) : [src]
   lbImages = imgs.length ? imgs : [src]
   lbIndex = lbImages.findIndex(u => u.includes(src))
   if (lbIndex === -1) lbIndex = 0

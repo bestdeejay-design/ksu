@@ -106,8 +106,8 @@ const i18n = {
     'why.1.d': 'Characters, portraits and packaging illustrations are drawn by hand. Your brand won’t look like everyone else’s.',
     'why.2.t': 'From logo to website',
     'why.2.d': 'Mark, packaging, poster, social media and website — one style, one person. No need to assemble a team and repeat the brief five times.',
-    'why.3.t': 'Real, launched work',
-    'why.3.d': 'The “Cat Day” festival poster, the “Waffle Symphony” brand, websites for a car service and a farm — launched projects, not student mock-ups.',
+    'why.3.t': 'Briefs from real clients',
+    'why.3.d': 'Websites for the SS-BMW car service and the Runskaya farm are live right now, and the “Waffle Symphony” brand was designed to a real client’s brief.',
     'why.4.t': 'Price and timing upfront',
     'why.4.d': '“From” prices on the site, an exact quote on brief day, 2 revision rounds and source files included. No surprises at the end.',
 
@@ -269,8 +269,8 @@ const i18n = {
     'why.1.d': 'Персонажи, портреты, иллюстрации для упаковки — нарисованы вручную. У вашего бренда не будет «картинки как у всех».',
     'why.2.t': 'От логотипа до сайта',
     'why.2.d': 'Знак, упаковка, афиша, соцсети и сайт — в одном стиле и у одного человека. Не нужно собирать команду и объяснять задачу пять раз.',
-    'why.3.t': 'Работы живут в реальном мире',
-    'why.3.d': 'Афиша фестиваля «День котов и кошек», бренд «Вафельная симфония», сайты автосервиса и фермы — это не учебные макеты, а запущенные проекты.',
+    'why.3.t': 'Задачи реальных заказчиков',
+    'why.3.d': 'Сайты автосервиса SS-BMW и фермы «Рунская» работают прямо сейчас, а бренд «Вафельная симфония» сделан по брифу настоящего заказчика.',
     'why.4.t': 'Цена и сроки — заранее',
     'why.4.d': 'Цены «от» на сайте, точная смета в день брифа, 2 круга правок и исходники уже включены. Без сюрпризов в конце.',
 

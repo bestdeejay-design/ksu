@@ -85,7 +85,7 @@ const i18n = {
     'nav.langBtn': 'RU',
     'nav.startProject': 'Start Your Project',
     'nav.allProjects': 'All Projects',
-    'hero.marquee': 'PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO •',
+    'hero.marquee': 'LOGO • ILLUSTRATION • PACKAGING • POSTER • RETOUCH • STICKERS • LOGO • ILLUSTRATION • PACKAGING • POSTER • RETOUCH • STICKERS • LOGO • ILLUSTRATION • PACKAGING • POSTER • RETOUCH • STICKERS • LOGO • ILLUSTRATION • PACKAGING • POSTER • RETOUCH • STICKERS •',
     'hero.name': 'Ksenia',
     'hero.subtitle': 'graphic<br/>designer',
     'hero.scroll': 'Scroll',
@@ -102,9 +102,9 @@ const i18n = {
     'works.label': 'Featured Projects',
     'works.count': 'projects',
     'contact.label': 'Contact',
-    'contact.text': 'Open to collaboration and new projects.<br/>Feel free to write, I\'d love to discuss your task.',
+    'contact.text': 'Taking commissions and collaborations.<br/>Write to me — I’ll name the price and the deadline.',
     'footer.copy': '© 2026 Ksenia',
-    'footer.tagline': 'Graphic Design',
+    'footer.tagline': 'Graphic design & illustration',
     'proj.1.desc': 'Complete packaging design for a cosmetics brand including logo variations, product mockups, storefront visualization, and concept development.',
     'proj.1.mockup': 'Product Mockup',
     'proj.1.logos': 'Logo Variations',
@@ -237,7 +237,7 @@ const i18n = {
     'nav.langBtn': 'EN',
     'nav.startProject': 'Начать проект',
     'nav.allProjects': 'Все проекты',
-    'hero.marquee': 'ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО •',
+    'hero.marquee': 'ЛОГОТИП • ИЛЛЮСТРАЦИЯ • УПАКОВКА • ПЛАКАТ • РЕТУШЬ • СТИКЕРЫ • ЛОГОТИП • ИЛЛЮСТРАЦИЯ • УПАКОВКА • ПЛАКАТ • РЕТУШЬ • СТИКЕРЫ • ЛОГОТИП • ИЛЛЮСТРАЦИЯ • УПАКОВКА • ПЛАКАТ • РЕТУШЬ • СТИКЕРЫ • ЛОГОТИП • ИЛЛЮСТРАЦИЯ • УПАКОВКА • ПЛАКАТ • РЕТУШЬ • СТИКЕРЫ •',
     'hero.name': 'Ксения',
     'hero.subtitle': 'графический<br/>дизайнер',
     'hero.scroll': 'Скролл',
@@ -254,9 +254,9 @@ const i18n = {
     'works.label': 'Избранные проекты',
     'works.count': 'работ',
     'contact.label': 'Контакты',
-    'contact.text': 'Открыта к сотрудничеству и новым проектам.<br/>Пишите, буду рада обсудить вашу задачу.',
+    'contact.text': 'Открыта к заказам и сотрудничеству.<br/>Напишите — обсудим задачу, я скажу цену и срок.',
     'footer.copy': '© 2026 Ксения',
-    'footer.tagline': 'Графический дизайн',
+    'footer.tagline': 'Графический дизайн и иллюстрация',
     'proj.1.desc': 'Полный дизайн упаковки для косметического бренда: варианты логотипов, мокапы продукта, визуализация витрины и разработка концепции.',
     'proj.1.mockup': 'Мокап продукта',
     'proj.1.logos': 'Варианты логотипа',
@@ -441,7 +441,7 @@ function buildWorks() {
       <div class="work-card__title">${i18n[lang]['cta.title']}</div>
       <div class="work-card__line"></div>
     </div>`
-  cta.addEventListener('click', openNewProject)
+  cta.addEventListener('click', () => { const a = document.createElement('a'); a.href = '#order'; document.body.appendChild(a); a.click(); a.remove() })
   grid.appendChild(cta)
 
   document.getElementById('works-count').textContent = projects.length
@@ -869,11 +869,8 @@ document.querySelector('.nav__link--works')?.addEventListener('click', function(
   }
 })
 
-document.getElementById('nav-dropdown-cta')?.addEventListener('click', (e) => {
-  e.preventDefault()
-  openNewProject()
-  closeNavDropdown()
-  closeMobileMenu()
+document.getElementById('nav-dropdown-cta')?.addEventListener('click', () => {
+  closeNavDropdown()   // переход к форме делает общий обработчик якорей
 })
 
 buildNavProjects()
@@ -1006,7 +1003,7 @@ function renderConfigSections() {
   put('f-deadline', R.chips(CFG.deadlines, lang, 'deadline'))
 
   // цена «от» в мобильной плашке
-  const min = Math.min.apply(null, CFG.services.map(s => s.priceFrom))
+  const min = Math.min.apply(null, CFG.services.filter(s => !s.unitRu).map(s => s.priceFrom))
   const from = document.getElementById('sticky-from')
   if (from) from.textContent = R.price(min, CFG)
 
@@ -1096,6 +1093,7 @@ function initStickyCta() {
   function toggle() {
     const on = past && !orderVisible
     bar.classList.toggle('sticky-cta--on', on)
+    document.body.classList.toggle('sticky-on', on && matchMedia('(max-width:768px)').matches)
   }
   const btn = document.getElementById('sticky-cta-btn')
   if (btn) btn.addEventListener('click', () => window.ksuTrack && window.ksuTrack('sticky_cta_click'))
@@ -1235,7 +1233,7 @@ const orderForm = (function () {
     if (!raw) return
     let d
     try { d = JSON.parse(raw) } catch (e) { return }
-    if (!d || (d.name === '' && d.message === '')) return
+    if (!d || !(d.name || d.contact || d.message || d.refs)) return
     Object.keys(F).forEach(k => {
       if (F[k] && d[k] != null) {
         if (F[k].type === 'checkbox') F[k].checked = !!d[k]
@@ -1416,4 +1414,61 @@ if (window.ksuReveal) window.ksuReveal()
     else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) closeLightbox()
     x0 = y0 = null
   }, { passive: true })
+})()
+
+/* подсветка текущей секции в меню */
+;(function () {
+  if (!('IntersectionObserver' in window)) return
+  const links = [...document.querySelectorAll('.nav__links a.nav__link[href^="#"]')]
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]))
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return
+      links.forEach(a => a.classList.remove('is-active'))
+      const a = map.get(e.target.id)
+      if (a) a.classList.add('is-active')
+    })
+  }, { rootMargin: '-45% 0px -50% 0px' })
+  map.forEach((a, id) => { const s = document.getElementById(id); if (s) io.observe(s) })
+})()
+
+/* Якоря: своя плавная прокрутка с доводкой.
+   Если во время прокрутки что-то догрузилось и вёрстка сдвинулась,
+   в конце позиция пересчитывается — заголовок всегда встаёт под меню. */
+;(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+  function targetY(el) {
+    const m = parseFloat(getComputedStyle(el).scrollMarginTop) || 0
+    return Math.max(0, Math.round(el.getBoundingClientRect().top + window.scrollY - m))
+  }
+  function go(el, smooth) {
+    window.scrollTo({ top: targetY(el), behavior: smooth && !reduce ? 'smooth' : 'auto' })
+    let done = false
+    const fix = () => {
+      if (done) return
+      done = true
+      const y = targetY(el)
+      if (Math.abs(window.scrollY - y) > 2) window.scrollTo({ top: y, behavior: 'auto' })
+    }
+    if ('onscrollend' in window) window.addEventListener('scrollend', fix, { once: true })
+    setTimeout(fix, 1400)
+  }
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]')
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey) return
+    const id = a.getAttribute('href').slice(1)
+    if (!id || id.startsWith('project-')) return
+    const el = document.getElementById(id)
+    if (!el || el.closest('.overlay')) return
+    e.preventDefault()
+    if (typeof closeMobileMenu === 'function') closeMobileMenu()
+    go(el, true)
+    history.replaceState(null, '', '#' + id)
+  })
+  // прямой заход по ссылке вида /#order
+  window.addEventListener('load', () => {
+    const id = location.hash.slice(1)
+    const el = id && !id.startsWith('project-') && document.getElementById(id)
+    if (el) setTimeout(() => go(el, false), 50)
+  })
 })()

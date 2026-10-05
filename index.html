@@ -95,7 +95,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/tokens.css?v=df7dda40" />
-  <link rel="stylesheet" href="style.css?v=f3addf81" />
+  <link rel="stylesheet" href="style.css?v=353f0bdb" />
   <script src="js/config.js?v=20d4cd87"></script>
   <script src="js/render.js?v=08fc1503"></script>
   <script>
@@ -123,7 +123,6 @@
         <span></span><span></span><span></span>
       </label>
       <div class="nav__links">
-        <a href="#services" class="nav__link" data-i18n="nav.services" onclick="closeMobileMenu()">Услуги</a>
         <div class="nav__item nav__item--dropdown">
           <a href="#works" class="nav__link nav__link--works" data-i18n="nav.works">Работы</a>
           <button class="nav__dropdown-toggle" aria-label="Toggle projects" aria-expanded="false">
@@ -139,6 +138,7 @@
             </a>
           </div>
         </div>
+        <a href="#services" class="nav__link" data-i18n="nav.services" onclick="closeMobileMenu()">Услуги</a>
         <a href="#faq" class="nav__link" data-i18n="nav.faq" onclick="closeMobileMenu()">Вопросы</a>
         <a href="#contact" class="nav__link" data-i18n="nav.contact" onclick="closeMobileMenu()">Контакты</a>
         <a href="#order" class="nav__cta btn btn--accent" data-i18n="nav.orderBtn" onclick="closeMobileMenu()">Обсудить заказ</a>
@@ -175,7 +175,7 @@
         <span class="hero__name" data-i18n="hero.name">Ксения</span>
         <span class="hero__subtitle" data-i18n="hero.subtitle">графический<br/>дизайнер</span>
       </h1>
-      <p class="hero__offer" data-i18n="hero.offer">Дизайн, который продаёт вашу идею: логотип, иллюстрация, плакат, упаковка. От 3 500 ₽, первые концепты — через 3 дня.</p>
+      <p class="hero__offer" data-i18n="hero.offer">Логотип, упаковка, афиша и сайт для малого бизнеса — с собственной иллюстрацией, а не стоком. От 3 500 ₽, первые концепты — через 3 дня.</p>
       <div class="hero__actions">
         <a href="#order" class="btn btn--accent btn--lg" data-i18n="hero.cta1">Обсудить заказ</a>
         <a href="#services" class="btn btn--ghost btn--lg" data-i18n="hero.cta2">Цены и услуги</a>
@@ -196,6 +196,26 @@
   </section>
 
   <!-- SERVICES -->
+  <section class="works" id="works">
+    <div class="works__header">
+      <h2 class="section-label" data-i18n="works.label">Проекты</h2>
+      <div class="works__count"><span id="works-count"></span> <span data-i18n="works.count">работ</span></div>
+    </div>
+    <div class="works__grid" id="works-grid"></div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why" id="why">
+    <h2 class="section-label" data-i18n="why.label">Почему ко мне</h2>
+    <p class="section-head__lead" data-i18n="why.lead">Вы получаете не «картинку», а оформление, которое работает на продажи — и всё в одних руках.</p>
+    <div class="why__grid">
+      <div class="why__item"><div class="why__num">01</div><h3 data-i18n="why.1.t">Рисую сама — без стоков</h3><p data-i18n="why.1.d">Персонажи, портреты, иллюстрации для упаковки — нарисованы вручную. У вашего бренда не будет «картинки как у всех».</p></div>
+      <div class="why__item"><div class="why__num">02</div><h3 data-i18n="why.2.t">От логотипа до сайта</h3><p data-i18n="why.2.d">Знак, упаковка, афиша, соцсети и сайт — в одном стиле и у одного человека. Не нужно собирать команду и объяснять задачу пять раз.</p></div>
+      <div class="why__item"><div class="why__num">03</div><h3 data-i18n="why.3.t">Работы живут в реальном мире</h3><p data-i18n="why.3.d">Афиша фестиваля «День котов и кошек», бренд «Вафельная симфония», сайты автосервиса и фермы — это не учебные макеты, а запущенные проекты.</p></div>
+      <div class="why__item"><div class="why__num">04</div><h3 data-i18n="why.4.t">Цена и сроки — заранее</h3><p data-i18n="why.4.d">Цены «от» на сайте, точная смета в день брифа, 2 круга правок и исходники уже включены. Без сюрпризов в конце.</p></div>
+    </div>
+  </section>
+
   <section class="services" id="services">
     <div class="section__head">
       <div>
@@ -221,13 +241,6 @@
   </section>
 
   <!-- WORKS -->
-  <section class="works" id="works">
-    <div class="works__header">
-      <h2 class="section-label" data-i18n="works.label">Проекты</h2>
-      <div class="works__count"><span id="works-count"></span> <span data-i18n="works.count">работ в портфолио</span></div>
-    </div>
-    <div class="works__grid" id="works-grid"></div>
-  </section>
 
   <!-- ABOUT -->
   <section class="about" id="about">
@@ -235,10 +248,10 @@
       <div class="about__content">
         <h2 class="section-label" data-i18n="about.label">Обо мне</h2>
         <p class="about__text" data-i18n="about.p1">
-          Привет! Я Ксения — графический дизайнер и иллюстратор. Я влюблена в живую линию, фактуру и настроение, которое оживает в каждом рисунке. Создаю визуальные решения для айдентики, брендинга, иллюстрации и печати.
+          Привет! Я Ксения — графический дизайнер и иллюстратор из Санкт-Петербурга. Делаю логотипы, упаковку, афиши и сайты для небольших брендов, а ещё рисую — портреты, персонажей, стикеры.
         </p>
         <p class="about__text" data-i18n="about.p2">
-          В своей работе я соединяю выразительную эстетику с любовью к деталям. Для меня каждый проект — это история, рассказанная образами, а не словами.
+          Моя сильная сторона — живая рисованная графика внутри бренда: она делает упаковку и афишу узнаваемыми с первого взгляда. Работаю по брифу, показываю 2–3 направления и довожу до файлов, которые примет типография или разработчик.
         </p>
         <div class="about__tags">
           <span class="tag" data-i18n="about.tag1">Иллюстрация</span>
@@ -506,6 +519,6 @@
   </button>
 
   <script src="js/track.js?v=10ce1c32"></script>
-  <script src="script.js?v=b89e93af"></script>
+  <script src="script.js?v=e6264f06"></script>
 </body>
 </html>

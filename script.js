@@ -15,7 +15,7 @@ const i18n = {
     'nav.services': 'Services',
     'nav.faq': 'FAQ',
     'nav.orderBtn': 'Start a project',
-    'hero.offer': 'Design that sells your idea: logo, illustration, poster, packaging. From 3,500 ₽, first concepts in 3 days.',
+    'hero.offer': 'Logo, packaging, posters and websites for small businesses — with hand-drawn illustration, not stock. From 3,500 ₽, first concepts in 3 days.',
     'hero.cta1': 'Start a project',
     'hero.cta2': 'Prices & services',
     'services.label': 'Services & prices',
@@ -85,13 +85,13 @@ const i18n = {
     'nav.langBtn': 'RU',
     'nav.startProject': 'Start Your Project',
     'nav.allProjects': 'All Projects',
-    'hero.marquee': 'LOGO • ILLUSTRATION • PACKAGING • POSTER • RETOUCH • STICKERS • LOGO • ILLUSTRATION • PACKAGING • POSTER • RETOUCH • STICKERS • LOGO • ILLUSTRATION • PACKAGING • POSTER • RETOUCH • STICKERS • LOGO • ILLUSTRATION • PACKAGING • POSTER • RETOUCH • STICKERS •',
+    'hero.marquee': 'LOGO • PACKAGING • POSTER • WEBSITE • ILLUSTRATION • CHARACTER • LOGO • PACKAGING • POSTER • WEBSITE • ILLUSTRATION • CHARACTER • LOGO • PACKAGING • POSTER • WEBSITE • ILLUSTRATION • CHARACTER • LOGO • PACKAGING • POSTER • WEBSITE • ILLUSTRATION • CHARACTER •',
     'hero.name': 'Ksenia',
     'hero.subtitle': 'graphic<br/>designer',
     'hero.scroll': 'Scroll',
     'about.label': 'About',
-    'about.p1': "Hi! I'm Ksenia — a graphic designer and illustrator. I'm in love with the living line, texture, and the mood that comes alive in every drawing. I craft visual solutions across identity, branding, illustration, and print.",
-    'about.p2': 'In my work, I combine expressive aesthetics with a love for details. For me, every project is a story told through images, not words.',
+    'about.p1': 'Hi! I’m Ksenia, a graphic designer and illustrator from Saint Petersburg. I design logos, packaging, posters and websites for small brands — and I draw: portraits, characters, stickers.',
+    'about.p2': 'My strength is hand-drawn graphics inside a brand: it makes packaging and posters recognisable at first glance. I work from a brief, show 2–3 directions and deliver files ready for print or development.',
     'about.tag1': 'Illustration',
     'about.tag2': 'Graphic Design',
     'about.tag3': 'Poster',
@@ -99,7 +99,18 @@ const i18n = {
     'about.tag5': 'Branding',
     'about.tag6': 'Photography',
     'about.tag7': 'Graphics',
-    'works.label': 'Featured Projects',
+    'works.label': 'Work',
+    'why.label': 'Why me',
+    'why.lead': 'Not just “a picture” but design that helps you sell — all in one pair of hands.',
+    'why.1.t': 'Hand-drawn, never stock',
+    'why.1.d': 'Characters, portraits and packaging illustrations are drawn by hand. Your brand won’t look like everyone else’s.',
+    'why.2.t': 'From logo to website',
+    'why.2.d': 'Mark, packaging, poster, social media and website — one style, one person. No need to assemble a team and repeat the brief five times.',
+    'why.3.t': 'Real, launched work',
+    'why.3.d': 'The “Cat Day” festival poster, the “Waffle Symphony” brand, websites for a car service and a farm — launched projects, not student mock-ups.',
+    'why.4.t': 'Price and timing upfront',
+    'why.4.d': '“From” prices on the site, an exact quote on brief day, 2 revision rounds and source files included. No surprises at the end.',
+
     'works.count': 'projects',
     'contact.label': 'Contact',
     'contact.text': 'Taking commissions and collaborations.<br/>Write to me — I’ll name the price and the deadline.',
@@ -167,7 +178,7 @@ const i18n = {
     'nav.services': 'Услуги',
     'nav.faq': 'Вопросы',
     'nav.orderBtn': 'Обсудить заказ',
-    'hero.offer': 'Дизайн, который продаёт вашу идею: логотип, иллюстрация, плакат, упаковка. От 3 500 ₽, первые концепты — через 3 дня.',
+    'hero.offer': 'Логотип, упаковка, афиша и сайт для малого бизнеса — с собственной иллюстрацией, а не стоком. От 3 500 ₽, первые концепты — через 3 дня.',
     'hero.cta1': 'Обсудить заказ',
     'hero.cta2': 'Цены и услуги',
     'services.label': 'Услуги и цены',
@@ -237,13 +248,13 @@ const i18n = {
     'nav.langBtn': 'EN',
     'nav.startProject': 'Начать проект',
     'nav.allProjects': 'Все проекты',
-    'hero.marquee': 'ЛОГОТИП • ИЛЛЮСТРАЦИЯ • УПАКОВКА • ПЛАКАТ • РЕТУШЬ • СТИКЕРЫ • ЛОГОТИП • ИЛЛЮСТРАЦИЯ • УПАКОВКА • ПЛАКАТ • РЕТУШЬ • СТИКЕРЫ • ЛОГОТИП • ИЛЛЮСТРАЦИЯ • УПАКОВКА • ПЛАКАТ • РЕТУШЬ • СТИКЕРЫ • ЛОГОТИП • ИЛЛЮСТРАЦИЯ • УПАКОВКА • ПЛАКАТ • РЕТУШЬ • СТИКЕРЫ •',
+    'hero.marquee': 'ЛОГОТИП • УПАКОВКА • АФИША • САЙТ • ИЛЛЮСТРАЦИЯ • ПЕРСОНАЖ • ЛОГОТИП • УПАКОВКА • АФИША • САЙТ • ИЛЛЮСТРАЦИЯ • ПЕРСОНАЖ • ЛОГОТИП • УПАКОВКА • АФИША • САЙТ • ИЛЛЮСТРАЦИЯ • ПЕРСОНАЖ • ЛОГОТИП • УПАКОВКА • АФИША • САЙТ • ИЛЛЮСТРАЦИЯ • ПЕРСОНАЖ •',
     'hero.name': 'Ксения',
     'hero.subtitle': 'графический<br/>дизайнер',
     'hero.scroll': 'Скролл',
     'about.label': 'Обо мне',
-    'about.p1': 'Привет! Я Ксения — графический дизайнер и иллюстратор. Я влюблена в живую линию, фактуру и настроение, которое оживает в каждом рисунке. Создаю визуальные решения для айдентики, брендинга, иллюстрации и печати.',
-    'about.p2': 'В своей работе я соединяю выразительную эстетику с любовью к деталям. Для меня каждый проект — это история, рассказанная образами, а не словами.',
+    'about.p1': 'Привет! Я Ксения — графический дизайнер и иллюстратор из Санкт-Петербурга. Делаю логотипы, упаковку, афиши и сайты для небольших брендов, а ещё рисую — портреты, персонажей, стикеры.',
+    'about.p2': 'Моя сильная сторона — живая рисованная графика внутри бренда: она делает упаковку и афишу узнаваемыми с первого взгляда. Работаю по брифу, показываю 2–3 направления и довожу до файлов, которые примет типография или разработчик.',
     'about.tag1': 'Иллюстрация',
     'about.tag2': 'Графический дизайн',
     'about.tag3': 'Плакат',
@@ -251,7 +262,18 @@ const i18n = {
     'about.tag5': 'Брендинг',
     'about.tag6': 'Фотография',
     'about.tag7': 'Графика',
-    'works.label': 'Избранные проекты',
+    'works.label': 'Работы',
+    'why.label': 'Почему ко мне',
+    'why.lead': 'Вы получаете не «картинку», а оформление, которое работает на продажи — и всё в одних руках.',
+    'why.1.t': 'Рисую сама — без стоков',
+    'why.1.d': 'Персонажи, портреты, иллюстрации для упаковки — нарисованы вручную. У вашего бренда не будет «картинки как у всех».',
+    'why.2.t': 'От логотипа до сайта',
+    'why.2.d': 'Знак, упаковка, афиша, соцсети и сайт — в одном стиле и у одного человека. Не нужно собирать команду и объяснять задачу пять раз.',
+    'why.3.t': 'Работы живут в реальном мире',
+    'why.3.d': 'Афиша фестиваля «День котов и кошек», бренд «Вафельная симфония», сайты автосервиса и фермы — это не учебные макеты, а запущенные проекты.',
+    'why.4.t': 'Цена и сроки — заранее',
+    'why.4.d': 'Цены «от» на сайте, точная смета в день брифа, 2 круга правок и исходники уже включены. Без сюрпризов в конце.',
+
     'works.count': 'работ',
     'contact.label': 'Контакты',
     'contact.text': 'Открыта к заказам и сотрудничеству.<br/>Напишите — обсудим задачу, я скажу цену и срок.',
@@ -395,13 +417,13 @@ toggle.addEventListener('click', () => {
 // PROJECTS
 const projects = [
   { titleEn: 'Moodboards Collection', titleRu: 'Коллекция мудбордов', categoryEn: 'Moodboards', categoryRu: 'Мудборды', cover: 'portfolio/moodboards/concept-2.jpg', colors: ['#3498DB', '#9B59B6'] },
-  { titleEn: 'Packaging Development', titleRu: 'Разработка упаковки', categoryEn: 'Packaging', categoryRu: 'Упаковка', cover: 'portfolio/packaging/mockup.jpg', colors: ['#FF2D55', '#1A1A1A'], pdfs: ['portfolio/packaging/booklet-final.pdf', 'portfolio/packaging/concept-development.pdf'] },
-  { titleEn: 'Cat Day Poster', titleRu: 'Постер «День кошек»', categoryEn: 'Poster', categoryRu: 'Плакат', cover: 'portfolio/poster-cat-day/poster-final.jpg', colors: ['#00E5FF', '#FF2D55'] },
-  { titleEn: 'Platformer Game Design', titleRu: 'Дизайн игры платформер', categoryEn: 'Game Design', categoryRu: 'Гейм-дизайн', cover: 'portfolio/game/menu.jpg', colors: ['#FFD633', '#FF2D55'] },
-  { titleEn: 'Procreate Portraits', titleRu: 'Портреты Procreate', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/procreate/portraits/portrait-mia-goth.jpg', colors: ['#9B59B6', '#FF6B9D'] },
+  { titleEn: '“Waffle Symphony” — brand & packaging', titleRu: '«Вафельная симфония» — бренд и упаковка', categoryEn: 'Brand & packaging', categoryRu: 'Бренд и упаковка', cover: 'portfolio/packaging/mockup.jpg', colors: ['#FF2D55', '#1A1A1A'], pdfs: ['portfolio/packaging/booklet-final.pdf', 'portfolio/packaging/concept-development.pdf'] },
+  { titleEn: '“Cat Day” festival — poster & identity', titleRu: 'Фестиваль «День котов и кошек» — афиша и знак', categoryEn: 'Event identity', categoryRu: 'Афиша и айдентика', cover: 'portfolio/poster-cat-day/poster-final.jpg', colors: ['#00E5FF', '#FF2D55'] },
+  { titleEn: '“Sweet Cat” — game art', titleRu: 'Игра «Sweet Cat» — графика и персонаж', categoryEn: 'Game art', categoryRu: 'Графика для игры', cover: 'portfolio/game/menu.jpg', colors: ['#FFD633', '#FF2D55'] },
+  { titleEn: 'Portraits to order', titleRu: 'Портреты на заказ', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/procreate/portraits/portrait-mia-goth.jpg', colors: ['#9B59B6', '#FF6B9D'] },
   { titleEn: 'Popular Blondes', titleRu: 'Популярные блондинки', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/popular-blondes/postcard-margot.jpg', colors: ['#FFD633', '#FF2D55'] },
-  { titleEn: 'Character & Comic', titleRu: 'Персонаж и комикс', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/character-comic/comic-var-1.jpg', colors: ['#E74C3C', '#FF6B9D'] },
-  { titleEn: 'Sticker Character', titleRu: 'Персонаж для стикеров', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/stickers/kiwi-cat.jpg', colors: ['#FF6B9D', '#FF2D55'] },
+  { titleEn: 'Characters & comics', titleRu: 'Персонажи и комикс', categoryEn: 'Character', categoryRu: 'Персонаж', cover: 'portfolio/digital-drawing/character-comic/comic-var-1.jpg', colors: ['#E74C3C', '#FF6B9D'] },
+  { titleEn: 'Kiwi-cat — sticker character', titleRu: 'Котик Киви — персонаж для стикеров', categoryEn: 'Character', categoryRu: 'Персонаж', cover: 'portfolio/stickers/kiwi-cat.jpg', colors: ['#FF6B9D', '#FF2D55'] },
   { titleEn: 'Wall Art', titleRu: 'Арт под роспись стены', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/wall-art-1.jpg', colors: ['#2ECC71', '#00E5FF'] },
   { titleEn: 'Photobook "3:00"', titleRu: 'Фотокнига «3:00»', categoryEn: 'Editorial', categoryRu: 'Издание', cover: 'portfolio/photobook/preview.jpg', colors: ['#E67E22', '#FFD633'] },
   { titleEn: 'Photo Retouching', titleRu: 'Ретушь фото', categoryEn: 'Photography', categoryRu: 'Фотография', cover: 'portfolio/retouch/retouch-timeline.jpg', colors: ['#1ABC9C', '#00E5FF'] },
@@ -425,14 +447,22 @@ const projects = [
       tagsRu: ['Логотип', 'Фирменный стиль', 'Сайт', 'Финтех'], tagsEn: ['Logo', 'Brand identity', 'Website', 'Fintech'] } },
 ]
 
+/* ПОРЯДОК В СЕТКЕ «РАБОТЫ» — номера из массива projects (0 = первый объект).
+ * Сначала — коммерческие кейсы с реальным заказчиком, затем иллюстрация.
+ * Проекты, которых нет в списке, скрыты из сетки, но открываются по прямой ссылке #project-N.
+ * Скрыты сейчас: 0 мудборды (коллажи из чужих фото), 5 «Popular Blondes» (фан-арт со знаменитостями),
+ * 10 ретушь (одна картинка — слабее остальных). Вернуть — просто добавить номер в список. */
+const WORKS_ORDER = [1, 11, 2, 12, 4, 13, 7, 6, 8, 3, 9]
+
 function buildWorks() {
   const grid = document.getElementById('works-grid')
-  projects.forEach((p, i) => {
+  WORKS_ORDER.forEach((i, pos) => {
+    const p = projects[i]
     const card = document.createElement('div')
     card.className = `work-card wc-${i + 1}`
     const cat = lang === 'ru' ? p.categoryRu : p.categoryEn
     const title = lang === 'ru' ? (p.titleRu || p.titleEn) : p.titleEn
-    const num = String(i + 1).padStart(2, '0')
+    const num = String(pos + 1).padStart(2, '0')
     let visual = ''
     if (p.cover) {
       visual = `<div class="wv"><img src="${p.cover}" alt="${title}" loading="lazy" style="width:100%;height:100%;object-fit:cover${p.site ? ';object-position:top' : ''}" onerror="this.parentElement.style.background='var(--card-bg)'"/></div>`
@@ -462,7 +492,7 @@ function buildWorks() {
   cta.addEventListener('click', () => { const a = document.createElement('a'); a.href = '#order'; document.body.appendChild(a); a.click(); a.remove() })
   grid.appendChild(cta)
 
-  document.getElementById('works-count').textContent = projects.length
+  document.getElementById('works-count').textContent = WORKS_ORDER.length
 }
 
 buildWorks()

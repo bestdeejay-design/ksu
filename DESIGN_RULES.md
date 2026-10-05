@@ -27,12 +27,12 @@
   - `og:image` → изображение-обложка проекта
   - `twitter:*` и `meta[name="description"]` — аналогично
 - При закрытии оверлея восстанавливать глобальные OG-теги.
-- `SITE_URL = 'https://bestdeejay-design.github.io/ksu'` в script.js.
+- `SITE_URL = 'https://dajet.ru'` в script.js.
 
 ## 5. SEO — лучшие практики
 
 ### 5.1 Базовая структура
-- `canonical` ссылка на `https://bestdeejay-design.github.io/ksu/`.
+- `canonical` ссылка на `https://dajet.ru/`.
 - `meta name="robots" content="index, follow"` — индексация разрешена.
 - `sitemap.xml` — перечислены все URL проектов (11 шт.) с приоритетами (1.0 для главной, 0.9-0.6 для проектов).
 - `robots.txt` — Allow: /, Sitemap: production URL.

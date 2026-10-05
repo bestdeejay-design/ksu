@@ -48,7 +48,7 @@ Server-side there is no logic — GitHub Pages (or nginx in Docker) serves files
 
 ## Deployment
 
-- **GitHub Pages:** `.github/workflows/deploy.yml`; content from repo root; domain `https://bestdeejay-design.github.io/ksu/`.
+- **GitHub Pages:** `.github/workflows/deploy.yml`; content from repo root; domain `https://dajet.ru/`.
 - **Local Docker:** `nginx:alpine` on 80; compose maps `8765:80` (OrbStack domain `portfolio.ksu.orb.local`).
 
 ## Quality gates

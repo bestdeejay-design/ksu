@@ -6,13 +6,13 @@
 
 # Ксения — портфолио графического дизайнера
 
-[![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://bestdeejay-design.github.io/ksu/)
+[![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://dajet.ru/)
 [![PWA](https://img.shields.io/badge/PWA-ready-9b59b6)](manifest.json)
 
 Портфолио **Ксении**, графического дизайнера: айдентика, брендинг, типографика,
 UI/UX, иллюстрация, плакаты, упаковка и ретушь фотографий.
 
-**Сайт:** https://bestdeejay-design.github.io/ksu/
+**Сайт:** https://dajet.ru/
 
 ## Содержание
 
@@ -66,7 +66,7 @@ docker compose up -d
 ## Деплой
 
 GitHub Pages: пуш в `main`, Pages собирает из корня репозитория.
-Сайт: `https://bestdeejay-design.github.io/ksu/`
+Сайт: `https://dajet.ru/`
 
 ## Проекты
 

@@ -6,7 +6,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeMobileMenu()
 })
 
-let SITE_URL = 'https://bestdeejay-design.github.io/ksu'   // переопределяется из js/config.js
+let SITE_URL = 'https://dajet.ru'   // переопределяется из js/config.js
 
 // I18N
 const i18n = {

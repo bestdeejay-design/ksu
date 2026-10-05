@@ -22,7 +22,7 @@
   return {
     /* === АДРЕСА ================================================= */
     // Базовый адрес сайта. Нужен для canonical, OG-тегов и ссылок в мессенджерах.
-    siteUrl: 'https://bestdeejay-design.github.io/ksu',
+    siteUrl: 'https://dajet.ru',
 
     brand: {
       nameRu: 'Ксения',

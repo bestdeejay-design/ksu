@@ -58,7 +58,7 @@ html{scroll-padding-top:80px}
   width:20px;height:2px;
   background:var(--text);
   border-radius:1px;
-  transition:all .3s
+  transition:color .3s,background-color .3s,border-color .3s,opacity .3s,transform .3s
 }
 .menu-toggle:checked ~ .menu-btn span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .menu-toggle:checked ~ .menu-btn span:nth-child(2){opacity:0}
@@ -277,7 +277,7 @@ html{scroll-padding-top:80px}
   border-radius:100px;
   font-size:12px;letter-spacing:.05em;
   color:rgba(255,255,255,.7);
-  transition:all .3s
+  transition:color .3s,background-color .3s,border-color .3s,opacity .3s,transform .3s
 }
 [data-theme="light"] .tag{border-color:rgba(0,0,0,.2);color:rgba(0,0,0,.65)}
 .tag:hover{
@@ -483,7 +483,7 @@ html{scroll-padding-top:80px}
   border-radius:50%;
   font-size:12px;font-weight:600;
   letter-spacing:.02em;
-  transition:all .3s
+  transition:color .3s,background-color .3s,border-color .3s,opacity .3s,transform .3s
 }
 .contact__social:hover{
   border-color:var(--accent);
@@ -768,7 +768,7 @@ html{scroll-padding-top:80px}
   border:1px solid rgba(255,255,255,.18);
   color:var(--text);
   cursor:pointer;
-  transition:all .35s cubic-bezier(.22,1,.36,1);
+  transition:opacity .35s cubic-bezier(.22,1,.36,1),transform .35s cubic-bezier(.22,1,.36,1),visibility .35s;
   box-shadow:0 4px 24px rgba(0,0,0,.4)
 }
 [data-theme="light"] .share-btn-fixed{
@@ -821,8 +821,8 @@ html{scroll-padding-top:80px}
 /* REVEAL ANIMATIONS */
 .js .reveal{
   opacity:0;
-  transform:translateY(40px);
-  transition:opacity .8s ease,transform .8s cubic-bezier(.25,.1,.25,1)
+  transform:translate3d(0,24px,0);
+  transition:opacity .7s var(--ease-out),transform .7s var(--ease-bounce)
 }
 .reveal.visible{
   opacity:1;
@@ -1260,7 +1260,7 @@ select.field__input{
 .chip span{
   display:block;padding:10px 16px;border-radius:var(--radius-full);
   border:1px solid var(--border-visible);font-size:var(--text-sm);
-  color:var(--text-secondary);transition:all var(--duration-base);white-space:nowrap
+  color:var(--text-secondary);transition:color var(--duration-base),background-color var(--duration-base),border-color var(--duration-base),box-shadow var(--duration-base);white-space:nowrap
 }
 .chip:hover span{border-color:var(--border-strong);color:var(--text)}
 .chip input:checked + span{
@@ -1288,7 +1288,7 @@ select.field__input{
   position:relative;
   appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;margin-top:1px;
   border:1.5px solid var(--border-strong);border-radius:var(--radius-sm);
-  background:var(--surface-2);cursor:pointer;transition:all var(--duration-base)
+  background:var(--surface-2);cursor:pointer;transition:color var(--duration-base),background-color var(--duration-base),border-color var(--duration-base),box-shadow var(--duration-base)
 }
 .consent input:checked{background:var(--accent);border-color:var(--accent)}
 .consent input:checked::after{
@@ -1460,4 +1460,48 @@ details[open] .faq__plus::after{opacity:0}
   .svc:hover,.btn--accent:hover,.proj-share-btn--order:hover{transform:none}
   .sticky-cta,.toast{transition:none}
   .order--flash{animation:none}
+}
+
+/* =======================================================================
+   ПЛАВНОСТЬ
+   ======================================================================= */
+/* не прыгает ширина страницы при открытии проекта (исчезает скроллбар) */
+html{scrollbar-gutter:stable}
+.overlay{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.overlay--open .overlay__content{animation:overlayIn .45s var(--ease-bounce) both}
+@keyframes overlayIn{from{opacity:0;transform:translate3d(0,16px,0)}to{opacity:1;transform:none}}
+
+/* декоративные фигуры: отдельный слой GPU, без перерисовки страницы */
+.shape,.about__shape,.contact__shape,.hero__marquee-track{will-change:transform;backface-visibility:hidden}
+.hero__shapes,.about__visual,.contact__right{contain:layout paint}
+/* пауза анимаций, когда их не видно */
+.is-offscreen .shape,.is-offscreen .about__shape,.is-offscreen .contact__shape,
+.is-offscreen .hero__marquee-track,.is-offscreen .hero__scroll-line,
+.anim-paused .shape,.anim-paused .about__shape,.anim-paused .contact__shape,.anim-paused .hero__marquee-track,
+.tab-hidden *{animation-play-state:paused!important}
+
+/* карточки работ: плавный hover без мерцания краёв в Safari */
+.work-card{isolation:isolate;transform:translateZ(0)}
+.work-card__visual{will-change:transform}
+.work-card:hover{transform:scale(.97) translateZ(0)}
+@media (hover:none){
+  .work-card:hover,.svc:hover{transform:none}
+  .work-card:hover .work-card__visual{transform:none}
+  .work-card:active{transform:scale(.98)}
+}
+
+/* лайтбокс: мягкая смена кадров */
+.lightbox__image{transition:opacity .25s var(--ease-out),transform .25s var(--ease-out)}
+.lightbox__image--swap{opacity:0;transform:scale(.985)}
+.lightbox{touch-action:pan-y}
+
+/* на слабых телефонах тяжёлые эффекты отключаем */
+@media (max-width:768px){
+  .shape{mix-blend-mode:normal;box-shadow:none!important}
+  .about__shape,.contact__shape{box-shadow:none!important}
+  .nav,.sticky-cta{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .overlay--open .overlay__content{animation:none}
 }

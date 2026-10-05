@@ -155,6 +155,7 @@ function landing(svc) {
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Inter:wght@300..700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../../css/tokens.css"/>
 <link rel="stylesheet" href="../../style.css"/>
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark')}catch(e){}</script>
 </head>
 <body>
 <div class="lp">
@@ -223,8 +224,6 @@ function landing(svc) {
         b.classList.toggle('sticky-cta--on', !e[0].isIntersecting);
       }, { threshold: 0 });
       io.observe(document.querySelector('.lp__cta'));
-      var t = document.documentElement.getAttribute('data-theme') || localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', t);
     }
   } catch (e) {}
 </script>

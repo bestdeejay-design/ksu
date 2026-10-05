@@ -377,6 +377,7 @@ function rebuildLangContent() {
   buildNavProjects()
   renderConfigSections()
   if (window.orderForm) window.orderForm.refresh()
+  if (window.ksuReveal) window.ksuReveal()
 }
 
 // THEME TOGGLE
@@ -527,7 +528,8 @@ function openProject(index) {
   overlay.classList.add('overlay--open')
   document.body.style.overflow = 'hidden'
   document.body.classList.add('overlay-active')
-  window.scrollTo({ top: 0 })
+  overlay.scrollTop = 0
+  pauseBackground(true)
   updateOG(index)
   history.replaceState(null, '', `#project-${index}`)
 }
@@ -536,7 +538,7 @@ function closeProject() {
   overlay.classList.remove('overlay--open')
   document.body.style.overflow = ''
   document.body.classList.remove('overlay-active')
-  window.scrollTo({ top: scrollPosition })
+  pauseBackground(false)
   resetOG()
   history.replaceState(null, '', window.location.pathname + window.location.search)
   currentProject = -1
@@ -605,7 +607,8 @@ function openNewProject() {
   overlay.classList.add('overlay--open')
   document.body.style.overflow = 'hidden'
   document.body.classList.add('overlay-active')
-  window.scrollTo({ top: 0 })
+  overlay.scrollTop = 0
+  pauseBackground(true)
 }
 
 function getProjectHTML(index) {
@@ -779,7 +782,15 @@ function openLightbox(src, projectIdx) {
 function showLightboxImage() {
   if (!lbImages.length) return
   const proj = currentProject >= 0 ? projects[currentProject] : null
-  lbImg.src = lbImages[lbIndex]
+  lbImg.classList.add('lightbox__image--swap')
+  const next = new Image()
+  next.onload = next.onerror = () => {
+    lbImg.src = next.src
+    requestAnimationFrame(() => lbImg.classList.remove('lightbox__image--swap'))
+  }
+  next.src = lbImages[lbIndex]
+  // соседние кадры грузим заранее — листание без пауз
+  ;[1, -1].forEach(d => { const n = lbImages[(lbIndex + d + lbImages.length) % lbImages.length]; if (n) new Image().src = n })
   lbImg.alt = proj ? (lang === 'ru' ? proj.titleRu : proj.titleEn) : 'Portfolio image'
   lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`
   lbPrev.style.display = lbImages.length > 1 ? '' : 'none'
@@ -788,7 +799,7 @@ function showLightboxImage() {
 
 function closeLightbox() {
   lb.classList.remove('lightbox--open')
-  document.body.style.overflow = ''
+  if (!overlay.classList.contains('overlay--open')) document.body.style.overflow = ''
 }
 
 function lbNav(dir) {
@@ -880,26 +891,58 @@ document.addEventListener('keydown', (e) => {
 })
 
 // SCROLL REVEAL
-const revealEls = document.querySelectorAll(
-  '.about__content > *, .about__visual > *, .works__header, .work-card, .contact__left > *, .contact__right > *'
-)
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('visible')
-    })
-  },
-  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-)
+// Элемент проявляется один раз, затем класс снимается — у карточек снова
+// работает их собственный быстрый hover без задержек и тяжёлой .8s-анимации.
+const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches
+const revealIO = ('IntersectionObserver' in window && !reduceMotion)
+  ? new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+        const el = entry.target
+        revealIO.unobserve(el)
+        el.classList.add('visible')
+        const done = () => {
+          el.classList.remove('reveal', 'visible')
+          el.style.transitionDelay = ''
+          el.removeEventListener('transitionend', done)
+        }
+        el.addEventListener('transitionend', done)
+        setTimeout(done, 1400)
+      })
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+  : null
 
-revealEls.forEach((el, i) => {
-  el.classList.add('reveal')
-  if (i < 12) el.classList.add(`reveal-delay-${(i % 6) + 1}`)
-  observer.observe(el)
-})
+function revealAll(selector) {
+  if (!revealIO) return
+  const groups = new Map()
+  document.querySelectorAll(selector).forEach((el) => {
+    if (el.dataset.revealed) return
+    el.dataset.revealed = '1'
+    const r = el.getBoundingClientRect()
+    if (r.top < window.innerHeight && r.bottom > 0) return // уже на экране — не прячем
+    const parent = el.parentElement
+    const i = groups.get(parent) || 0
+    groups.set(parent, i + 1)
+    el.classList.add('reveal')
+    el.style.transitionDelay = `${(i % 4) * 0.07}s`
+    revealIO.observe(el)
+  })
+}
+const REVEAL_SEL = '.about__content > *, .works__header, .work-card, .contact__left > *, .section__head, .svc, .proc__item, .faq__item, .order__intro, .order__form'
+revealAll(REVEAL_SEL)
+window.ksuReveal = () => revealAll(REVEAL_SEL)
 
-document.querySelectorAll('.work-card').forEach((el, i) => {
-  el.style.transitionDelay = `${(i % 6) * 0.06}s`
+// Декоративные анимации ставим на паузу, когда их не видно:
+// за пределами экрана, во вкладке в фоне и под открытым проектом.
+function pauseBackground(on) { document.documentElement.classList.toggle('anim-paused', !!on) }
+if ('IntersectionObserver' in window) {
+  const animIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => e.target.classList.toggle('is-offscreen', !e.isIntersecting))
+  }, { rootMargin: '100px' })
+  document.querySelectorAll('.hero, .about__visual, .contact__right').forEach(el => animIO.observe(el))
+}
+document.addEventListener('visibilitychange', () => {
+  document.documentElement.classList.toggle('tab-hidden', document.hidden)
 })
 
 // Fixed share button — always visible
@@ -1360,3 +1403,17 @@ window.orderForm = orderForm
 renderConfigSections()
 orderForm.refresh()
 initStickyCta()
+if (window.ksuReveal) window.ksuReveal()
+
+/* свайп в лайтбоксе на телефоне */
+;(function () {
+  let x0 = null, y0 = null
+  lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY }, { passive: true })
+  lb.addEventListener('touchend', e => {
+    if (x0 === null) return
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) lbNav(dx < 0 ? 1 : -1)
+    else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) closeLightbox()
+    x0 = y0 = null
+  }, { passive: true })
+})()

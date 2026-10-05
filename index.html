@@ -98,9 +98,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/tokens.css?v=df7dda40" />
-  <link rel="stylesheet" href="style.css?v=f7c4ce45" />
-  <script src="js/config.js?v=6659fa16"></script>
-  <script src="js/render.js?v=00ec6ba2"></script>
+  <link rel="stylesheet" href="style.css?v=8ae39d45" />
+  <script src="js/config.js?v=97ec31a2"></script>
+  <script src="js/render.js?v=47e2afdf"></script>
   <script>
     try {
       var q = new URLSearchParams(location.search).get('lang');
@@ -226,6 +226,15 @@
         <p class="section-lead" data-i18n="services.lead">Выберите задачу — я покажу, что входит в работу, срок и стартовую цену. Не нашли своё? Напишите: сделаю смету отдельно.</p>
       </div>
       <a href="#order" class="section-head__cta" data-i18n="services.cta">Не знаю, что мне нужно</a>
+    </div>
+    <div class="pkgs-wrap" id="packages">
+      <h3 class="pkgs__label" data-i18n="packages.label">Готовые пакеты — одна цена за всё</h3>
+      <div class="pkgs" id="packages-grid"><!-- @gen:packages:start -->
+      <article class="pkg" data-package="start"><h3 class="pkg__title">Старт для малого бизнеса</h3><p class="pkg__for">Открываете кофейню, студию, мастерскую или магазин</p><ul class="svc__inc"><li>Логотип: 2 концепта на выбор</li><li>Визитка, макет для печати</li><li>Аватарка и обложки для VK / Telegram</li><li>Цвета и шрифты одной страницей</li></ul><div class="svc__foot"><div class="svc__price"><b>25 000 ₽</b><span>срок 10–14 дней</span></div><button type="button" class="svc__cta btn btn--accent" data-order-service="identity" data-package="Старт для малого бизнеса">Выбрать</button></div></article>
+      <article class="pkg" data-package="marketplace"><h3 class="pkg__title">Упаковка для маркетплейса</h3><p class="pkg__for">Выходите на Wildberries или Ozon</p><ul class="svc__inc"><li>Дизайн этикетки или коробки</li><li>Развёртка под требования типографии</li><li>3 мокапа для карточки товара</li><li>Сопровождение до печати</li></ul><div class="svc__foot"><div class="svc__price"><b>30 000 ₽</b><span>срок 2–3 недели</span></div><button type="button" class="svc__cta btn btn--accent" data-order-service="packaging" data-package="Упаковка для маркетплейса">Выбрать</button></div></article>
+      <article class="pkg" data-package="gift"><h3 class="pkg__title">Портрет в подарок</h3><p class="pkg__for">День рождения, свадьба, годовщина</p><ul class="svc__inc"><li>Портрет по вашему фото, от руки</li><li>Скетч на согласование</li><li>Файл для печати до А3</li><li>Версия-открытка для мессенджеров</li></ul><div class="svc__foot"><div class="svc__price"><b>5 000 ₽</b><span>срок 3–5 дней</span></div><button type="button" class="svc__cta btn btn--accent" data-order-service="illustration" data-package="Портрет в подарок">Выбрать</button></div></article>
+    <!-- @gen:packages:end --></div>
+      <h3 class="pkgs__label" data-i18n="packages.single">Или отдельная услуга</h3>
     </div>
     <div class="services__grid" id="services-grid">
       <!-- @gen:services:start -->
@@ -396,7 +405,7 @@
 
         <label class="consent">
           <input type="checkbox" id="f-consent" name="consent" required />
-          <span data-i18n="form.consent">Согласен(на), что Ксения использует эти данные, чтобы ответить на заявку.</span>
+          <span data-i18n="form.consent">Согласен(на) на обработку данных, чтобы Ксения ответила на заявку, — по <a href="privacy/" target="_blank">политике конфиденциальности</a>.</span>
           <span class="field__err" data-i18n="form.consentErr">Без согласия я не имею права ответить</span>
         </label>
 
@@ -483,9 +492,16 @@
         <a href="#services" data-i18n="nav.services">Услуги</a>
         <a href="#order" data-i18n="footer.order">Заявка</a>
         <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+        <a href="privacy/" data-i18n="footer.privacy">Конфиденциальность</a>
       </nav>
     </div>
   </footer>
+
+  <!-- COOKIE NOTICE -->
+  <div class="cookie" id="cookie" hidden>
+    <p data-i18n="cookie.text">Сайт использует cookie и сервисы статистики, чтобы работать удобнее. <a href="privacy/">Подробнее</a></p>
+    <button type="button" class="btn btn--accent cookie__ok" id="cookie-ok" data-i18n="cookie.ok">Понятно</button>
+  </div>
 
   <!-- STICKY MOBILE CTA -->
   <div class="sticky-cta" id="sticky-cta">
@@ -522,6 +538,6 @@
   </button>
 
   <script src="js/track.js?v=10ce1c32"></script>
-  <script src="script.js?v=eafac545"></script>
+  <script src="script.js?v=081e4d43"></script>
 </body>
 </html>

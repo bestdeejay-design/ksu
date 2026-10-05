@@ -85,6 +85,22 @@
   }
 
   /* ================= ЭТАПЫ ================= */
+  function packagesGrid(lang, cfg) {
+    return (cfg.packages || []).map(function (p) {
+      var inc = (lang === 'ru' ? p.includesRu : p.includesEn) || [];
+      return '<article class="pkg" data-package="' + p.id + '">' +
+        '<h3 class="pkg__title">' + esc(L(lang, p.titleRu, p.titleEn)) + '</h3>' +
+        '<p class="pkg__for">' + esc(L(lang, p.forRu, p.forEn)) + '</p>' +
+        '<ul class="svc__inc">' + inc.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+        '<div class="svc__foot">' +
+          '<div class="svc__price"><b>' + esc(price(p.price, cfg)) + '</b>' +
+          '<span>' + L(lang, 'срок', 'turnaround') + ' ' + esc(L(lang, p.durationRu, p.durationEn)) + '</span></div>' +
+          '<button type="button" class="svc__cta btn btn--accent" data-order-service="' + p.service + '" data-package="' + esc(L(lang, p.titleRu, p.titleEn)) + '">' +
+            L(lang, 'Выбрать', 'Choose') + '</button>' +
+        '</div></article>';
+    }).join('');
+  }
+
   function processList(lang, cfg) {
     return cfg.process.map(function (p, i) {
       return '<div class="proc__item">' +
@@ -230,7 +246,7 @@
   return {
     esc: esc, num: num, price: price, priceLabel: priceLabel, priceRange: priceRange,
     waHref: waHref, L: L,
-    serviceCard: serviceCard, servicesGrid: servicesGrid,
+    serviceCard: serviceCard, servicesGrid: servicesGrid, packagesGrid: packagesGrid,
     processList: processList, promises: promises,
     faqItem: faqItem, faqList: faqList,
     serviceOptions: serviceOptions, chips: chips,

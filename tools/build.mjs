@@ -55,7 +55,7 @@ function missingMarkers(html, keys) {
 function buildIndex() {
   const file = join(ROOT, 'index.html')
   let html = readFileSync(file, 'utf8')
-  const keys = ['trust', 'services', 'process', 'faq', 'options', 'budget', 'deadline', 'jsonld']
+  const keys = ['trust', 'packages', 'services', 'process', 'faq', 'options', 'budget', 'deadline', 'jsonld']
   const miss = missingMarkers(html, keys)
   if (miss.length) {
     console.error('  ! в index.html нет маркеров:', miss.join(', '))
@@ -64,6 +64,7 @@ function buildIndex() {
   const blocks = {
     trust: pretty(R.promises(LANG, CFG), '<li class="trust__item">'),
     services: pretty(R.servicesGrid(LANG, CFG), '<article class="svc"'),
+    packages: pretty(R.packagesGrid(LANG, CFG), '<article class="pkg"'),
     process: pretty(R.processList(LANG, CFG), '<div class="proc__item">'),
     faq: pretty(R.faqList(LANG, CFG), '<details class="faq__item">'),
     options: '\n            ' + CFG.services.map(s =>
@@ -208,7 +209,7 @@ function landing(svc) {
 </div>
 <div class="lp__foot">
   <span>© ${new Date().getFullYear()} ${CFG.brand.nameRu} · ${CFG.brand.roleRu}</span>
-  <span><a href="../../">Портфолио</a> · <a href="../../#services">Все услуги</a> · <a href="mailto:${CFG.contacts.email}">${CFG.contacts.email}</a></span>
+  <span><a href="../../">Портфолио</a> · <a href="../../#services">Все услуги</a> · <a href="mailto:${CFG.contacts.email}">${CFG.contacts.email}</a> · <a href="../../privacy/">Политика конфиденциальности</a></span>
 </div>
 <div class="sticky-cta sticky-cta--on" style="display:none">
   <div class="sticky-cta__price"><span>от</span><b>${R.esc(R.price(svc.priceFrom, CFG))}</b></div>
@@ -253,7 +254,7 @@ function buildLandings() {
 <link rel="canonical" href="${URL_}/order/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Услуги и цены — ${CFG.brand.nameRu}, графический дизайнер"/>
-<meta property="og:description" content="8 услуг с ценами «от» и сроками. Бриф на сайте — 3 минуты."/>
+<meta property="og:description" content="${CFG.services.length} услуг с ценами «от» и сроками. Бриф на сайте — 3 минуты."/>
 <meta property="og:image" content="${URL_}/og-dajet.jpg"/>
 <meta property="og:locale" content="ru_RU"/>
 <link rel="icon" type="image/jpeg" sizes="32x32" href="../icons/icon-32.png"/>
@@ -268,7 +269,7 @@ function buildLandings() {
 <div class="lp">
   <a class="lp__back" href="../">← Портфолио ${CFG.brand.nameRu}</a>
   <h1 class="lp__h1">Услуги и цены</h1>
-  <p class="lp__lead">Восемь направлений, в которых я работаю. Возле каждой цены — что входит в работу и реальный срок. Итог считаю после брифа, обычно в тот же день.</p>
+  <p class="lp__lead">Направления, в которых я работаю. Возле каждой цены — что входит в работу и реальный срок. Итог считаю после брифа, обычно в тот же день.</p>
   <div class="services__grid" style="grid-template-columns:repeat(2,1fr)">
       ${grid}
   </div>
@@ -284,7 +285,7 @@ function buildLandings() {
 </div>
 <div class="lp__foot">
   <span>© ${new Date().getFullYear()} ${CFG.brand.nameRu} · ${CFG.brand.roleRu}</span>
-  <span><a href="../">Портфолио</a> · <a href="../#faq">Вопросы</a> · <a href="mailto:${CFG.contacts.email}">${CFG.contacts.email}</a></span>
+  <span><a href="../">Портфолио</a> · <a href="../#faq">Вопросы</a> · <a href="mailto:${CFG.contacts.email}">${CFG.contacts.email}</a> · <a href="../privacy/">Политика конфиденциальности</a></span>
 </div>
 </body>
 </html>

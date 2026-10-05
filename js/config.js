@@ -373,6 +373,39 @@
      * Впишите реальные: block ниже появится сам, с инициалами,
      * городом и ссылкой на переписку/отзыв на карте Яндекса.
      */
+    /* === ГОТОВЫЕ ПАКЕТЫ ==========================================
+     * Фиксированный набор работ по одной цене — человеку проще
+     * выбрать готовое. service — какая услуга подставится в форму.
+     * Пустой массив [] = блок «Пакеты» не показывается.
+     * ЦЕНЫ ПРЕДВАРИТЕЛЬНЫЕ — утвердите с Ксенией.
+     */
+    packages: [
+      {
+        id: 'start', service: 'identity', price: 25000,
+        titleRu: 'Старт для малого бизнеса', titleEn: 'Small business starter',
+        forRu: 'Открываете кофейню, студию, мастерскую или магазин', forEn: 'Opening a café, studio, workshop or shop',
+        includesRu: ['Логотип: 2 концепта на выбор', 'Визитка, макет для печати', 'Аватарка и обложки для VK / Telegram', 'Цвета и шрифты одной страницей'],
+        includesEn: ['Logo: 2 concepts to choose from', 'Business card, print-ready', 'Avatar and covers for social media', 'Colours and fonts on one page'],
+        durationRu: '10–14 дней', durationEn: '10–14 days'
+      },
+      {
+        id: 'marketplace', service: 'packaging', price: 30000,
+        titleRu: 'Упаковка для маркетплейса', titleEn: 'Marketplace packaging',
+        forRu: 'Выходите на Wildberries или Ozon', forEn: 'Launching on Wildberries or Ozon',
+        includesRu: ['Дизайн этикетки или коробки', 'Развёртка под требования типографии', '3 мокапа для карточки товара', 'Сопровождение до печати'],
+        includesEn: ['Label or box design', 'Dieline to the printer’s spec', '3 mockups for the product card', 'Support through print'],
+        durationRu: '2–3 недели', durationEn: '2–3 weeks'
+      },
+      {
+        id: 'gift', service: 'illustration', price: 5000,
+        titleRu: 'Портрет в подарок', titleEn: 'Portrait as a gift',
+        forRu: 'День рождения, свадьба, годовщина', forEn: 'Birthday, wedding, anniversary',
+        includesRu: ['Портрет по вашему фото, от руки', 'Скетч на согласование', 'Файл для печати до А3', 'Версия-открытка для мессенджеров'],
+        includesEn: ['Hand-drawn portrait from your photo', 'Sketch for approval', 'Print file up to A3', 'Postcard version for messengers'],
+        durationRu: '3–5 дней', durationEn: '3–5 days'
+      }
+    ],
+
     reviews: [
       // {
       //   name: 'Мария, основатель кофейни «Градус»',

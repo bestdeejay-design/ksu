@@ -53,7 +53,12 @@ const i18n = {
     'form.refsPh': 'Link to a folder, examples, document',
     'form.estimate': 'Preliminary estimate',
     'form.estimateNote': 'This is the price range from my rate card. I’ll confirm the exact figure after a couple of questions — usually the same day.',
-    'form.consent': 'I agree that Ksenia may use this data to reply to my request.',
+    'form.consent': 'I agree to the processing of my data so Ksenia can reply, under the <a href="privacy/" target="_blank">privacy policy</a>.',
+    'packages.label': 'Ready-made packages — one price for everything',
+    'packages.single': 'Or a single service',
+    'footer.privacy': 'Privacy',
+    'cookie.text': 'This site uses cookies and analytics to work better. <a href="privacy/">Details</a>',
+    'cookie.ok': 'Got it',
     'form.consentErr': 'Without consent I’m not allowed to reply',
     'form.send': 'Send the brief on WhatsApp',
     'form.copy': 'Copy the text',
@@ -216,7 +221,12 @@ const i18n = {
     'form.refsPh': 'Ссылка на папку, примеры, документ',
     'form.estimate': 'Предварительная смета',
     'form.estimateNote': 'Это вилка «от» по прайсу. Точную цену назову после уточнений — обычно в тот же день.',
-    'form.consent': 'Согласен(на), что Ксения использует эти данные, чтобы ответить на заявку.',
+    'form.consent': 'Согласен(на) на обработку данных, чтобы Ксения ответила на заявку, — по <a href="privacy/" target="_blank">политике конфиденциальности</a>.',
+    'packages.label': 'Готовые пакеты — одна цена за всё',
+    'packages.single': 'Или отдельная услуга',
+    'footer.privacy': 'Конфиденциальность',
+    'cookie.text': 'Сайт использует cookie и сервисы статистики, чтобы работать удобнее. <a href="privacy/">Подробнее</a>',
+    'cookie.ok': 'Понятно',
     'form.consentErr': 'Без согласия я не имею права ответить',
     'form.send': 'Отправить бриф в WhatsApp',
     'form.copy': 'Скопировать текст',
@@ -1075,6 +1085,8 @@ function renderConfigSections() {
   }
 
   put('services-grid', R.servicesGrid(lang, CFG))
+  put('packages-grid', R.packagesGrid ? R.packagesGrid(lang, CFG) : '')
+  { const pw = document.getElementById('packages'); if (pw) pw.hidden = !(CFG.packages && CFG.packages.length) }
   put('process-list', R.processList(lang, CFG))
   put('trust-list', R.promises(lang, CFG))
   put('faq-list', R.faqList(lang, CFG))
@@ -1124,7 +1136,12 @@ function bindServiceCtas() {
       e.preventDefault()
       e.stopPropagation()
       preselectService(btn.dataset.orderService)
-      if (window.ksuTrack) window.ksuTrack('service_click', { service: btn.dataset.orderService })
+      if (btn.dataset.package) {
+        const m = document.getElementById('f-message')
+        const line = (lang === 'ru' ? 'Пакет «' : 'Package “') + btn.dataset.package + (lang === 'ru' ? '». ' : '”. ')
+        if (m && !m.value.includes(line.trim())) { m.value = line + m.value; m.dispatchEvent(new Event('input', { bubbles: true })) }
+      }
+      if (window.ksuTrack) window.ksuTrack(btn.dataset.package ? 'package_click' : 'service_click', { service: btn.dataset.orderService, package: btn.dataset.package || '' })
     })
   })
 }
@@ -1558,5 +1575,22 @@ if (window.ksuReveal) window.ksuReveal()
     const id = location.hash.slice(1)
     const el = id && !id.startsWith('project-') && document.getElementById(id)
     if (el) setTimeout(() => go(el, false), 50)
+  })
+})()
+
+
+/* ---------- уведомление о cookie ---------- */
+;(function initCookie() {
+  const box = document.getElementById('cookie')
+  if (!box) return
+  let ok = false
+  try { ok = localStorage.getItem('ksu-cookie-ok') === '1' } catch (e) {}
+  if (ok) return
+  box.hidden = false
+  document.documentElement.classList.add('has-cookie')
+  document.getElementById('cookie-ok').addEventListener('click', () => {
+    try { localStorage.setItem('ksu-cookie-ok', '1') } catch (e) {}
+    box.hidden = true
+    document.documentElement.classList.remove('has-cookie')
   })
 })()

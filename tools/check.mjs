@@ -278,6 +278,19 @@ out.forEach(l => console.log(l))
   })
 }
 
+/* C12 — закон о персональных данных и пакеты */
+{
+  const html = read('index.html')
+  check('C12', 'privacy.page', 'есть страница privacy/ с упоминанием 152-ФЗ', existsSync(join(ROOT, 'privacy/index.html')) && read('privacy/index.html').includes('152-ФЗ'))
+  check('C12', 'privacy.consent', 'галочка согласия в форме ссылается на политику', /id="f-consent"[^]*?href="privacy\/"/.test(html))
+  check('C12', 'privacy.footer', 'ссылка на политику в подвале', /footer__links[^]*?href="privacy\/"/.test(html))
+  check('C12', 'cookie.notice', 'уведомление о cookie на странице', html.includes('id="cookie"'))
+  ;(CFG.packages || []).forEach(pk => {
+    check('C12', `pkg.${pk.id}`, `пакет «${pk.titleRu}»: цена, услуга из прайса, Ru/En состав`,
+      pk.price >= 100 && CFG.services.some(s => s.slug === pk.service) && (pk.includesRu || []).length === (pk.includesEn || []).length && html.includes(`data-package="${pk.id}"`))
+  })
+}
+
 console.log(`\n${'='.repeat(66)}`)
 console.log(`  Пройдено: ${pass}   Провалено: ${fail}`)
 console.log('='.repeat(66))

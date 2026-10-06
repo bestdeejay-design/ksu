@@ -74,6 +74,9 @@ const i18n = {
     'proj.9.photos': 'Photos',
     'proj.10.desc': 'Before/after retouching timeline showing professional color grading and skin retouching workflow.',
     'proj.10.timeline': 'Retouching Timeline',
+    'proj.11.desc': 'Dajet — a quiet browser for macOS. Black screen, one input line, zero network requests without your action. Identity, theme and landing by the studio.',
+    'proj.11.screens': 'Browser',
+    'proj.11.mark': 'Mark',
     'proj.0.desc': 'Curated moodboard collection spanning interior design concepts including offices, cafes, kitchens, cosmetics, and more.',
     'proj.0.concepts': 'Concepts',
     'proj.0.offices': 'Offices',
@@ -161,6 +164,9 @@ const i18n = {
     'proj.9.photos': 'Фото',
     'proj.10.desc': 'Таймлайн ретуши «до/после» с профессиональной цветокоррекцией и обработкой кожи.',
     'proj.10.timeline': 'Таймлайн ретуши',
+    'proj.11.desc': 'Dajet — тихий браузер для macOS. Чёрный экран, одна строка ввода, ноль запросов без твоего действия. Айдентика, тема и лендинг — работа студии.',
+    'proj.11.screens': 'Браузер',
+    'proj.11.mark': 'Знак',
     'proj.0.desc': 'Подборка мудбордов: концепты интерьеров, офисы, кафе, кухни, косметика и другое.',
     'proj.0.concepts': 'Концепты',
     'proj.0.offices': 'Офисы',
@@ -243,6 +249,7 @@ const projects = [
   { titleEn: 'Wall Art', titleRu: 'Арт под роспись стены', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', cover: 'portfolio/digital-drawing/wall-art-1.jpg', colors: ['#2ECC71', '#00E5FF'] },
   { titleEn: 'Photobook "3:00"', titleRu: 'Фотокнига «3:00»', categoryEn: 'Editorial', categoryRu: 'Издание', cover: 'portfolio/photobook/preview.jpg', colors: ['#E67E22', '#FFD633'] },
   { titleEn: 'Photo Retouching', titleRu: 'Ретушь фото', categoryEn: 'Photography', categoryRu: 'Фотография', cover: 'portfolio/retouch/retouch-timeline.jpg', colors: ['#1ABC9C', '#00E5FF'] },
+  { titleEn: 'Dajet Browser', titleRu: 'Браузер Dajet', categoryEn: 'Product', categoryRu: 'Продукт', cover: 'portfolio/dajet/hero.png', colors: ['#171A1E', '#7A3B26'] },
 ]
 
 function buildWorks() {
@@ -569,6 +576,19 @@ function getProjectHTML(index) {
         section(_('proj.0.cafes'), gall(['portfolio/moodboards/cafe-hello-kitty.jpg', 'portfolio/moodboards/cafe-cyberpunk.jpg', 'portfolio/moodboards/cafe-retro.jpg'], 3)) +
         section(_('proj.0.kitchens'), gall(['portfolio/moodboards/kitchen-1.jpg', 'portfolio/moodboards/kitchen-2.jpg', 'portfolio/moodboards/kitchen-3.jpg'], 3)) +
         section(_('proj.0.cosmetics'), gall(['portfolio/moodboards/cosmetics-shop.jpg'], 1))
+      break
+
+    // 11: Dajet Browser
+    case 11:
+      c = hero + desc +
+        `<div class="proj-section"><div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="proj-pdf-link" href="https://github.com/bestdeejay-design/dajet-browser/releases/download/v1.0.4-dajet/Dajet.dmg" target="_blank" rel="noopener">${lang === 'ru' ? 'Скачать для macOS' : 'Download for macOS'}</a>
+          <a class="proj-pdf-link" href="https://github.com/bestdeejay-design/dajet-browser" target="_blank" rel="noopener">${lang === 'ru' ? 'Код на GitHub' : 'Code on GitHub'}</a>
+          <a class="proj-pdf-link" href="https://github.com/dajetbro" target="_blank" rel="noopener">${lang === 'ru' ? 'Официальный профиль' : 'Official profile'}</a>
+          <a class="proj-pdf-link" href="https://bro.dajet.ru/docs/" target="_blank" rel="noopener">${lang === 'ru' ? 'Сайт браузера' : 'Browser site'}</a>
+        </div></div>` +
+        section(_('proj.11.screens'), gall(['portfolio/dajet/hero.png'], 1)) +
+        section(_('proj.11.mark'), gall(['portfolio/dajet/icon.png'], 1))
       break
 
     default:

@@ -31,9 +31,9 @@ UI/UX, illustration, posters, packaging, and photo retouching.
 - **PWA** — installable, standalone, offline-capable (`manifest.json`, icons)
 - **i18n** — EN/RU with language persistency
 - **Dark/light themes** — CSS custom properties in `css/tokens.css` (single source of truth)
-- **11 project pages** + flipbook + designer references sub-project
+- **16 project pages** + flipbook + designer references sub-project
 - **SEO** — Open Graph, Twitter Card, JSON-LD (Person + ItemList), sitemap.xml, canonical
-- **11 generated OG images** (`og-0.jpg` … `og-10.jpg`) + default `og-2026-08-10.png`
+- **16 generated OG images** (`og-0.jpg` … `og-15.jpg`) + default `og-2026-08-10.png`
 
 ## Local development
 
@@ -70,6 +70,11 @@ Served at `https://dajet.ru/`.
 | 9 | Wall Art | Fantasy digital paintings for interiors |
 | 10 | Photobook «3:00» | Night atmosphere photobook (+ flipbook viewer) |
 | 11 | Photo Retouching | Before/after grading timeline |
+| 12 | SS-BMW — BMW service | Landing page, logo, UI/UX, responsive |
+| 13 | Runskaya farm | Website, logo, brand identity, content |
+| 14 | LOVII — local economy platform | Logo, brand identity, website, fintech |
+| 15 | PAFFO — coat atelier | Website, design system, logo, dual themes |
+| 16 | Dajet Browser | Product design, UI/UX, macOS app interface |
 
 ## Structure
 
@@ -80,12 +85,12 @@ Served at `https://dajet.ru/`.
 ├── style.css             # layout, responsive (tokens in css/tokens.css)
 ├── css/tokens.css        # design tokens, themes (dark/light)
 ├── manifest.json         # PWA manifest
-├── project-0/..project-10/  # static sub-pages per project
+├── project-0/..project-15/  # static sub-pages per project
 ├── portfolio/            # source images per project
 ├── flipbook/             # photobook flipbook viewer
 ├── references/           # designer references sub-project
 ├── icons/                # favicon, apple-touch, PWA icons
-├── og-2026-08-10.png, og-0..10.jpg  # social previews
+├── og-2026-08-10.png, og-0..15.jpg  # social previews
 ├── sitemap.xml, robots.txt
 ├── Dockerfile, docker-compose.yml
 └── test_runner.py        # Playwright e2e, 97 checks

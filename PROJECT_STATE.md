@@ -243,7 +243,7 @@
 
 | Variable | Type | Init value | Modified | Purpose |
 |----------|------|-----------|----------|---------|
-| `SITE_URL` | const | `'https://bestdeejay-design.github.io/ksu'` | never | Base URL for OG, sharing, canonicals |
+| `SITE_URL` | const | `'https://dajet.ru'` | never | Base URL for OG, sharing, canonicals |
 | `i18n` | const | `{en: …, ru: …}` | never | Translation dictionary |
 | `refsData` | const | `{en: […], ru: […]}` | never | Reference categories |
 | `specialResources` | const | `[…]` | never | Resource links |

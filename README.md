@@ -7,13 +7,13 @@
 # Ksenia
 ## Graphic Designer Portfolio
 
-[![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://bestdeejay-design.github.io/ksu/)
+[![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://dajet.ru/)
 [![PWA](https://img.shields.io/badge/PWA-ready-9b59b6)](manifest.json)
 
 Portfolio of **Ksenia**, a graphic designer: identity, branding, typography,
 UI/UX, illustration, posters, packaging, and photo retouching.
 
-**Live:** https://bestdeejay-design.github.io/ksu/
+**Live:** https://dajet.ru/
 
 ## Contents
 
@@ -53,7 +53,7 @@ docker compose up -d
 ## Deployment
 
 GitHub Pages: push to `main`, Pages builds from the repository root.
-Served at `https://bestdeejay-design.github.io/ksu/`.
+Served at `https://dajet.ru/`.
 
 ## Projects
 

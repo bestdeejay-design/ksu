@@ -14,7 +14,7 @@
  *
  * Идемпотентен: можно запускать на каждый commit.
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
@@ -299,7 +299,12 @@ function buildSitemap() {
   const urls = [
     { loc: `${URL_}/`, pri: '1.0', freq: 'weekly' },
     { loc: `${URL_}/order/`, pri: '0.9', freq: 'monthly' },
-    ...CFG.services.map(s => ({ loc: `${URL_}/order/${s.slug}/`, pri: '0.8', freq: 'monthly' }))
+    ...CFG.services.map(s => ({ loc: `${URL_}/order/${s.slug}/`, pri: '0.8', freq: 'monthly' })),
+    // project-N/ stubs open overlays by direct link — index them automatically
+    ...readdirSync(ROOT)
+      .filter(n => /^project-\d+$/.test(n))
+      .sort((a, b) => Number(a.slice(8)) - Number(b.slice(8)))
+      .map(n => ({ loc: `${URL_}/${n}/`, pri: '0.6', freq: 'monthly' }))
   ]
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- сгенерировано tools/build.mjs — правки вносите в js/config.js -->

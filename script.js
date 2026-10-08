@@ -159,6 +159,10 @@ const i18n = {
     'proj.15.desc': 'Dajet — a quiet browser for macOS. Black screen, one input line, zero network requests without your action. Identity, theme and landing by the studio.',
     'proj.15.screens': 'Browser',
     'proj.15.mark': 'Mark',
+    'proj.16.desc': 'Character design for Sweet No Sleep — a macOS companion that keeps the Mac awake while AI agents work. The watermelon cat ships as a layered sprite pack: striped rind, red heart, a tail that sways while agents run, and an amber question mark the moment one needs your approval.',
+    'proj.16.character': 'Final character',
+    'proj.16.app': 'Alive in the app',
+    'proj.16.card': 'Skin card',
     'proj.0.desc': 'Curated moodboard collection spanning interior design concepts including offices, cafes, kitchens, cosmetics, and more.',
     'proj.0.concepts': 'Concepts',
     'proj.0.offices': 'Offices',
@@ -330,6 +334,10 @@ const i18n = {
     'proj.15.desc': 'Dajet — тихий браузер для macOS. Чёрный экран, одна строка ввода, ноль запросов без твоего действия. Айдентика, тема и лендинг — работа студии.',
     'proj.15.screens': 'Браузер',
     'proj.15.mark': 'Знак',
+    'proj.16.desc': 'Персонаж для Sweet No Sleep — macOS-приложения, которое не даёт Mac уснуть, пока работают ИИ-агенты. Арбузный кот собран как послойный спрайт-пак: полосатая корка, красная сердцевина, хвост качается, пока агенты работают, и загорается янтарный знак вопроса, когда один ждёт вашего ответа.',
+    'proj.16.character': 'Финальный персонаж',
+    'proj.16.app': 'Живой в приложении',
+    'proj.16.card': 'Карточка скина',
     'proj.0.desc': 'Подборка мудбордов: концепты интерьеров, офисы, кафе, кухни, косметика и другое.',
     'proj.0.concepts': 'Концепты',
     'proj.0.offices': 'Офисы',
@@ -468,6 +476,7 @@ const projects = [
       roleRu: 'Дизайн сайта, логотип и дизайн-система', roleEn: 'Website design, logo and design system',
       tagsRu: ['Сайт', 'Дизайн-система', 'Логотип', 'Тёмная и светлая темы'], tagsEn: ['Website', 'Design system', 'Logo', 'Dark & light themes'] } },
   { titleEn: 'Dajet Browser', titleRu: 'Браузер Dajet', categoryEn: 'Product', categoryRu: 'Продукт', cover: 'portfolio/dajet/hero.png', colors: ['#171A1E', '#7A3B26'] },
+  { titleEn: 'Kot-Arbuz — the watermelon cat', titleRu: 'Коть-арбуз — арбузный кот', categoryEn: 'Character', categoryRu: 'Персонаж', cover: 'portfolio/characters/kot-arbuz/kot-arbuz.jpg', colors: ['#7FAF5E', '#FD5D5D'] }
 ]
 
 /* ПОРЯДОК В СЕТКЕ «РАБОТЫ» — номера из массива projects (0 = первый объект).
@@ -475,7 +484,7 @@ const projects = [
  * Проекты, которых нет в списке, скрыты из сетки, но открываются по прямой ссылке #project-N.
  * Скрыты сейчас: 0 мудборды (коллажи из чужих фото), 5 «Popular Blondes» (фан-арт со знаменитостями),
  * 10 ретушь (одна картинка — слабее остальных). Вернуть — просто добавить номер в список. */
-const WORKS_ORDER = [15, 14, 1, 11, 2, 12, 4, 13, 7, 6, 8, 3, 9]
+const WORKS_ORDER = [16, 15, 14, 1, 11, 2, 12, 4, 13, 7, 6, 8, 3, 9]
 
 function buildWorks() {
   const grid = document.getElementById('works-grid')
@@ -859,6 +868,18 @@ function getProjectHTML(index) {
         </div></div>` +
         section(_('proj.15.screens'), gall(['portfolio/dajet/hero.png'], 1)) +
         section(_('proj.15.mark'), gall(['portfolio/dajet/icon.png'], 1))
+      break
+
+    // 16: Kot-Arbuz — the watermelon cat (Sweet No Sleep)
+    case 16:
+      c = hero + desc +
+        `<div class="proj-section"><div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="proj-pdf-link" href="https://github.com/bestdeejay-design/sweet-no-sleep" target="_blank" rel="noopener">${lang === 'ru' ? 'Код приложения на GitHub' : 'App code on GitHub'}</a>
+          <a class="proj-pdf-link" href="https://axiiom.ru" target="_blank" rel="noopener">${lang === 'ru' ? 'Студия Axiiom' : 'Axiiom Studio'}</a>
+        </div></div>` +
+        section(_('proj.16.character'), gall(['portfolio/characters/kot-arbuz/kot-arbuz.jpg'], 1)) +
+        section(_('proj.16.app'), gall(['portfolio/characters/kot-arbuz/app-states.jpg'], 1)) +
+        section(_('proj.16.card'), gall(['portfolio/characters/kot-arbuz/skin-card.jpg'], 1))
       break
 
     default:

@@ -881,9 +881,9 @@ function getProjectHTML(index) {
         section(_('proj.16.characters'), gall(['portfolio/characters/sweet-no-sleep/kiwi.jpg', 'portfolio/characters/sweet-no-sleep/kot-arbuz.jpg'], 2)) +
         section(_('proj.16.app'), gall(['portfolio/characters/sweet-no-sleep/app-states.jpg'], 1)) +
         section(_('proj.16.looks'), gall([
-          'portfolio/characters/sweet-no-sleep/skin-card.jpg',
-          'portfolio/characters/sweet-no-sleep/skin-moon.jpg',
-          'portfolio/characters/sweet-no-sleep/skin-berry.jpg'
+          'portfolio/characters/sweet-no-sleep/skin-card.jpg?v=2',
+          'portfolio/characters/sweet-no-sleep/skin-moon.jpg?v=2',
+          'portfolio/characters/sweet-no-sleep/skin-berry.jpg?v=2'
         ], 3))
       break
 

@@ -217,7 +217,12 @@ check('C8', 'order.dirs', `лендинги сгенерированы для в
   CFG.services.every(s => existsSync(join(ROOT, `order/${s.slug}/index.html`))), 'запустите node tools/build.mjs')
 const sm = read('sitemap.xml')
 check('C8', 'sitemap.order', 'sitemap содержит все страницы услуг', CFG.services.every(s => sm.includes(`/order/${s.slug}/`)))
-check('C8', 'sitemap.clean', 'sitemap не содержит redirect-заглушки project-*/', !sm.includes('project-'))
+// project-*/ — заглушки, которые открывают оверлей проекта по прямой ссылке.
+// Они индексируются намеренно: buildSitemap() собирает их автоматически.
+const stubDirs = readdirSync(ROOT).filter(n => /^project-\d+$/.test(n)).sort((a, b) => Number(a.slice(8)) - Number(b.slice(8)))
+const missingStubs = stubDirs.filter(n => !sm.includes(`/${n}/`))
+check('C8', 'sitemap.stubs', `sitemap содержит все заглушки project-*/ (${stubDirs.length})`,
+  stubDirs.length > 0 && missingStubs.length === 0, missingStubs.join(', ') || 'запустите node tools/build.mjs')
 for (const m of sm.matchAll(/<loc>([^<]+)<\/loc>/g)) {
   const path = m[1].replace(CFG.siteUrl, '')
   const f = join(ROOT, path.replace(/^\//, ''), path.endsWith('/') ? 'index.html' : '')

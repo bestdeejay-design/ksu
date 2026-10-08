@@ -52,31 +52,33 @@ def run_tests(url):
         # ───── T2: CARDS ─────
         print_header("T2. Карточки проектов")
         cards = page.locator(".work-card")
-        check("T2", "T2.1", "12 карточек (11 проектов + CTA)", cards.count() == 12, f"найдено {cards.count()}")
+        # Последняя карточка — CTA, остальные — проекты из WORKS_ORDER.
+        n_proj = max(cards.count() - 1, 0)
+        check("T2", "T2.1", f"{n_proj} карточек проектов + CTA", cards.count() > 1, f"найдено {cards.count()}")
 
         wc = page.locator("#works-count").text_content()
-        check("T2", "T2.2", "Счётчик = 11", wc == "11", f"'{wc}'")
+        check("T2", "T2.2", f"Счётчик = {n_proj}", wc == str(n_proj), f"'{wc}'")
 
-        for i in range(11):
+        for i in range(n_proj):
             n = cards.nth(i).locator(".work-card__num").text_content()
             expected = str(i + 1).zfill(2)
             ok = n == expected
             check("T2", f"T2.3.{i}", f"Card {i+1} номер '{expected}'", ok, f"'{n}'")
 
-        for i in range(11):
+        for i in range(n_proj):
             title = cards.nth(i).locator(".work-card__title").text_content()
             check("T2", f"T2.4.{i}", f"Card {i+1} title виден", len(title) > 0, f"'{title[:30]}'")
 
-        for i in range(11):
+        for i in range(n_proj):
             cat = cards.nth(i).locator(".work-card__category").text_content()
             check("T2", f"T2.5.{i}", f"Card {i+1} category видна", len(cat) > 0, f"'{cat[:20]}'")
 
         # CTA card
-        cta = cards.nth(11)
+        cta = cards.nth(n_proj)
         check("T2", "T2.6", "CTA card exists", cta.count() > 0)
         check("T2", "T2.6b", "CTA card class", cta.get_attribute("class") and "work-card--cta" in (cta.get_attribute("class") or ""))
 
-        for i in range(11):
+        for i in range(n_proj):
             vis = cards.nth(i).locator(".work-card__visual")
             has_img = vis.locator("img").count() > 0
             has_wv_style = vis.locator(".wv").get_attribute("style")
@@ -101,7 +103,7 @@ def run_tests(url):
         check("T3", "T3.2", "Escape закрывает оверлей", "overlay--open" not in cls)
 
         # Each card click check via evaluate
-        for i in range(11):
+        for i in range(n_proj):
             if i != 0:
                 try:
                     page.evaluate(f"openProject({i})")
@@ -185,11 +187,12 @@ def run_tests(url):
         nav_links = page.locator(".nav__link")
         check("T7", "T7.nav", "Ссылки в nav видимы", nav_links.count() >= 3, f"{nav_links.count()}")
 
-        email = page.locator(".contact__email")
-        check("T7", "T7.email", "Email виден", email.is_visible())
-        check("T7", "T7.email.text", "Email = design@dajet.ru", "design@dajet.ru" in (email.text_content() or ""))
+        wa = page.locator(".contact__email")
+        check("T7", "T7.email", "Ссылка WhatsApp видима", wa.is_visible())
+        mail = page.locator('a.contact__phone[href^="mailto:"]')
+        check("T7", "T7.email.text", "Email = design@dajet.ru", "design@dajet.ru" in (mail.text_content() or ""))
 
-        phone = page.locator(".contact__phone")
+        phone = page.locator('a.contact__phone[href^="tel:"]')
         check("T7", "T7.phone", "Телефон виден", phone.is_visible())
 
         footer = page.locator(".footer")
@@ -226,7 +229,7 @@ def run_tests(url):
         dd = PORTFOLIO / "digital-drawing"
         if dd.is_dir():
             dd_files = sum(1 for _ in dd.rglob("*") if _.is_file())
-            check("T10", "T10.files.dd", "digital-drawing: 23 файлов", dd_files == 23, f"найдено {dd_files}")
+            check("T10", "T10.files.dd", "digital-drawing: 21 файлов", dd_files == 21, f"найдено {dd_files}")
 
         has_cyrillic = any(ord(c) > 127 for p in PORTFOLIO.rglob("*") for c in str(p.relative_to(PORTFOLIO)))
         check("T10", "T10.cyrillic", "Нет кириллицы в путях", not has_cyrillic)

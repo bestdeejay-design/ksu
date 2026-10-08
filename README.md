@@ -75,7 +75,7 @@ Served at `https://dajet.ru/`.
 | 14 | LOVII — local economy platform | Logo, brand identity, website, fintech |
 | 15 | PAFFO — coat atelier | Website, design system, logo, dual themes |
 | 16 | Dajet Browser | Product design, UI/UX, macOS app interface |
-| 17 | Kot-Arbuz — the watermelon cat | Character design, layered sprite pack, app states |
+| 17 | Sweet No Sleep — Kiwi & Kot-Arbuz | Two characters for a macOS app: flat vector cat & painted sprite |
 
 ## Structure
 

@@ -159,8 +159,9 @@ const i18n = {
     'proj.15.desc': 'Dajet — a quiet browser for macOS. Black screen, one input line, zero network requests without your action. Identity, theme and landing by the studio.',
     'proj.15.screens': 'Browser',
     'proj.15.mark': 'Mark',
-    'proj.16.desc': 'Character design for Sweet No Sleep — a macOS companion that keeps the Mac awake while AI agents work. The watermelon cat ships as a layered sprite pack: striped rind, red heart, a tail that sways while agents run, and an amber question mark the moment one needs your approval.',
-    'proj.16.character': 'Final character',
+    'proj.16.desc': 'Two characters for Sweet No Sleep — a native macOS companion that keeps the Mac awake through focus sessions and AI agent runs. Kiwi is a flat vector cat built from clean geometric shapes and animated procedurally. Kot-Arbuz is a hand-painted watermelon cat assembled as a layered sprite pack: striped rind, red heart, a tail that sways while agents run, and an amber question mark the moment one needs your approval. One panel, one behaviour, two opposite drawing techniques.',
+    'proj.16.kiwi': 'Kiwi — flat vector cat',
+    'proj.16.arbuz': 'Kot-Arbuz — painted sprite',
     'proj.16.app': 'Alive in the app',
     'proj.16.card': 'Skin card',
     'proj.0.desc': 'Curated moodboard collection spanning interior design concepts including offices, cafes, kitchens, cosmetics, and more.',
@@ -334,8 +335,9 @@ const i18n = {
     'proj.15.desc': 'Dajet — тихий браузер для macOS. Чёрный экран, одна строка ввода, ноль запросов без твоего действия. Айдентика, тема и лендинг — работа студии.',
     'proj.15.screens': 'Браузер',
     'proj.15.mark': 'Знак',
-    'proj.16.desc': 'Персонаж для Sweet No Sleep — macOS-приложения, которое не даёт Mac уснуть, пока работают ИИ-агенты. Арбузный кот собран как послойный спрайт-пак: полосатая корка, красная сердцевина, хвост качается, пока агенты работают, и загорается янтарный знак вопроса, когда один ждёт вашего ответа.',
-    'proj.16.character': 'Финальный персонаж',
+    'proj.16.desc': 'Два персонажа для Sweet No Sleep — нативного macOS-приложения, которое не даёт Mac уснуть во время фокус-сессий и работы ИИ-агентов. Киви — плоский векторный кот из чистых геометрических форм, анимируется процедурно. Коть-арбуз — нарисованный от руки арбузный кот, собранный как послойный спрайт-пак: полосатая корка, красная сердцевина, хвост качается, пока агенты работают, и загорается янтарный знак вопроса, когда один ждёт вашего ответа. Одна панель, одно поведение, две противоположные техники рисования.',
+    'proj.16.kiwi': 'Киви — плоский векторный кот',
+    'proj.16.arbuz': 'Коть-арбуз — рисованный спрайт',
     'proj.16.app': 'Живой в приложении',
     'proj.16.card': 'Карточка скина',
     'proj.0.desc': 'Подборка мудбордов: концепты интерьеров, офисы, кафе, кухни, косметика и другое.',
@@ -476,7 +478,7 @@ const projects = [
       roleRu: 'Дизайн сайта, логотип и дизайн-система', roleEn: 'Website design, logo and design system',
       tagsRu: ['Сайт', 'Дизайн-система', 'Логотип', 'Тёмная и светлая темы'], tagsEn: ['Website', 'Design system', 'Logo', 'Dark & light themes'] } },
   { titleEn: 'Dajet Browser', titleRu: 'Браузер Dajet', categoryEn: 'Product', categoryRu: 'Продукт', cover: 'portfolio/dajet/hero.png', colors: ['#171A1E', '#7A3B26'] },
-  { titleEn: 'Kot-Arbuz — the watermelon cat', titleRu: 'Коть-арбуз — арбузный кот', categoryEn: 'Character', categoryRu: 'Персонаж', cover: 'portfolio/characters/kot-arbuz/kot-arbuz.jpg', colors: ['#7FAF5E', '#FD5D5D'] }
+  { titleEn: 'Sweet No Sleep — Kiwi & Kot-Arbuz', titleRu: 'Sweet No Sleep — Киви и Коть-арбуз', categoryEn: 'Character', categoryRu: 'Персонаж', cover: 'portfolio/characters/sweet-no-sleep/cover.jpg', colors: ['#7FAF5E', '#FD5D5D'] }
 ]
 
 /* ПОРЯДОК В СЕТКЕ «РАБОТЫ» — номера из массива projects (0 = первый объект).
@@ -864,22 +866,24 @@ function getProjectHTML(index) {
           <a class="proj-pdf-link" href="https://github.com/bestdeejay-design/dajet-browser/releases/download/v1.0.4-dajet/Dajet.dmg" target="_blank" rel="noopener">${lang === 'ru' ? 'Скачать для macOS' : 'Download for macOS'}</a>
           <a class="proj-pdf-link" href="https://github.com/bestdeejay-design/dajet-browser" target="_blank" rel="noopener">${lang === 'ru' ? 'Код на GitHub' : 'Code on GitHub'}</a>
           <a class="proj-pdf-link" href="https://github.com/dajetbro" target="_blank" rel="noopener">${lang === 'ru' ? 'Официальный профиль' : 'Official profile'}</a>
-          <a class="proj-pdf-link" href="https://bro.dajet.ru/docs/" target="_blank" rel="noopener">${lang === 'ru' ? 'Сайт браузера' : 'Browser site'}</a>
+          <a class="proj-pdf-link" href="https://bro.dajet.ru" target="_blank" rel="noopener">${lang === 'ru' ? 'Сайт браузера' : 'Browser site'}</a>
         </div></div>` +
         section(_('proj.15.screens'), gall(['portfolio/dajet/hero.png'], 1)) +
         section(_('proj.15.mark'), gall(['portfolio/dajet/icon.png'], 1))
       break
 
-    // 16: Kot-Arbuz — the watermelon cat (Sweet No Sleep)
+    // 16: Sweet No Sleep — Kiwi (плоский вектор) и Коть-арбуз (рисованный спрайт)
     case 16:
       c = hero + desc +
         `<div class="proj-section"><div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="proj-pdf-link" href="https://github.com/bestdeejay-design/sweet-no-sleep" target="_blank" rel="noopener">${lang === 'ru' ? 'Код приложения на GitHub' : 'App code on GitHub'}</a>
+          <a class="proj-pdf-link" href="https://github.com/bestdeejay-design/sweet-no-sleep/releases" target="_blank" rel="noopener">${lang === 'ru' ? 'Релизы' : 'Releases'}</a>
           <a class="proj-pdf-link" href="https://axiiom.ru" target="_blank" rel="noopener">${lang === 'ru' ? 'Студия Axiiom' : 'Axiiom Studio'}</a>
         </div></div>` +
-        section(_('proj.16.character'), gall(['portfolio/characters/kot-arbuz/kot-arbuz.jpg'], 1)) +
-        section(_('proj.16.app'), gall(['portfolio/characters/kot-arbuz/app-states.jpg'], 1)) +
-        section(_('proj.16.card'), gall(['portfolio/characters/kot-arbuz/skin-card.jpg'], 1))
+        section(_('proj.16.kiwi'), gall(['portfolio/characters/sweet-no-sleep/kiwi.jpg'], 1)) +
+        section(_('proj.16.arbuz'), gall(['portfolio/characters/sweet-no-sleep/kot-arbuz.jpg'], 1)) +
+        section(_('proj.16.app'), gall(['portfolio/characters/sweet-no-sleep/app-states.jpg'], 1)) +
+        section(_('proj.16.card'), gall(['portfolio/characters/sweet-no-sleep/skin-card.jpg'], 1))
       break
 
     default:

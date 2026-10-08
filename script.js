@@ -163,6 +163,7 @@ const i18n = {
     'proj.16.characters': 'Two characters, one app',
     'proj.16.app': 'Alive in the app',
     'proj.16.looks': 'Three looks of the watermelon cat',
+    'proj.16.kiwiLooks': 'Kiwi in every color',
     'proj.0.desc': 'Curated moodboard collection spanning interior design concepts including offices, cafes, kitchens, cosmetics, and more.',
     'proj.0.concepts': 'Concepts',
     'proj.0.offices': 'Offices',
@@ -338,6 +339,7 @@ const i18n = {
     'proj.16.characters': 'Два персонажа — одно приложение',
     'proj.16.app': 'Живой в приложении',
     'proj.16.looks': 'Три образа арбузного кота',
+    'proj.16.kiwiLooks': 'Киви во всех красках',
     'proj.0.desc': 'Подборка мудбордов: концепты интерьеров, офисы, кафе, кухни, косметика и другое.',
     'proj.0.concepts': 'Концепты',
     'proj.0.offices': 'Офисы',
@@ -884,6 +886,11 @@ function getProjectHTML(index) {
           'portfolio/characters/sweet-no-sleep/skin-card.jpg?v=3',
           'portfolio/characters/sweet-no-sleep/skin-moon.jpg?v=3',
           'portfolio/characters/sweet-no-sleep/skin-berry.jpg?v=3'
+        ], 3)) +
+        section(_('proj.16.kiwiLooks'), gall([
+          'portfolio/characters/sweet-no-sleep/kiwi-card.jpg',
+          'portfolio/characters/sweet-no-sleep/kiwi-moon.jpg',
+          'portfolio/characters/sweet-no-sleep/kiwi-berry.jpg'
         ], 3))
       break
 

@@ -160,10 +160,9 @@ const i18n = {
     'proj.15.screens': 'Browser',
     'proj.15.mark': 'Mark',
     'proj.16.desc': 'Two characters for Sweet No Sleep — a native macOS companion that keeps the Mac awake through focus sessions and AI agent runs. Kiwi is a flat vector cat built from clean geometric shapes and animated procedurally. Kot-Arbuz is a hand-painted watermelon cat assembled as a layered sprite pack: striped rind, red heart, a tail that sways while agents run, and an amber question mark the moment one needs your approval. One panel, one behaviour, two opposite drawing techniques.',
-    'proj.16.kiwi': 'Kiwi — flat vector cat',
-    'proj.16.arbuz': 'Kot-Arbuz — painted sprite',
+    'proj.16.characters': 'Two characters, one app',
     'proj.16.app': 'Alive in the app',
-    'proj.16.card': 'Skin card',
+    'proj.16.looks': 'Three looks of the watermelon cat',
     'proj.0.desc': 'Curated moodboard collection spanning interior design concepts including offices, cafes, kitchens, cosmetics, and more.',
     'proj.0.concepts': 'Concepts',
     'proj.0.offices': 'Offices',
@@ -336,10 +335,9 @@ const i18n = {
     'proj.15.screens': 'Браузер',
     'proj.15.mark': 'Знак',
     'proj.16.desc': 'Два персонажа для Sweet No Sleep — нативного macOS-приложения, которое не даёт Mac уснуть во время фокус-сессий и работы ИИ-агентов. Киви — плоский векторный кот из чистых геометрических форм, анимируется процедурно. Коть-арбуз — нарисованный от руки арбузный кот, собранный как послойный спрайт-пак: полосатая корка, красная сердцевина, хвост качается, пока агенты работают, и загорается янтарный знак вопроса, когда один ждёт вашего ответа. Одна панель, одно поведение, две противоположные техники рисования.',
-    'proj.16.kiwi': 'Киви — плоский векторный кот',
-    'proj.16.arbuz': 'Коть-арбуз — рисованный спрайт',
+    'proj.16.characters': 'Два персонажа — одно приложение',
     'proj.16.app': 'Живой в приложении',
-    'proj.16.card': 'Карточка скина',
+    'proj.16.looks': 'Три образа арбузного кота',
     'proj.0.desc': 'Подборка мудбордов: концепты интерьеров, офисы, кафе, кухни, косметика и другое.',
     'proj.0.concepts': 'Концепты',
     'proj.0.offices': 'Офисы',
@@ -880,10 +878,13 @@ function getProjectHTML(index) {
           <a class="proj-pdf-link" href="https://github.com/bestdeejay-design/sweet-no-sleep/releases" target="_blank" rel="noopener">${lang === 'ru' ? 'Релизы' : 'Releases'}</a>
           <a class="proj-pdf-link" href="https://axiiom.ru" target="_blank" rel="noopener">${lang === 'ru' ? 'Студия Axiiom' : 'Axiiom Studio'}</a>
         </div></div>` +
-        section(_('proj.16.kiwi'), gall(['portfolio/characters/sweet-no-sleep/kiwi.jpg'], 1)) +
-        section(_('proj.16.arbuz'), gall(['portfolio/characters/sweet-no-sleep/kot-arbuz.jpg'], 1)) +
+        section(_('proj.16.characters'), gall(['portfolio/characters/sweet-no-sleep/kiwi.jpg', 'portfolio/characters/sweet-no-sleep/kot-arbuz.jpg'], 2)) +
         section(_('proj.16.app'), gall(['portfolio/characters/sweet-no-sleep/app-states.jpg'], 1)) +
-        section(_('proj.16.card'), gall(['portfolio/characters/sweet-no-sleep/skin-card.jpg'], 1))
+        section(_('proj.16.looks'), gall([
+          'portfolio/characters/sweet-no-sleep/skin-card.jpg',
+          'portfolio/characters/sweet-no-sleep/skin-moon.jpg',
+          'portfolio/characters/sweet-no-sleep/skin-berry.jpg'
+        ], 3))
       break
 
     default:

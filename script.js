@@ -159,7 +159,7 @@ const i18n = {
     'proj.15.desc': 'Dajet — a quiet browser for macOS. Black screen, one input line, zero network requests without your action. Identity, theme and landing by the studio.',
     'proj.15.screens': 'Browser',
     'proj.15.mark': 'Mark',
-    'proj.16.desc': 'Two characters for Sweet No Sleep — a native macOS companion that keeps the Mac awake through focus sessions and AI agent runs. Kiwi is a flat vector cat built from clean geometric shapes and animated procedurally. Kot-Arbuz is a hand-painted watermelon cat assembled as a layered sprite pack: striped rind, red heart, a tail that sways while agents run, and an amber question mark the moment one needs your approval. One panel, one behaviour, two opposite drawing techniques.',
+    'proj.16.desc': 'Two characters for Sweet No Sleep — a native macOS companion that keeps the Mac awake through focus sessions and AI agent runs. Kiwi is a flat vector cat animated procedurally; Kot-Arbuz is a hand-painted watermelon cat on a layered rig: the legs walk, the head bobs, the eyes blink and follow your cursor, the tail sways while agents run, and an amber question mark lights up the moment one needs your approval. Each cat comes in three looks. One panel, one behaviour, two opposite drawing techniques.',
     'proj.16.characters': 'Two characters, one app',
     'proj.16.app': 'Alive in the app',
     'proj.16.looks': 'Three looks of the watermelon cat',
@@ -335,7 +335,7 @@ const i18n = {
     'proj.15.desc': 'Dajet — тихий браузер для macOS. Чёрный экран, одна строка ввода, ноль запросов без твоего действия. Айдентика, тема и лендинг — работа студии.',
     'proj.15.screens': 'Браузер',
     'proj.15.mark': 'Знак',
-    'proj.16.desc': 'Два персонажа для Sweet No Sleep — нативного macOS-приложения, которое не даёт Mac уснуть во время фокус-сессий и работы ИИ-агентов. Киви — плоский векторный кот из чистых геометрических форм, анимируется процедурно. Коть-арбуз — нарисованный от руки арбузный кот, собранный как послойный спрайт-пак: полосатая корка, красная сердцевина, хвост качается, пока агенты работают, и загорается янтарный знак вопроса, когда один ждёт вашего ответа. Одна панель, одно поведение, две противоположные техники рисования.',
+    'proj.16.desc': 'Два персонажа для Sweet No Sleep — нативного macOS-приложения, которое не даёт Mac уснуть во время фокус-сессий и работы ИИ-агентов. Киви — плоский векторный кот с процедурной анимацией. Коть-арбуз — нарисованный от руки арбузный кот на послойном риге: лапы шагают, голова покачивается, глаза мигают и следят за курсором, хвост качается, пока агенты работают, и загорается янтарный знак вопроса, когда один ждёт вашего ответа. У каждого кота — три образа. Одна панель, одно поведение, две противоположные техники рисования.',
     'proj.16.characters': 'Два персонажа — одно приложение',
     'proj.16.app': 'Живой в приложении',
     'proj.16.looks': 'Три образа арбузного кота',
@@ -881,7 +881,7 @@ function getProjectHTML(index) {
           <a class="proj-pdf-link" href="https://axiiom.ru" target="_blank" rel="noopener">${lang === 'ru' ? 'Студия Axiiom' : 'Axiiom Studio'}</a>
         </div></div>` +
         section(_('proj.16.characters'), gall(['portfolio/characters/sweet-no-sleep/kiwi.jpg', 'portfolio/characters/sweet-no-sleep/kot-arbuz.jpg'], 2)) +
-        section(_('proj.16.app'), gall(['portfolio/characters/sweet-no-sleep/app-states.jpg'], 1)) +
+        section(_('proj.16.app'), gall(['portfolio/characters/sweet-no-sleep/app-states.jpg?v=4'], 1)) +
         section(_('proj.16.looks'), gall([
           'portfolio/characters/sweet-no-sleep/skin-card.jpg?v=3',
           'portfolio/characters/sweet-no-sleep/skin-moon.jpg?v=3',

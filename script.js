@@ -890,8 +890,8 @@ function getProjectHTML(index) {
           'portfolio/characters/sweet-no-sleep/skin-berry.jpg?v=3'
         ], 3)) +
         `<div class="proj-section"><div class="proj-gallery proj-gallery--2">
-          <img src="portfolio/characters/sweet-no-sleep/anim-kot-arbuz.gif" alt="Kot-Arbuz live" loading="lazy"/>
-          <img src="portfolio/characters/sweet-no-sleep/anim-kiwi.gif" alt="Kiwi live" loading="lazy"/>
+          <img src="portfolio/characters/sweet-no-sleep/anim-kot-arbuz.webp?v=2" alt="Kot-Arbuz live — transparent render" loading="lazy"/>
+          <img src="portfolio/characters/sweet-no-sleep/anim-kiwi.webp?v=2" alt="Kiwi live — transparent render" loading="lazy"/>
         </div></div>` +
         section(_('proj.16.kiwiLooks'), gall([
           'portfolio/characters/sweet-no-sleep/kiwi-card.jpg',

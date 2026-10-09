@@ -163,6 +163,7 @@ const i18n = {
     'proj.16.characters': 'Two characters, one app',
     'proj.16.app': 'Alive in the app',
     'proj.16.looks': 'Three looks of the watermelon cat',
+    'proj.16.live': 'Live animations',
     'proj.16.kiwiLooks': 'Kiwi in every color',
     'proj.0.desc': 'Curated moodboard collection spanning interior design concepts including offices, cafes, kitchens, cosmetics, and more.',
     'proj.0.concepts': 'Concepts',
@@ -339,6 +340,7 @@ const i18n = {
     'proj.16.characters': 'Два персонажа — одно приложение',
     'proj.16.app': 'Живой в приложении',
     'proj.16.looks': 'Три образа арбузного кота',
+    'proj.16.live': 'Живые анимации',
     'proj.16.kiwiLooks': 'Киви во всех красках',
     'proj.0.desc': 'Подборка мудбордов: концепты интерьеров, офисы, кафе, кухни, косметика и другое.',
     'proj.0.concepts': 'Концепты',
@@ -887,6 +889,10 @@ function getProjectHTML(index) {
           'portfolio/characters/sweet-no-sleep/skin-moon.jpg?v=3',
           'portfolio/characters/sweet-no-sleep/skin-berry.jpg?v=3'
         ], 3)) +
+        `<div class="proj-section"><div class="proj-gallery proj-gallery--2">
+          <img src="portfolio/characters/sweet-no-sleep/anim-kot-arbuz.gif" alt="Kot-Arbuz live" loading="lazy"/>
+          <img src="portfolio/characters/sweet-no-sleep/anim-kiwi.gif" alt="Kiwi live" loading="lazy"/>
+        </div></div>` +
         section(_('proj.16.kiwiLooks'), gall([
           'portfolio/characters/sweet-no-sleep/kiwi-card.jpg',
           'portfolio/characters/sweet-no-sleep/kiwi-moon.jpg',
